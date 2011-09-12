@@ -1,0 +1,21 @@
+<module>
+	<rawname>callrecording</rawname>
+	<repo>standard</repo>
+	<name>Call Recording</name>
+	<version>2.10.0.0</version>
+	<publisher>FreePBX</publisher>
+	<license>GPLv2+</license>
+	<type>setup</type>
+	<category>Internal Options &amp; Configuration</category>
+	<description>
+		Provides much of the call recording functionality.	
+	</description>
+	<menuitems>
+		<callrecording>Call Recording</callrecording>
+	</menuitems>
+	<changelog>
+	  *2.10.0.0* New Module
+	</changelog>
+	<location>release/2.9/callrecording-2.9.0.2.tgz</location>
+	<md5sum>cd9cd09e7ffee1b040cfb30746bc7913</md5sum>
+</module>
