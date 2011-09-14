@@ -58,7 +58,6 @@ foreach (callrecording_list() as $row) {
 ?>
 </ul></div>
 
-
 <?php
 
 if ($extdisplay) {
@@ -93,13 +92,13 @@ echo $helptext;
 	<tr>
     <td><a href="#" class="info"><?php echo _("Call Recording Mode")?>:<span><?php echo _("Controls or overrides the call recording behavior for calls continuing through this call flow. Allow will honor the normal downstream call recording settings. Record on Answer starts recording when the call would otherwise be recorded ignoring any settings that say otherwise. Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. Never will disallow recording regardless of downstream settings.")?></span></a></td>
 <?php
-		$html = '<td><select name="callrecording_mode" tabindex="' . ++$tabindex . '">'."\n";
-    $html.= '<option value=""' . ($callrecording_mode == ''  ? ' SELECTED' : '').'>'._("Allow")."\n";
-    $html.= '<option value="delayed"'. ($callrecording_mode == 'delayed' ? ' SELECTED' : '').'>'._("Record on Answer")."\n";
-    $html.= '<option value="force"'  . ($callrecording_mode == 'force'   ? ' SELECTED' : '').'>'._("Record Immediately")."\n";
-    $html.= '<option value="never"' . ($callrecording_mode == 'never'  ? ' SELECTED' : '').'>'._("Never")."\n";
-    $html.= "</select></td></tr>\n";
-    echo $html;
+		$callrecording_html = '<td><select name="callrecording_mode" tabindex="' . ++$tabindex . '">'."\n";
+    $callrecording_html.= '<option value=""' . ($callrecording_mode == ''  ? ' SELECTED' : '').'>'._("Allow")."\n";
+    $callrecording_html.= '<option value="delayed"'. ($callrecording_mode == 'delayed' ? ' SELECTED' : '').'>'._("Record on Answer")."\n";
+    $callrecording_html.= '<option value="force"'  . ($callrecording_mode == 'force'   ? ' SELECTED' : '').'>'._("Record Immediately")."\n";
+    $callrecording_html.= '<option value="never"' . ($callrecording_mode == 'never'  ? ' SELECTED' : '').'>'._("Never")."\n";
+    $callrecording_html.= "</select></td></tr>\n";
+    echo $callrecording_html;
 ?>
 	<tr><td colspan="2"><br><h5><?php echo _("Destination")?>:<hr></h5></td></tr>
 
