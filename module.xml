@@ -5,8 +5,7 @@
 	<version>2.10.0.0</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
-	<type>setup</type>
-	<category>Internal Options &amp; Configuration</category>
+	<category>Settings</category>
 	<description>
 		Provides much of the call recording functionality.	
 	</description>
