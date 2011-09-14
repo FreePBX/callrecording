@@ -1,4 +1,5 @@
 <?php 
+
 /** Call Recording Module for FreePBX 2.10
  * Copyright 2006 Philippe Lindheimer - Astrogen LLC
  * This program is free software; you can redistribute it and/or
@@ -44,7 +45,6 @@ switch ($action) {
 }
 
 ?> 
-</div>
 
 <div class="rnav"><ul>
 <?php 
@@ -58,7 +58,6 @@ foreach (callrecording_list() as $row) {
 ?>
 </ul></div>
 
-<div class="content">
 
 <?php
 
