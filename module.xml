@@ -5,7 +5,7 @@
 	<version>2.10.0.0</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
-	<category>Apps</category>
+	<category>Applications</category>
 	<description>
 		Provides much of the call recording functionality.	
 	</description>
