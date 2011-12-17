@@ -1,4 +1,5 @@
 <?php 
+if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 /** Call Recording Module for FreePBX 2.10
  * Copyright 2006 Philippe Lindheimer - Astrogen LLC
