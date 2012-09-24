@@ -78,12 +78,36 @@ function callrecording_get_config($engine) {
 	}
 }
 
+function callrecording_dpmode_helper($mode, $context, $extension, $pri='1') {
+	global $ext;
+
+	// These are splices, so they "reverse stack" and will end up in opposite order
+	//
+	switch ($mode) {
+	case 'force':
+		$ext->splice($context, $extension, $pri, new ext_gosub('1','s','sub-record-check','force,${EXTEN},always'));
+	break;
+	case 'delayed':
+		$ext->splice($context, $extension, $pri, new ext_set('__REC_POLICY_MODE','always'));
+	break;
+	case 'never':
+		$ext->splice($context, $extension, $pri, new ext_set('__REC_POLICY_MODE','never'));
+		$ext->splice($context, $extension, $pri, new ext_gosub('1','s','sub-record-cancel'));
+	break;
+	default: // allowed
+		// Nothing to do here since it is an inbound route, first thing we hit
+	break;
+	}
+	$ext->splice($context, $extension, $pri, new ext_noop_trace('Call Recording: [' . $mode . '] Event'));
+}
+
 function callrecording_hookGet_config($engine) {
 	global $ext;
 	global $version;
 	switch($engine) {
 		case "asterisk":
 			
+			// Inbound Routes Forced Recordings
 			$routes=callrecording_display_get('did');
 			foreach($routes as $current => $route){
 				if($route['extension']=='' && $route['cidnum']){//callerID only
@@ -97,25 +121,21 @@ function callrecording_hookGet_config($engine) {
 					}
 					$extension=($route['extension']!=''?$route['extension']:'s').($route['cidnum']==''?'':'/'.$route['cidnum']);
 				}
-        // These are splices, so they "reverse stack" and will end up in opposite order
-        //
-        switch ($route['callrecording']) {
-        case 'force':
-          $ext->splice($context, $extension, '1', new ext_gosub('1','s','sub-record-check','force,${EXTEN},always'));
-        break;
-        case 'delayed':
-				  $ext->splice($context, $extension, '1', new ext_set('__REC_POLICY_MODE','always'));
-        break;
-        case 'never':
-				  $ext->splice($context, $extension, '1', new ext_set('__REC_POLICY_MODE','never'));
-          $ext->splice($context, $extension, '1', new ext_gosub('1','s','sub-record-cancel'));
-        break;
-        default: // allowed
-          // Nothing to do here since it is an inbound route, first thing we hit
-        break;
-        }
-      $ext->splice($context, $extension, 1, new ext_noop_trace('Call Recording: [' . $route['callrecording'] . '] Event'));
-		}
+				callrecording_dpmode_helper($route['callrecording'], $context, $extension, $pri='1');
+			}
+
+			// Outbound Routes Forced Recordings
+			$routes=callrecording_display_get('routing');
+			// get the place to splice
+			foreach($routes as $current => $route){
+				$context = 'outrt-'.$route['route_id'];
+				$patterns = core_routing_getroutepatternsbyid($route['route_id']);
+				foreach ($patterns as $pattern) {
+					$fpattern = core_routing_formatpattern($pattern);
+					$extension = $fpattern['dial_pattern'];
+					callrecording_dpmode_helper($route['callrecording'], $context, $extension, $pri='1');
+				}
+			}
 		break;
 	}
 }
@@ -178,34 +198,46 @@ function callrecording_edit($callrecording_id, $description, $callrecording_mode
 }
 
 function callrecording_hook_core($viewing_itemid, $target_menuid){
-	$extension	= isset($_REQUEST['extension'])		? $_REQUEST['extension']	:'';
-	$cidnum		= isset($_REQUEST['cidnum'])		? $_REQUEST['cidnum']		:'';
-	$extdisplay	= isset($_REQUEST['extdisplay'])	? $_REQUEST['extdisplay']	:'';
-	$action		= isset($_REQUEST['action'])		? $_REQUEST['action']		:'';
-	$callrecording	= isset($_REQUEST['callrecording'])		? $_REQUEST['callrecording']		:'';
-	//set $extension,$cidnum if we dont already have them
-	if(!$extension && !$cidnum){
-		$opts		= explode('/', $extdisplay);
-		$extension	= $opts['0'];
-		$cidnum		= isset($opts['1']) ? $opts['1'] : '';
-	}else{
-		$extension 	= $extension;
-		$cidnum		= $cidnum;
-	}
+
+	switch ($target_menuid) {
+	case 'did':
+		$extension	= isset($_REQUEST['extension'])		? $_REQUEST['extension']	:'';
+		$cidnum		= isset($_REQUEST['cidnum'])		? $_REQUEST['cidnum']		:'';
+		$extdisplay	= isset($_REQUEST['extdisplay'])	? $_REQUEST['extdisplay']	:'';
+		$action		= isset($_REQUEST['action'])		? $_REQUEST['action']		:'';
+		$callrecording	= isset($_REQUEST['callrecording'])		? $_REQUEST['callrecording']		:'';
+		//set $extension,$cidnum if we dont already have them
+		if(!$extension && !$cidnum){
+			$opts		= explode('/', $extdisplay);
+			$extension	= $opts['0'];
+			$cidnum		= isset($opts['1']) ? $opts['1'] : '';
+		}else{
+			$extension 	= $extension;
+			$cidnum		= $cidnum;
+		}
 	
-	//update if we have enough info
-	if($action == 'edtIncoming' || ( $extension != '' || $cidnum != '') && $callrecording != ''){
-		callrecording_display_update('did',$callrecording=$callrecording,$extension,$cidnum);
-	}
-	if($action=='delIncoming'){
-		callrecording_display_delete('did',$extension,$cidnum);
+		//update if we have enough info
+		if($action == 'edtIncoming' || ( $extension != '' || $cidnum != '') && $callrecording != ''){
+			callrecording_display_update('did',$callrecording,$extension,$cidnum);
+		}
+		if($action=='delIncoming'){
+			callrecording_display_delete('did',$extension,$cidnum);
+		}
+		$callrecording = callrecording_display_get($target_menuid, $extension,$cidnum);
+	break;
+
+	case 'routing':
+		$route_id	= isset($_REQUEST['route_id']) ? $_REQUEST['route_id'] : (isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay'] : '');
+		$callrecording = callrecording_display_get($target_menuid, $route_id);
+	break;
 	}
 	$html = '';
-	if ($target_menuid == 'did'){
+	//if ($target_menuid == 'did'){
+	if ($target_menuid == 'did' || $target_menuid == 'routing') {
     global $tabindex;
-		$callrecording = callrecording_display_get('did',$extension,$cidnum);
-
-		$html.='<tr><td colspan="2"><h5>'._("Call Recording").'<hr></h5></td></tr>';
+		if ($target_menuid == 'did') {
+			$html.='<tr><td colspan="2"><h5>'._("Call Recording").'<hr></h5></td></tr>';
+		}
 		$html.='<tr><td><a href="#" class="info">'._('Call Recording').'<span>'._("Controls or overrides the call recording behavior for calls coming into this DID. Allow will honor the normal downstream call recording settings. Record on Answer starts recording when the call would otherwise be recorded ignoring any settings that say otherwise. Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. Never will disallow recording regardless of downstream settings.").'</span></a>:</td>';
 		$html.='<td><select name="callrecording" tabindex="' . ++$tabindex . '">'."\n";
     $html.= '<option value=""' . ($callrecording == ''  ? ' SELECTED' : '').'>'._("Allow")."\n";
@@ -217,23 +249,122 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 	return $html;
 }
 
+function callrecording_hookProcess_core($viewing_itemid, $request) {
+	switch ($request['display']) {
+  case 'routing':
+    $action = (isset($request['action']))?$request['action']:null;
+    $route_id = $viewing_itemid;
+		//dbug("got request for callrecording process for route: $route_id action: $action");
+    if (isset($request['Submit']) ) {
+      $action = (isset($action))?$action:'editroute';
+    }
+    
+    // $action won't be set on the redirect but callrecordingAddRoute will be in the session
+    //
+    if (!$action && !empty($_SESSION['callrecordingAddRoute'])) {
+      callrecording_adjustroute($route_id,'delayed_insert_route',$_SESSION['callrecordingAddRoute']);
+      unset($_SESSION['callrecordingAddRoute']);
+    } elseif ($action){
+      callrecording_adjustroute($route_id,$action,$request['callrecording']);
+    }
+    break;
+	}
+}
+
+function callrecording_adjustroute($route_id,$action,$callrecording='') {
+  global $db;
+  $dispname = 'routing';
+  $route_id = $db->escapeSimple($route_id);
+  $callrecording = $db->escapeSimple($callrecording);
+
+	//dbug("in adjustroute with route_id: $route_id, action: $action, callrecording: $callrecording"); 
+  switch ($action) {
+  case 'delroute':
+		callrecording_display_delete($dispname,$route_id);
+    break;
+  case 'addroute';
+    if ($callrecording != '') {
+      // we don't have the route_id yet, it hasn't been inserted yet :(, put it in the session 
+      // and when returned it will be available on the redirect_standard
+      $_SESSION['callrecordingAddRoute'] = $route_id;
+    }
+    break;
+  case 'delayed_insert_route';
+		callrecording_display_update($dispname, $callrecording, $route_id);
+    break;
+  case 'editroute';
+		//dbug("in editroute ready to insert dispnam: $dispname, route: $route_id, mode $callrecording");
+    if ($callrecording != '') {
+			callrecording_display_update($dispname, $callrecording, $route_id);
+    } else {
+			callrecording_display_delete($dispname,$route_id);
+    }
+    break;
+  }
+}
 
 function callrecording_display_get($display, $extension=null,$cidnum=null){
 	global $db;
-	if($extension || $cidnum || (isset($_REQUEST['extdisplay']) && $_REQUEST['extdisplay']=='/') || (isset($_REQUEST['display']) && $_REQUEST['display']=='did')){
-		$sql='SELECT callrecording FROM callrecording_module WHERE display = ? AND extension = ? AND cidnum = ?';
-		$mode=$db->getOne($sql, array($display, $extension, $cidnum));
-	}else{
-		$sql="SELECT callrecording_module.*,incoming.pricid FROM callrecording_module, incoming WHERE callrecording_module.cidnum=incoming.cidnum AND callrecording_module.extension=incoming.extension AND callrecording_module.display = '$display'";
-		$mode=$db->getAll($sql, DB_FETCHMODE_ASSOC);
+
+	//dbug("display_get with display: $display, exten $extension, cid $cidnum", $_REQUEST);
+	switch ($display) {
+	case 'did':
+		if($extension || $cidnum || (isset($_REQUEST['extdisplay']) && $_REQUEST['extdisplay']=='/') || (isset($_REQUEST['display']) && $_REQUEST['display']=='did')){
+			$sql='SELECT callrecording FROM callrecording_module WHERE display = ? AND extension ';
+			$sql .= $extension === null ? "IS NULL" : "= ?";
+			$sql .= " AND cidnum ";
+			$sql .= $cidnum === null ? "IS NULL" : "= ?";
+			$params[] = $display;
+			if ($extension !== null) {
+				$params[] = $extension;
+			}
+			if ($cidnum !== null) {
+				$params[] = $cidnum;
+			}
+			//dbug("executing getOne code: $sql", $params);
+			$mode=$db->getOne($sql, $params);
+			//$mode=$db->getOne($sql, array($display, $extension, $cidnum));
+		}else{
+			$sql="SELECT callrecording_module.*,incoming.pricid FROM callrecording_module, incoming WHERE callrecording_module.cidnum=incoming.cidnum AND callrecording_module.extension=incoming.extension AND callrecording_module.display = '$display'";
+			$mode=$db->getAll($sql, DB_FETCHMODE_ASSOC);
+		}
+		break;
+	case 'routing':
+		if($extension) {
+			$sql='SELECT callrecording FROM callrecording_module WHERE display = ? AND extension ';
+			$sql .= $extension === null ? "IS NULL" : "= ?";
+			$params[] = $display;
+			if ($extension !== null) {
+				$params[] = $extension;
+			}
+			//dbug("executing getOne code: $sql", $params);
+			$mode=$db->getOne($sql, $params);
+			//$mode=$db->getOne($sql, array($display, $extension, $cidnum));
+		} else {
+			$sql="SELECT extension as route_id, callrecording FROM callrecording_module WHERE display = '$display'";
+			$mode=$db->getAll($sql, DB_FETCHMODE_ASSOC);
+		}
+		break;
 	}
 	return $mode;
 }
 
 function callrecording_display_update($display,$recording_code=null,$extension=null,$cidnum=null){
 	global $db;
-	$sql="DELETE FROM callrecording_module WHERE display = ? AND extension = ? AND cidnum = ?";
-	$db->query($sql,array($display,$extension,$cidnum));
+	$sql="DELETE FROM callrecording_module WHERE display = ? AND extension ";
+	$sql .= $extension === null ? "IS NULL" : "= ?";
+	$sql .= " AND cidnum ";
+	$sql .= $cidnum === null ? "IS NULL" : "= ?";
+	$params[] = $display;
+	if ($extension !== null) {
+		$params[] = $extension;
+	}
+	if ($cidnum !== null) {
+		$params[] = $cidnum;
+	}
+	//dbug("executing delete code: $sql", $params);
+	//$db->query($sql,array($display,$extension,$cidnum));
+	$db->query($sql, $params);
 	if(isset($recording_code) && $recording_code!=''){
 		$sql="INSERT INTO callrecording_module (display,extension,cidnum,callrecording) VALUES (?, ?, ?,?)";
 		$db->query($sql,array($display,$extension,$cidnum,$recording_code));
