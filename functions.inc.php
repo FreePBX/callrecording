@@ -165,6 +165,7 @@ function callrecording_get($callrecording_id) {
 
 function callrecording_add($description, $callrecording_mode, $dest) {
 	global $db;
+	global $amp_conf;
 	$sql = "INSERT INTO callrecording (description, callrecording_mode, dest) VALUES (".
 		"'".$db->escapeSimple($description)."', ".
 		"'".$db->escapeSimple($callrecording_mode)."', ".
@@ -173,6 +174,8 @@ function callrecording_add($description, $callrecording_mode, $dest) {
 	if(DB::IsError($result)) {
 		die_freepbx($result->getMessage().$sql);
 	}
+  $id = $amp_conf["AMPDBENGINE"] == "sqlite3" ? sqlite_last_insert_rowid($db->connection) : mysql_insert_id($db->connection);
+	return($id);
 }
 
 function callrecording_delete($callrecording_id) {

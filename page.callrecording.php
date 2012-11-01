@@ -29,9 +29,9 @@ if (isset($_REQUEST['goto0']) && $_REQUEST['goto0']) {
 
 switch ($action) {
 	case 'add':
-		callrecording_add($description, $callrecording_mode, $dest);
+		$_REQUEST['extdisplay'] = callrecording_add($description, $callrecording_mode, $dest);
 		needreload();
-		redirect_standard();
+		redirect_standard('extdisplay');
 	break;
 	case 'edit':
 		callrecording_edit($callrecording_id, $description, $callrecording_mode, $dest);
@@ -69,7 +69,8 @@ if ($extdisplay) {
 	$callrecording_mode   = $row['callrecording_mode'];
 	$dest        = $row['dest'];
 
-	echo "<h2>"._("Edit: ")."$description ($callrecording_mode)"."</h2>";
+	$cm_disp = $callrecording_mode ? $callrecording_mode : 'allow';
+	echo "<h2>"._("Edit: ")."$description ($cm_disp)"."</h2>";
 } else {
 	echo "<h2>"._("Add Call Recording")."</h2>";
 }
