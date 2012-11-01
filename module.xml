@@ -18,7 +18,7 @@
 		</callrecording>
  	</popovers>
 	<changelog>
-		*2.11.0.1* $6051
+		*2.11.0.1* #6051
 		*2.11.0.0* #5909 outbound route recording settings
 		*2.10.0.2* add mgr script for one-touch-record
 		*2.10.0.1* #5478 
