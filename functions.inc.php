@@ -25,6 +25,16 @@ function callrecording_destinations() {
 	return isset($extens)?$extens:null;
 }
 
+function callrecording_destination_popovers() {
+	global $module_page;
+	if ($module_page != 'callrecording') {
+		$ret['callrecording'] = 'Call Recording';
+	} else {
+		$ret = array();
+	}
+	return $ret;
+}
+
 function callrecording_getdest($exten) {
 	return array('ext-callrecording,'.$exten.',1');
 }
