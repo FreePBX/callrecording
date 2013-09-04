@@ -1,5 +1,5 @@
 #!/usr/bin/php -q
-<?php 
+<?php
 
 // Copyright (C) 2012 HEHE Enterprises, LLC d.b.a. i9 Technologies
 // Copyright (C) 2012 HEHE Philippe Lindheimer Astrogen LLC
@@ -73,7 +73,7 @@ if($thisExtension == "") {
 // Testing has uncovered some cases where thisExtension ends up being derrived to the extension that
 // called this extension in a scenario where the orginal caller dose an attended transfer elsewhere.
 // So ... we go through the added trouble of checking if the DEVICE object for the suspected user
-// matches the connected channel. 
+// matches the connected channel.
 //
 // If it does NOT match, we search through ALL the DEVICE dial records to see if any of them match
 // this channel and if so, check their assigned user to identify who this is.
@@ -243,10 +243,10 @@ $astman->SetVar($channel, "REC_STATUS", "RECORDING");
 $astman->SetVar($channel, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
 $astman->SetVar($bridgePeer, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
 $astman->mixmonitor($channel, "{$mixMonDir}{$year}/{$month}/{$day}/{$callFileName}.{$mixMonFormat}", "a", $mixMonPost, rand());
-	
+
 //Set the monitor format and file name for the cdr entry
 ot_debug("Setting CDR info");
-$monFmt = ($mixMonDir != "" ? $mixMonDir : "wav");
+$monFmt = ($mixMonFormat != "" ? $mixMonFormat : "wav");
 $astman->SetVar($channel, "MON_FMT", $monFmt);
 $astman->SetVar($bridgePeer, "CDR(recordingfile)", "{$callFileName}.{$monFmt}");
 $astman->SetVar($channel, "CDR(recordingfile)", "{$callFileName}.{$monFmt}");
