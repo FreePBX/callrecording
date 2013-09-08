@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>2.11.0.1</version>
+	<version>2.11.0.2</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<category>Applications</category>
@@ -18,12 +18,13 @@
 		</callrecording>
  	</popovers>
 	<changelog>
+		*2.11.0.2* #6708
 		*2.11.0.1* #6051
 		*2.11.0.0* #5909 outbound route recording settings
 		*2.10.0.2* add mgr script for one-touch-record
 		*2.10.0.1* #5478 
 	  *2.10.0.0* New Module
 	</changelog>
-	<location>release/2.11/callrecording-2.11.0.1.tgz</location>
-	<md5sum>7686f4510fd276fb199110e6c3468c8c</md5sum>
+	<location>release/2.11/callrecording-2.11.0.2.tgz</location>
+	<md5sum>e4aee4705923e80fb357b608bb22b378</md5sum>
 </module>
