@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>2.11.0.2</version>
+	<version>2.11.0.3</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<category>Applications</category>
@@ -18,6 +18,7 @@
 		</callrecording>
  	</popovers>
 	<changelog>
+		*2.11.0.3* #6766 (fixes regression from #6708)
 		*2.11.0.2* #6708
 		*2.11.0.1* #6051
 		*2.11.0.0* #5909 outbound route recording settings
