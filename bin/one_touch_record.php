@@ -30,6 +30,8 @@ $ot_debug = true;
 ot_debug("Starting...");
 $channel = $argv[1];
 
+$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "STARTED");
+
 ot_debug("Channel: {$channel}");
 
 //Attempt to determin the extension
@@ -131,6 +133,7 @@ $extenRecordingOnDemand = $astman->database_get("AMPUSER/{$thisExtension}/record
 ot_debug("AMPUSER/{$thisExtension}/recording/ondemand: {$extenRecordingOnDemand}");
 if($callFileNameType == "exten" && $extenRecordingOnDemand != "enabled") {
 	ot_debug("On demand setting off exiting");
+	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "ON_DEMAND_SETTING_DISABLED");
 	exit(0);
 }
 
@@ -199,6 +202,7 @@ if($masterChannelOneTouchRec == "RECORDING") {
 		$thisExtension = ($realCallerIdNum == "" ? $dialPeerNumber : $fromExten);
 		$astman->SetVar($channel, "THISEXTEN", $thisExtension);
 	}
+	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "RECORDING_PAUSED");
 	exit(0);
 }
 
@@ -208,6 +212,7 @@ $masterChannelRecPolicyMode = getVariable($masterChannel, "REC_POLICY_MODE");
 ot_debug("MASTER_CHANNEL(REC_POLICY_MODE): {$masterChannelRecPolicyMode}");
 if($masterChannelRecPolicyMode == "never") {
 	ot_debug("Recording polcy is never exiting");
+	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "POLICY_IS_NEVER");
 	exit(0);
 }
 
@@ -217,6 +222,7 @@ $masterChannelRecStatus = getVariable($masterChannel, "REC_STATUS");
 ot_debug("MASTER_CHANNEL(REC_STATUS): {$masterChannelRecStatus}");
 if($masterChannelOneTouchRec == "" && $masterChannelRecStatus == "RECORDING") {
 	ot_debug("One touch recording is blank exiting");
+	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "MASTER_CHANNEL_STATUS_IS_RECORDING");
 	exit(0);
 }
 
@@ -254,6 +260,8 @@ $astman->SetVar($channel, "CDR(recordingfile)", "{$callFileName}.{$monFmt}");
 // The following 2 lines are to deal with a bug in Asterisk 1.8 not setting the CDR rec file after hangup
 $astman->SetVar($bridgePeer, "ONETOUCH_RECFILE", "{$callFileName}.{$monFmt}");
 $astman->SetVar($channel, "ONETOUCH_RECFILE", "{$callFileName}.{$monFmt}");
+
+$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "RECORDING_STARTED");
 
 //Get variable function
 function getVariable($channel, $varName) {
