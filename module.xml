@@ -5,6 +5,8 @@
 	<version>2.11.0.3</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
+	<candisable>no</candisable>
+	<canuninstall>no</canuninstall>
 	<category>Applications</category>
 	<description>
 		Provides much of the call recording functionality.	
