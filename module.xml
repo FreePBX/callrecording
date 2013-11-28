@@ -27,4 +27,4 @@
 	</changelog>
 	<location>release/2.11/callrecording-2.11.0.2.tgz</location>
 	<md5sum>ff453e59296f1679255c1039ef756475</md5sum>
-</module>
+<supported><version>2.11</version></supported></module>
