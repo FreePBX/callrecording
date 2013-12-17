@@ -384,10 +384,23 @@ function callrecording_display_update($display,$recording_code=null,$extension=n
 	};
 }
 
+//NULL is treated as a wildcard here. For example if we pass in a space, we 
+//	only want the one with a space
 function callrecording_display_delete($display,$extension=null,$cidnum=null){
 	global $db;
-  $sql="DELETE FROM callrecording_module WHERE display = ? AND extension = ? AND cidnum = ?";
-  $db->query($sql,array($display,$extension,$cidnum));
+	
+	$sql="DELETE FROM callrecording_module WHERE display = ?";
+	$data[] = $display;
+	
+	if ($extension !== null) {
+		$sql .= " AND extension = ?";
+		$data[] = $extension;
+	}
+	if ($cidnum !== null) {
+		$sql .= " AND cidnum = ?";
+		$data[] = $cidnum;
+	}
+	$db->query($sql,$data);
 }
 
 function callrecording_check_destinations($dest=true) {
