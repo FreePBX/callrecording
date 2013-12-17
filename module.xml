@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>2.11.0.3</version>
+	<version>2.11.0.4</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<candisable>no</candisable>
@@ -20,6 +20,7 @@
 		</callrecording>
  	</popovers>
 	<changelog>
+		*2.11.0.4* #6914, PBXAC-13
 		*2.11.0.3* #6766 (fixes regression from #6708)
 		*2.11.0.2* #6708
 		*2.11.0.1* #6051
