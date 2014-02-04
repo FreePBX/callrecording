@@ -18,6 +18,9 @@
 		*2.10.0.1* #5478 
 	  *2.10.0.0* New Module
 	</changelog>
+	<supported>
+		<version>2.10</version>
+	</supported>
 	<location>release/2.10/callrecording-2.10.0.3.tgz</location>
 	<md5sum>e1d8a5c899c11d88bdeb0ab70359d5c5</md5sum>
 </module>
