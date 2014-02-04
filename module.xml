@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>2.10.0.1</version>
+	<version>2.10.0.3</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<category>Applications</category>
@@ -13,12 +13,11 @@
 		<callrecording>Call Recording</callrecording>
 	</menuitems>
 	<changelog>
+		*2.10.0.3* added one_touch_record.php used in 2.11, added for external testing in 2.10
+		*2.10.0.2* add mgr script for one-touch-record
 		*2.10.0.1* #5478 
 	  *2.10.0.0* New Module
 	</changelog>
-	<supported>
-		<version>2.10</version>
-	</supported>
-	<location>release/2.10/callrecording-2.10.0.1.tgz</location>
-	<md5sum>27f390f64ea3a5e06e33960926bc1718</md5sum>
+	<location>release/2.10/callrecording-2.10.0.3.tgz</location>
+	<md5sum>e1d8a5c899c11d88bdeb0ab70359d5c5</md5sum>
 </module>
