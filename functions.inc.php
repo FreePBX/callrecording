@@ -184,7 +184,11 @@ function callrecording_add($description, $callrecording_mode, $dest) {
 	if(DB::IsError($result)) {
 		die_freepbx($result->getMessage().$sql);
 	}
-  $id = $amp_conf["AMPDBENGINE"] == "sqlite3" ? sqlite_last_insert_rowid($db->connection) : mysql_insert_id($db->connection);
+	if(method_exists($db,'insert_id')) {
+		$id = $db->insert_id();
+	} else {
+		$id = $amp_conf["AMPDBENGINE"] == "sqlite3" ? sqlite_last_insert_rowid($db->connection) : mysql_insert_id($db->connection);
+	}
 	return($id);
 }
 
