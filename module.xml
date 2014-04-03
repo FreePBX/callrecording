@@ -2,9 +2,10 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>2.11.0.5</version>
-	<publisher>FreePBX</publisher>
-	<license>GPLv2+</license>
+	<version>2.11.0.6</version>
+	<publisher>Schmooze Com Inc</publisher>
+	<license>GPLv2 or greater</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<category>Applications</category>
@@ -20,6 +21,7 @@
 		</callrecording>
  	</popovers>
 	<changelog>
+		*2.11.0.6* Generate License file
 		*2.11.0.5* Use abstracted function for last insert id
 		*2.11.0.4* #6914, PBXAC-13
 		*2.11.0.3* #6766 (fixes regression from #6708)
