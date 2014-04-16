@@ -2,15 +2,15 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>2.11.0.7</version>
+	<version>2.11.0.8</version>
 	<publisher>Schmooze Com Inc</publisher>
-	<license>GPLv3+r</license>
+	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<category>Applications</category>
 	<description>
-		Provides much of the call recording functionality.	
+		Provides much of the call recording functionality.
 	</description>
 	<menuitems>
 		<callrecording>Call Recording</callrecording>
@@ -21,7 +21,9 @@
 		</callrecording>
  	</popovers>
 	<changelog>
-		*2.11.0.7* Generate License file
+		*2.11.0.8* Generate License file
+		*2.11.0.7* #7315
+		*2.11.0.6* Generate License file
 		*2.11.0.5* Use abstracted function for last insert id
 		*2.11.0.4* #6914, PBXAC-13
 		*2.11.0.3* #6766 (fixes regression from #6708)
@@ -29,7 +31,7 @@
 		*2.11.0.1* #6051
 		*2.11.0.0* #5909 outbound route recording settings
 		*2.10.0.2* add mgr script for one-touch-record
-		*2.10.0.1* #5478 
+		*2.10.0.1* #5478
 	  *2.10.0.0* New Module
 	</changelog>
 	<supported>
