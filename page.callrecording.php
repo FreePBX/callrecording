@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
 //  Copyright 2006 Philippe Lindheimer - Astrogen LLC
@@ -6,7 +6,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //
 $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : 'setup';
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] :  '';
-if (isset($_REQUEST['delete'])) $action = 'delete'; 
+if (isset($_REQUEST['delete'])) $action = 'delete';
 
 $callrecording_id = isset($_REQUEST['callrecording_id']) ? $_REQUEST['callrecording_id'] :  false;
 $description = isset($_REQUEST['description']) ? $_REQUEST['description'] :  '';
@@ -35,10 +35,10 @@ switch ($action) {
 	break;
 }
 
-?> 
+?>
 
 <div class="rnav"><ul>
-<?php 
+<?php
 
 echo '<li><a href="config.php?display=callrecording&amp;type='.$type.'">'._('Add Call Recording').'</a></li>';
 
@@ -54,7 +54,7 @@ foreach (callrecording_list() as $row) {
 if ($extdisplay) {
 	// load
 	$row = callrecording_get($extdisplay);
-	
+
 	$description = $row['description'];
 	$callrecording_mode   = $row['callrecording_mode'];
 	$dest        = $row['dest'];
@@ -69,7 +69,7 @@ $helptext = _("Call Recordings provide the ability to force a call to be recorde
 echo $helptext;
 ?>
 
-<form name="editCallRecording" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkCallRecording(editCallRecording);">
+<form name="editCallRecording" action="" method="post" onsubmit="return checkCallRecording(editCallRecording);">
 	<input type="hidden" name="extdisplay" value="<?php echo $extdisplay; ?>">
 	<input type="hidden" name="callrecording_id" value="<?php echo $extdisplay; ?>">
 	<input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
@@ -94,15 +94,15 @@ echo $helptext;
 ?>
 	<tr><td colspan="2"><br><h5><?php echo _("Destination")?>:<hr></h5></td></tr>
 
-<?php 
+<?php
 //draw goto selects
 echo drawselects($dest,0);
 ?>
-			
+
 	<tr>
 		<td colspan="2"><br><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>">
 			<?php if ($extdisplay) { echo '&nbsp;<input name="delete" type="submit" value="'._("Delete").'">'; } ?>
-		</td>		
+		</td>
 
 		<?php
 		if ($extdisplay) {
@@ -130,7 +130,7 @@ function checkCallRecording(theForm) {
 	setDestinations(theForm, '_post_dest');
 
 	// form validation
-	defaultEmptyOK = false;	
+	defaultEmptyOK = false;
 	if (isEmpty(theForm.description.value))
 		return warnInvalid(theForm.description, msgInvalidDescription);
 
