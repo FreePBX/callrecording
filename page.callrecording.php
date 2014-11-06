@@ -82,15 +82,30 @@ echo $helptext;
 
 
 	<tr>
-    <td><a href="#" class="info"><?php echo _("Call Recording Mode")?>:<span><?php echo _("Controls or overrides the call recording behavior for calls continuing through this call flow. Allow will honor the normal downstream call recording settings. Record on Answer starts recording when the call would otherwise be recorded ignoring any settings that say otherwise. Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. Never will disallow recording regardless of downstream settings.")?></span></a></td>
+	<tr> <td colspan=2><p><?php echo _("Note that these options have changed in FreePBX 12."); ?>
+		<a href='//wiki.freepbx.org/display/F2/Call+Recording+walk+through'><?php echo _("Please read the wiki on these changes."); ?></a></p>
+	</td></tr>
+    <td><a href="#" class="info"><?php echo _("Call Recording Mode")?>:<span><?php echo _("Please read the Wiki on what these options mean.")?></span></a></td>
 <?php
-		$callrecording_html = '<td><select name="callrecording_mode" tabindex="' . ++$tabindex . '">'."\n";
-    $callrecording_html.= '<option value=""' . ($callrecording_mode == ''  ? ' SELECTED' : '').'>'._("Allow")."\n";
-    $callrecording_html.= '<option value="delayed"'. ($callrecording_mode == 'delayed' ? ' SELECTED' : '').'>'._("Record on Answer")."\n";
-    $callrecording_html.= '<option value="force"'  . ($callrecording_mode == 'force'   ? ' SELECTED' : '').'>'._("Record Immediately")."\n";
-    $callrecording_html.= '<option value="never"' . ($callrecording_mode == 'never'  ? ' SELECTED' : '').'>'._("Never")."\n";
-    $callrecording_html.= "</select></td></tr>\n";
-    echo $callrecording_html;
+	$html = '<td><span class="radioset">';
+	// Fix any old options.
+	if ($callrecording_mode == "delayed") {
+		$callrecording_mode = "yes";
+	}
+	if ($callrecording_mode == "") {
+		$callrecording_mode = "dontcare";
+	}
+	$options = array(_("Force") => "force", _("Yes") => "yes", _("Don't Care") => "dontcare", _("No") => "no", _("Never") => "never");
+	foreach ($options as $disp => $name) {
+		if ($callrecording_mode == $name) {
+			$checked = "checked";
+		} else {
+			$checked = "";
+		}
+		$html .= "<input type='radio' id='record_${name}' name='callrecording_mode' value='$name' $checked><label for='record_${name}'>$disp</label>";
+	}
+	$html .= "</span></td>\n";
+	echo $html;
 ?>
 	<tr><td colspan="2"><br><h5><?php echo _("Destination")?>:<hr></h5></td></tr>
 
