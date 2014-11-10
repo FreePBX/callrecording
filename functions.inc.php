@@ -71,13 +71,13 @@ function callrecording_get_config($engine) {
 			$ext->add($context, $row['callrecording_id'], '', new ext_noop_trace('Call Recording: [' . $row['callrecording_mode'] . '] Event'));
 			switch ($row['callrecording_mode']) {
 			case 'force':
-				$ext->add($context, $row['callrecording_id'], '', new ext_gosub('1','s','sub-record-check','force,${FROM_DID},always'));
+				$ext->add($context, $row['callrecording_id'], '', new ext_gosub('1','s','sub-record-check','generic,${FROM_DID},always'));
 				break;
 			case 'delayed':
 				$ext->add($context, $row['callrecording_id'], '', new ext_set('__REC_POLICY_MODE','always'));
 				break;
 			case 'never':
-				$ext->add($context, $row['callrecording_id'], '', new ext_gosub('1','s','sub-record-cancel'));
+				$ext->add($context, $row['callrecording_id'], '', new ext_gosub('1','s','sub-record-check', 'generic,${FROM_DID},never'));
 				$ext->add($context, $row['callrecording_id'], '', new ext_set('__REC_POLICY_MODE','never'));
 				break;
 			default: // allowed
@@ -87,45 +87,36 @@ function callrecording_get_config($engine) {
 			$ext->add($context, $row['callrecording_id'], '', new ext_goto($row['dest']));
 		}
 
-	/*
-	; ARG1: type
-	;       exten, out, rg, q, conf
-	; ARG2: called_exten
-	; ARG3: action (if we know it)
-	;       always, never (note dontcare only applies to extensions, group, etc. must specify yes/no)
-	;
-	 */
+		/*
+		 * This aborts and removes any call recordings that have been made on the current call.
+		 */
 		$context = 'sub-record-cancel';
 		$exten = 's';
 
 		$ext->add($context, $exten, '', new ext_set('__REC_POLICY_MODE', '${REC_POLICY_MODE_SAVE}'));
 		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"!="RECORDING"]','Return'));
 		$ext->add($context, $exten, '', new ext_stopmixmonitor());
-		$ext->add($context, $exten, '', new ext_set('__REC_STATUS',''));
+		// This probably never worked. It's MIXMONITOR_FILENAME.
 		$ext->add($context, $exten, '', new ext_set('MON_BASE','${IF($[${LEN(${MIXMON_DIR})}]?${MIXMON_DIR}:${ASTSPOOLDIR}/monitor/)}${YEAR}/${MONTH}/${DAY}/'));
-		$ext->add($context, $exten, '', new ext_set('__MON_FMT','${IF($[${LEN(${MIXMON_FORMAT})}]?${IF($["${MIXMON_FORMAT}"="wav49"]?WAV:${MIXMON_FORMAT})}:wav)}'));
 		$ext->add($context, $exten, '', new ext_execif('$[${LEN(${CALLFILENAME})} & ${STAT(f,${MON_BASE}${CALLFILENAME}.${MON_FMT})}]','System','rm -f ${MON_BASE}${CALLFILENAME}.${MON_FMT}'));
 		$ext->add($context, $exten, '', new ext_set('__CALLFILENAME',''));
 		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)',''));
 		$ext->add($context, $exten, '', new ext_return(''));
 
+		/*
+		; ARG1: type
+		;       exten, out, rg, q, conf
+		; ARG2: called_exten
+		; ARG3: action (if we know it)
+		;       always, never (note dontcare only applies to extensions, group, etc. must specify yes/no)
+		;
+		*/
+
 
 		$context = 'sub-record-check';
 		$exten = 's';
 
-		$ext->add($context, $exten, '', new ext_set('REC_POLICY_MODE_SAVE','${REC_POLICY_MODE}'));
-		$ext->add($context, $exten, '', new ext_gotoif('$["${BLINDTRANSFER}" = ""]', 'check'));
-		$ext->add($context, $exten, '', new ext_resetcdr(''));
-		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}" != "RECORDING"]', 'check'));
-		$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
-		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MIXMON_FORMAT}','a','${MIXMON_POST}'));
-		$ext->add($context, $exten, 'check', new ext_set('__MON_FMT','${IF($["${MIXMON_FORMAT}"="wav49"]?WAV:${MIXMON_FORMAT})}'));
-		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"!="RECORDING"]', 'next'));
-		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)','${CALLFILENAME}.${MON_FMT}'));
-		$ext->add($context, $exten, '', new ext_return(''));
-		$ext->add($context, $exten, 'next', new ext_execif('$[!${LEN(${ARG1})}]','Return'));
-		$ext->add($context, $exten, '', new ext_execif('$["${REC_POLICY_MODE}"="" & "${ARG3}"!=""]','Set','__REC_POLICY_MODE=${ARG3}'));
-		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"!=""]','${ARG1},1'));
+		$ext->add($context, $exten, '', new ext_gotoif('$[${LEN(${REC_STATUS})}]', 'initialized'));
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','INITIALIZED'));
 		$ext->add($context, $exten, '', new ext_set('NOW','${EPOCH}'));
 		$ext->add($context, $exten, '', new ext_set('__DAY','${STRFTIME(${NOW},,%d)}'));
@@ -133,41 +124,110 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_set('__YEAR','${STRFTIME(${NOW},,%Y)}'));
 		$ext->add($context, $exten, '', new ext_set('__TIMESTR','${YEAR}${MONTH}${DAY}-${STRFTIME(${NOW},,%H%M%S)}'));
 		$ext->add($context, $exten, '', new ext_set('__FROMEXTEN','${IF($[${LEN(${AMPUSER})}]?${AMPUSER}:${IF($[${LEN(${REALCALLERIDNUM})}]?${REALCALLERIDNUM}:unknown)})}'));
-		$ext->add($context, $exten, '', new ext_set('__CALLFILENAME','${ARG1}-${ARG2}-${FROMEXTEN}-${TIMESTR}-${UNIQUEID}'));
-		$ext->add($context, $exten, '', new ext_goto('1','${ARG1}'));
+		// MON_FMT is the format that MixMon knows about - we're only caring about gsm here (WAV) which non-case-sensitve filesystems
+		// will confuse with sln (wav).  Yes, I know THIS isn't case sensitive, but wait till you copy it to a windows box. Then
+		// you're sad.
+		$ext->add($context, $exten, '', new ext_set('__MON_FMT','${IF($["${MIXMON_FORMAT}"="WAV"]?wav49:${MIXMON_FORMAT})}'));
+		$ext->add($context, $exten, 'initialized', new ext_noop('Recordings initalized'));
 
-		$exten = 'rg';
-		$ext->add($context, $exten, '', new ext_noop_trace('Recording Check ${EXTEN} ${ARG2}'));
-		$ext->add($context, $exten, '', new ext_gosubif('$["${REC_POLICY_MODE}"="always"]','record,1',false,'${EXTEN},${REC_POLICY_MODE},${FROMEXTEN}'));
+		// Backup our current setting, just in case we need to roll back to it.
+		$ext->add($context, $exten, '', new ext_set('REC_POLICY_MODE_SAVE','${REC_POLICY_MODE}'));
+
+		// Figure out what this blind transfer stuff is about later.
+		/*
+		$ext->add($context, $exten, '', new ext_gotoif('$["${BLINDTRANSFER}" = ""]', 'check'));
+		$ext->add($context, $exten, '', new ext_resetcdr(''));
+		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}" != "RECORDING"]', 'check'));
+		$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
+		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MIXMON_FORMAT}','a','${MIXMON_POST}'));
+		 */
+
+		// If we weren't given a type, error. This is a bug.
+		$ext->add($context, $exten, 'next', new ext_gotoif('$[${LEN(${ARG1})}]','checkaction'));
+		$ext->add($context, $exten, 'recorderror', new ext_playback('something-terribly-wrong,error'));
+		$ext->add($context, $exten, '', new ext_hangup());
+
+		// If we don't have a current mode, and we were explicitly given a command, we can set our current mode
+		// to that. This is what we CURRENTLY think we should be doing. This may change if it's an exten.
+		$ext->add($context, $exten, 'checkaction', new ext_execif('$["${REC_POLICY_MODE}"="" & "${ARG3}"!=""]','Set','__REC_POLICY_MODE=${TOUPPER(${ARG3})}'));
+
+		// Now jump to the dialplan handler. If it doesn't exist, do the generic test (rg, force, q use these).
+		$ext->add($context, $exten, '',  new ext_gotoif('$[${DIALPLAN_EXISTS('.$context.',${ARG1})]', $context.',${ARG1},1'));
+
+		// Generic check
+		$ext->add($context, $exten, '', new ext_noop('Generic ${ARG1} Recording Check - ${EXTEN} ${ARG2}'));
+		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck',false,'${ARG1},${EXTEN},${REC_POLICY_MODE},${FROMEXTEN}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
-		$exten = 'force';
-		$ext->add($context, $exten, '', new ext_noop_trace('Recording Check ${EXTEN} ${ARG2}'));
-		$ext->add($context, $exten, '', new ext_gosubif('$["${REC_POLICY_MODE}"="always"]','record,1',false,'${EXTEN},${REC_POLICY_MODE},${FROMEXTEN}'));
+		// Check to see what should be done, based on the request type.
+		$exten = 'recordcheck';
+		$ext->add($context, $exten, '', new ext_noop('Starting recording check against ${ARG1}'));
+		$ext->add($context, $exten, '', new ext_goto('${ARG1}'));
+
+		// Don't care - just return, nothing's changed.
+		$ext->add($context, $exten, 'dontcare', new ext_return(''));
+
+		// FORCE: Always start recording, if you're not already.
+		$ext->add($context, $exten, 'force', new ext_set('__REC_POLICY_MODE', 'FORCE'));
+		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"!="RECORDING"]', 'startrec'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
-		$exten = 'q';
-		$ext->add($context, $exten, '', new ext_noop_trace('Recording Check ${EXTEN} ${ARG2}'));
-		$ext->add($context, $exten, '', new ext_gosubif('$["${REC_POLICY_MODE}"="always"]','recq,1',false,'${EXTEN},${ARG2},${FROMEXTEN}'));
+		// YES: Start recording if we haven't been told otherwise.
+		$ext->add($context, $exten, 'yes', new ext_execif('$["${REC_POLICY_MODE}" = "NEVER" | "${REC_POLICY_MODE}" = "NO" | "${REC_STATUS}" = "RECORDING"]', 'Return'));
+		$ext->add($context, $exten, '', new ext_set('__REC_POLICY_MODE', 'YES'));
+		$ext->add($context, $exten, '', new ext_goto('startrec'));
+
+		// NO: Don't record this. This won't STOP a recording that's already happening though.
+		$ext->add($context, $exten, 'no', new ext_set('__REC_POLICY_MODE', 'NO'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
+		// NEVER: Don't record this call, and stop recording if we are.
+		$ext->add($context, $exten, 'never', new ext_set('__REC_STATUS', 'NEVER'));
+		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}" = "RECORDING"]', 'stoprec'));
+		$ext->add($context, $exten, '', new ext_return(''));
+
+		// Start recording if requested
+		$ext->add($context, $exten, 'startrec', new ext_noop('Starting recording: ${ARG2}, ${ARG3}'));
+		$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
+		$ext->add($context, $exten, '', new ext_set('__CALLFILENAME','${ARG2}-${ARG3}-${FROMEXTEN}-${TIMESTR}-${UNIQUEID}'));
+		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','a','${MIXMON_POST}'));
+		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','RECORDING'));
+		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)','${CALLFILENAME}.${MON_FMT}'));
+		$ext->add($context, $exten, '', new ext_return(''));
+
+		// Stop recording if requested.
+		$ext->add($context, $exten, 'stoprec', new ext_noop('Stopping recording: ${ARG2}, ${ARG3}'));
+		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','STOPPED'));
+		$ext->add($context, $exten, '', new ext_stopmixmonitor());
+		$ext->add($context, $exten, '', new ext_return(''));
+
+		// Check policy for outbound route.
 		$exten = 'out';
-		$ext->add($context, $exten, '', new ext_noop_trace('Recording Check ${EXTEN} ${ARG2}'));
-		$ext->add($context, $exten, '', new ext_execif('$["${REC_POLICY_MODE}"=""]','Set','__REC_POLICY_MODE=${DB(AMPUSER/${FROMEXTEN}/recording/out/external)}'));
-		$ext->add($context, $exten, '', new ext_gosubif('$["${REC_POLICY_MODE}"="always"]','record,1',false,'exten,${ARG2},${FROMEXTEN}'));
+		$ext->add($context, $exten, '', new ext_noop('Outbound Recording Check from ${FROMEXTEN} to ${ARG2}'));
+
+		// The Extension is first in the chain. 
+		$ext->add($context, $exten, '', new ext_set('RECMODE', '${DB(AMPUSER/${FROMEXTEN}/recording/out/external)}'));
+
+		// If the route is set to DONTCARE, we don't care. 
+		$ext->add($context, $exten, '', new ext_execif('$["${ARG3}" = "dontcare"]', 'Goto', 'fin'));
+
+		// If the route is set to FORCE or NEVER, that wins. 
+		$ext->add($context, $exten, '', new ext_execif('$["${ARG3}" = "never" | "${ARG3}" = "force"]', 'Set', 'RECMODE=${ARG3}'));
+		$ext->add($context, $exten, '', new ext_execif('$["${ARG3}" = "never" | "${ARG3}" = "force"]', 'Goto', 'fin'));
+
+		// If the EXTENSION is set to FORCE or NEVER, that now beats a yes or no from the route.
+		$ext->add($context, $exten, '', new ext_execif('$["${RECMODE}" = "never" | "${RECMODE}" = "force"]', 'Goto', 'fin'));
+
+		// The route is set to yes or no.
+		$ext->add($context, $exten, '', new ext_set('RECMODE', '${ARG3}'));
+
+		$ext->add($context, $exten, 'fin', new ext_gosub('1', 'recordcheck', false, '${RECMODE},${ARG2},${FROMEXTEN}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		$exten = 'exten';
-		$ext->add($context, $exten, '', new ext_noop_trace('Recording Check ${EXTEN} ${ARG2}'));
+		$ext->add($context, $exten, '', new ext_noop('Exten Recording Check between ${EXTEN} and ${ARG2}'));
 		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_POLICY_MODE}"!=""]','callee'));
 		$ext->add($context, $exten, '', new ext_set('__REC_POLICY_MODE','${IF($[${LEN(${FROM_DID})}]?${DB(AMPUSER/${ARG2}/recording/in/external)}:${DB(AMPUSER/${ARG2}/recording/in/internal)})}'));
-		/* TODO: this appears to be a bug, ARG3 should never be set. This may be in here because of on-demand recording,
-		 *       testing will have to tell. If it needs to be in here it probably was suppose to be REC_POLICY_MODE and
-		 *       that should be tried. For now remove and do some testing to flush it out.
-		 *
-		 $ext->add($context, $exten, '', new ext_execif('$[!${LEN(${ARG3})}]','Return'));
-		 */
-
 		/* If callee doesn't care, then go to caller to make decision
 		 * Otherwise, if caller doesn't care, the go to callee to make decision
 		 * Otherwise, if relative priorities are equal, use the global REC_POLICY
@@ -191,35 +251,27 @@ function callrecording_get_config($engine) {
 		// of the conference which doesn't currenly seem like it is supported but might.
 		//
 		$exten = 'conf';
-		$ext->add($context, $exten, '', new ext_noop_trace('Recording Check ${EXTEN} ${ARG2}'));
+		$ext->add($context, $exten, '', new ext_noop('Recording Check ${EXTEN} ${ARG2}'));
 		$ext->add($context, $exten, '', new ext_gosub('1','recconf',false,'${EXTEN},${ARG2},${ARG2}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		$exten = 'page';
-		$ext->add($context, $exten, '', new ext_noop_trace('Recording Check ${EXTEN} ${ARG2}'));
+		$ext->add($context, $exten, '', new ext_noop('Recording Check ${EXTEN} ${ARG2}'));
 		$ext->add($context, $exten, '', new ext_gosubif('$["${REC_POLICY_MODE}"="always"]','recconf,1',false,'${EXTEN},${ARG2},${FROMEXTEN}'));
-		$ext->add($context, $exten, '', new ext_return(''));
-
-		$exten = 'record';
-		$ext->add($context, $exten, '', new ext_noop_trace('Setting up recording: ${ARG1}, ${ARG2}, ${ARG3}'));
-		$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
-		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MIXMON_FORMAT}','','${MIXMON_POST}'));
-		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','RECORDING'));
-		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)','${CALLFILENAME}.${MON_FMT}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		/* Queue Recording Section */
 		$exten = 'recq';
-		$ext->add($context, $exten, '', new ext_noop_trace('Setting up recording: ${ARG1}, ${ARG2}, ${ARG3}'));
+		$ext->add($context, $exten, '', new ext_noop('Setting up recording: ${ARG1}, ${ARG2}, ${ARG3}'));
 		$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
 		$ext->add($context, $exten, '', new ext_set('MONITOR_FILENAME','${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}'));
-		$ext->add($context, $exten, '', new ext_mixmonitor('${MONITOR_FILENAME}.${MIXMON_FORMAT}','${MONITOR_OPTIONS}','${MIXMON_POST}'));
+		$ext->add($context, $exten, '', new ext_mixmonitor('${MONITOR_FILENAME}.${MON_FMT}','${MONITOR_OPTIONS}','${MIXMON_POST}'));
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','RECORDING'));
 		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)','${CALLFILENAME}.${MON_FMT}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		$exten = 'recconf';
-		$ext->add($context, $exten, '', new ext_noop_trace('Setting up recording: ${ARG1}, ${ARG2}, ${ARG3}'));
+		$ext->add($context, $exten, '', new ext_noop('Setting up recording: ${ARG1}, ${ARG2}, ${ARG3}'));
 		if (FreePBX::Config()->get('ASTCONFAPP')) {
 			$ext->add($context, $exten, '', new ext_set('__CALLFILENAME','${IF($[${CONFBRIDGE_INFO(parties,${ARG2})}]?${DB(RECCONF/${ARG2})}:${ARG1}-${ARG2}-${ARG3}-${TIMESTR}-${UNIQUEID})}'));
 			$ext->add($context, $exten, '', new ext_execif('$[!${CONFBRIDGE_INFO(parties,${ARG2})}]','Set','DB(RECCONF/${ARG2})=${CALLFILENAME}'));
@@ -231,7 +283,7 @@ function callrecording_get_config($engine) {
 			$ext->add($context, $exten, '', new ext_set('__CALLFILENAME','${IF($[${MEETME_INFO(parties,${ARG2})}]?${DB(RECCONF/${ARG2})}:${ARG1}-${ARG2}-${ARG3}-${TIMESTR}-${UNIQUEID})}'));
 			$ext->add($context, $exten, '', new ext_execif('$[!${MEETME_INFO(parties,${ARG2})}]','Set','DB(RECCONF/${ARG2})=${CALLFILENAME}'));
 			$ext->add($context, $exten, '', new ext_set('MEETME_RECORDINGFILE','${IF($[${LEN(${MIXMON_DIR})}]?${MIXMON_DIR}:${ASTSPOOLDIR}/monitor/)}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}'));
-			$ext->add($context, $exten, '', new ext_set('MEETME_RECORDINGFORMAT','${MIXMON_FORMAT}'));
+			$ext->add($context, $exten, '', new ext_set('MEETME_RECORDINGFORMAT','${MON_FMT}'));
 		}
 		$ext->add($context, $exten, '', new ext_execif('$["${REC_POLICY_MODE}"!="always"]','Return'));
 		if (FreePBX::Config()->get('ASTCONFAPP') == 'app_confbridge') {
@@ -258,29 +310,6 @@ function callrecording_get_config($engine) {
 	}
 }
 
-function callrecording_dpmode_helper($mode, $context, $extension, $pri='1') {
-	global $ext;
-
-	// These are splices, so they "reverse stack" and will end up in opposite order
-	//
-	switch ($mode) {
-	case 'force':
-		$ext->splice($context, $extension, $pri, new ext_gosub('1','s','sub-record-check','force,${EXTEN},always'));
-		break;
-	case 'delayed':
-		$ext->splice($context, $extension, $pri, new ext_set('__REC_POLICY_MODE','always'));
-		break;
-	case 'never':
-		$ext->splice($context, $extension, $pri, new ext_set('__REC_POLICY_MODE','never'));
-		$ext->splice($context, $extension, $pri, new ext_gosub('1','s','sub-record-cancel'));
-		break;
-	default: // allowed
-		// Nothing to do here since it is an inbound route, first thing we hit
-		break;
-	}
-	$ext->splice($context, $extension, $pri, new ext_noop_trace('Call Recording: [' . $mode . '] Event'));
-}
-
 function callrecording_hookGet_config($engine) {
 	global $ext;
 	global $version;
@@ -301,7 +330,7 @@ function callrecording_hookGet_config($engine) {
 				}
 				$extension=($route['extension']!=''?$route['extension']:'s').($route['cidnum']==''?'':'/'.$route['cidnum']);
 			}
-			callrecording_dpmode_helper($route['callrecording'], $context, $extension, $pri='1');
+			$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','inbound,${EXTEN},'.$route['callrecording']));
 		}
 
 		// Outbound Routes Forced Recordings
@@ -313,7 +342,7 @@ function callrecording_hookGet_config($engine) {
 			foreach ($patterns as $pattern) {
 				$fpattern = core_routing_formatpattern($pattern);
 				$extension = $fpattern['dial_pattern'];
-				callrecording_dpmode_helper($route['callrecording'], $context, $extension, $pri='1');
+				$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','out,${EXTEN},'.$route['callrecording']));
 			}
 		}
 		break;
