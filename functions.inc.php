@@ -257,6 +257,8 @@ function callrecording_get_config($engine) {
 		// Originator of the call wins. Always out/internal.
 		$ext->add($context, $exten, 'caller', new ext_set('RECMODE','${DB(AMPUSER/${FROMEXTEN}/recording/out/internal)}'));
 		$ext->add($context, $exten, '', new ext_execif('$[!${LEN(${RECMODE})}]','Set', 'RECMODE=dontcare'));
+		// If we don't care, then the callee gets to pick.
+		$ext->add($context, $exten, '', new ext_execif('$["${RECMODE}"="dontcare"]','Set', 'RECMODE=${CALLEE}'));
 		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck', false, '${RECMODE},${ARG2},${FROMEXTEN}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
