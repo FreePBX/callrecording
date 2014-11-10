@@ -128,7 +128,7 @@ function callrecording_get_config($engine) {
 		// will confuse with sln (wav).  Yes, I know THIS isn't case sensitive, but wait till you copy it to a windows box. Then
 		// you're sad.
 		$ext->add($context, $exten, '', new ext_set('__MON_FMT','${IF($["${MIXMON_FORMAT}"="WAV"]?wav49:${MIXMON_FORMAT})}'));
-		$ext->add($context, $exten, 'initialized', new ext_noop('Recordings initalized'));
+		$ext->add($context, $exten, 'initialized', new ext_noop('Recordings initialized'));
 
 		// Backup our current setting, just in case we need to roll back to it.
 		$ext->add($context, $exten, '', new ext_set('REC_POLICY_MODE_SAVE','${REC_POLICY_MODE}'));
@@ -185,8 +185,7 @@ function callrecording_get_config($engine) {
 
 		// NEVER: Don't record this call, and stop recording if we are.
 		$ext->add($context, $exten, 'never', new ext_set('__REC_STATUS', 'NEVER'));
-		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}" = "RECORDING"]', 'stoprec'));
-		$ext->add($context, $exten, '', new ext_return(''));
+		$ext->add($context, $exten, '', new ext_goto('stoprec'));
 
 		// Start recording if requested
 		$ext->add($context, $exten, 'startrec', new ext_noop('Starting recording: ${ARG2}, ${ARG3}'));
