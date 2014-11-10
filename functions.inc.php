@@ -156,7 +156,7 @@ function callrecording_get_config($engine) {
 
 		// Generic check
 		$ext->add($context, $exten, '', new ext_noop('Generic ${ARG1} Recording Check - ${EXTEN} ${ARG2}'));
-		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck',false,'${ARG1},${EXTEN},${REC_POLICY_MODE},${FROMEXTEN}'));
+		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck',false,'${ARG3},${EXTEN},${REC_POLICY_MODE},${FROMEXTEN}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		// Check to see what should be done, based on the request type.
@@ -167,6 +167,8 @@ function callrecording_get_config($engine) {
 		// Don't care - just return, nothing's changed.
 		$ext->add($context, $exten, 'dontcare', new ext_return(''));
 
+		// ALWAYS: Extensions used 'Always' and 'Never'. Alias 'Always' to 'Force'
+		$ext->add($context, $exten, 'always', new ext_noop('Detected legacy "always" entry. Mapping to "force"'));
 		// FORCE: Always start recording, if you're not already.
 		$ext->add($context, $exten, 'force', new ext_set('__REC_POLICY_MODE', 'FORCE'));
 		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"!="RECORDING"]', 'startrec'));
@@ -201,7 +203,9 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_stopmixmonitor());
 		$ext->add($context, $exten, '', new ext_return(''));
 
-		// Check policy for outbound route.
+		// RECORDING POLICY LOGIC HERE
+		//
+		// OUTBOUND ROUTES
 		$exten = 'out';
 		$ext->add($context, $exten, '', new ext_noop('Outbound Recording Check from ${FROMEXTEN} to ${ARG2}'));
 
@@ -224,27 +228,36 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, 'fin', new ext_gosub('1', 'recordcheck', false, '${RECMODE},${ARG2},${FROMEXTEN}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
+		// CALLS BETWEEN EXTENSIONS
 		$exten = 'exten';
-		$ext->add($context, $exten, '', new ext_noop('Exten Recording Check between ${EXTEN} and ${ARG2}'));
-		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_POLICY_MODE}"!=""]','callee'));
-		$ext->add($context, $exten, '', new ext_set('__REC_POLICY_MODE','${IF($[${LEN(${FROM_DID})}]?${DB(AMPUSER/${ARG2}/recording/in/external)}:${DB(AMPUSER/${ARG2}/recording/in/internal)})}'));
-		/* If callee doesn't care, then go to caller to make decision
-		 * Otherwise, if caller doesn't care, the go to callee to make decision
-		 * Otherwise, if relative priorities are equal, use the global REC_POLICY
-		 * Otherwise, use whomever has a higher priority
-		 */
-		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_POLICY_MODE}"="dontcare"]', 'caller'));
-		// If FROM_DID is set it's external so it's always the callee policy that rules
-		$ext->add($context, $exten, '', new ext_gotoif('$["${DB(AMPUSER/${FROMEXTEN}/recording/out/internal)}"="dontcare" | "${FROM_DID}"!=""]', 'callee'));
+		$ext->add($context, $exten, '', new ext_noop('Exten Recording Check between ${FROMEXTEN} and ${ARG2}'));
+		$ext->add($context, $exten, '', new ext_set('CALLTYPE','${IF($[${LEN(${FROM_DID})}]?external:internal)}'));
 
+		$ext->add($context, $exten, '', new ext_set('CALLEE','${DB(AMPUSER/${ARG2}/recording/in/${CALLTYPE})}'));
+		// Make sure CALLEE isn't empty. Bad astdb entry?
+		$ext->add($context, $exten, '', new ext_execif('$[!${LEN(${CALLEE})}]','Set', 'CALLEE=dontcare'));
+
+		// Is it an external call? It's not going to be caller.
+		$ext->add($context, $exten, '', new ext_gotoif('$["${CALLTYPE}"="external"]','callee'));
+
+		// Does the callee care about it? If not, we let the caller choose.
+		$ext->add($context, $exten, '', new ext_gotoif('$["${CALLEE}"="dontcare"]','caller'));
+
+		// It does. We may have a priority battle on our hands.
 		$ext->add($context, $exten, '', new ext_execif('$[${LEN(${DB(AMPUSER/${FROMEXTEN}/recording/priority)})}]','Set','CALLER_PRI=${DB(AMPUSER/${FROMEXTEN}/recording/priority)}','Set','CALLER_PRI=0'));
 		$ext->add($context, $exten, '', new ext_execif('$[${LEN(${DB(AMPUSER/${ARG2}/recording/priority)})}]','Set','CALLEE_PRI=${DB(AMPUSER/${ARG2}/recording/priority)}','Set','CALLEE_PRI=0'));
+
+		// Who wins?
 		$ext->add($context, $exten, '', new ext_gotoif('$["${CALLER_PRI}"="${CALLEE_PRI}"]', '${REC_POLICY}','${IF($[${CALLER_PRI}>${CALLEE_PRI}]?caller:callee)}'));
 
-		$ext->add($context, $exten, 'callee', new ext_gosubif('$["${REC_POLICY_MODE}"="always"]','record,1',false,'${EXTEN},${ARG2},${FROMEXTEN}'));
+		// Recpient of the call wins. We've already sanity checked them above, so we can use the CALLEE var.
+		$ext->add($context, $exten, 'callee', new ext_gosub('1', 'recordcheck', false, '${CALLEE},${ARG2},${FROMEXTEN}'));
 		$ext->add($context, $exten, '', new ext_return(''));
-		$ext->add($context, $exten, 'caller', new ext_set('__REC_POLICY_MODE','${DB(AMPUSER/${FROMEXTEN}/recording/out/internal)}'));
-		$ext->add($context, $exten, '', new ext_gosubif('$["${REC_POLICY_MODE}"="always"]','record,1',false,'${EXTEN},${ARG2},${FROMEXTEN}'));
+
+		// Originator of the call wins. Always out/internal.
+		$ext->add($context, $exten, 'caller', new ext_set('RECMODE','${DB(AMPUSER/${FROMEXTEN}/recording/out/internal)}'));
+		$ext->add($context, $exten, '', new ext_execif('$[!${LEN(${RECMODE})}]','Set', 'RECMODE=dontcare'));
+		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck', false, '${RECMODE},${ARG2},${FROMEXTEN}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		// For confernecing we will set the variables (since the actual meetme does the recording) in case an option were to exist to do on-demand recording
@@ -330,7 +343,7 @@ function callrecording_hookGet_config($engine) {
 				}
 				$extension=($route['extension']!=''?$route['extension']:'s').($route['cidnum']==''?'':'/'.$route['cidnum']);
 			}
-			$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','inbound,${EXTEN},'.$route['callrecording']));
+			$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','exten,${EXTEN},'.$route['callrecording']));
 		}
 
 		// Outbound Routes Forced Recordings
