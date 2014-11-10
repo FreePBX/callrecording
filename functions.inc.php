@@ -264,13 +264,13 @@ function callrecording_get_config($engine) {
 		// of the conference which doesn't currenly seem like it is supported but might.
 		//
 		$exten = 'conf';
-		$ext->add($context, $exten, '', new ext_noop('Recording Check ${EXTEN} ${ARG2}'));
-		$ext->add($context, $exten, '', new ext_gosub('1','recconf',false,'${EXTEN},${ARG2},${ARG2}'));
+		$ext->add($context, $exten, '', new ext_noop('Conference Recording Check ${FROMEXTEN} to ${ARG2}'));
+		$ext->add($context, $exten, '', new ext_gosub('1','recconf',false,'${ARG2},${ARG2},${ARG3}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		$exten = 'page';
-		$ext->add($context, $exten, '', new ext_noop('Recording Check ${EXTEN} ${ARG2}'));
-		$ext->add($context, $exten, '', new ext_gosubif('$["${REC_POLICY_MODE}"="always"]','recconf,1',false,'${EXTEN},${ARG2},${FROMEXTEN}'));
+		$ext->add($context, $exten, '', new ext_noop('Paging Recording Check ${FROMEXTEN} to ${ARG2}'));
+		$ext->add($context, $exten, '', new ext_gosubif('$["${REC_POLICY_MODE}"="always"]','recconf,1',false,'${ARG2},${FROMEXTEN},${ARG3}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		$exten = 'recconf';
@@ -288,7 +288,7 @@ function callrecording_get_config($engine) {
 			$ext->add($context, $exten, '', new ext_set('MEETME_RECORDINGFILE','${IF($[${LEN(${MIXMON_DIR})}]?${MIXMON_DIR}:${ASTSPOOLDIR}/monitor/)}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}'));
 			$ext->add($context, $exten, '', new ext_set('MEETME_RECORDINGFORMAT','${MON_FMT}'));
 		}
-		$ext->add($context, $exten, '', new ext_execif('$["${REC_POLICY_MODE}"!="always"]','Return'));
+		$ext->add($context, $exten, '', new ext_execif('$["${ARG3}"!="always"]','Return'));
 		if (FreePBX::Config()->get('ASTCONFAPP') == 'app_confbridge') {
 			$ext->add($context, $exten, '', new ext_set('CONFBRIDGE(bridge,record_conference)','yes'));
 		}
