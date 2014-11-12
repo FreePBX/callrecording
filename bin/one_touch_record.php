@@ -169,16 +169,28 @@ if (($myMaster == $theirMaster) && ($myMaster == $channel) || ($myMaster == $brd
 }
 
 ot_debug("Checking if channel is already recording");
-// New Recordings stuff here. We have REC_STATUS and MIXMON_ID.
+// New Recordings handled here. At least one of the channels we've discovered has
+// as RECORD_ID, which tells us which channel is recording, so we can stop it.
 if ($recStatus == "RECORDING") {
-	ot_debug("Stop recording channel $channel or $bridgePeer or $masterChannel");
-	$astman->stopmixmonitor($channel, rand());
-	$astman->SetVar($channel, "REC_STATUS", "STOPPED");
-	$astman->SetVar($bridgePeer, "REC_STATUS", "STOPPED");
-	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "RECORDING_PAUSED");
+	// Find it!
+	foreach (array($channel, $bridgePeer, $masterChannel) as $c) {
+		$rid = getVariable($c, 'RECORD_ID');
+		if (!empty($rid)) {
+			// Ahha. We found it.
+			$astman->stopmixmonitor($rid, rand());
+			$astman->SetVar($channel, "REC_STATUS", "STOPPED");
+			$astman->SetVar($bridgePeer, "REC_STATUS", "STOPPED");
+			$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "RECORDING_PAUSED");
+			exit(0);
+		}
+	}
+
+	// Well. We should never be here.
+	$astman->verbose("Unable to Stop recording channel $channel or $bridgePeer or $masterChannel",0);
 	exit(0);
 }
 
+print "Hi $channel\n"; exit;
 // It's not recording
 ot_debug("Checking recording polcy");
 $masterChannelRecPolicyMode = getVariable($masterChannel, "REC_POLICY_MODE");
