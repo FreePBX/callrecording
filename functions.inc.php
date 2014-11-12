@@ -108,7 +108,7 @@ function callrecording_get_config($engine) {
 		;       exten, out, rg, q, conf
 		; ARG2: called_exten
 		; ARG3: action (if we know it)
-		;       always, never (note dontcare only applies to extensions, group, etc. must specify yes/no)
+		;       force (== always), yes, dontcare, no, never
 		;
 		*/
 
@@ -116,7 +116,7 @@ function callrecording_get_config($engine) {
 		$context = 'sub-record-check';
 		$exten = 's';
 
-		$ext->add($context, $exten, '', new ext_gotoif('$[${LEN(${REC_STATUS})}]', 'initialized'));
+		$ext->add($context, $exten, '', new ext_gotoif('$[${LEN(${FROMEXTEN})}]', 'initialized'));
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','INITIALIZED'));
 		$ext->add($context, $exten, '', new ext_set('NOW','${EPOCH}'));
 		$ext->add($context, $exten, '', new ext_set('__DAY','${STRFTIME(${NOW},,%d)}'));
@@ -152,11 +152,11 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, 'checkaction', new ext_execif('$["${REC_POLICY_MODE}"="" & "${ARG3}"!=""]','Set','__REC_POLICY_MODE=${TOUPPER(${ARG3})}'));
 
 		// Now jump to the dialplan handler. If it doesn't exist, do the generic test (rg, force, q use these).
-		$ext->add($context, $exten, '',  new ext_gotoif('$[${DIALPLAN_EXISTS('.$context.',${ARG1})]', $context.',${ARG1},1'));
+		$ext->add($context, $exten, '',  new ext_gotoif('$[${DIALPLAN_EXISTS('.$context.',${ARG1})}]', $context.',${ARG1},1'));
 
 		// Generic check
-		$ext->add($context, $exten, '', new ext_noop('Generic ${ARG1} Recording Check - ${EXTEN} ${ARG2}'));
-		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck',false,'${ARG3},${EXTEN},${REC_POLICY_MODE},${FROMEXTEN}'));
+		$ext->add($context, $exten, '', new ext_noop('Generic ${ARG1} Recording Check - ${FROMEXTEN} ${ARG2}'));
+		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck',false,'${ARG3},${ARG1},${ARG2}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		// Check to see what should be done, based on the request type.
@@ -191,7 +191,8 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, 'startrec', new ext_noop('Starting recording: ${ARG2}, ${ARG3}'));
 		$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
 		$ext->add($context, $exten, '', new ext_set('__CALLFILENAME','${ARG2}-${ARG3}-${FROMEXTEN}-${TIMESTR}-${UNIQUEID}'));
-		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','a','${MIXMON_POST}'));
+		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','ai(LOCAL_MIXMON_ID)','${MIXMON_POST}'));
+		$ext->add($context, $exten, '', new ext_set('__MIXMON_ID', '${LOCAL_MIXMON_ID}'));
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','RECORDING'));
 		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)','${CALLFILENAME}.${MON_FMT}'));
 		$ext->add($context, $exten, '', new ext_return(''));
