@@ -15,19 +15,16 @@ $channel = $argv[1];
 
 $astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "STARTED");
 
-//Attempt to determin the extension
+// Who is the person pushing Record?
 $pickupExten = getVariable($channel, "PICKUP_EXTEN");
 $thisExtension = getVariable($channel, "THISEXTEN");
 $realCallerIdNum = getVariable($channel, "REALCALLERIDNUM");
 $fromExten = getVariable($channel, "FROMEXTEN");
-$recStatus = getVariable($channel, "REC_STATUS");
 $mixmonid = getVariable($channel, "MIXMON_ID");
 $bridgePeer = getVariable($channel, "BRIDGEPEER");
 if ($fromExten == '') {
 	$fromExten = $realCallerIdNum;
 }
-$callFileName = getVariable($channel, "CALLFILENAME");
-
 ot_debug("Checking pickup extension");
 if($pickupExten != "") {
 	ot_debug("Setting THISEXTEN to {$callFileNameExten}");
@@ -99,35 +96,16 @@ if (!$dev_confirmed) {
 	}
 }
 
-if (!$callFileName) {
-	// We need to create the filename for this call.
-	$uniqueid = getVariable($channel, "UNIQUEID");
-	$timestr = getVariable($channel, "TIMESTR");
-	$callFileName = "ondemand-$thisExtension-$fromExten-$timestr-$uniqueid";
-	ot_debug("CFN UPDATED ::$callFileName::");
-}
-
-$callFileNameParts = explode("-", $callFileName);
-$callFileNameExten = $callFileNameParts[1];
-$callFileNameType = $callFileNameParts[0];
-
-$debugstr  = "PICKUP_EXTEN: {$pickupExten}\nCALLFILENAME: {$callFileName}\nTHISEXTEN: {$thisExtension}\nREALCALLERIDNUM: {$realCallerIdNum}\nFROMEXTEN: {$fromExten}\n";
-$debugstr .= "callFileNameExten: {$callFileNameExten}\ncallFileNameType: {$callFileNameType}\nrecStatus: {$recStatus}\nMIXMON_ID: {$mixmonid}\nBRIDGEPEER: {$bridgepeer}\n";
-ot_debug($debugstr);
-
-
 //Check on demand setting for the extension
 ot_debug("Checking on demand setting");
-$extenRecordingOnDemand = $astman->database_get("AMPUSER/{$thisExtension}/recording", "ondemand");
-ot_debug("AMPUSER/{$thisExtension}/recording/ondemand: {$extenRecordingOnDemand}");
-if($callFileNameType == "exten" && $extenRecordingOnDemand != "enabled") {
-	ot_debug("On demand setting off exiting");
-	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "ON_DEMAND_SETTING_DISABLED");
+$onDemand = $astman->database_get("AMPUSER/{$thisExtension}/recording", "ondemand");
+if($onDemand == "disabled") {
+	ot_debug("Disabled");
+	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED");
 	exit(0);
 }
 
 //Grab the bridge peer
-
 $myMaster = getVariable($channel, "MASTER_CHANNEL(CHANNEL(name))");
 //ot_debug("myMaster: {$myMaster}");
 $theirMaster = getVariable($bridgePeer, "MASTER_CHANNEL(CHANNEL(name))");
@@ -168,36 +146,59 @@ if (($myMaster == $theirMaster) && ($myMaster == $channel) || ($myMaster == $brd
 	}
 }
 
+$callFileName = getVariable($channel, "CALLFILENAME");
+
 ot_debug("Checking if channel is already recording");
 // New Recordings handled here. At least one of the channels we've discovered has
-// as RECORD_ID, which tells us which channel is recording, so we can stop it.
-if ($recStatus == "RECORDING") {
-	// Find it!
-	foreach (array($channel, $bridgePeer, $masterChannel) as $c) {
-		$rid = getVariable($c, 'RECORD_ID');
-		if (!empty($rid)) {
-			// Ahha. We found it.
+// a RECORD_ID, if we've ever recorded this call.
+foreach (array($channel, $bridgePeer, $masterChannel) as $c) {
+	$rid = getVariable($c, 'RECORD_ID');
+	if (!empty($rid)) {
+		// This channel, previously, has been recording things.
+		$recStatus = getVariable($rid, 'REC_STATUS');
+		if ($recStatus == "RECORDING") {
+
+			// We're recording. Are we allowed to stop it?
+			$rpm = getVariable($rid, "REC_POLICY_MODE");
+			if ($rpm == "FORCE" && $ondemand != "override") {
+				$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED");
+				exit(0);
+			}
+
 			$astman->stopmixmonitor($rid, rand());
+			$astman->SetVar($rid, "REC_STATUS", "STOPPED");
 			$astman->SetVar($channel, "REC_STATUS", "STOPPED");
 			$astman->SetVar($bridgePeer, "REC_STATUS", "STOPPED");
-			$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "RECORDING_PAUSED");
+			$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "RECORDING_STOPPED");
 			exit(0);
 		}
+		// Ah, it's not recording. So we just want to keep that Recording ID, as we're
+		// going to use it later as our master channel. However, we do know what the
+		// filename should be, so we'll update that
+		$masterChannel = $rid;
+		$cfn = getVariable($masterChannel, "CALLFILENAME");
+		if (!empty($cfn)) {
+			$callFileName = $cfn;
+		}
+		break;
 	}
-
-	// Well. We should never be here.
-	$astman->verbose("Unable to Stop recording channel $channel or $bridgePeer or $masterChannel",0);
-	exit(0);
 }
 
-print "Hi $channel\n"; exit;
+
+if (!$callFileName) {
+	// We need to create the filename for this call.
+	$uniqueid = getVariable($channel, "UNIQUEID");
+	$timestr = getVariable($channel, "TIMESTR");
+	$callFileName = "ondemand-$thisExtension-$fromExten-$timestr-$uniqueid";
+	ot_debug("CFN UPDATED ::$callFileName::");
+}
+
+
 // It's not recording
-ot_debug("Checking recording polcy");
-$masterChannelRecPolicyMode = getVariable($masterChannel, "REC_POLICY_MODE");
-ot_debug("MASTER_CHANNEL(REC_POLICY_MODE): {$masterChannelRecPolicyMode}");
-if($masterChannelRecPolicyMode == "never") {
-	ot_debug("Recording polcy is 'never', exiting");
-	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "POLICY_IS_NEVER");
+ot_debug("Checking recording polcy\nMASTER_CHANNEL(REC_POLICY_MODE): {$rpm}");
+if($rpm == "NEVER" && $ondemand != "override") {
+	ot_debug("Recording polcy is 'never', no override, exiting");
+	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED");
 	exit(0);
 }
 
@@ -212,15 +213,15 @@ $mixMonFormat = getVariable($channel, "MIXMON_FORMAT");
 $mixMonPost = getVariable($channel, "MIXMON_POST");
 
 // Setting in both channels in case a subsequent park or attended transfer of one
-$astman->SetVar($bridgePeer, "ONETOUCH_REC", "RECORDING");
-$astman->SetVar($channel, "ONETOUCH_REC", "RECORDING");
 $astman->SetVar($bridgePeer, "REC_STATUS", "RECORDING");
 $astman->SetVar($channel, "REC_STATUS", "RECORDING");
 $astman->SetVar($channel, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
 $astman->SetVar($bridgePeer, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
-$astman->mixmonitor($channel, "{$mixMonDir}{$year}/{$month}/{$day}/{$callFileName}.{$mixMonFormat}", "ai(LOCAL_MIXMON_ID)", $mixMonPost, rand());
+$astman->mixmonitor($masterChannel, "{$mixMonDir}{$year}/{$month}/{$day}/{$callFileName}.{$mixMonFormat}", "ai(LOCAL_MIXMON_ID)", $mixMonPost, rand());
 $mixmonid = getVariable($channel, "LOCAL_MIXMON_ID");
 $astman->SetVar($channel, "__MIXMON_ID", $mixmonid);
+$channame = getVariable($channel, "CHANNEL(name)");
+$astman->SetVar($channel, "__RECORD_ID", $channame);
 
 //Set the monitor format and file name for the cdr entry
 ot_debug("Setting CDR info");
@@ -229,7 +230,6 @@ $astman->SetVar($channel, "MON_FMT", $monFmt);
 $astman->SetVar($bridgePeer, "CDR(recordingfile)", "{$callFileName}.{$monFmt}");
 $astman->SetVar($channel, "CDR(recordingfile)", "{$callFileName}.{$monFmt}");
 
-// The following 2 lines are to deal with a bug in Asterisk 1.8 not setting the CDR rec file after hangup
 $astman->SetVar($bridgePeer, "CALLFILENAME", "{$callFileName}");
 $astman->SetVar($channel, "CALLFILENAME", "{$callFileName}");
 
@@ -242,8 +242,7 @@ function getVariable($channel, $varName) {
 	$results = $astman->GetVar($channel, $varName, rand());
 
 	if($results["Response"] != "Success"){
-		ot_debug("Failed to get var {$varName} exiting");
-		exit(1);
+		return '';
 	}
 
 	return $results["Value"];

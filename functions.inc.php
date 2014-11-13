@@ -226,7 +226,7 @@ function callrecording_get_config($engine) {
 		// The route is set to yes or no.
 		$ext->add($context, $exten, '', new ext_set('RECMODE', '${ARG3}'));
 
-		$ext->add($context, $exten, 'fin', new ext_gosub('1', 'recordcheck', false, '${RECMODE},${ARG2},${FROMEXTEN}'));
+		$ext->add($context, $exten, 'fin', new ext_gosub('1', 'recordcheck', false, '${RECMODE},out,${ARG2}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		// CALLS BETWEEN EXTENSIONS
@@ -318,10 +318,11 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_set('ONETOUCH_REC_SCRIPT_STATUS', ''));
 		$ext->add($context, $exten, '', new ext_system(FreePBX::Config()->get('ASTVARLIBDIR').'/bin/one_touch_record.php ${CHANNEL(name)}'));
 		$ext->add($context, $exten, '', new ext_noop('ONETOUCH_REC_SCRIPT_STATUS: [${ONETOUCH_REC_SCRIPT_STATUS}]'));
-		$ext->add($context, $exten, '', new ext_noop_trace('ONETOUCH_REC: [${ONETOUCH_REC}] REC_STATUS: [${REC_STATUS}]'));
+		$ext->add($context, $exten, '', new ext_noop_trace('REC_STATUS: [${REC_STATUS}]'));
 		$ext->add($context, $exten, '', new ext_noop_trace('ONETOUCH_RECFILE: [${ONETOUCH_RECFILE}] CDR(recordingfile): [${CDR(recordingfile)}]'));
-		$ext->add($context, $exten, '', new ext_execif('$["${ONETOUCH_REC}"="RECORDING"]','Playback','beep'));
-		$ext->add($context, $exten, '', new ext_execif('$["${ONETOUCH_REC}"="PAUSED"]','Playback','beep&beep'));
+		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="RECORDING"]','Playback','beep'));
+		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="STOPPED"]','Playback','beep&beep'));
+		$ext->add($context, $exten, '', new ext_execif('$["${ONETOUCH_REC_SCRIPT_STATUS}"="DENIED"]','Playback','access-denied'));
 		$ext->add($context, $exten, '', new ext_macroexit());
 
 	}
