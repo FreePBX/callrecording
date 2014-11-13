@@ -18,6 +18,7 @@ $astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "STARTED");
 // Who is the person pushing Record?
 $pickupExten = getVariable($channel, "PICKUP_EXTEN");
 $thisExtension = getVariable($channel, "THISEXTEN");
+
 $realCallerIdNum = getVariable($channel, "REALCALLERIDNUM");
 $fromExten = getVariable($channel, "FROMEXTEN");
 $mixmonid = getVariable($channel, "MIXMON_ID");
@@ -25,165 +26,149 @@ $bridgePeer = getVariable($channel, "BRIDGEPEER");
 if ($fromExten == '') {
 	$fromExten = $realCallerIdNum;
 }
+
 ot_debug("Checking pickup extension");
 if($pickupExten != "") {
-	ot_debug("Setting THISEXTEN to {$callFileNameExten}");
-	$astman->SetVar($channel, "THISEXTEN", $callFileNameExten);
-	$thisExtension = $callFileNameExten;
+	ot_debug("Setting THISEXTEN to {$pickupExten}");
+	$astman->SetVar($channel, "THISEXTEN", $pickupExten);
+	$thisExtension = $pickupExten;
 }
 
 ot_debug("Checking this extension");
 if($thisExtension == "") {
-	$thisExtension = ($realCallerIdNum == "" ? $callFileNameExten : $fromExten);
-	ot_debug("Setting THISEXTEN to {$thisExtension}");
-	$astman->SetVar($channel, "THISEXTEN", $thisExtension);
-}
+	ot_debug("Don't know what this exten is");
+	// We don't know who we are. Let's figure it out.
+	// There isn't, really, any sensible way to do this APART from just
+	// looking through the DEVICE database.
 
-// Attended Transfer Issues:
-//
-// Testing has uncovered some cases where thisExtension ends up being derrived to the extension that
-// called this extension in a scenario where the orginal caller dose an attended transfer elsewhere.
-// So ... we go through the added trouble of checking if the DEVICE object for the suspected user
-// matches the connected channel.
-//
-// If it does NOT match, we search through ALL the DEVICE dial records to see if any of them match
-// this channel and if so, check their assigned user to identify who this is.
-//
+	// Our device is whatever's before the - in the channl name.
+	list($dev, )  = explode('-', $channel);
+	ot_debug("Device is $dev");
 
-// Let's make sure $thisExtension matches our device
-//
-$device = $astman->database_get("AMPUSER/{$thisExtension}", "device");
-ot_debug("Checking to make sure thisExtension is correct, Got device(s) $device");
-$devices = explode('&',$device);
-$channelComponents = explode('-', $channel);
-$baseChannel = $channelComponents[0];
-$dev_confirmed=false;
-// in case mutliple devices are defined in the form of 222&322
-foreach ($devices as $dev) {
-	$dial = $astman->database_get("DEVICE/{$dev}", "dial");
-	ot_debug("checking device $dev got dial $dial");
-	if (strcasecmp($dial, $baseChannel) == 0) {
-		$dev_confirmed = true;
-		ot_debug("Found $dev same as $channel so we are good");
-		break;
-	}
-}
-// If we have not confirmed, let's search all the DEVICE array and see if we can find a dial string that matches
-//
-if (!$dev_confirmed) {
-	ot_debug("thisExension $thisExtension is suspicious, checking for a better match");
-	$all_devices = $astman->database_show('DEVICE');
-	foreach ($all_devices as $key => $dial) {
-		$myvar = explode('/',trim($key,'/'));
-		if (!empty($myvar[2]) && $myvar[2] == 'dial') {
-			//ot_debug("Checking DEVICE/{$myvar[1]}");
-			if (strcasecmp($dial, $baseChannel) == 0) {
-				// we found a DEVICE who's dialstring matches, hopefully they have a user assigned
-				$user = $astman->database_get("DEVICE/{$myvar[1]}", "user");
-				ot_debug("We found device {$myvar[1]} to match our channel with user: $user");
-				if ($user != '') {
-					$dev_confirmed = true;
-					$thisExtension = $user;
-					ot_debug("Changed thisExtension to $thisExtension");
-					// wasn't sure if we should change it back in the channel since it could create undeterministic behavior elsewhere
-					break;
-				} else {
-					ot_debug("No user specified, unable to track a better user to this device");
-					break;
+	// However, before we look through all of them, we may (but not guaranteed
+	// to be) the DIALEDPEERNUMBER.
+	$dpn = getVariable($channel, "DIALEDPEERNUMBER");
+	if ($astman->database_get("DEVICE/{$dpn}", "dial") == $dev) {
+		// Woo! We found it!
+		ot_debug("Found $dev from DIALEDPEERNUMBER as $dpn");
+		$user = $astman->database_get("DEVICE/{$dpn}", "user");
+		if (!$user) {
+			// HOW DID THIS EVEN HAPPEN?!
+			$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-NOUSER");
+			exit(0);
+		}
+		$astman->SetVar($channel, "THISEXTEN", $user);
+		$thisExtension = $user;
+	} else {
+		// Well crap. OK. Fine. Let's get all of them then.
+		$all_devices = $astman->database_show('DEVICE');
+		print_r($all_devices);
+		foreach ($all_devices as $key => $dial) {
+			$myvar = explode('/',trim($key,'/'));
+			if (!empty($myvar[2]) && $myvar[2] == 'dial') {
+				if ($dial == $dev) {
+					// We found the DEVICE!
+					$user = $astman->database_get("DEVICE/{$myvar[1]}", "user");
+					ot_debug("We found device {$myvar[1]} to match our channel with user: $user");
+					if ($user != '') {
+						$thisExtension = $user;
+						$astman->SetVar($channel, "THISEXTEN", $user);
+						ot_debug("Changed thisExtension to $thisExtension");
+						break;
+					} else {
+						ot_debug("No user specified, unable to track a better user to this device");
+						$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-NOT_LOGGED_IN");
+						exit(0);
+					}
 				}
 			}
 		}
 	}
 }
+ot_debug("This exten is $thisExtension");
 
 //Check on demand setting for the extension
 ot_debug("Checking on demand setting");
 $onDemand = $astman->database_get("AMPUSER/{$thisExtension}/recording", "ondemand");
 if($onDemand == "disabled") {
 	ot_debug("Disabled");
-	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED");
+	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-ASTDB");
 	exit(0);
 }
 
-//Grab the bridge peer
+// Figure out who is the master channel, by looking for a RECORD_ID.
+// This is created when a channel has started to record, and links
+// to the master channel that is doing the recording.
 $myMaster = getVariable($channel, "MASTER_CHANNEL(CHANNEL(name))");
-//ot_debug("myMaster: {$myMaster}");
 $theirMaster = getVariable($bridgePeer, "MASTER_CHANNEL(CHANNEL(name))");
-//ot_debug("theirMaster: {$theirMaster}");
-
-// Figure out who is 'MasterChannel' - in the simplest case, there is a real
-// master channel. Otherwise let's see if we've already run into this dilema
-// and tagged someone with the MASERONETOUCH variable set. If not, then let's
-// see which channel inheritted the ONETOUCH_RECFILE variable if any and lastly
-// let's just choose 'us' if all else fails.
-//
-if (($myMaster == $theirMaster) && ($myMaster == $channel) || ($myMaster == $brdigePeer)) {
-	// Since these agree, there was a real master channel relationship, otherwise these
-	// would have just been the channel from each side of the bridge. Maybe there is
-	// a more CONCLUSIVE way to deterine such a relationship???
-	//
-	$masterChannel = $myMaster;
-	ot_debug("There is a real Master Channel: {$masterChannel}");
-} else {
-	$masterOneTouchUs = getVariable($channel, "MASTERONETOUCH");
-	$masterOneTouchThem = getVariable($bridgePeer, "MASTERONETOUCH");
-	if ($masterOneTouchUs) {
-		$masterChannel = $channel;
-		ot_debug("We were previsously designaged Master because of MASTERONETOUCH");
-	} else if ($masterOneTouchThem) {
-		$masterChannel = $bridgePeer;
-		ot_debug("They were previsously designaged Master because of MASTERONETOUCH");
-	} else if (getVariable($bridgePeer, "ONETOUCH_RECFILE") != '') {
-		$masterChannel = $bridgePeer;
-		$astman->SetVar($masterChannel, "MASTERONETOUCH", 'TRUE');
-		ot_debug("No conclusive master but they have ONETOUCH_RECFILE defined so let's designate them");
-	} else {
-		// Either ONETOUCH_RECFILE is set for us or not, either way ... tag, we're it!
-		//
-		$masterChannel = $channel;
-		$astman->SetVar($masterChannel, "MASTERONETOUCH", 'TRUE');
-		ot_debug("No conclusive master so either we have MASTERONETOUCH defined or no one does, so we do now:)");
-	}
-}
-
-$callFileName = getVariable($channel, "CALLFILENAME");
-
-ot_debug("Checking if channel is already recording");
-// New Recordings handled here. At least one of the channels we've discovered has
-// a RECORD_ID, if we've ever recorded this call.
-foreach (array($channel, $bridgePeer, $masterChannel) as $c) {
-	$rid = getVariable($c, 'RECORD_ID');
+$masterChannel = false;
+foreach (array($channel, $myMaster, $bridgePeer, $theirMaster) as $c) {
+	$rid = getVariable($c, "RECORD_ID");
 	if (!empty($rid)) {
-		// This channel, previously, has been recording things.
-		$recStatus = getVariable($rid, 'REC_STATUS');
-		if ($recStatus == "RECORDING") {
-
-			// We're recording. Are we allowed to stop it?
-			$rpm = getVariable($rid, "REC_POLICY_MODE");
-			if ($rpm == "FORCE" && $ondemand != "override") {
-				$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED");
-				exit(0);
-			}
-
-			$astman->stopmixmonitor($rid, rand());
-			$astman->SetVar($rid, "REC_STATUS", "STOPPED");
-			$astman->SetVar($channel, "REC_STATUS", "STOPPED");
-			$astman->SetVar($bridgePeer, "REC_STATUS", "STOPPED");
-			$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "RECORDING_STOPPED");
-			exit(0);
-		}
-		// Ah, it's not recording. So we just want to keep that Recording ID, as we're
-		// going to use it later as our master channel. However, we do know what the
-		// filename should be, so we'll update that
+		ot_debug("Found Master channel $rid");
+		// Found it!
 		$masterChannel = $rid;
-		$cfn = getVariable($masterChannel, "CALLFILENAME");
-		if (!empty($cfn)) {
-			$callFileName = $cfn;
-		}
 		break;
 	}
 }
 
+// Now, it's possible that that channel may not actually exist. If it was
+// recording previously in a bridge, and recording was turned off, that
+// bridge may have been removed./ Let's see if it's still there.
+if ($masterChannel) {
+	$test = getVariable($masterChannel, "CALLFILENAME");
+	if (!$test) {
+		// That channel doesn't exist. *flip tables*
+		$masterChannel = false;
+	}
+}
+
+if (!$masterChannel) {
+	// We didn't find one. Well, I guess that means it's us.
+	$masterChannel = $channel;
+	foreach (array($channel, $myMaster, $bridgePeer, $theirMaster) as $c) {
+		if (!empty($c)) {
+			print "Setting $c with RID to $masterChannel\n";
+			$astman->SetVar($c, "RECORD_ID", $masterChannel);
+		}
+	}
+}
+
+ot_debug("Checking if channel $masterChannel is already recording");
+$rid = getVariable($masterChannel, 'RECORD_ID');
+if (!empty($rid)) {
+	// This channel, previously, has been recording things.
+	$recStatus = getVariable($rid, 'REC_STATUS');
+	if ($recStatus == "RECORDING") {
+		ot_debug("Found $rid as RECORDING");
+		// We're recording. Are we allowed to stop it? The CURRENT channel will have the
+		// latest, correct, policy mode.
+		$rpm = getVariable($channel, "REC_POLICY_MODE");
+		ot_debug("RPM is $rpm in $channel");
+		if ($rpm == "FORCE" && $onDemand != "override") {
+			ot_debug("Denied policymode - $onDemand and $rpm");
+			$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-POLICYMODE");
+			exit(0);
+		}
+
+		ot_debug("Stopping");
+		$astman->stopmixmonitor($rid, rand());
+		$astman->SetVar($rid, "REC_STATUS", "STOPPED");
+		$astman->SetVar($channel, "REC_STATUS", "STOPPED");
+		$astman->SetVar($bridgePeer, "REC_STATUS", "STOPPED");
+		$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "RECORDING_STOPPED");
+		exit(0);
+	}
+	// Ah, it's not recording. So we just want to keep that Recording ID, as we're
+	// going to use it later as our master channel. However, we do know what the
+	// filename should be, so we'll update that
+	ot_debug("Found $rid, but it's not recording");
+	$masterChannel = $rid;
+	$cfn = getVariable($masterChannel, "CALLFILENAME");
+	if (!empty($cfn)) {
+		$callFileName = $cfn;
+	}
+}
 
 if (!$callFileName) {
 	// We need to create the filename for this call.
@@ -193,15 +178,13 @@ if (!$callFileName) {
 	ot_debug("CFN UPDATED ::$callFileName::");
 }
 
-
 // It's not recording
-ot_debug("Checking recording polcy\nMASTER_CHANNEL(REC_POLICY_MODE): {$rpm}");
+ot_debug("Checking recording polcy {$rpm}");
 if($rpm == "NEVER" && $ondemand != "override") {
 	ot_debug("Recording polcy is 'never', no override, exiting");
-	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED");
+	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-NEVER_NO_OVERRIDE");
 	exit(0);
 }
-
 
 //Start recording the channel
 ot_debug("Recording Channel");

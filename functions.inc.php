@@ -322,7 +322,7 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_noop_trace('ONETOUCH_RECFILE: [${ONETOUCH_RECFILE}] CDR(recordingfile): [${CDR(recordingfile)}]'));
 		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="RECORDING"]','Playback','beep'));
 		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="STOPPED"]','Playback','beep&beep'));
-		$ext->add($context, $exten, '', new ext_execif('$["${ONETOUCH_REC_SCRIPT_STATUS}"="DENIED"]','Playback','access-denied'));
+		$ext->add($context, $exten, '', new ext_execif('$["${ONETOUCH_REC_SCRIPT_STATUS:0:6}"="DENIED"]','Playback','access-denied'));
 		$ext->add($context, $exten, '', new ext_macroexit());
 
 	}
