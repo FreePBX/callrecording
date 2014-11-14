@@ -130,6 +130,8 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_set('__MON_FMT','${IF($["${MIXMON_FORMAT}"="WAV"]?wav49:${MIXMON_FORMAT})}'));
 		$ext->add($context, $exten, 'initialized', new ext_noop('Recordings initialized'));
 
+		$ext->add($context, $exten, '', new ext_execif('$[!${LEN($ARG3)}]', 'Set', 'ARG3=dontcare')); // Make sure we have a recording request.
+
 		// Backup our current setting, just in case we need to roll back to it.
 		$ext->add($context, $exten, '', new ext_set('REC_POLICY_MODE_SAVE','${REC_POLICY_MODE}'));
 
@@ -156,7 +158,6 @@ function callrecording_get_config($engine) {
 
 		// Generic check
 		$ext->add($context, $exten, '', new ext_noop('Generic ${ARG1} Recording Check - ${FROMEXTEN} ${ARG2}'));
-		$ext->add($context, $exten, '', new ext_execif('$[${LEN($ARG3)}]', 'Set', 'ARG3=dontcare')); // Sanity check
 		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck',false,'${ARG3},${ARG1},${ARG2}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
@@ -228,6 +229,14 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_set('RECMODE', '${ARG3}'));
 
 		$ext->add($context, $exten, 'fin', new ext_gosub('1', 'recordcheck', false, '${RECMODE},out,${ARG2}'));
+		$ext->add($context, $exten, '', new ext_return(''));
+
+		// INBOUND ROUTES
+		$exten = 'in';
+		$ext->add($context, $exten, '', new ext_noop('Inbound Recording Check to ${ARG2}'));
+		$ext->add($context, $exten, '', new ext_set('FROMEXTEN', 'unknown'));
+		$ext->add($context, $exten, '', new ext_execif('$[${LEN(${CALLERID(num)})}]', 'Set', 'FROMEXTEN=${CALLERID(num)}' ));
+		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck', false, '${ARG3},in,${ARG2}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		// CALLS BETWEEN EXTENSIONS
@@ -349,7 +358,7 @@ function callrecording_hookGet_config($engine) {
 				}
 				$extension=($route['extension']!=''?$route['extension']:'s').($route['cidnum']==''?'':'/'.$route['cidnum']);
 			}
-			$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','exten,${EXTEN},'.$route['callrecording']));
+			$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','in,${EXTEN},'.$route['callrecording']));
 		}
 
 		// Outbound Routes Forced Recordings
