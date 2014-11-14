@@ -156,6 +156,7 @@ function callrecording_get_config($engine) {
 
 		// Generic check
 		$ext->add($context, $exten, '', new ext_noop('Generic ${ARG1} Recording Check - ${FROMEXTEN} ${ARG2}'));
+		$ext->add($context, $exten, '', new ext_execif('$[${LEN($ARG3)}]', 'Set', 'ARG3=dontcare')); // Sanity check
 		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck',false,'${ARG3},${ARG1},${ARG2}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
