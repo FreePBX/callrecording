@@ -243,6 +243,7 @@ function callrecording_get_config($engine) {
 		$exten = 'exten';
 		$ext->add($context, $exten, '', new ext_noop('Exten Recording Check between ${FROMEXTEN} and ${ARG2}'));
 		$ext->add($context, $exten, '', new ext_set('CALLTYPE','${IF($[${LEN(${FROM_DID})}]?external:internal)}'));
+		$ext->add($context, $exten, '', new ext_execif('${LEN(${CALLTYPE_OVERRIDE})}', 'Set', 'CALLTYPE=${CALLTYPE_OVERRIDE}')); // Queues use this to make sure a call is tagged as external
 
 		$ext->add($context, $exten, '', new ext_set('CALLEE','${DB(AMPUSER/${ARG2}/recording/in/${CALLTYPE})}'));
 		// Make sure CALLEE isn't empty. Bad astdb entry?
