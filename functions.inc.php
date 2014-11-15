@@ -204,7 +204,7 @@ function callrecording_get_config($engine) {
 		// Stop recording if requested.
 		$ext->add($context, $exten, 'stoprec', new ext_noop('Stopping recording: ${ARG2}, ${ARG3}'));
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','STOPPED'));
-		$ext->add($context, $exten, '', new ext_stopmixmonitor());
+		$ext->add($context, $exten, '', new ext_system(FreePBX::Config()->get('ASTVARLIBDIR').'/bin/stoprecording.php ${CHANNEL(name)}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		// RECORDING POLICY LOGIC HERE
