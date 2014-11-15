@@ -3,6 +3,8 @@
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
 //	Copyright 2014 Schmooze Com Inc.
 
+// This file exists because of https://issues.asterisk.org/jira/browse/ASTERISK-24527
+
 //Bootstrap FreePBX
 $bootstrap_settings['freepbx_auth'] = false;
 if(!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {

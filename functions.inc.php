@@ -163,6 +163,9 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		// Check to see what should be done, based on the request type.
+		// ARG1 = Policy.
+		// ARG2 = Name ('q', 'exten', etc)
+		// ARG3 = Destination
 		$exten = 'recordcheck';
 		$ext->add($context, $exten, '', new ext_noop('Starting recording check against ${ARG1}'));
 		$ext->add($context, $exten, '', new ext_goto('${ARG1}'));
@@ -187,7 +190,7 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		// NEVER: Don't record this call, and stop recording if we are.
-		$ext->add($context, $exten, 'never', new ext_set('__REC_STATUS', 'NEVER'));
+		$ext->add($context, $exten, 'never', new ext_set('__REC_POLICY_MODE', 'NEVER'));
 		$ext->add($context, $exten, '', new ext_goto('stoprec'));
 
 		// Start recording if requested
@@ -204,6 +207,7 @@ function callrecording_get_config($engine) {
 		// Stop recording if requested.
 		$ext->add($context, $exten, 'stoprec', new ext_noop('Stopping recording: ${ARG2}, ${ARG3}'));
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','STOPPED'));
+		// See https://issues.asterisk.org/jira/browse/ASTERISK-24527
 		$ext->add($context, $exten, '', new ext_system(FreePBX::Config()->get('ASTVARLIBDIR').'/bin/stoprecording.php "${CHANNEL(name)}"'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
@@ -262,7 +266,7 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_gotoif('$["${CALLER_PRI}"="${CALLEE_PRI}"]', '${REC_POLICY}','${IF($[${CALLER_PRI}>${CALLEE_PRI}]?caller:callee)}'));
 
 		// Recpient of the call wins. We've already sanity checked them above, so we can use the CALLEE var.
-		$ext->add($context, $exten, 'callee', new ext_gosub('1', 'recordcheck', false, '${CALLEE},${ARG2},${FROMEXTEN}'));
+		$ext->add($context, $exten, 'callee', new ext_gosub('1', 'recordcheck', false, '${CALLEE},${CALLTYPE},${ARG2}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		// Originator of the call wins. Always out/internal.
@@ -270,7 +274,7 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_execif('$[!${LEN(${RECMODE})}]','Set', 'RECMODE=dontcare'));
 		// If we don't care, then the callee gets to pick.
 		$ext->add($context, $exten, '', new ext_execif('$["${RECMODE}"="dontcare"]','Set', 'RECMODE=${CALLEE}'));
-		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck', false, '${RECMODE},${ARG2},${FROMEXTEN}'));
+		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck', false, '${RECMODE},${CALLTYPE},${ARG2}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		// For confernecing we will set the variables (since the actual meetme does the recording) in case an option were to exist to do on-demand recording
