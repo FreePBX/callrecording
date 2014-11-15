@@ -204,7 +204,7 @@ function callrecording_get_config($engine) {
 		// Stop recording if requested.
 		$ext->add($context, $exten, 'stoprec', new ext_noop('Stopping recording: ${ARG2}, ${ARG3}'));
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','STOPPED'));
-		$ext->add($context, $exten, '', new ext_system(FreePBX::Config()->get('ASTVARLIBDIR').'/bin/stoprecording.php ${CHANNEL(name)}'));
+		$ext->add($context, $exten, '', new ext_system(FreePBX::Config()->get('ASTVARLIBDIR').'/bin/stoprecording.php "${CHANNEL(name)}"'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		// RECORDING POLICY LOGIC HERE
@@ -326,7 +326,7 @@ function callrecording_get_config($engine) {
 		$exten = 's';
 
 		$ext->add($context, $exten, '', new ext_set('ONETOUCH_REC_SCRIPT_STATUS', ''));
-		$ext->add($context, $exten, '', new ext_system(FreePBX::Config()->get('ASTVARLIBDIR').'/bin/one_touch_record.php ${CHANNEL(name)}'));
+		$ext->add($context, $exten, '', new ext_system(FreePBX::Config()->get('ASTVARLIBDIR').'/bin/one_touch_record.php "${CHANNEL(name)}"'));
 		$ext->add($context, $exten, '', new ext_noop('ONETOUCH_REC_SCRIPT_STATUS: [${ONETOUCH_REC_SCRIPT_STATUS}]'));
 		$ext->add($context, $exten, '', new ext_noop_trace('REC_STATUS: [${REC_STATUS}]'));
 		$ext->add($context, $exten, '', new ext_noop_trace('ONETOUCH_RECFILE: [${ONETOUCH_RECFILE}] CDR(recordingfile): [${CDR(recordingfile)}]'));
