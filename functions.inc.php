@@ -151,10 +151,11 @@ function callrecording_get_config($engine) {
 
 		// If we don't have a current mode, and we were explicitly given a command, we can set our current mode
 		// to that. This is what we CURRENTLY think we should be doing. This may change if it's an exten.
-		$ext->add($context, $exten, 'checkaction', new ext_execif('$["${REC_POLICY_MODE}"="" & "${ARG3}"!=""]','Set','__REC_POLICY_MODE=${TOUPPER(${ARG3})}'));
+		//  .. Disabled. Legacy code, should be unneeded now.
+		// $ext->add($context, $exten, 'checkaction', new ext_execif('$["${REC_POLICY_MODE}"="" & "${ARG3}"!=""]','Set','__REC_POLICY_MODE=${TOUPPER(${ARG3})}'));
 
 		// Now jump to the dialplan handler. If it doesn't exist, do the generic test (rg, force, q use these).
-		$ext->add($context, $exten, '',  new ext_gotoif('$[${DIALPLAN_EXISTS('.$context.',${ARG1})}]', $context.',${ARG1},1'));
+		$ext->add($context, $exten, 'checkaction',  new ext_gotoif('$[${DIALPLAN_EXISTS('.$context.',${ARG1})}]', $context.',${ARG1},1'));
 
 		// Generic check
 		$ext->add($context, $exten, '', new ext_noop('Generic ${ARG1} Recording Check - ${FROMEXTEN} ${ARG2}'));
@@ -215,20 +216,18 @@ function callrecording_get_config($engine) {
 		// The Extension is first in the chain. 
 		$ext->add($context, $exten, '', new ext_set('RECMODE', '${DB(AMPUSER/${FROMEXTEN}/recording/out/external)}'));
 
-		// If the route is set to DONTCARE, we don't care. 
-		$ext->add($context, $exten, '', new ext_execif('$["${ARG3}" = "dontcare"]', 'Goto', 'fin'));
+		// If the exten is blank or DONTCARE, then we use the route.
+		$ext->add($context, $exten, '', new ext_execif('$[!${LEN(${RECMODE})} | "${RECMODE}" = "dontcare"]', 'Goto', 'routewins'));
 
-		// If the route is set to FORCE or NEVER, that wins. 
-		$ext->add($context, $exten, '', new ext_execif('$["${ARG3}" = "never" | "${ARG3}" = "force"]', 'Set', 'RECMODE=${ARG3}'));
-		$ext->add($context, $exten, '', new ext_execif('$["${ARG3}" = "never" | "${ARG3}" = "force"]', 'Goto', 'fin'));
+		// If the route is FORCE or NEVER, then we use the route.
+		$ext->add($context, $exten, '', new ext_execif('$["${ARG3}" = "never" | "${ARG3}" = "force"]', 'Goto', 'routewins'));
 
-		// If the EXTENSION is set to FORCE or NEVER, that now beats a yes or no from the route.
-		$ext->add($context, $exten, '', new ext_execif('$["${RECMODE}" = "never" | "${RECMODE}" = "force"]', 'Goto', 'fin'));
+		// Neither of those, so we use exten's setting.
+		$ext->add($context, $exten, 'extenwins', new ext_gosub('1', 'recordcheck', false, '${RECMODE},out,${ARG2}'));
+		$ext->add($context, $exten, '', new ext_return(''));
 
-		// The route is set to yes or no.
-		$ext->add($context, $exten, '', new ext_set('RECMODE', '${ARG3}'));
-
-		$ext->add($context, $exten, 'fin', new ext_gosub('1', 'recordcheck', false, '${RECMODE},out,${ARG2}'));
+		// Route wins
+		$ext->add($context, $exten, 'routewins', new ext_gosub('1', 'recordcheck', false, '${ARG3},out,${ARG2}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		// INBOUND ROUTES
