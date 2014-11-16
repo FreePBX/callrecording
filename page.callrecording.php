@@ -82,8 +82,8 @@ echo $helptext;
 
 
 	<tr>
-	<tr> <td colspan=2><p><?php echo _("Note that these options have changed in FreePBX 12."); ?>
-		<a href='//wiki.freepbx.org/display/F2/Call+Recording+walk+through'><?php echo _("Please read the wiki on these changes."); ?></a></p>
+	<tr> <td colspan=2><p><?php echo _("Note that the meaning of these options has changed."); ?>
+		<a href='//wiki.freepbx.org/display/F2/Call+Recording+walk+through'><?php echo _("Please read the wiki for futher information on these changes."); ?></a></p>
 	</td></tr>
     <td><a href="#" class="info"><?php echo _("Call Recording Mode")?>:<span><?php echo _("Please read the Wiki on what these options mean.")?></span></a></td>
 <?php

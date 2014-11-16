@@ -490,7 +490,7 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 		if ($target_menuid == 'did') {
 			$html.='<tr><td colspan="2"><h5>'._("Call Recording").'<hr></h5></td></tr>';
 		}
-		$html .= '<tr><td colspan=2><p>'._("Note that these options have changed in FreePBX 12.")." <a href='http://wiki.freepbx.org/display/F2/Call+Recording+walk+through'>"._("Please read the wiki on these changes.")."</a></p></td></tr>\n";
+		$html .= '<tr><td colspan=2><p>'._("Note that the meaning of these options has changed.")." <a href='http://wiki.freepbx.org/display/F2/Call+Recording+walk+through'>"._("Please read the wiki for futher information on these changes.")."</a></p></td></tr>\n";
 		$html.='<tr><td><a href="#" class="info">'._('Call Recording').'<span>'._("This sets the call recording behavior for calls coming into this DID. Please read the wiki for information on what these settings mean.").'</span></a>:</td>';
 		$html .= '<td><span class="radioset">';
 		// Fix any old options.
