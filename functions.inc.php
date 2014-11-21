@@ -180,6 +180,7 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"!="RECORDING"]', 'startrec'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
+		$ext->add($context, $exten, 'delayed', new ext_noop('Detected legacy "delayed" entry. Mapping to "yes"'));
 		// YES: Start recording if we haven't been told otherwise.
 		$ext->add($context, $exten, 'yes', new ext_execif('$["${REC_POLICY_MODE}" = "NEVER" | "${REC_POLICY_MODE}" = "NO" | "${REC_STATUS}" = "RECORDING"]', 'Return'));
 		$ext->add($context, $exten, '', new ext_set('__REC_POLICY_MODE', 'YES'));
