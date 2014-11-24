@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>12.0.1.1</version>
+	<version>12.0.2</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -21,6 +21,7 @@
 		</callrecording>
  	</popovers>
 	<changelog>
+		*12.0.2* #8298
 		*12.0.1.1* Handle old 'delayed' entry
 		*12.0.1* Significant changes to the way Call Recordings work. See wiki.
 		*2.11.0.7* #7315
