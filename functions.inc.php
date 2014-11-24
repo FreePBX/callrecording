@@ -45,7 +45,7 @@ function callrecording_getdest($exten) {
 function callrecording_getdestinfo($dest) {
 	global $active_modules;
 
-	if (substr(trim($dest),0,14) == 'ext-callrecording,') {
+	if (substr(trim($dest),0,18) == 'ext-callrecording,') {
 		$exten = explode(',',$dest);
 		$exten = $exten[1];
 		$thisexten = callrecording_get($exten);
