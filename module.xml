@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>2.11.0.8</version>
+	<version>2.11.0.9</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -21,6 +21,7 @@
 		</callrecording>
  	</popovers>
 	<changelog>
+		*2.11.0.9* #8298
 		*2.11.0.8* Generate License file
 		*2.11.0.7* #7315
 		*2.11.0.6* Generate License file
