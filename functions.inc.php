@@ -488,19 +488,27 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 	//if ($target_menuid == 'did'){
 	if ($target_menuid == 'did' || $target_menuid == 'routing') {
 		global $tabindex;
-		if ($target_menuid == 'did') {
-			$html.='<tr><td colspan="2"><h5>'._("Call Recording").'<hr></h5></td></tr>';
-		}
-		$html .= '<tr><td colspan=2><p>'._("Note that the meaning of these options has changed.")." <a href='http://wiki.freepbx.org/display/F2/Call+Recording+walk+through'>"._("Please read the wiki for futher information on these changes.")."</a></p></td></tr>\n";
-		$html.='<tr><td><a href="#" class="info">'._('Call Recording').'<span>'._("This sets the call recording behavior for calls coming into this DID. Please read the wiki for information on what these settings mean.").'</span></a>:</td>';
-		$html .= '<td><span class="radioset">';
+		$html = '<!--CALL RECORDING HOOK-->';
+		$html .= '<div class="well well-info">';
+		$html .= _("Note that the meaning of these options has changed.")." <a href='http://wiki.freepbx.org/display/F2/Call+Recording+walk+through'>"._("Please read the wiki for futher information on these changes.");
+		$html .= '</div>';
+		$html .= '<div class="element-container">';
+		$html .= '<div class="row">';
+		$html .= '<div class="col-md-12">';
+		$html .= '<div class="row">';
+		$html .= '<div class="form-group">';
+		$html .= '<div class="col-md-3">';
+		$html .= '<label class="control-label" for="crwrapper">'. _("Call Recording") .'</label>';
+		$html .= '<i class="fa fa-question-circle fpbx-help-icon" data-for="crwrapper"></i>';
+		$html .= '</div>';
+		$html .= '<div class="col-md-9 radioset">';
 		// Fix any old options.
 		if ($callrecording == "delayed") {
 			$callrecording = "yes";
 		}
 		if ($callrecording == "") {
 			$callrecording = "dontcare";
-		}
+		}		
 		$options = array(_("Force") => "force", _("Yes") => "yes", _("Don't Care") => "dontcare", _("No") => "no", _("Never") => "never");
 		foreach ($options as $disp => $name) {
 			if ($callrecording == $name) {
@@ -509,11 +517,24 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 				$checked = "";
 			}
 			$html .= "<input type='radio' id='record_${name}' name='callrecording' value='$name' $checked><label for='record_${name}'>$disp</label>";
-		}
-		$html .= "</span></td>\n";
+		}	
+		$html .= '</div>';
+		$html .= '</div>';
+		$html .= '</div>';
+		$html .= '</div>';
+		$html .= '</div>';
+		$html .= '<div class="row">';
+		$html .= '<div class="col-md-12">';
+		$html .= '<span id="crwrapper-help" class="help-block fpbx-help-block">'._("This sets the call recording behavior for calls coming into this DID. Please read the wiki for information on what these settings mean.").'</span>';
+		$html .= '</div>';
+		$html .= '</div>';
+		$html .= '</div>';
+		$html .= '<!--END CALL RECORDING HOOK-->';
+		
 	}
 	return $html;
 }
+
 
 function callrecording_hookProcess_core($viewing_itemid, $request) {
 	switch ($request['display']) {
