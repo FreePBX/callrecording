@@ -127,7 +127,6 @@ if (!$masterChannel) {
 	$masterChannel = $channel;
 	foreach (array($channel, $myMaster, $bridgePeer, $theirMaster) as $c) {
 		if (!empty($c)) {
-			print "Setting $c with RID to $masterChannel\n";
 			$astman->SetVar($c, "RECORD_ID", $masterChannel);
 		}
 	}
@@ -220,7 +219,8 @@ $astman->SetVar($bridgePeer, "REC_STATUS", "RECORDING");
 $astman->SetVar($channel, "REC_STATUS", "RECORDING");
 $astman->SetVar($channel, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
 $astman->SetVar($bridgePeer, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
-$astman->mixmonitor($masterChannel, "{$mixMonDir}{$year}/{$month}/{$day}/{$callFileName}.{$mixMonFormat}", "ai(LOCAL_MIXMON_ID)", $mixMonPost, rand());
+$beep = getVariable($channel, 'MIXMON_BEEP');
+$astman->mixmonitor($masterChannel, "{$mixMonDir}{$year}/{$month}/{$day}/{$callFileName}.{$mixMonFormat}", "ai(LOCAL_MIXMON_ID)$beep", $mixMonPost, rand());
 $mixmonid = getVariable($channel, "LOCAL_MIXMON_ID");
 $astman->SetVar($channel, "__MIXMON_ID", $mixmonid);
 $channame = getVariable($channel, "CHANNEL(name)");
