@@ -62,7 +62,6 @@ if($thisExtension == "") {
 	} else {
 		// Well crap. OK. Fine. Let's get all of them then.
 		$all_devices = $astman->database_show('DEVICE');
-		print_r($all_devices);
 		foreach ($all_devices as $key => $dial) {
 			$myvar = explode('/',trim($key,'/'));
 			if (!empty($myvar[2]) && $myvar[2] == 'dial') {
@@ -170,10 +169,34 @@ if (!empty($rid)) {
 	}
 }
 
+$year = getVariable($channel, "YEAR");
+$month = getVariable($channel, "MONTH");
+$day = getVariable($channel, "DAY");
+$timestr = getVariable($channel, "TIMESTR");
+// It's possible that ymd may not be set. Check them all.
+if (!$year) {
+	$year = date("Y");
+	$astman->SetVar($channel, "YEAR", $year);
+}
+
+if (!$month) {
+	$month = date("m");
+	$astman->SetVar($channel, "MONTH", $month);
+}
+
+if (!$day) {
+	$day = date("d");
+	$astman->SetVar($channel, "DAY", $day);
+}
+
+if (!$timestr) {
+	$timestr = "$year$month$day-".date("His");
+	$astman->SetVar($channel, "TIMESTR", $day);
+}
+
 if (!$callFileName) {
 	// We need to create the filename for this call.
 	$uniqueid = getVariable($channel, "UNIQUEID");
-	$timestr = getVariable($channel, "TIMESTR");
 	$callFileName = "ondemand-$thisExtension-$fromExten-$timestr-$uniqueid";
 	ot_debug("CFN UPDATED ::$callFileName::");
 }
@@ -189,9 +212,6 @@ if($rpm == "NEVER" && $ondemand != "override") {
 //Start recording the channel
 ot_debug("Recording Channel");
 $mixMonDir = getVariable($channel, "MIXMON_DIR");
-$year = getVariable($channel, "YEAR");
-$month = getVariable($channel, "MONTH");
-$day = getVariable($channel, "DAY");
 $mixMonFormat = getVariable($channel, "MIXMON_FORMAT");
 $mixMonPost = getVariable($channel, "MIXMON_POST");
 
