@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>12.0.1.2</version>
+	<version>13.0.1.2</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -37,7 +37,7 @@
 	  	*2.10.0.0* New Module
 	</changelog>
 	<supported>
-		<version>12.0</version>
+		<version>13.0</version>
 	</supported>
 	<depends>
 		<module>core ge 12.0.7</module>
