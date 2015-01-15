@@ -62,7 +62,6 @@ if($thisExtension == "") {
 	} else {
 		// Well crap. OK. Fine. Let's get all of them then.
 		$all_devices = $astman->database_show('DEVICE');
-		print_r($all_devices);
 		foreach ($all_devices as $key => $dial) {
 			$myvar = explode('/',trim($key,'/'));
 			if (!empty($myvar[2]) && $myvar[2] == 'dial') {
