@@ -101,20 +101,13 @@ function callrecording_get_config($engine) {
 		}
 
 		/*
-		 * This aborts and removes any call recordings that have been made on the current call.
+		 * This used to abort and remove a recording, but is no longer needed. It's
+		 * kept around as a null stub in case other modules call it.
 		 */
 		$context = 'sub-record-cancel';
 		$exten = 's';
-
-		$ext->add($context, $exten, '', new ext_set('__REC_POLICY_MODE', '${REC_POLICY_MODE_SAVE}'));
-		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"!="RECORDING"]','Return'));
-		$ext->add($context, $exten, '', new ext_stopmixmonitor());
-		// This probably never worked. It's MIXMONITOR_FILENAME.
-		$ext->add($context, $exten, '', new ext_set('MON_BASE','${IF($[${LEN(${MIXMON_DIR})}]?${MIXMON_DIR}:${ASTSPOOLDIR}/monitor/)}${YEAR}/${MONTH}/${DAY}/'));
-		$ext->add($context, $exten, '', new ext_execif('$[${LEN(${CALLFILENAME})} & ${STAT(f,${MON_BASE}${CALLFILENAME}.${MON_FMT})}]','System','rm -f ${MON_BASE}${CALLFILENAME}.${MON_FMT}'));
-		$ext->add($context, $exten, '', new ext_set('__CALLFILENAME',''));
-		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)',''));
 		$ext->add($context, $exten, '', new ext_return(''));
+
 
 		/*
 		; ARG1: type
