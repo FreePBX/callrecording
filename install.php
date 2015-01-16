@@ -27,21 +27,4 @@ foreach($sql as $s){
 	}
 }
 
-$freepbx_conf = freepbx_conf::create();
-// Play 'beep' while recording
-$set['value'] = '';
-$set['defaultval'] =& $set['value'];
-$set['options'] = array(15,300);
-$set['readonly'] = 0;
-$set['hidden'] = 0;
-$set['level'] = 1;
-$set['module'] = 'callrecording';
-$set['category'] = 'Call Recording';
-$set['emptyok'] = 1;
-$set['sortorder'] = 10;
-$set['name'] = "Beep every n seconds";
-$set['description'] = "Asterisk 13.2 and higher supports the ability to play a regular 'beep' when a call is being recorded. If you set this to a non-zero value, when a call is being actively recorded, both parties will hear a 'beep' every period that you select. If you are not running Asterisk 13.2 or higher, this setting will have no effect. ";
-$set['type'] = CONF_TYPE_INT;
-$freepbx_conf->define_conf_setting('CALLREC_BEEP_PERIOD',$set);
-
-
+?>
