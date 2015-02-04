@@ -88,20 +88,13 @@ function callrecording_get_config($engine) {
 		}
 
 		/*
-		 * This aborts and removes any call recordings that have been made on the current call.
+		 * This used to abort and remove a recording, but is no longer needed. It's
+		 * kept around as a null stub in case other modules call it.
 		 */
 		$context = 'sub-record-cancel';
 		$exten = 's';
-
-		$ext->add($context, $exten, '', new ext_set('__REC_POLICY_MODE', '${REC_POLICY_MODE_SAVE}'));
-		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"!="RECORDING"]','Return'));
-		$ext->add($context, $exten, '', new ext_stopmixmonitor());
-		// This probably never worked. It's MIXMONITOR_FILENAME.
-		$ext->add($context, $exten, '', new ext_set('MON_BASE','${IF($[${LEN(${MIXMON_DIR})}]?${MIXMON_DIR}:${ASTSPOOLDIR}/monitor/)}${YEAR}/${MONTH}/${DAY}/'));
-		$ext->add($context, $exten, '', new ext_execif('$[${LEN(${CALLFILENAME})} & ${STAT(f,${MON_BASE}${CALLFILENAME}.${MON_FMT})}]','System','rm -f ${MON_BASE}${CALLFILENAME}.${MON_FMT}'));
-		$ext->add($context, $exten, '', new ext_set('__CALLFILENAME',''));
-		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)',''));
 		$ext->add($context, $exten, '', new ext_return(''));
+
 
 		/*
 		; ARG1: type
@@ -349,7 +342,7 @@ function callrecording_hookGet_config($engine) {
 	switch($engine) {
 	case "asterisk":
 
-		// Inbound Routes Forced Recordings
+		// Inbound Routes Recording hooks
 		$routes=callrecording_display_get('did');
 		foreach($routes as $current => $route){
 			if($route['extension']=='' && $route['cidnum']){//callerID only
@@ -366,12 +359,28 @@ function callrecording_hookGet_config($engine) {
 			$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','in,${EXTEN},'.$route['callrecording']));
 		}
 
-		// Outbound Routes Forced Recordings
-		$routes=callrecording_display_get('routing');
-		// get the place to splice
-		foreach($routes as $current => $route){
-			$context = 'outrt-'.$route['route_id'];
-			$patterns = core_routing_getroutepatternsbyid($route['route_id']);
+		// Outbound Routes recording hooks
+		$allroutes = core_routing_list();
+
+		// Make them easier to parse
+		$routearr = array();
+		foreach ($allroutes as $route) {
+			$route['callrecording'] = "dontcare";
+			$routearr[$route['route_id']] = $route;
+		}
+
+		// Which routes do we know about?
+		$recordings=callrecording_display_get('routing');
+		foreach ($recordings as $rroute) {
+			if (isset($routearr[$rroute['route_id']])) {
+				$routearr[$rroute['route_id']]['callrecording'] = $rroute['callrecording'];
+			}
+		}
+
+		// Now actually splice them.
+		foreach($routearr as $routeid => $route){
+			$context = 'outrt-'.$routeid;
+			$patterns = core_routing_getroutepatternsbyid($routeid);
 			foreach ($patterns as $pattern) {
 				$fpattern = core_routing_formatpattern($pattern);
 				$extension = $fpattern['dial_pattern'];
