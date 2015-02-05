@@ -128,14 +128,8 @@ function callrecording_get_config($engine) {
 		// Backup our current setting, just in case we need to roll back to it.
 		$ext->add($context, $exten, '', new ext_set('REC_POLICY_MODE_SAVE','${REC_POLICY_MODE}'));
 
-		// Figure out what this blind transfer stuff is about later.
-		/*
-		$ext->add($context, $exten, '', new ext_gotoif('$["${BLINDTRANSFER}" = ""]', 'check'));
-		$ext->add($context, $exten, '', new ext_resetcdr(''));
-		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}" != "RECORDING"]', 'check'));
-		$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
-		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MIXMON_FORMAT}','a','${MIXMON_POST}'));
-		 */
+		// When we're internally transferred, we are NEVER recording.
+		$ext->add($context, $exten, '', new ext_execif('$["${BLINDTRANSFER}${ATTENDEDTRANSFER}" != ""]', 'Set', 'REC_STATUS=NO'));
 
 		// If we weren't given a type, error. This is a bug.
 		$ext->add($context, $exten, 'next', new ext_gotoif('$[${LEN(${ARG1})}]','checkaction'));
