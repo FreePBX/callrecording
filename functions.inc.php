@@ -339,55 +339,59 @@ function callrecording_get_config($engine) {
 function callrecording_hookGet_config($engine) {
 	global $ext;
 	global $version;
-	switch($engine) {
-	case "asterisk":
 
-		// Inbound Routes Recording hooks
-		$routes=callrecording_display_get('did');
-		foreach($routes as $current => $route){
-			if($route['extension']=='' && $route['cidnum']){//callerID only
-				$extension='s/'.$route['cidnum'];
-				$context=$route['pricid']?'ext-did-0001':'ext-did-0002';
-			}else{
-				if(($route['extension'] && $route['cidnum'])||($route['extension']=='' && $route['cidnum']=='')){//callerid+did / any/any
-					$context='ext-did-0001';
-				}else{//did only
-					$context='ext-did-0002';
-				}
-				$extension=($route['extension']!=''?$route['extension']:'s').($route['cidnum']==''?'':'/'.$route['cidnum']);
+	// Inbound Routes Recording hooks
+	$routes=callrecording_display_get('did');
+	foreach($routes as $current => $route){
+		if($route['extension']=='' && $route['cidnum']){//callerID only
+			$extension='s/'.$route['cidnum'];
+			$context=$route['pricid']?'ext-did-0001':'ext-did-0002';
+		}else{
+			if(($route['extension'] && $route['cidnum'])||($route['extension']=='' && $route['cidnum']=='')){//callerid+did / any/any
+				$context='ext-did-0001';
+			}else{//did only
+				$context='ext-did-0002';
 			}
-			$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','in,${EXTEN},'.$route['callrecording']));
+			$extension=($route['extension']!=''?$route['extension']:'s').($route['cidnum']==''?'':'/'.$route['cidnum']);
 		}
+		$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','in,${EXTEN},'.$route['callrecording']));
+	}
 
-		// Outbound Routes recording hooks
-		$allroutes = core_routing_list();
+	// Outbound Routes recording hooks
+	$allroutes = core_routing_list();
 
-		// Make them easier to parse
-		$routearr = array();
-		foreach ($allroutes as $route) {
-			$route['callrecording'] = "dontcare";
-			$routearr[$route['route_id']] = $route;
+	// Make them easier to parse
+	$routearr = array();
+	foreach ($allroutes as $route) {
+		$route['callrecording'] = "dontcare";
+		$routearr[$route['route_id']] = $route;
+	}
+
+	// Which routes do we know about?
+	$recordings=callrecording_display_get('routing');
+	foreach ($recordings as $rroute) {
+		if (isset($routearr[$rroute['route_id']])) {
+			$routearr[$rroute['route_id']]['callrecording'] = $rroute['callrecording'];
 		}
+	}
 
-		// Which routes do we know about?
-		$recordings=callrecording_display_get('routing');
-		foreach ($recordings as $rroute) {
-			if (isset($routearr[$rroute['route_id']])) {
-				$routearr[$rroute['route_id']]['callrecording'] = $rroute['callrecording'];
-			}
+	// Now actually splice them.
+	foreach($routearr as $routeid => $route){
+		$context = 'outrt-'.$routeid;
+		$patterns = core_routing_getroutepatternsbyid($routeid);
+		foreach ($patterns as $pattern) {
+			$fpattern = core_routing_formatpattern($pattern);
+			$extension = $fpattern['dial_pattern'];
+			$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','out,${EXTEN},'.$route['callrecording']));
 		}
+	}
 
-		// Now actually splice them.
-		foreach($routearr as $routeid => $route){
-			$context = 'outrt-'.$routeid;
-			$patterns = core_routing_getroutepatternsbyid($routeid);
-			foreach ($patterns as $pattern) {
-				$fpattern = core_routing_formatpattern($pattern);
-				$extension = $fpattern['dial_pattern'];
-				$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','out,${EXTEN},'.$route['callrecording']));
-			}
-		}
-		break;
+	// Bugfix for Asterisk 11 - CDR(recordingfile) is getting lost when it's added in one-touch-record.
+	// See https://issues.asterisk.org/jira/browse/ASTERISK-19853
+	$ast_info = engine_getinfo();
+	$astver = $ast_info["version"];
+	if (version_compare($astver, '12', 'lt')) {
+		$ext->splice("macro-hangupcall", 's', 0, new ext_execif('$["${CALLFILENAME}"!="" & "${CDR(recordingfile)}"=""]','Set','CDR(recordingfile)=${CALLFILENAME}.${MON_FMT}'));
 	}
 }
 
