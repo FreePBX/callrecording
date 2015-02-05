@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>12.0.2</version>
+	<version>12.0.2.1</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -21,6 +21,7 @@
 		</callrecording>
  	</popovers>
 	<changelog>
+		*12.0.2.1* #8482 Workaround ASTERISK-19853
 		*12.0.2* #8312 Fix recording on outgoing routes that hadn't had 'save' clicked on them.
 		*12.0.1.4* #8393 Remove legacy code
 		*12.0.1.3* #8482 Fix potential for unconfigured datestamp
