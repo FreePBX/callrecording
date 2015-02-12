@@ -456,7 +456,6 @@ function callrecording_edit($callrecording_id, $description, $callrecording_mode
 }
 
 function callrecording_hook_core($viewing_itemid, $target_menuid){
-
 	switch ($target_menuid) {
 	case 'did':
 		$extension	= isset($_REQUEST['extension'])		? $_REQUEST['extension']	:'';
@@ -485,7 +484,9 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 		break;
 
 	case 'routing':
-		$route_id	= isset($_REQUEST['route_id']) ? $_REQUEST['route_id'] : (isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay'] : '');
+		$request = $_REQUEST;
+		$request['route_id'] = $request['id'];
+		$route_id	= isset($request['route_id']) ? $request['route_id'] : (isset($request['extdisplay']) ? $request['extdisplay'] : '');
 		if (!empty($_SESSION['callrecordingAddRoute'])) {
 			$callrecording = $_SESSION['callrecordingAddRoute'];
 		} else {
@@ -544,28 +545,9 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 	return $html;
 }
 
+//Moved in to BMO hook, not aliased as this shouldnt be called by anything
+//function callrecording_hookProcess_core($viewing_itemid, $request) {}
 
-function callrecording_hookProcess_core($viewing_itemid, $request) {
-	switch ($request['display']) {
-	case 'routing':
-		$action = (isset($request['action']))?$request['action']:null;
-		$route_id = $viewing_itemid;
-		//dbug("got request for callrecording process for route: $route_id action: $action");
-		if (isset($request['Submit']) ) {
-			$action = (isset($action))?$action:'editroute';
-		}
-
-		// $action won't be set on the redirect but callrecordingAddRoute will be in the session
-		//
-		if (!$action && !empty($_SESSION['callrecordingAddRoute'])) {
-			callrecording_adjustroute($route_id,'delayed_insert_route',$_SESSION['callrecordingAddRoute']);
-			unset($_SESSION['callrecordingAddRoute']);
-		} elseif ($action){
-			callrecording_adjustroute($route_id,$action,$request['callrecording']);
-		}
-		break;
-	}
-}
 
 function callrecording_adjustroute($route_id,$action,$callrecording='') {
 	global $db;
