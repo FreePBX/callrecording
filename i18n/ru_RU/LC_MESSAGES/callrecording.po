@@ -10,142 +10,114 @@ msgstr ""
 "POT-Creation-Date: 2015-02-11 17:30-0500\n"
 "PO-Revision-Date: 2015-02-12 15:32+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Russian "
-"<http://git.freepbx.org/projects/freepbx/callrecording/ru_RU/>\n"
+"Language-Team: Russian <http://git.freepbx.org/projects/freepbx/"
+"callrecording/ru_RU/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.1\n"
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:40
-#: /usr/src/freepbx/callrecording/page.callrecording.php:62
-msgid "Add Call Recording"
-msgstr "Добавить запись разговора"
+#~ msgid "Add Call Recording"
+#~ msgstr "Добавить запись разговора"
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:74
-msgid "Add Call Recording Instance"
-msgstr "Добавить запись"
+#~ msgid "Add Call Recording Instance"
+#~ msgstr "Добавить запись"
 
-#: /usr/src/freepbx/callrecording/functions.inc.php:266
-#: /usr/src/freepbx/callrecording/page.callrecording.php:85
-msgid "Allow"
-msgstr "Разрешить"
+#~ msgid "Allow"
+#~ msgstr "Разрешить"
 
-#: /usr/src/freepbx/callrecording/functions.inc.php:262
-#: /usr/src/freepbx/callrecording/functions.inc.php:264
-msgid "Call Recording"
-msgstr "Запись разговора"
+#~ msgid "Call Recording"
+#~ msgstr "Запись разговора"
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:82
-msgid "Call Recording Mode"
-msgstr "Режим записи разговоров"
+#~ msgid "Call Recording Mode"
+#~ msgstr "Режим записи разговоров"
 
-#: /usr/src/freepbx/callrecording/functions.inc.php:55
-#: /usr/src/freepbx/callrecording/functions.inc.php:436
-#, php-format
-msgid "Call Recording: %s"
-msgstr "Запись разговора: %s"
+#~ msgid "Call Recording: %s"
+#~ msgstr "Запись разговора: %s"
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:65
-msgid ""
-"Call Recordings provide the ability to force a call to be recorded or not "
-"recorded based on a call flow and override all other recording settings. If "
-"a call is to be recorded, it can start immediately which will incorporate "
-"any announcements, hold music, etc. prior to being answered, or it can have "
-"recording start at the time that call is answered."
-msgstr ""
-"Модуль даёт возможность принудительно устанавливать запись разговора или "
-"принудительно запрещать её в зависимости от направления обработки звонка и "
-"переназначать все настройки записи. Если разговор будет записан, запись "
-"может быть начата сразу, включая сервисные сообщения и тоны, или после "
-"ответа вызываемого абонента."
+#~ msgid ""
+#~ "Call Recordings provide the ability to force a call to be recorded or not "
+#~ "recorded based on a call flow and override all other recording settings. "
+#~ "If a call is to be recorded, it can start immediately which will "
+#~ "incorporate any announcements, hold music, etc. prior to being answered, "
+#~ "or it can have recording start at the time that call is answered."
+#~ msgstr ""
+#~ "Модуль даёт возможность принудительно устанавливать запись разговора или "
+#~ "принудительно запрещать её в зависимости от направления обработки звонка "
+#~ "и переназначать все настройки записи. Если разговор будет записан, запись "
+#~ "может быть начата сразу, включая сервисные сообщения и тоны, или после "
+#~ "ответа вызываемого абонента."
 
-#: /usr/src/freepbx/callrecording/functions.inc.php:264
-msgid ""
-"Controls or overrides the call recording behavior for calls coming into this "
-"DID. Allow will honor the normal downstream call recording settings. Record "
-"on Answer starts recording when the call would otherwise be recorded "
-"ignoring any settings that say otherwise. Record Immediately will start "
-"recording right away capturing ringing, announcements, MoH, etc. Never will "
-"disallow recording regardless of downstream settings."
-msgstr ""
-"Управляет или переопределяет необходимость записи разговора приходящих на "
-"этот входящий номер. 'Разрешить' будет следовать другим установкам записи. "
-"'Записывать после ответа' будет начинать запись разговора игнорируя другие "
-"установки, отменяющие запись. 'Записывать сразу' будет начинать запись "
-"разговора с самого начата разговора, включая гудки, голосовые сообщения, "
-"фоновую музыку и другие сервисные сообщения. 'Никогда' будет запрещать "
-"запись разговора несмотря на другие установки."
+#~ msgid ""
+#~ "Controls or overrides the call recording behavior for calls coming into "
+#~ "this DID. Allow will honor the normal downstream call recording settings. "
+#~ "Record on Answer starts recording when the call would otherwise be "
+#~ "recorded ignoring any settings that say otherwise. Record Immediately "
+#~ "will start recording right away capturing ringing, announcements, MoH, "
+#~ "etc. Never will disallow recording regardless of downstream settings."
+#~ msgstr ""
+#~ "Управляет или переопределяет необходимость записи разговора приходящих на "
+#~ "этот входящий номер. 'Разрешить' будет следовать другим установкам "
+#~ "записи. 'Записывать после ответа' будет начинать запись разговора "
+#~ "игнорируя другие установки, отменяющие запись. 'Записывать сразу' будет "
+#~ "начинать запись разговора с самого начата разговора, включая гудки, "
+#~ "голосовые сообщения, фоновую музыку и другие сервисные сообщения. "
+#~ "'Никогда' будет запрещать запись разговора несмотря на другие установки."
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:82
-msgid ""
-"Controls or overrides the call recording behavior for calls continuing "
-"through this call flow. Allow will honor the normal downstream call "
-"recording settings. Record on Answer starts recording when the call would "
-"otherwise be recorded ignoring any settings that say otherwise. Record "
-"Immediately will start recording right away capturing ringing, "
-"announcements, MoH, etc. Never will disallow recording regardless of "
-"downstream settings."
-msgstr ""
-"Устанавливает или переопределяет режим записи разговора проходящего через "
-"это направление обработки звонка.'Разрешить' будет следовать другим "
-"установкам записи. 'Записывать после ответа' будет начинать запись разговора "
-"игнорируя другие установки, отменяющие запись. 'Записывать сразу' будет "
-"начинать запись разговора с самого начала разговора, включая гудки, "
-"голосовые сообщения, фоновую музыку и другие сервисные сообщения. 'Никогда' "
-"будет запрещать запись разговора несмотря на другие установки."
+#~ msgid ""
+#~ "Controls or overrides the call recording behavior for calls continuing "
+#~ "through this call flow. Allow will honor the normal downstream call "
+#~ "recording settings. Record on Answer starts recording when the call would "
+#~ "otherwise be recorded ignoring any settings that say otherwise. Record "
+#~ "Immediately will start recording right away capturing ringing, "
+#~ "announcements, MoH, etc. Never will disallow recording regardless of "
+#~ "downstream settings."
+#~ msgstr ""
+#~ "Устанавливает или переопределяет режим записи разговора проходящего через "
+#~ "это направление обработки звонка.'Разрешить' будет следовать другим "
+#~ "установкам записи. 'Записывать после ответа' будет начинать запись "
+#~ "разговора игнорируя другие установки, отменяющие запись. 'Записывать "
+#~ "сразу' будет начинать запись разговора с самого начала разговора, включая "
+#~ "гудки, голосовые сообщения, фоновую музыку и другие сервисные сообщения. "
+#~ "'Никогда' будет запрещать запись разговора несмотря на другие установки."
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:101
-msgid "Delete"
-msgstr "Удалить"
+#~ msgid "Delete"
+#~ msgstr "Удалить"
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:76
-msgid "Description"
-msgstr "Описание"
+#~ msgid "Description"
+#~ msgstr "Описание"
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:92
-msgid "Destination"
-msgstr "Направить в"
+#~ msgid "Destination"
+#~ msgstr "Направить в"
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:74
-msgid "Edit Call Recording Instance"
-msgstr "Изменить запись"
+#~ msgid "Edit Call Recording Instance"
+#~ msgstr "Изменить запись"
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:60
-msgid "Edit: "
-msgstr "Редактировать: "
+#~ msgid "Edit: "
+#~ msgstr "Редактировать: "
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:124
-msgid "Invalid description specified"
-msgstr "Указано неверное описание"
+#~ msgid "Invalid description specified"
+#~ msgstr "Указано неверное описание"
 
-#: /usr/src/freepbx/callrecording/functions.inc.php:269
-#: /usr/src/freepbx/callrecording/page.callrecording.php:88
-msgid "Never"
-msgstr "Никогда"
+#~ msgid "Never"
+#~ msgstr "Никогда"
 
-#: /usr/src/freepbx/callrecording/functions.inc.php:268
-#: /usr/src/freepbx/callrecording/page.callrecording.php:87
-msgid "Record Immediately"
-msgstr "Записывать сразу"
+#~ msgid "Record Immediately"
+#~ msgstr "Записывать сразу"
 
-#: /usr/src/freepbx/callrecording/functions.inc.php:267
-#: /usr/src/freepbx/callrecording/page.callrecording.php:86
-msgid "Record on Answer"
-msgstr "Записывать после ответа"
+#~ msgid "Record on Answer"
+#~ msgstr "Записывать после ответа"
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:100
-msgid "Submit Changes"
-msgstr "Сохранить изменения"
+#~ msgid "Submit Changes"
+#~ msgstr "Сохранить изменения"
 
-#: /usr/src/freepbx/callrecording/page.callrecording.php:76
-msgid ""
-"The descriptive name of this call recording instance. For example \"French "
-"Main IVR\""
-msgstr "Наглядное имя этой записи. Например 'Главное меню на русском языке'"
+#~ msgid ""
+#~ "The descriptive name of this call recording instance. For example "
+#~ "\"French Main IVR\""
+#~ msgstr "Наглядное имя этой записи. Например 'Главное меню на русском языке'"
 
 #~ msgid "Applications"
 #~ msgstr "Приложения"
