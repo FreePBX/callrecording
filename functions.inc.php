@@ -88,20 +88,13 @@ function callrecording_get_config($engine) {
 		}
 
 		/*
-		 * This aborts and removes any call recordings that have been made on the current call.
+		 * This used to abort and remove a recording, but is no longer needed. It's
+		 * kept around as a null stub in case other modules call it.
 		 */
 		$context = 'sub-record-cancel';
 		$exten = 's';
-
-		$ext->add($context, $exten, '', new ext_set('__REC_POLICY_MODE', '${REC_POLICY_MODE_SAVE}'));
-		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"!="RECORDING"]','Return'));
-		$ext->add($context, $exten, '', new ext_stopmixmonitor());
-		// This probably never worked. It's MIXMONITOR_FILENAME.
-		$ext->add($context, $exten, '', new ext_set('MON_BASE','${IF($[${LEN(${MIXMON_DIR})}]?${MIXMON_DIR}:${ASTSPOOLDIR}/monitor/)}${YEAR}/${MONTH}/${DAY}/'));
-		$ext->add($context, $exten, '', new ext_execif('$[${LEN(${CALLFILENAME})} & ${STAT(f,${MON_BASE}${CALLFILENAME}.${MON_FMT})}]','System','rm -f ${MON_BASE}${CALLFILENAME}.${MON_FMT}'));
-		$ext->add($context, $exten, '', new ext_set('__CALLFILENAME',''));
-		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)',''));
 		$ext->add($context, $exten, '', new ext_return(''));
+
 
 		/*
 		; ARG1: type
@@ -124,10 +117,6 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_set('__YEAR','${STRFTIME(${NOW},,%Y)}'));
 		$ext->add($context, $exten, '', new ext_set('__TIMESTR','${YEAR}${MONTH}${DAY}-${STRFTIME(${NOW},,%H%M%S)}'));
 		$ext->add($context, $exten, '', new ext_set('__FROMEXTEN','${IF($[${LEN(${AMPUSER})}]?${AMPUSER}:${IF($[${LEN(${REALCALLERIDNUM})}]?${REALCALLERIDNUM}:unknown)})}'));
-		// MON_FMT is the format that MixMon knows about - we're only caring about gsm here (WAV) which non-case-sensitve filesystems
-		// will confuse with sln (wav).  Yes, I know THIS isn't case sensitive, but wait till you copy it to a windows box. Then
-		// you're sad.
-		$ext->add($context, $exten, '', new ext_set('__MON_FMT','${IF($["${MIXMON_FORMAT}"="WAV"]?wav49:${MIXMON_FORMAT})}'));
 		$ext->add($context, $exten, 'initialized', new ext_noop('Recordings initialized'));
 
 		$ext->add($context, $exten, '', new ext_execif('$[!${LEN($ARG3)}]', 'Set', 'ARG3=dontcare')); // Make sure we have a recording request.
@@ -135,14 +124,8 @@ function callrecording_get_config($engine) {
 		// Backup our current setting, just in case we need to roll back to it.
 		$ext->add($context, $exten, '', new ext_set('REC_POLICY_MODE_SAVE','${REC_POLICY_MODE}'));
 
-		// Figure out what this blind transfer stuff is about later.
-		/*
-		$ext->add($context, $exten, '', new ext_gotoif('$["${BLINDTRANSFER}" = ""]', 'check'));
-		$ext->add($context, $exten, '', new ext_resetcdr(''));
-		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}" != "RECORDING"]', 'check'));
-		$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
-		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MIXMON_FORMAT}','a','${MIXMON_POST}'));
-		 */
+		// When we're internally transferred, we are NEVER recording.
+		$ext->add($context, $exten, '', new ext_execif('$["${BLINDTRANSFER}${ATTENDEDTRANSFER}" != ""]', 'Set', 'REC_STATUS=NO'));
 
 		// If we weren't given a type, error. This is a bug.
 		$ext->add($context, $exten, 'next', new ext_gotoif('$[${LEN(${ARG1})}]','checkaction'));
@@ -346,39 +329,59 @@ function callrecording_get_config($engine) {
 function callrecording_hookGet_config($engine) {
 	global $ext;
 	global $version;
-	switch($engine) {
-	case "asterisk":
 
-		// Inbound Routes Forced Recordings
-		$routes=callrecording_display_get('did');
-		foreach($routes as $current => $route){
-			if($route['extension']=='' && $route['cidnum']){//callerID only
-				$extension='s/'.$route['cidnum'];
-				$context=$route['pricid']?'ext-did-0001':'ext-did-0002';
-			}else{
-				if(($route['extension'] && $route['cidnum'])||($route['extension']=='' && $route['cidnum']=='')){//callerid+did / any/any
-					$context='ext-did-0001';
-				}else{//did only
-					$context='ext-did-0002';
-				}
-				$extension=($route['extension']!=''?$route['extension']:'s').($route['cidnum']==''?'':'/'.$route['cidnum']);
+	// Inbound Routes Recording hooks
+	$routes=callrecording_display_get('did');
+	foreach($routes as $current => $route){
+		if($route['extension']=='' && $route['cidnum']){//callerID only
+			$extension='s/'.$route['cidnum'];
+			$context=$route['pricid']?'ext-did-0001':'ext-did-0002';
+		}else{
+			if(($route['extension'] && $route['cidnum'])||($route['extension']=='' && $route['cidnum']=='')){//callerid+did / any/any
+				$context='ext-did-0001';
+			}else{//did only
+				$context='ext-did-0002';
 			}
-			$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','in,${EXTEN},'.$route['callrecording']));
+			$extension=($route['extension']!=''?$route['extension']:'s').($route['cidnum']==''?'':'/'.$route['cidnum']);
 		}
+		$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','in,${EXTEN},'.$route['callrecording']));
+	}
 
-		// Outbound Routes Forced Recordings
-		$routes=callrecording_display_get('routing');
-		// get the place to splice
-		foreach($routes as $current => $route){
-			$context = 'outrt-'.$route['route_id'];
-			$patterns = core_routing_getroutepatternsbyid($route['route_id']);
-			foreach ($patterns as $pattern) {
-				$fpattern = core_routing_formatpattern($pattern);
-				$extension = $fpattern['dial_pattern'];
-				$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','out,${EXTEN},'.$route['callrecording']));
-			}
+	// Outbound Routes recording hooks
+	$allroutes = core_routing_list();
+
+	// Make them easier to parse
+	$routearr = array();
+	foreach ($allroutes as $route) {
+		$route['callrecording'] = "dontcare";
+		$routearr[$route['route_id']] = $route;
+	}
+
+	// Which routes do we know about?
+	$recordings=callrecording_display_get('routing');
+	foreach ($recordings as $rroute) {
+		if (isset($routearr[$rroute['route_id']])) {
+			$routearr[$rroute['route_id']]['callrecording'] = $rroute['callrecording'];
 		}
-		break;
+	}
+
+	// Now actually splice them.
+	foreach($routearr as $routeid => $route){
+		$context = 'outrt-'.$routeid;
+		$patterns = core_routing_getroutepatternsbyid($routeid);
+		foreach ($patterns as $pattern) {
+			$fpattern = core_routing_formatpattern($pattern);
+			$extension = $fpattern['dial_pattern'];
+			$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','out,${EXTEN},'.$route['callrecording']));
+		}
+	}
+
+	// Bugfix for Asterisk 11 - CDR(recordingfile) is getting lost when it's added in one-touch-record.
+	// See https://issues.asterisk.org/jira/browse/ASTERISK-19853
+	$ast_info = engine_getinfo();
+	$astver = $ast_info["version"];
+	if (version_compare($astver, '12', 'lt')) {
+		$ext->splice("macro-hangupcall", 's', 0, new ext_execif('$["${CALLFILENAME}"!="" & "${CDR(recordingfile)}"=""]','Set','CDR(recordingfile)=${CALLFILENAME}.${MON_FMT}'));
 	}
 }
 
