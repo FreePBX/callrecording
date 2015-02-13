@@ -117,10 +117,6 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_set('__YEAR','${STRFTIME(${NOW},,%Y)}'));
 		$ext->add($context, $exten, '', new ext_set('__TIMESTR','${YEAR}${MONTH}${DAY}-${STRFTIME(${NOW},,%H%M%S)}'));
 		$ext->add($context, $exten, '', new ext_set('__FROMEXTEN','${IF($[${LEN(${AMPUSER})}]?${AMPUSER}:${IF($[${LEN(${REALCALLERIDNUM})}]?${REALCALLERIDNUM}:unknown)})}'));
-		// MON_FMT is the format that MixMon knows about - we're only caring about gsm here (WAV) which non-case-sensitve filesystems
-		// will confuse with sln (wav).  Yes, I know THIS isn't case sensitive, but wait till you copy it to a windows box. Then
-		// you're sad.
-		$ext->add($context, $exten, '', new ext_set('__MON_FMT','${IF($["${MIXMON_FORMAT}"="WAV"]?wav49:${MIXMON_FORMAT})}'));
 		$ext->add($context, $exten, 'initialized', new ext_noop('Recordings initialized'));
 
 		$ext->add($context, $exten, '', new ext_execif('$[!${LEN($ARG3)}]', 'Set', 'ARG3=dontcare')); // Make sure we have a recording request.
