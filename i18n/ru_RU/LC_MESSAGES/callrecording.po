@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-13 12:12-0500\n"
+"POT-Creation-Date: 2015-02-16 00:57-0500\n"
 "PO-Revision-Date: 2015-02-12 15:32+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://git.freepbx.org/projects/freepbx/"
@@ -20,37 +20,33 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.1\n"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:40
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:62
+#: page.callrecording.php:40 page.callrecording.php:62
 msgid "Add Call Recording"
 msgstr "Добавить запись разговора"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:74
+#: page.callrecording.php:74
 msgid "Add Call Recording Instance"
 msgstr "Добавить запись"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/callrecording.i18n.php:4
+#: callrecording.i18n.php:4
 msgid "Applications"
 msgstr "Приложения"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/callrecording.i18n.php:3
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/callrecording.i18n.php:6
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/functions.inc.php:495
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/functions.inc.php:498
+#: callrecording.i18n.php:3 callrecording.i18n.php:6 functions.inc.php:499
+#: functions.inc.php:502
 msgid "Call Recording"
 msgstr "Запись разговора"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:85
+#: page.callrecording.php:85
 msgid "Call Recording Mode"
 msgstr "Режим записи разговоров"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/functions.inc.php:56
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/functions.inc.php:682
+#: functions.inc.php:56 functions.inc.php:686
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Запись разговора: %s"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:65
+#: page.callrecording.php:65
 msgid ""
 "Call Recordings provide the ability to force a call to be recorded or not "
 "recorded based on a call flow and override all other recording settings. If "
@@ -64,86 +60,79 @@ msgstr ""
 "может быть начата сразу, включая сервисные сообщения и тоны, или после "
 "ответа вызываемого абонента."
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:116
+#: page.callrecording.php:116
 msgid "Delete"
 msgstr "Удалить"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:76
+#: page.callrecording.php:76
 msgid "Description"
 msgstr "Описание"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:107
+#: page.callrecording.php:107
 msgid "Destination"
 msgstr "Направить в"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/functions.inc.php:507
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:95
+#: functions.inc.php:511 page.callrecording.php:95
 msgid "Don't Care"
 msgstr ""
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:74
+#: page.callrecording.php:74
 msgid "Edit Call Recording Instance"
 msgstr "Изменить запись"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:60
+#: page.callrecording.php:60
 msgid "Edit: "
 msgstr "Редактировать: "
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/functions.inc.php:507
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:95
+#: functions.inc.php:511 page.callrecording.php:95
 msgid "Force"
 msgstr ""
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:139
+#: page.callrecording.php:139
 msgid "Invalid description specified"
 msgstr "Указано неверное описание"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/functions.inc.php:507
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:95
+#: functions.inc.php:511 page.callrecording.php:95
 msgid "Never"
 msgstr "Никогда"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/functions.inc.php:507
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:95
+#: functions.inc.php:511 page.callrecording.php:95
 msgid "No"
 msgstr ""
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/functions.inc.php:497
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:82
+#: functions.inc.php:501 page.callrecording.php:82
 msgid "Note that the meaning of these options has changed."
 msgstr ""
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:85
+#: page.callrecording.php:85
 msgid "Please read the Wiki on what these options mean."
 msgstr ""
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/functions.inc.php:497
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:83
+#: functions.inc.php:501 page.callrecording.php:83
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/callrecording.i18n.php:5
+#: callrecording.i18n.php:5
 msgid "Provides much of the call recording functionality."
 msgstr "Организует возможность записи разговоров"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:115
+#: page.callrecording.php:115
 msgid "Submit Changes"
 msgstr "Сохранить изменения"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:76
+#: page.callrecording.php:76
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
 msgstr "Наглядное имя этой записи. Например 'Главное меню на русском языке'"
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/functions.inc.php:498
+#: functions.inc.php:502
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
 
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/functions.inc.php:507
-#: /Users/Bryan/Downloads/WIP/freepbx/12/freepbx/callrecording/page.callrecording.php:95
+#: functions.inc.php:511 page.callrecording.php:95
 msgid "Yes"
 msgstr ""
 
