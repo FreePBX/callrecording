@@ -117,6 +117,11 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_set('__YEAR','${STRFTIME(${NOW},,%Y)}'));
 		$ext->add($context, $exten, '', new ext_set('__TIMESTR','${YEAR}${MONTH}${DAY}-${STRFTIME(${NOW},,%H%M%S)}'));
 		$ext->add($context, $exten, '', new ext_set('__FROMEXTEN','${IF($[${LEN(${AMPUSER})}]?${AMPUSER}:${IF($[${LEN(${REALCALLERIDNUM})}]?${REALCALLERIDNUM}:unknown)})}'));
+		// MON_FMT is the format that MixMon knows about. If we're set to 'wav49', MixMonitor actually saves the
+		// filename as 'WAV', not, as expected, 'wav49' - see https://issues.asterisk.org/jira/browse/ASTERISK-24798
+		// So, if we've been given wav49, change it to WAV.  Note, this breaks on non-case-sensitive filesystems (such
+		// as anything windows based), so don't use GSM encoded wavs in that case.
+		$ext->add($context, $exten, '', new ext_set('__MON_FMT','${IF($["${MIXMON_FORMAT}"="wav49"]?WAV:${MIXMON_FORMAT})}'));
 		$ext->add($context, $exten, 'initialized', new ext_noop('Recordings initialized'));
 
 		$ext->add($context, $exten, '', new ext_execif('$[!${LEN($ARG3)}]', 'Set', 'ARG3=dontcare')); // Make sure we have a recording request.
