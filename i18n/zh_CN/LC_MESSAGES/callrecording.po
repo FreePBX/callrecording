@@ -13,35 +13,36 @@ msgstr ""
 "PO-Revision-Date: 2015-02-20 19:04-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: page.callrecording.php:40 page.callrecording.php:62
 msgid "Add Call Recording"
-msgstr ""
+msgstr "添加呼叫录音"
 
 #: page.callrecording.php:74
 msgid "Add Call Recording Instance"
-msgstr ""
+msgstr "添加呼叫录音对象"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10
 msgid "Applications"
-msgstr ""
+msgstr "应用"
 
 #: callrecording.i18n.php:3 callrecording.i18n.php:6 callrecording.i18n.php:8
 #: callrecording.i18n.php:14 functions.inc.php:500 functions.inc.php:503
 msgid "Call Recording"
-msgstr ""
+msgstr "呼叫录音"
 
 #: page.callrecording.php:85
 msgid "Call Recording Mode"
-msgstr ""
+msgstr "录音模式"
 
 #: functions.inc.php:56 functions.inc.php:687
 #, php-format
 msgid "Call Recording: %s"
-msgstr ""
+msgstr "呼叫录音: %s"
 
 #: page.callrecording.php:65
 msgid ""
@@ -51,72 +52,74 @@ msgid ""
 "any announcements, hold music, etc. prior to being answered, or it can have "
 "recording start at the time that call is answered."
 msgstr ""
+"对呼入DID进行录音控制或覆盖。允许对下游通话进行录音设置。将通话呼入以后，系统将对通话进行录音；否则将忽略所有设置。录音将对振铃，音乐等待，语音播报等等"
+"录音。 如果设置为从不录音，将不允许录音，无论下游设备如何设置。"
 
 #: page.callrecording.php:116
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: page.callrecording.php:76
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: page.callrecording.php:107
 msgid "Destination"
-msgstr ""
+msgstr "目的地"
 
 #: functions.inc.php:512 page.callrecording.php:95
 msgid "Don't Care"
-msgstr ""
+msgstr "不关心"
 
 #: page.callrecording.php:74
 msgid "Edit Call Recording Instance"
-msgstr ""
+msgstr "编辑呼叫录音对象"
 
 #: page.callrecording.php:60
 msgid "Edit: "
-msgstr ""
+msgstr "编辑: "
 
 #: functions.inc.php:512 page.callrecording.php:95
 msgid "Force"
-msgstr ""
+msgstr "强制录音"
 
 #: page.callrecording.php:139
 msgid "Invalid description specified"
-msgstr ""
+msgstr "指定的描述无效"
 
 #: functions.inc.php:512 page.callrecording.php:95
 msgid "Never"
-msgstr ""
+msgstr "从不录音"
 
 #: functions.inc.php:512 page.callrecording.php:95
 msgid "No"
-msgstr ""
+msgstr "不录音"
 
 #: functions.inc.php:502 page.callrecording.php:82
 msgid "Note that the meaning of these options has changed."
-msgstr ""
+msgstr "注意，这些选项含义已经修改。"
 
 #: page.callrecording.php:85
 msgid "Please read the Wiki on what these options mean."
-msgstr ""
+msgstr "请阅读wiki了解选项含义。"
 
 #: functions.inc.php:502 page.callrecording.php:83
 msgid "Please read the wiki for futher information on these changes."
-msgstr ""
+msgstr "请阅读官方wiki获得完整信息"
 
 #: callrecording.i18n.php:5 callrecording.i18n.php:12
 msgid "Provides much of the call recording functionality."
-msgstr ""
+msgstr "提供丰富的录音功能"
 
 #: page.callrecording.php:115
 msgid "Submit Changes"
-msgstr ""
+msgstr "提交修改"
 
 #: page.callrecording.php:76
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
-msgstr ""
+msgstr "描述呼叫录音，例如 '法语，主菜单'."
 
 #: functions.inc.php:503
 msgid ""
@@ -126,4 +129,4 @@ msgstr ""
 
 #: functions.inc.php:512 page.callrecording.php:95
 msgid "Yes"
-msgstr ""
+msgstr "录音"
