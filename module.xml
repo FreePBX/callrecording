@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>13.0.1alpha2</version>
+	<version>13.0.1alpha3</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -21,6 +21,8 @@
 		</callrecording>
  	</popovers>
 	<changelog>
+		*13.0.1alpha3* FREEEPBX-8870 Utilize new Asterisk 13 MixMonitor Option (Recording Beep)
+		*13.0.1alpha1* Visual Changes
 		*12.0.1.2* #8298
 		*12.0.1.1* Handle old 'delayed' entry
 		*12.0.1* Significant changes to the way Call Recordings work. See wiki.

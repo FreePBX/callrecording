@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 12:30-0400\n"
+"POT-Creation-Date: 2015-03-09 18:16-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr ""
 
 #: callrecording.i18n.php:4
 #: callrecording.i18n.php:10
-#: functions.inc.php:510
+#: functions.inc.php:523
 #: page.callrecording.php:7
 msgid "Call Recording"
 msgstr ""
@@ -50,7 +50,7 @@ msgid "Call Recording Mode"
 msgstr ""
 
 #: functions.inc.php:56
-#: functions.inc.php:690
+#: functions.inc.php:703
 #, php-format
 msgid "Call Recording: %s"
 msgstr ""
@@ -68,12 +68,12 @@ msgstr ""
 msgid "Destination"
 msgstr ""
 
-#: functions.inc.php:521
+#: functions.inc.php:534
 #: views/form.php:20
 msgid "Don't Care"
 msgstr ""
 
-#: functions.inc.php:521
+#: functions.inc.php:534
 #: views/form.php:20
 msgid "Force"
 msgstr ""
@@ -86,22 +86,22 @@ msgstr ""
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:521
+#: functions.inc.php:534
 #: views/form.php:20
 msgid "Never"
 msgstr ""
 
-#: functions.inc.php:521
+#: functions.inc.php:534
 #: views/form.php:20
 msgid "No"
 msgstr ""
 
-#: functions.inc.php:502
+#: functions.inc.php:515
 #: views/form.php:72
 msgid "Note that the meaning of these options has changed."
 msgstr ""
 
-#: functions.inc.php:502
+#: functions.inc.php:515
 #: views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
@@ -124,7 +124,7 @@ msgid ""
 "Main IVR\""
 msgstr ""
 
-#: functions.inc.php:537
+#: functions.inc.php:550
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -134,7 +134,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:521
+#: functions.inc.php:534
 #: views/form.php:20
 msgid "Yes"
 msgstr ""
