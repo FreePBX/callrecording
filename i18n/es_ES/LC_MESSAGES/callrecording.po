@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:04-0500\n"
-"PO-Revision-Date: 2015-03-26 01:09+0200\n"
+"PO-Revision-Date: 2015-03-27 12:02+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/es_ES/>\n"
@@ -84,7 +84,7 @@ msgstr "Editar Instancia de Grabación de Llamada"
 
 #: page.callrecording.php:60
 msgid "Edit: "
-msgstr "Editar "
+msgstr "Editar: "
 
 #: functions.inc.php:512 page.callrecording.php:95
 msgid "Force"
