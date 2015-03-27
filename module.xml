@@ -18,6 +18,7 @@
  	<popovers>
 		<callrecording>
 			<display>callrecording</display>
+			<view>form</view>
 		</callrecording>
  	</popovers>
 	<changelog>
