@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:04-0500\n"
-"PO-Revision-Date: 2015-03-30 08:13+0200\n"
+"PO-Revision-Date: 2015-03-31 04:43+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/es_ES/>\n"
@@ -100,7 +100,7 @@ msgstr "Nunca"
 
 #: functions.inc.php:512 page.callrecording.php:95
 msgid "No"
-msgstr "No"
+msgstr "NO"
 
 #: functions.inc.php:502 page.callrecording.php:82
 msgid "Note that the meaning of these options has changed."
