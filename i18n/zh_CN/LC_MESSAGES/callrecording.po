@@ -10,13 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:04-0500\n"
-"PO-Revision-Date: 2015-02-20 19:04-0500\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-04-09 20:32+0200\n"
+"Last-Translator: james <zhulizhong@gmail.com>\n"
+"Language-Team: Simplified Chinese "
+"<http://weblate.freepbx.org/projects/freepbx/callrecording/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: page.callrecording.php:40 page.callrecording.php:62
 msgid "Add Call Recording"
@@ -85,7 +88,7 @@ msgstr "强制录音"
 
 #: page.callrecording.php:139
 msgid "Invalid description specified"
-msgstr "指定的描述无效"
+msgstr "指定了无效的描述"
 
 #: functions.inc.php:512 page.callrecording.php:95
 msgid "Never"
