@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 18:16-0400\n"
+"POT-Creation-Date: 2015-04-14 20:17-0400\n"
 "PO-Revision-Date: 2015-02-20 19:04-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -38,8 +38,21 @@ msgstr "添加呼叫录音"
 msgid "Applications"
 msgstr "应用"
 
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:523
-#: page.callrecording.php:7
+#: callrecording.i18n.php:18
+msgid ""
+"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
+"a call is being recorded. If you set this to a non-zero value, when a call "
+"is being actively recorded, both parties will hear a 'beep' every period "
+"that you select. If you are not running Asterisk 13.2 or higher, this "
+"setting will have no effect. "
+msgstr ""
+
+#: callrecording.i18n.php:14
+msgid "Beep every n seconds"
+msgstr ""
+
+#: callrecording.i18n.php:4 callrecording.i18n.php:10
+#: callrecording.i18n.php:16 functions.inc.php:523 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "呼叫录音"
 
@@ -110,11 +123,15 @@ msgid "Submit"
 msgstr ""
 
 #: views/form.php:65
-msgid "The descriptive name of this call recording instance. For example \"French Main IVR\""
+msgid ""
+"The descriptive name of this call recording instance. For example \"French "
+"Main IVR\""
 msgstr "描述呼叫录音，例如 '法语，主菜单'."
 
 #: functions.inc.php:550
-msgid "This sets the call recording behavior for calls coming into this DID. Please read the wiki for information on what these settings mean."
+msgid ""
+"This sets the call recording behavior for calls coming into this DID. Please "
+"read the wiki for information on what these settings mean."
 msgstr ""
 
 #: views/form.php:118
@@ -128,8 +145,16 @@ msgstr "录音"
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "添加呼叫录音对象"
 
-#~ msgid "Call Recordings provide the ability to force a call to be recorded or not recorded based on a call flow and override all other recording settings. If a call is to be recorded, it can start immediately which will incorporate any announcements, hold music, etc. prior to being answered, or it can have recording start at the time that call is answered."
-#~ msgstr "对呼入DID进行录音控制或覆盖。允许对下游通话进行录音设置。将通话呼入以后，系统将对通话进行录音；否则将忽略所有设置。录音将对振铃，音乐等待，语音播报等等录音。 如果设置为从不录音，将不允许录音，无论下游设备如何设置。"
+#~ msgid ""
+#~ "Call Recordings provide the ability to force a call to be recorded or not "
+#~ "recorded based on a call flow and override all other recording settings. "
+#~ "If a call is to be recorded, it can start immediately which will "
+#~ "incorporate any announcements, hold music, etc. prior to being answered, "
+#~ "or it can have recording start at the time that call is answered."
+#~ msgstr ""
+#~ "对呼入DID进行录音控制或覆盖。允许对下游通话进行录音设置。将通话呼入以后，"
+#~ "系统将对通话进行录音；否则将忽略所有设置。录音将对振铃，音乐等待，语音播报"
+#~ "等等录音。 如果设置为从不录音，将不允许录音，无论下游设备如何设置。"
 
 #~ msgid "Edit Call Recording Instance"
 #~ msgstr "编辑呼叫录音对象"
