@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:04-0500\n"
-"PO-Revision-Date: 2015-05-17 02:23+0200\n"
+"PO-Revision-Date: 2015-05-30 09:22+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/pt_BR/>\n"
@@ -82,7 +82,7 @@ msgstr ""
 
 #: functions.inc.php:512 page.callrecording.php:95
 msgid "Force"
-msgstr ""
+msgstr "Forçar"
 
 #: page.callrecording.php:139
 msgid "Invalid description specified"
