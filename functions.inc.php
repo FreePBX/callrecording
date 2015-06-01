@@ -124,7 +124,7 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_set('__MON_FMT','${IF($["${MIXMON_FORMAT}"="wav49"]?WAV:${MIXMON_FORMAT})}'));
 		$ext->add($context, $exten, 'initialized', new ext_noop('Recordings initialized'));
 
-		$ext->add($context, $exten, '', new ext_execif('$[!${LEN($ARG3)}]', 'Set', 'ARG3=dontcare')); // Make sure we have a recording request.
+		$ext->add($context, $exten, '', new ext_execif('$[!${LEN(${ARG3})}]', 'Set', 'ARG3=dontcare')); // Make sure we have a recording request.
 
 		// Backup our current setting, just in case we need to roll back to it.
 		$ext->add($context, $exten, '', new ext_set('REC_POLICY_MODE_SAVE','${REC_POLICY_MODE}'));
@@ -312,6 +312,15 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)','${CALLFILENAME}.${MON_FMT}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
+		/* Picked up parked call */
+		$exten = 'parking';
+		$ext->add($context, $exten, '', new ext_noop('User ${ARG2} picked up a parked call'));
+		$ext->add($context, $exten, '', new ext_set('USER', '${ARG2}'));
+		$ext->add($context, $exten, '', new ext_execif('$[!${LEN(${ARG2})}]', 'Set', 'USER=unknown'));
+		$ext->add($context, $exten, '', new ext_set('RECMODE', '${DB(AMPUSER/${ARG2}/recording/out/internal)}'));
+		$ext->add($context, $exten, '', new ext_execif('$[!${LEN(${RECMODE})}]', 'Set', 'RECMODE=dontcare')); // Make sure we have a recording request.
+		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck', false, '${RECMODE},parked,${USER}'));
+		$ext->add($context, $exten, '', new ext_return(''));
 
 		/* macro-one-touch-record */
 
@@ -380,6 +389,9 @@ function callrecording_hookGet_config($engine) {
 			$ext->splice($context, $extension, 1, new ext_gosub('1','s','sub-record-check','out,${EXTEN},'.$route['callrecording']));
 		}
 	}
+
+	// Add in call recording checks for Parking, if it exists.
+	$ext->splice('macro-parked-call', 's', 1, new ext_gosub('1','s','sub-record-check','parking,${AMPUSER},${AMPUSER}'));
 
 	// Bugfix for Asterisk 11 - CDR(recordingfile) is getting lost when it's added in one-touch-record.
 	// See https://issues.asterisk.org/jira/browse/ASTERISK-19853
