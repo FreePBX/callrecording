@@ -497,7 +497,7 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 
 	case 'routing':
 		$request = $_REQUEST;
-		$request['route_id'] = $request['id'];
+		$request['route_id'] = isset($request['id'])?$request['id']:'';
 		$route_id	= isset($request['route_id']) ? $request['route_id'] : (isset($request['extdisplay']) ? $request['extdisplay'] : '');
 		if (!empty($_SESSION['callrecordingAddRoute'])) {
 			$callrecording = $_SESSION['callrecordingAddRoute'];

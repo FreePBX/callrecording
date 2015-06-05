@@ -52,7 +52,7 @@ class Callrecording implements BMO {
 
 		}
 		if($page == "routing"){
-			$viewing_itemid = $request['id'];
+			$viewing_itemid = isset($request['id'])?$request['id']:'';
 			$action = (isset($request['action']))?$request['action']:null;
 			$route_id = $viewing_itemid;
 			//dbug("got request for callrecording process for route: $route_id action: $action");
