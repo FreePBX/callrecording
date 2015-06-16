@@ -13,7 +13,7 @@ class Callrecording implements BMO {
     public function backup() {}
     public function restore($backup) {}
 	public static function myConfigPageInits() {
-		 return array("routing"); 
+		 return array("routing");
 	}
     public function doConfigPageInit($page) {
 		$request = $_REQUEST;
@@ -36,17 +36,17 @@ class Callrecording implements BMO {
 				case 'add':
 					$request['extdisplay'] = callrecording_add($description, $callrecording_mode, $dest);
 					needreload();
-					redirect_standard('extdisplay', 'view');
+					//redirect_standard('extdisplay', 'view');
 				break;
 				case 'edit':
 					callrecording_edit($callrecording_id, $description, $callrecording_mode, $dest);
 					needreload();
-					redirect_standard('extdisplay', 'view');
+					//redirect_standard('extdisplay', 'view');
 				break;
 				case 'delete':
 					callrecording_delete($callrecording_id);
 					needreload();
-					redirect_standard();
+					//redirect_standard();
 				break;
 			}
 
