@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<name>Call Recording</name>
 	<version>13.0.2</version>
-	<publisher>Schmooze Com Inc</publisher>
+	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
 	<candisable>no</candisable>
@@ -48,6 +48,6 @@
 	<depends>
 		<module>core ge 12.0.7</module>
 	</depends>
-	<location />
-	<md5sum />
+	<location/>
+	<md5sum/>
 </module>
