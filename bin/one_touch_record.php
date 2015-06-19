@@ -13,7 +13,7 @@ if(!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepb
 $ot_debug = true;
 $channel = $argv[1];
 
-$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "STARTED");
+setVariable($channel, "ONETOUCH_REC_SCRIPT_STATUS", "STARTED");
 
 // Who is the person pushing Record?
 $pickupExten = getVariable($channel, "PICKUP_EXTEN");
@@ -30,7 +30,7 @@ if ($fromExten == '') {
 ot_debug("Checking pickup extension");
 if($pickupExten != "") {
 	ot_debug("Setting THISEXTEN to {$pickupExten}");
-	$astman->SetVar($channel, "THISEXTEN", $pickupExten);
+	setVariable($channel, "THISEXTEN", $pickupExten);
 	$thisExtension = $pickupExten;
 }
 
@@ -54,10 +54,10 @@ if($thisExtension == "") {
 		$user = $astman->database_get("DEVICE/{$dpn}", "user");
 		if (!$user) {
 			// HOW DID THIS EVEN HAPPEN?!
-			$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-NOUSER");
+			setVariable($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-NOUSER");
 			exit(0);
 		}
-		$astman->SetVar($channel, "THISEXTEN", $user);
+		setVariable($channel, "THISEXTEN", $user);
 		$thisExtension = $user;
 	} else {
 		// Well crap. OK. Fine. Let's get all of them then.
@@ -71,12 +71,12 @@ if($thisExtension == "") {
 					ot_debug("We found device {$myvar[1]} to match our channel with user: $user");
 					if ($user != '') {
 						$thisExtension = $user;
-						$astman->SetVar($channel, "THISEXTEN", $user);
+						setVariable($channel, "THISEXTEN", $user);
 						ot_debug("Changed thisExtension to $thisExtension");
 						break;
 					} else {
 						ot_debug("No user specified, unable to track a better user to this device");
-						$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-NOT_LOGGED_IN");
+						setVariable($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-NOT_LOGGED_IN");
 						exit(0);
 					}
 				}
@@ -91,7 +91,7 @@ ot_debug("Checking on demand setting");
 $onDemand = $astman->database_get("AMPUSER/{$thisExtension}/recording", "ondemand");
 if($onDemand == "disabled") {
 	ot_debug("Disabled");
-	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-ASTDB");
+	setVariable($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-ASTDB");
 	exit(0);
 }
 
@@ -127,10 +127,13 @@ if (!$masterChannel) {
 	$masterChannel = $channel;
 	foreach (array($channel, $myMaster, $bridgePeer, $theirMaster) as $c) {
 		if (!empty($c)) {
-			$astman->SetVar($c, "RECORD_ID", $masterChannel);
+			setVariable($c, "RECORD_ID", $masterChannel);
 		}
 	}
 }
+
+// Set default Record Policy Mode
+$rpm = "NO";
 
 ot_debug("Checking if channel $masterChannel is already recording");
 $rid = getVariable($masterChannel, 'RECORD_ID');
@@ -145,16 +148,16 @@ if (!empty($rid)) {
 		ot_debug("RPM is $rpm in $channel");
 		if ($rpm == "FORCE" && $onDemand != "override") {
 			ot_debug("Denied policymode - $onDemand and $rpm");
-			$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-POLICYMODE");
+			setVariable($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-POLICYMODE");
 			exit(0);
 		}
 
 		ot_debug("Stopping");
 		$astman->stopmixmonitor($rid, rand());
-		$astman->SetVar($rid, "REC_STATUS", "STOPPED");
-		$astman->SetVar($channel, "REC_STATUS", "STOPPED");
-		$astman->SetVar($bridgePeer, "REC_STATUS", "STOPPED");
-		$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "RECORDING_STOPPED");
+		setVariable($rid, "REC_STATUS", "STOPPED");
+		setVariable($channel, "REC_STATUS", "STOPPED");
+		setVariable($bridgePeer, "REC_STATUS", "STOPPED");
+		setVariable($channel, "ONETOUCH_REC_SCRIPT_STATUS", "RECORDING_STOPPED");
 		exit(0);
 	}
 	// Ah, it's not recording. So we just want to keep that Recording ID, as we're
@@ -175,22 +178,22 @@ $timestr = getVariable($channel, "TIMESTR");
 // It's possible that ymd may not be set. Check them all.
 if (!$year) {
 	$year = date("Y");
-	$astman->SetVar($channel, "YEAR", $year);
+	setVariable($channel, "YEAR", $year);
 }
 
 if (!$month) {
 	$month = date("m");
-	$astman->SetVar($channel, "MONTH", $month);
+	setVariable($channel, "MONTH", $month);
 }
 
 if (!$day) {
 	$day = date("d");
-	$astman->SetVar($channel, "DAY", $day);
+	setVariable($channel, "DAY", $day);
 }
 
 if (!$timestr) {
 	$timestr = "$year$month$day-".date("His");
-	$astman->SetVar($channel, "TIMESTR", $day);
+	setVariable($channel, "TIMESTR", $day);
 }
 
 if (!$callFileName) {
@@ -204,7 +207,7 @@ if (!$callFileName) {
 ot_debug("Checking recording polcy {$rpm}");
 if($rpm == "NEVER" && $ondemand != "override") {
 	ot_debug("Recording polcy is 'never', no override, exiting");
-	$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-NEVER_NO_OVERRIDE");
+	setVariable($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-NEVER_NO_OVERRIDE");
 	exit(0);
 }
 
@@ -215,28 +218,27 @@ $mixMonFormat = getVariable($channel, "MIXMON_FORMAT");
 $mixMonPost = getVariable($channel, "MIXMON_POST");
 
 // Setting in both channels in case a subsequent park or attended transfer of one
-$astman->SetVar($bridgePeer, "REC_STATUS", "RECORDING");
-$astman->SetVar($channel, "REC_STATUS", "RECORDING");
-$astman->SetVar($channel, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
-$astman->SetVar($bridgePeer, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
-$beep = getVariable($channel, 'MIXMON_BEEP');
-$astman->mixmonitor($masterChannel, "{$mixMonDir}{$year}/{$month}/{$day}/{$callFileName}.{$mixMonFormat}", "ai(LOCAL_MIXMON_ID)$beep", $mixMonPost, rand());
+setVariable($bridgePeer, "REC_STATUS", "RECORDING");
+setVariable($channel, "REC_STATUS", "RECORDING");
+setVariable($channel, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
+setVariable($bridgePeer, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
+$astman->mixmonitor($masterChannel, "{$mixMonDir}{$year}/{$month}/{$day}/{$callFileName}.{$mixMonFormat}", "ai(LOCAL_MIXMON_ID)", $mixMonPost, rand());
 $mixmonid = getVariable($channel, "LOCAL_MIXMON_ID");
-$astman->SetVar($channel, "__MIXMON_ID", $mixmonid);
+setVariable($channel, "__MIXMON_ID", $mixmonid);
 $channame = getVariable($channel, "CHANNEL(name)");
-$astman->SetVar($channel, "__RECORD_ID", $channame);
+setVariable($channel, "__RECORD_ID", $channame);
 
 //Set the monitor format and file name for the cdr entry
 ot_debug("Setting CDR info");
 $monFmt = ($mixMonFormat != "" ? $mixMonFormat : "wav");
-$astman->SetVar($channel, "MON_FMT", $monFmt);
-$astman->SetVar($bridgePeer, "CDR(recordingfile)", "{$callFileName}.{$monFmt}");
-$astman->SetVar($channel, "CDR(recordingfile)", "{$callFileName}.{$monFmt}");
+setVariable($channel, "MON_FMT", $monFmt);
+setVariable($bridgePeer, "CDR(recordingfile)", "{$callFileName}.{$monFmt}");
+setVariable($channel, "CDR(recordingfile)", "{$callFileName}.{$monFmt}");
 
-$astman->SetVar($bridgePeer, "CALLFILENAME", "{$callFileName}");
-$astman->SetVar($channel, "CALLFILENAME", "{$callFileName}");
+setVariable($bridgePeer, "CALLFILENAME", "{$callFileName}");
+setVariable($channel, "CALLFILENAME", "{$callFileName}");
 
-$astman->SetVar($channel, "ONETOUCH_REC_SCRIPT_STATUS", "RECORDING_STARTED");
+setVariable($channel, "ONETOUCH_REC_SCRIPT_STATUS", "RECORDING_STARTED");
 
 //Get variable function
 function getVariable($channel, $varName) {
@@ -257,5 +259,18 @@ function ot_debug($string) {
 		dbug($string);
 		echo "$string\n";
 	}
+}
+
+
+// Make sure we never set a global variable by
+// checking thet the channel is not blank.
+function setVariable($channel = false, $key, $val) {
+	global $astman;
+
+	if (!$channel) {
+		return false;
+	}
+	$astman->SetVar($channel, $key, $val);
+	return true;
 }
 

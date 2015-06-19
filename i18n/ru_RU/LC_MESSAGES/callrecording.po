@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 20:17-0400\n"
-"PO-Revision-Date: 2015-02-12 15:32+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Russian <http://git.freepbx.org/projects/freepbx/"
+"POT-Creation-Date: 2015-06-02 09:31+1000\n"
+"PO-Revision-Date: 2015-04-23 15:02+0200\n"
+"Last-Translator: Yuriy <alliancesko@gmail.com>\n"
+"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "callrecording/ru_RU/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,23 +18,15 @@ msgstr ""
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.1\n"
+"X-Generator: Weblate 2.2-dev\n"
 
-#: page.callrecording.php:14
-msgid ": Add"
-msgstr ""
-
-#: page.callrecording.php:12
-msgid ": Edit"
-msgstr ""
-
-#: views/grid.php:20
-msgid "Actions"
-msgstr ""
-
-#: views/bootnav.php:6
+#: page.callrecording.php:40 page.callrecording.php:62
 msgid "Add Call Recording"
 msgstr "Добавить запись разговора"
+
+#: page.callrecording.php:74
+msgid "Add Call Recording Instance"
+msgstr "Добавить запись"
 
 #: callrecording.i18n.php:6 callrecording.i18n.php:12
 msgid "Applications"
@@ -42,11 +34,11 @@ msgstr "Приложения"
 
 #: callrecording.i18n.php:18
 msgid ""
-"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
-"a call is being recorded. If you set this to a non-zero value, when a call "
-"is being actively recorded, both parties will hear a 'beep' every period "
-"that you select. If you are not running Asterisk 13.2 or higher, this "
-"setting will have no effect. "
+"Asterisk 13 and higher supports the ability to play a regular 'beep' when a "
+"call is being recorded. If you set this to a non-zero value, when a call is "
+"being actively recorded, both parties will hear a 'beep' every period that "
+"you select. If you are not running Asterisk 13 or higher, this setting will "
+"have no effect. "
 msgstr ""
 
 #: callrecording.i18n.php:14
@@ -54,119 +46,113 @@ msgid "Beep every n seconds"
 msgstr ""
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10
-#: callrecording.i18n.php:16 functions.inc.php:523 page.callrecording.php:7
+#: callrecording.i18n.php:16 functions.inc.php:512 functions.inc.php:515
 msgid "Call Recording"
 msgstr "Запись разговора"
 
-#: views/form.php:82
+#: page.callrecording.php:85
 msgid "Call Recording Mode"
 msgstr "Режим записи разговоров"
 
-#: functions.inc.php:56 functions.inc.php:703
+#: functions.inc.php:56 functions.inc.php:699
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Запись разговора: %s"
 
-#: Callrecording.class.php:82
+#: page.callrecording.php:65
+msgid ""
+"Call Recordings provide the ability to force a call to be recorded or not "
+"recorded based on a call flow and override all other recording settings. If "
+"a call is to be recorded, it can start immediately which will incorporate "
+"any announcements, hold music, etc. prior to being answered, or it can have "
+"recording start at the time that call is answered."
+msgstr ""
+"Модуль даёт возможность принудительно устанавливать запись разговора или "
+"принудительно запрещать её в зависимости от направления обработки звонка и "
+"переназначать все настройки записи. Если разговор будет записан, запись "
+"может быть начата сразу, включая сервисные сообщения и тоны, или после "
+"ответа вызываемого абонента."
+
+#: page.callrecording.php:116
 msgid "Delete"
 msgstr "Удалить"
 
-#: views/form.php:53 views/grid.php:19
+#: page.callrecording.php:76
 msgid "Description"
 msgstr "Описание"
 
-#: views/form.php:106
+#: page.callrecording.php:107
 msgid "Destination"
 msgstr "Направить в"
 
-#: functions.inc.php:534 views/form.php:20
+#: functions.inc.php:524 page.callrecording.php:95
 msgid "Don't Care"
-msgstr ""
+msgstr "Все равно"
 
-#: functions.inc.php:534 views/form.php:20
+#: page.callrecording.php:74
+msgid "Edit Call Recording Instance"
+msgstr "Изменить запись"
+
+#: page.callrecording.php:60
+msgid "Edit: "
+msgstr "Редактировать: "
+
+#: functions.inc.php:524 page.callrecording.php:95
 msgid "Force"
-msgstr ""
+msgstr "Всегда"
 
-#: page.callrecording.php:57
+#: page.callrecording.php:139
 msgid "Invalid description specified"
 msgstr "Указано неверное описание"
 
-#: views/bootnav.php:5
-msgid "List Call Recordings"
-msgstr ""
-
-#: functions.inc.php:534 views/form.php:20
+#: functions.inc.php:524 page.callrecording.php:95
 msgid "Never"
 msgstr "Никогда"
 
-#: functions.inc.php:534 views/form.php:20
+#: functions.inc.php:524 page.callrecording.php:95
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
-#: functions.inc.php:515 views/form.php:72
+#: functions.inc.php:514 page.callrecording.php:82
 msgid "Note that the meaning of these options has changed."
-msgstr ""
+msgstr "Обратите внимание, что значение этих параметров не изменилось."
 
-#: functions.inc.php:515 views/form.php:94
+#: page.callrecording.php:85
+msgid "Please read the Wiki on what these options mean."
+msgstr "Пожалуйста, прочтите на Wiki, что означают эти параметры."
+
+#: functions.inc.php:514 page.callrecording.php:83
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
+"Пожалуйста, прочтите Wiki для получения подробной информации об этих "
+"изменениях."
 
 #: callrecording.i18n.php:8
 msgid "Provides much of the call recording functionality."
-msgstr "Организует возможность записи разговоров"
+msgstr "Предоставляет большую часть функционала записи разговоров."
 
-#: Callrecording.class.php:87
-msgid "Reset"
-msgstr ""
+#: page.callrecording.php:115
+msgid "Submit Changes"
+msgstr "Сохранить изменения"
 
-#: Callrecording.class.php:92
-msgid "Submit"
-msgstr ""
-
-#: views/form.php:65
+#: page.callrecording.php:76
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
 msgstr "Наглядное имя этой записи. Например 'Главное меню на русском языке'"
 
-#: functions.inc.php:550
+#: functions.inc.php:515
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
+"Это устанавливает поведение режима записи для звонка, попавшего в этот DID. "
+"Пожалуйста, прочтите Wiki для получения информации о том, что означают эти "
+"параметры."
 
-#: views/form.php:118
-msgid "Where should the call be sent."
-msgstr ""
-
-#: functions.inc.php:534 views/form.php:20
+#: functions.inc.php:524 page.callrecording.php:95
 msgid "Yes"
-msgstr ""
-
-#~ msgid "Add Call Recording Instance"
-#~ msgstr "Добавить запись"
-
-#~ msgid ""
-#~ "Call Recordings provide the ability to force a call to be recorded or not "
-#~ "recorded based on a call flow and override all other recording settings. "
-#~ "If a call is to be recorded, it can start immediately which will "
-#~ "incorporate any announcements, hold music, etc. prior to being answered, "
-#~ "or it can have recording start at the time that call is answered."
-#~ msgstr ""
-#~ "Модуль даёт возможность принудительно устанавливать запись разговора или "
-#~ "принудительно запрещать её в зависимости от направления обработки звонка "
-#~ "и переназначать все настройки записи. Если разговор будет записан, запись "
-#~ "может быть начата сразу, включая сервисные сообщения и тоны, или после "
-#~ "ответа вызываемого абонента."
-
-#~ msgid "Edit Call Recording Instance"
-#~ msgstr "Изменить запись"
-
-#~ msgid "Edit: "
-#~ msgstr "Редактировать: "
-
-#~ msgid "Submit Changes"
-#~ msgstr "Сохранить изменения"
+msgstr "Да"
 
 #~ msgid "Allow"
 #~ msgstr "Разрешить"
