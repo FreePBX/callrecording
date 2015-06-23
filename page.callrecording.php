@@ -35,7 +35,7 @@ switch($request["view"]){
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-3 hidden-xs bootnav <?php echo $request['fw_popover']?'hidden':''?>">
+			<div class="col-sm-3 hidden-xs bootnav <?php echo $request['fw_popover']?'hidden':''; echo isset($request['view'])?'':'hidden'?>">
 				<div class="list-group">
 					<?php echo load_view(__DIR__.'/views/bootnav.php', array('request' => $request));?>
 				</div>
