@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-02 09:31+1000\n"
-"PO-Revision-Date: 2015-07-14 13:48+0200\n"
+"PO-Revision-Date: 2015-07-14 14:19+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/bg_BG/>\n"
@@ -27,7 +27,7 @@ msgstr "Добави Запис на Разговор"
 
 #: page.callrecording.php:74
 msgid "Add Call Recording Instance"
-msgstr "Добави Запис на Разговор Инстанция"
+msgstr "Добавяне на Запис на Разговор"
 
 #: callrecording.i18n.php:6 callrecording.i18n.php:12
 msgid "Applications"
@@ -98,7 +98,7 @@ msgstr "Без Значение"
 
 #: page.callrecording.php:74
 msgid "Edit Call Recording Instance"
-msgstr "Редактирай Запис на Разговор Инстанция"
+msgstr "Редактиране на Запис на Разговор"
 
 #: page.callrecording.php:60
 msgid "Edit: "
