@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 18:01-0400\n"
+"POT-Creation-Date: 2015-08-06 16:45-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,11 +25,11 @@ msgstr ""
 msgid ": Edit"
 msgstr ""
 
-#: views/grid.php:20
+#: views/grid.php:23
 msgid "Actions"
 msgstr ""
 
-#: views/bootnav.php:6
+#: views/grid.php:17
 msgid "Add Call Recording"
 msgstr ""
 
@@ -53,7 +53,7 @@ msgid "Delete"
 msgstr ""
 
 #: views/form.php:53
-#: views/grid.php:19
+#: views/grid.php:22
 msgid "Description"
 msgstr ""
 

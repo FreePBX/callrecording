@@ -7,15 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 18:01-0400\n"
+"POT-Creation-Date: 2015-08-06 16:45-0700\n"
 "PO-Revision-Date: 2015-04-23 15:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
-"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/callrecording/ru_RU/>\n"
+"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
+"callrecording/ru_RU/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru_RU\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: page.callrecording.php:14
@@ -26,11 +28,11 @@ msgstr ""
 msgid ": Edit"
 msgstr ""
 
-#: views/grid.php:20
+#: views/grid.php:23
 msgid "Actions"
 msgstr ""
 
-#: views/bootnav.php:6
+#: views/grid.php:17
 msgid "Add Call Recording"
 msgstr "Добавить запись разговора"
 
@@ -51,7 +53,7 @@ msgstr "Запись разговора: %s"
 msgid "Delete"
 msgstr "Удалить"
 
-#: views/form.php:53 views/grid.php:19
+#: views/form.php:53 views/grid.php:22
 msgid "Description"
 msgstr "Описание"
 
@@ -89,7 +91,9 @@ msgstr "Обратите внимание, что значение этих па
 
 #: functions.inc.php:527 views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
-msgstr "Пожалуйста, прочтите Wiki для получения подробной информации об этих изменениях."
+msgstr ""
+"Пожалуйста, прочтите Wiki для получения подробной информации об этих "
+"изменениях."
 
 #: Callrecording.class.php:87
 msgid "Reset"
@@ -100,12 +104,19 @@ msgid "Submit"
 msgstr ""
 
 #: views/form.php:65
-msgid "The descriptive name of this call recording instance. For example \"French Main IVR\""
+msgid ""
+"The descriptive name of this call recording instance. For example \"French "
+"Main IVR\""
 msgstr "Наглядное имя этой записи. Например 'Главное меню на русском языке'"
 
 #: functions.inc.php:562
-msgid "This sets the call recording behavior for calls coming into this DID. Please read the wiki for information on what these settings mean."
-msgstr "Это устанавливает поведение режима записи для звонка, попавшего в этот DID. Пожалуйста, прочтите Wiki для получения информации о том, что означают эти параметры."
+msgid ""
+"This sets the call recording behavior for calls coming into this DID. Please "
+"read the wiki for information on what these settings mean."
+msgstr ""
+"Это устанавливает поведение режима записи для звонка, попавшего в этот DID. "
+"Пожалуйста, прочтите Wiki для получения информации о том, что означают эти "
+"параметры."
 
 #: views/form.php:118
 msgid "Where should the call be sent."
@@ -115,13 +126,21 @@ msgstr ""
 msgid "Yes"
 msgstr "Да"
 
-#: callrecording.i18n.php:18
-msgid "Asterisk 13 and higher supports the ability to play a regular 'beep' when a call is being recorded. If you set this to a non-zero value, when a call is being actively recorded, both parties will hear a 'beep' every period that you select. If you are not running Asterisk 13 or higher, this setting will have no effect. "
-msgstr "Asterisk 13 и выше поддерживает возможность посылать регулярно сигнал \"бип\", когда разговор записывается. Если вы установите это значение не в 0, то, когда вызов записывается, обе стороны будут слышать звуковой сигнал ''бип\" каждый период, что вы укажете. Если вы не установили Asterisk 13 или выше, этот параметр не будет иметь никакого значения. "
+#~ msgid ""
+#~ "Asterisk 13 and higher supports the ability to play a regular 'beep' when "
+#~ "a call is being recorded. If you set this to a non-zero value, when a "
+#~ "call is being actively recorded, both parties will hear a 'beep' every "
+#~ "period that you select. If you are not running Asterisk 13 or higher, "
+#~ "this setting will have no effect. "
+#~ msgstr ""
+#~ "Asterisk 13 и выше поддерживает возможность посылать регулярно сигнал "
+#~ "\"бип\", когда разговор записывается. Если вы установите это значение не "
+#~ "в 0, то, когда вызов записывается, обе стороны будут слышать звуковой "
+#~ "сигнал ''бип\" каждый период, что вы укажете. Если вы не установили "
+#~ "Asterisk 13 или выше, этот параметр не будет иметь никакого значения. "
 
-#: callrecording.i18n.php:14
-msgid "Beep every n seconds"
-msgstr "Бип каждые n секунд"
+#~ msgid "Beep every n seconds"
+#~ msgstr "Бип каждые n секунд"
 
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "Добавить запись"
@@ -132,14 +151,51 @@ msgstr "Бип каждые n секунд"
 #~ msgid "Applications"
 #~ msgstr "Приложения"
 
-#~ msgid "Call Recordings provide the ability to force a call to be recorded or not recorded based on a call flow and override all other recording settings. If a call is to be recorded, it can start immediately which will incorporate any announcements, hold music, etc. prior to being answered, or it can have recording start at the time that call is answered."
-#~ msgstr "Модуль даёт возможность принудительно устанавливать запись разговора или принудительно запрещать её в зависимости от направления обработки звонка и переназначать все настройки записи. Если разговор будет записан, запись может быть начата сразу, включая сервисные сообщения и тоны, или после ответа вызываемого абонента."
+#~ msgid ""
+#~ "Call Recordings provide the ability to force a call to be recorded or not "
+#~ "recorded based on a call flow and override all other recording settings. "
+#~ "If a call is to be recorded, it can start immediately which will "
+#~ "incorporate any announcements, hold music, etc. prior to being answered, "
+#~ "or it can have recording start at the time that call is answered."
+#~ msgstr ""
+#~ "Модуль даёт возможность принудительно устанавливать запись разговора или "
+#~ "принудительно запрещать её в зависимости от направления обработки звонка "
+#~ "и переназначать все настройки записи. Если разговор будет записан, запись "
+#~ "может быть начата сразу, включая сервисные сообщения и тоны, или после "
+#~ "ответа вызываемого абонента."
 
-#~ msgid "Controls or overrides the call recording behavior for calls coming into this DID. Allow will honor the normal downstream call recording settings. Record on Answer starts recording when the call would otherwise be recorded ignoring any settings that say otherwise. Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. Never will disallow recording regardless of downstream settings."
-#~ msgstr "Управляет или переопределяет необходимость записи разговора приходящих на этот входящий номер. 'Разрешить' будет следовать другим установкам записи. 'Записывать после ответа' будет начинать запись разговора игнорируя другие установки, отменяющие запись. 'Записывать сразу' будет начинать запись разговора с самого начата разговора, включая гудки, голосовые сообщения, фоновую музыку и другие сервисные сообщения. 'Никогда' будет запрещать запись разговора несмотря на другие установки."
+#~ msgid ""
+#~ "Controls or overrides the call recording behavior for calls coming into "
+#~ "this DID. Allow will honor the normal downstream call recording settings. "
+#~ "Record on Answer starts recording when the call would otherwise be "
+#~ "recorded ignoring any settings that say otherwise. Record Immediately "
+#~ "will start recording right away capturing ringing, announcements, MoH, "
+#~ "etc. Never will disallow recording regardless of downstream settings."
+#~ msgstr ""
+#~ "Управляет или переопределяет необходимость записи разговора приходящих на "
+#~ "этот входящий номер. 'Разрешить' будет следовать другим установкам "
+#~ "записи. 'Записывать после ответа' будет начинать запись разговора "
+#~ "игнорируя другие установки, отменяющие запись. 'Записывать сразу' будет "
+#~ "начинать запись разговора с самого начата разговора, включая гудки, "
+#~ "голосовые сообщения, фоновую музыку и другие сервисные сообщения. "
+#~ "'Никогда' будет запрещать запись разговора несмотря на другие установки."
 
-#~ msgid "Controls or overrides the call recording behavior for calls continuing through this call flow. Allow will honor the normal downstream call recording settings. Record on Answer starts recording when the call would otherwise be recorded ignoring any settings that say otherwise. Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. Never will disallow recording regardless of downstream settings."
-#~ msgstr "Устанавливает или переопределяет режим записи разговора проходящего через это направление обработки звонка.'Разрешить' будет следовать другим установкам записи. 'Записывать после ответа' будет начинать запись разговора игнорируя другие установки, отменяющие запись. 'Записывать сразу' будет начинать запись разговора с самого начала разговора, включая гудки, голосовые сообщения, фоновую музыку и другие сервисные сообщения. 'Никогда' будет запрещать запись разговора несмотря на другие установки."
+#~ msgid ""
+#~ "Controls or overrides the call recording behavior for calls continuing "
+#~ "through this call flow. Allow will honor the normal downstream call "
+#~ "recording settings. Record on Answer starts recording when the call would "
+#~ "otherwise be recorded ignoring any settings that say otherwise. Record "
+#~ "Immediately will start recording right away capturing ringing, "
+#~ "announcements, MoH, etc. Never will disallow recording regardless of "
+#~ "downstream settings."
+#~ msgstr ""
+#~ "Устанавливает или переопределяет режим записи разговора проходящего через "
+#~ "это направление обработки звонка.'Разрешить' будет следовать другим "
+#~ "установкам записи. 'Записывать после ответа' будет начинать запись "
+#~ "разговора игнорируя другие установки, отменяющие запись. 'Записывать "
+#~ "сразу' будет начинать запись разговора с самого начала разговора, включая "
+#~ "гудки, голосовые сообщения, фоновую музыку и другие сервисные сообщения. "
+#~ "'Никогда' будет запрещать запись разговора несмотря на другие установки."
 
 #~ msgid "Edit Call Recording Instance"
 #~ msgstr "Изменить запись"

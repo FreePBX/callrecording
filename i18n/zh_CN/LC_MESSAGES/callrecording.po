@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 18:01-0400\n"
+"POT-Creation-Date: 2015-08-06 16:45-0700\n"
 "PO-Revision-Date: 2015-02-20 19:04-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -26,11 +26,11 @@ msgstr ""
 msgid ": Edit"
 msgstr ""
 
-#: views/grid.php:20
+#: views/grid.php:23
 msgid "Actions"
 msgstr ""
 
-#: views/bootnav.php:6
+#: views/grid.php:17
 msgid "Add Call Recording"
 msgstr "添加呼叫录音"
 
@@ -51,7 +51,7 @@ msgstr "呼叫录音: %s"
 msgid "Delete"
 msgstr "删除"
 
-#: views/form.php:53 views/grid.php:19
+#: views/form.php:53 views/grid.php:22
 msgid "Description"
 msgstr "描述"
 

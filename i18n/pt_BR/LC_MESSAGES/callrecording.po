@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 18:01-0400\n"
+"POT-Creation-Date: 2015-08-06 16:45-0700\n"
 "PO-Revision-Date: 2015-05-30 09:22+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -29,11 +29,11 @@ msgstr ""
 msgid ": Edit"
 msgstr ""
 
-#: views/grid.php:20
+#: views/grid.php:23
 msgid "Actions"
 msgstr ""
 
-#: views/bootnav.php:6
+#: views/grid.php:17
 msgid "Add Call Recording"
 msgstr ""
 
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Delete"
 msgstr "Apagar"
 
-#: views/form.php:53 views/grid.php:19
+#: views/form.php:53 views/grid.php:22
 msgid "Description"
 msgstr ""
 
