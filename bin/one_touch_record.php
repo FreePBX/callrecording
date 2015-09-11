@@ -20,12 +20,27 @@ $pickupExten = getVariable($channel, "PICKUP_EXTEN");
 $thisExtension = getVariable($channel, "THISEXTEN");
 
 $realCallerIdNum = getVariable($channel, "REALCALLERIDNUM");
-$fromExten = getVariable($channel, "FROMEXTEN");
+
+// Set $fromExten to be SOMETHING sane.
+$fromExten = false;
+// Go through these in order.
+$f = array("FROMEXTEN", "FROM_DID", "REALCALLERIDNUM");
+foreach ($f as $var) {
+	$check = getVariable($channel, $var);
+	if ($check) {
+		$fromExten = $check;
+		break;
+	}
+}
+
+// Was it set?
+if (!$fromExten) {
+	// Sigh.
+	$fromExten = $thisExtension;
+}
+
 $mixmonid = getVariable($channel, "MIXMON_ID");
 $bridgePeer = getVariable($channel, "BRIDGEPEER");
-if ($fromExten == '') {
-	$fromExten = $realCallerIdNum;
-}
 
 ot_debug("Checking pickup extension");
 if($pickupExten != "") {
