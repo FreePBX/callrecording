@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-02 09:31+1000\n"
+"POT-Creation-Date: 2015-09-11 12:39+1000\n"
 "PO-Revision-Date: 2015-04-29 21:20+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -33,21 +33,8 @@ msgstr ""
 msgid "Applications"
 msgstr "Applications"
 
-#: callrecording.i18n.php:18
-msgid ""
-"Asterisk 13 and higher supports the ability to play a regular 'beep' when a "
-"call is being recorded. If you set this to a non-zero value, when a call is "
-"being actively recorded, both parties will hear a 'beep' every period that "
-"you select. If you are not running Asterisk 13 or higher, this setting will "
-"have no effect. "
-msgstr ""
-
-#: callrecording.i18n.php:14
-msgid "Beep every n seconds"
-msgstr ""
-
-#: callrecording.i18n.php:4 callrecording.i18n.php:10
-#: callrecording.i18n.php:16 functions.inc.php:512 functions.inc.php:515
+#: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:512
+#: functions.inc.php:515
 msgid "Call Recording"
 msgstr "L'enregistrement d'appel"
 

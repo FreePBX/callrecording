@@ -37,15 +37,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-02 09:31+1000\n"
+"POT-Creation-Date: 2015-09-11 12:39+1000\n"
 "PO-Revision-Date: 2015-07-27 10:26+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
-"Language-Team: Japanese "
-"<http://weblate.freepbx.org/projects/freepbx/callrecording/ja_JP/>\n"
-"Language: ja_JP\n"
+"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
+"callrecording/ja_JP/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -61,21 +61,8 @@ msgstr "通話録音インスタンスを追加"
 msgid "Applications"
 msgstr "アプリケーション"
 
-#: callrecording.i18n.php:18
-msgid ""
-"Asterisk 13 and higher supports the ability to play a regular 'beep' when a "
-"call is being recorded. If you set this to a non-zero value, when a call is "
-"being actively recorded, both parties will hear a 'beep' every period that "
-"you select. If you are not running Asterisk 13 or higher, this setting will "
-"have no effect. "
-msgstr ""
-
-#: callrecording.i18n.php:14
-msgid "Beep every n seconds"
-msgstr ""
-
-#: callrecording.i18n.php:4 callrecording.i18n.php:10
-#: callrecording.i18n.php:16 functions.inc.php:512 functions.inc.php:515
+#: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:512
+#: functions.inc.php:515
 msgid "Call Recording"
 msgstr "通話録音"
 
