@@ -10,11 +10,11 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-02 09:31+1000\n"
-"PO-Revision-Date: 2015-07-16 23:16+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/callrecording/es_ES/>\n"
-"Language: es_ES\n"
+"PO-Revision-Date: 2015-07-14 14:19+0200\n"
+"Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
+"Language-Team: Bulgarian "
+"<http://weblate.freepbx.org/projects/freepbx/callrecording/bg_BG/>\n"
+"Language: bg_BG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,15 +23,15 @@ msgstr ""
 
 #: page.callrecording.php:40 page.callrecording.php:62
 msgid "Add Call Recording"
-msgstr "Agregar Grabación de Llamadas"
+msgstr "Добави Запис на Разговор"
 
 #: page.callrecording.php:74
 msgid "Add Call Recording Instance"
-msgstr "Agregar Instancia de Grabación de Llamadas"
+msgstr "Добавяне на Запис на Разговор"
 
 #: callrecording.i18n.php:6 callrecording.i18n.php:12
 msgid "Applications"
-msgstr "Aplicaciones"
+msgstr "Приложения"
 
 #: callrecording.i18n.php:18
 msgid ""
@@ -41,29 +41,29 @@ msgid ""
 "you select. If you are not running Asterisk 13 or higher, this setting will "
 "have no effect. "
 msgstr ""
-"Asterisk 13 y superior admite la posibilidad de usar el pitido \"beep\"  "
-"regular cuando se está grabando una llamada. Si se establece a un valor "
-"distinto de cero, cuando una llamada está siendo grabada activamente, ambas "
-"partes oirán un pitido cada cierto tiempo que usted seleccione. Si no está "
-"ejecutando Asterisk menor a 13, este ajuste no tendrá ningún efecto. "
+"Астериск 13 и по-висока версия дава възможност за възпроизвеждане на \""
+"звуков сигнал\" през определен период докато разговора се записва. Ако "
+"зададете стойност различна от нула, когато разговора се записва двете страни "
+"ще чуват \"звуков сигнал\" на всеки зададен период. Ако не използвате "
+"Астериск 13 или по-висока версия, тази настройка няма да има ефект. "
 
 #: callrecording.i18n.php:14
 msgid "Beep every n seconds"
-msgstr "Pitar \"beep\" cada n segundos"
+msgstr "Звуков сигнал на всеки n секунди"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10
 #: callrecording.i18n.php:16 functions.inc.php:512 functions.inc.php:515
 msgid "Call Recording"
-msgstr "Grabación de Llamadas"
+msgstr "Запис на Разговор"
 
 #: page.callrecording.php:85
 msgid "Call Recording Mode"
-msgstr "Modo Grabación de Llamadas"
+msgstr "Режим на Запис на Разговор"
 
 #: functions.inc.php:56 functions.inc.php:699
 #, php-format
 msgid "Call Recording: %s"
-msgstr "Grabación de Llamadas: %s"
+msgstr "Запис на Разговор: %s"
 
 #: page.callrecording.php:65
 msgid ""
@@ -73,90 +73,87 @@ msgid ""
 "any announcements, hold music, etc. prior to being answered, or it can have "
 "recording start at the time that call is answered."
 msgstr ""
-"Grabaciones de llamadas proporciona la capacidad de forzar una llamada a ser "
-"grabado o no grabado con base en un flujo de la misma y anular todos los "
-"demás ajustes de grabación. Si una llamada se ha de grabar, se puede empezar "
-"de inmediato lo cual incorporará cualquier anuncio,  música, etc., antes de "
-"ser contestadas, o puede tener inicio de la grabación en el momento en que "
-"llamada es contestada."
+"Запис на Разговор предоставя възможността да се зададе дали разговор да бъде "
+"записан или да не бъде записан на базата на потока от обаждания и отменя "
+"всички други настройки за запис. Ако обаждането трябва да се записва, може "
+"да започне веднага като ще включва всички съобщения, музика на задържане и "
+"т.н. преди бъде отговорено, или може да започне запис в момента в който "
+"обаждането бъде отговорено."
 
 #: page.callrecording.php:116
 msgid "Delete"
-msgstr "Borrar"
+msgstr "Изтрий"
 
 #: page.callrecording.php:76
 msgid "Description"
-msgstr "Descripción"
+msgstr "Описание"
 
 #: page.callrecording.php:107
 msgid "Destination"
-msgstr "Destino"
+msgstr "Направление"
 
 #: functions.inc.php:524 page.callrecording.php:95
 msgid "Don't Care"
-msgstr "No Importa"
+msgstr "Без Значение"
 
 #: page.callrecording.php:74
 msgid "Edit Call Recording Instance"
-msgstr "Editar Instancia de Grabación de Llamada"
+msgstr "Редактиране на Запис на Разговор"
 
 #: page.callrecording.php:60
 msgid "Edit: "
-msgstr "Editar: "
+msgstr "Редактиране: "
 
 #: functions.inc.php:524 page.callrecording.php:95
 msgid "Force"
-msgstr "Forzar"
+msgstr "Винаги"
 
 #: page.callrecording.php:139
 msgid "Invalid description specified"
-msgstr "Descripción especificada Invalida"
+msgstr "Неправилно въведено описание"
 
 #: functions.inc.php:524 page.callrecording.php:95
 msgid "Never"
-msgstr "Nunca"
+msgstr "Никога"
 
 #: functions.inc.php:524 page.callrecording.php:95
 msgid "No"
-msgstr "No"
+msgstr "Не"
 
 #: functions.inc.php:514 page.callrecording.php:82
 msgid "Note that the meaning of these options has changed."
-msgstr "Note que el significado de estas opciones ha cambiado."
+msgstr "Имайте предвид, че значението на тези параметри е променено."
 
 #: page.callrecording.php:85
 msgid "Please read the Wiki on what these options mean."
-msgstr "Por favor lea la wiki acerca del significado de estas opciones."
+msgstr "Моля, прочетете Wiki за информация относно тези настройки."
 
 #: functions.inc.php:514 page.callrecording.php:83
 msgid "Please read the wiki for futher information on these changes."
-msgstr "Por favor lea la wiki para mas información acerca de estos cambios."
+msgstr "Моля, прочетете Wiki за повече информация относно тези промени."
 
 #: callrecording.i18n.php:8
 msgid "Provides much of the call recording functionality."
-msgstr "Proporciona mucha de la funcionalidad de grabación de llamadas."
+msgstr "Предоставя голяма част от функционалността на запис на разговор."
 
 #: page.callrecording.php:115
 msgid "Submit Changes"
-msgstr "Enviar Cambios"
+msgstr "Приеми Промените"
 
 #: page.callrecording.php:76
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
-msgstr ""
-"El nombre descriptivo de esta instancia de grabación de llamadas. Por "
-"ejemplo, \"IVR principal en Español\""
+msgstr "Описващо име на тази инстанция"
 
 #: functions.inc.php:515
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
-"Ajusta el comportamiento de grabación de llamadas para las llamadas que "
-"llegan a este DID. Por favor, lea el wiki para obtener información sobre lo "
-"que significan estos ajustes."
+"Установява запис на разговор за обаждания идващи през този DID. Моля, "
+"прочетете Wiki за повече информация относно тези настройки."
 
 #: functions.inc.php:524 page.callrecording.php:95
 msgid "Yes"
-msgstr "Si"
+msgstr "Да"
