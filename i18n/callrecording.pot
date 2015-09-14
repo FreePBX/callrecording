@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-11 12:46+1000\n"
+"POT-Creation-Date: 2015-09-14 10:58-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,13 +33,6 @@ msgstr ""
 msgid "Add Call Recording"
 msgstr ""
 
-#: callrecording.i18n.php:6
-#: callrecording.i18n.php:12
-msgid "Applications"
-msgstr ""
-
-#: callrecording.i18n.php:4
-#: callrecording.i18n.php:10
 #: functions.inc.php:535
 #: page.callrecording.php:7
 msgid "Call Recording"
@@ -104,10 +97,6 @@ msgstr ""
 #: functions.inc.php:527
 #: views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
-msgstr ""
-
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
 msgstr ""
 
 #: Callrecording.class.php:87

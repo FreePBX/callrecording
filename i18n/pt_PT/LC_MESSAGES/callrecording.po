@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-11 12:46+1000\n"
+"POT-Creation-Date: 2015-09-14 10:58-0700\n"
 "PO-Revision-Date: 2015-04-27 16:53+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -37,12 +37,7 @@ msgstr ""
 msgid "Add Call Recording"
 msgstr "Adicionar Gravação de Chamada"
 
-#: callrecording.i18n.php:6 callrecording.i18n.php:12
-msgid "Applications"
-msgstr "Aplicações"
-
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:535
-#: page.callrecording.php:7
+#: functions.inc.php:535 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Gravação de Chamadas"
 
@@ -99,10 +94,6 @@ msgstr "De notar que o significado destas opções foi alterado."
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Consulte a Wiki para obter mais informação acerca destas alterações."
 
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
-msgstr ""
-
 #: Callrecording.class.php:87
 msgid "Reset"
 msgstr ""
@@ -130,6 +121,9 @@ msgstr ""
 #: functions.inc.php:546 views/form.php:20
 msgid "Yes"
 msgstr "Sim"
+
+#~ msgid "Applications"
+#~ msgstr "Aplicações"
 
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "Adicionar Instancia de Gravação de Chamada"

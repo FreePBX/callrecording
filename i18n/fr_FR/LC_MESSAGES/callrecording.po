@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-11 12:46+1000\n"
+"POT-Creation-Date: 2015-09-14 10:58-0700\n"
 "PO-Revision-Date: 2015-04-29 21:20+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -37,12 +37,7 @@ msgstr ""
 msgid "Add Call Recording"
 msgstr "Ajouter l'enregistrement d'appel"
 
-#: callrecording.i18n.php:6 callrecording.i18n.php:12
-msgid "Applications"
-msgstr "Applications"
-
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:535
-#: page.callrecording.php:7
+#: functions.inc.php:535 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "L'enregistrement d'appel"
 
@@ -99,10 +94,6 @@ msgstr ""
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
-msgstr ""
-
 #: Callrecording.class.php:87
 msgid "Reset"
 msgstr ""
@@ -130,6 +121,9 @@ msgstr ""
 #: functions.inc.php:546 views/form.php:20
 msgid "Yes"
 msgstr "Oui"
+
+#~ msgid "Applications"
+#~ msgstr "Applications"
 
 #~ msgid "Submit Changes"
 #~ msgstr "Soumettre les changements"

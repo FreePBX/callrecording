@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-11 12:46+1000\n"
+"POT-Creation-Date: 2015-09-14 10:58-0700\n"
 "PO-Revision-Date: 2015-07-14 14:19+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -37,12 +37,7 @@ msgstr ""
 msgid "Add Call Recording"
 msgstr "Добави Запис на Разговор"
 
-#: callrecording.i18n.php:6 callrecording.i18n.php:12
-msgid "Applications"
-msgstr "Приложения"
-
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:535
-#: page.callrecording.php:7
+#: functions.inc.php:535 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Запис на Разговор"
 
@@ -99,10 +94,6 @@ msgstr "Имайте предвид, че значението на тези п�
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Моля, прочетете Wiki за повече информация относно тези промени."
 
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
-msgstr "Предоставя голяма част от функционалността на запис на разговор."
-
 #: Callrecording.class.php:87
 msgid "Reset"
 msgstr ""
@@ -132,6 +123,12 @@ msgstr ""
 #: functions.inc.php:546 views/form.php:20
 msgid "Yes"
 msgstr "Да"
+
+#~ msgid "Applications"
+#~ msgstr "Приложения"
+
+#~ msgid "Provides much of the call recording functionality."
+#~ msgstr "Предоставя голяма част от функционалността на запис на разговор."
 
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "Добавяне на Запис на Разговор"
