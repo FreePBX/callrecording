@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-11 12:39+1000\n"
-"PO-Revision-Date: 2015-10-14 13:16+0200\n"
+"PO-Revision-Date: 2015-10-16 07:23+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/fa/>\n"
@@ -86,7 +86,7 @@ msgstr "اجبار"
 
 #: page.callrecording.php:139
 msgid "Invalid description specified"
-msgstr "شرح مشخص شده نامعتبر است"
+msgstr "شرح اختصاص داده شده نامعتبر است"
 
 #: functions.inc.php:524 page.callrecording.php:95
 msgid "Never"
