@@ -38,7 +38,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-11 12:39+1000\n"
-"PO-Revision-Date: 2015-10-27 10:47+0200\n"
+"PO-Revision-Date: 2015-10-27 12:57+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/ja_JP/>\n"
@@ -98,7 +98,7 @@ msgstr "説明"
 
 #: page.callrecording.php:107
 msgid "Destination"
-msgstr "発信先"
+msgstr "宛先"
 
 #: functions.inc.php:524 page.callrecording.php:95
 msgid "Don't Care"
@@ -118,7 +118,7 @@ msgstr "強制"
 
 #: page.callrecording.php:139
 msgid "Invalid description specified"
-msgstr "無効な説明が指定されました"
+msgstr "無効な説明が入力されました"
 
 #: functions.inc.php:524 page.callrecording.php:95
 msgid "Never"
