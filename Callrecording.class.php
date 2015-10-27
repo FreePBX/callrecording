@@ -102,4 +102,52 @@ class Callrecording implements BMO {
 		}
 		return $buttons;
 	}
+	public function getRightNav($request){
+		if($request['view']=='form'){
+    	return load_view(__DIR__."/views/bootnav.php",array('request' => $request));
+		}
+	}
+	public function listRules(){
+		$sql = "SELECT callrecording_id, description, callrecording_mode, dest FROM callrecording ORDER BY description ";
+		$stmt = $this->db->prepare($sql);
+		$stmt->execute();
+		$results = $stmt->fetchall(\PDO::FETCH_ASSOC);
+		return $results;
+	}
+	public function ajaxRequest($req, &$setting) {
+    switch ($req) {
+      case 'getJSON':
+        return true;
+      break;
+      default:
+        return false;
+      break;
+       }
+   }
+  public function ajaxHandler(){
+    switch ($_REQUEST['command']) {
+      case 'getJSON':
+        switch ($_REQUEST['jdata']) {
+          case 'grid':
+						return array_values($this->listRules());
+          break;
+
+          default:
+            return false;
+          break;
+        }
+      break;
+
+      default:
+        return false;
+      break;
+    }
+  }
+	public function search($query, &$results) {
+		$rules = $this->listRules();
+		dbug($rules);
+		foreach ($rules as $rule) {
+			$results[] = array("text" => sprintf(_("Call Recording: %s"),$rule['description']), "type" => "get", "dest" => "?display=callrecording&view=form&extdisplay=".$rule['callrecording_id']);
+		}
+	}
 }
