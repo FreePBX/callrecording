@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-14 10:58-0700\n"
+"POT-Creation-Date: 2015-10-29 18:25-0700\n"
 "PO-Revision-Date: 2015-04-23 15:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/grid.php:17
+#: views/bootnav.php:7 views/grid.php:17
 msgid "Add Call Recording"
 msgstr "Добавить запись разговора"
 
@@ -44,7 +44,7 @@ msgstr "Запись разговора"
 msgid "Call Recording Mode"
 msgstr "Режим записи разговоров"
 
-#: functions.inc.php:56 functions.inc.php:715
+#: Callrecording.class.php:150 functions.inc.php:56 functions.inc.php:715
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Запись разговора: %s"
@@ -69,11 +69,11 @@ msgstr "Все равно"
 msgid "Force"
 msgstr "Всегда"
 
-#: page.callrecording.php:57
+#: page.callrecording.php:52
 msgid "Invalid description specified"
 msgstr "Указано неверное описание"
 
-#: views/bootnav.php:5
+#: views/bootnav.php:6
 msgid "List Call Recordings"
 msgstr ""
 
@@ -97,6 +97,10 @@ msgstr ""
 
 #: Callrecording.class.php:87
 msgid "Reset"
+msgstr ""
+
+#: views/bootnav.php:12
+msgid "Rule"
 msgstr ""
 
 #: Callrecording.class.php:92

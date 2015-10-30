@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-14 10:58-0700\n"
+"POT-Creation-Date: 2015-10-29 18:25-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
+#: views/bootnav.php:7
 #: views/grid.php:17
 msgid "Add Call Recording"
 msgstr ""
@@ -42,6 +43,7 @@ msgstr ""
 msgid "Call Recording Mode"
 msgstr ""
 
+#: Callrecording.class.php:150
 #: functions.inc.php:56
 #: functions.inc.php:715
 #, php-format
@@ -71,11 +73,11 @@ msgstr ""
 msgid "Force"
 msgstr ""
 
-#: page.callrecording.php:57
+#: page.callrecording.php:52
 msgid "Invalid description specified"
 msgstr ""
 
-#: views/bootnav.php:5
+#: views/bootnav.php:6
 msgid "List Call Recordings"
 msgstr ""
 
@@ -101,6 +103,10 @@ msgstr ""
 
 #: Callrecording.class.php:87
 msgid "Reset"
+msgstr ""
+
+#: views/bootnav.php:12
+msgid "Rule"
 msgstr ""
 
 #: Callrecording.class.php:92
