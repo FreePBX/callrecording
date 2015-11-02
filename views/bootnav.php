@@ -6,15 +6,21 @@
   <a href="config.php?display=callrecording" class="btn btn-default"><i class="fa fa-list"></i>&nbsp; <?php echo _("List Call Recordings") ?></a>
   <a href="config.php?display=callrecording&view=form" class="btn btn-default"><i class="fa fa-plus"></i>&nbsp; <?php echo _("Add Call Recording") ?></a>
 </div>
-<table data-url="ajax.php?module=callrecording&amp;command=getJSON&amp;jdata=grid" data-cache="false" data-toolbar="#toolbar-recrnav" data-toggle="table" data-search="true" class="table" id="table-all-side">
+<table data-url="ajax.php?module=callrecording&amp;command=getJSON&amp;jdata=grid"
+  data-cache="false"
+  data-toolbar="#toolbar-recrnav"
+  data-toggle="table"
+  data-search="true"
+  class="table"
+  id="table-all-side">
     <thead>
         <tr>
-            <th data-sortable="true" data-field="description" data-formatter="recrnavformatter"><?php echo _('Rule')?></th>
+            <th data-sortable="true" data-field="description"><?php echo _('Rule')?></th>
         </tr>
     </thead>
 </table>
 <script type="text/javascript">
-  function recrnavformatter(v,r){
-    return '<a href="?display=callrecording&view=form&extdisplay='+r['callrecording_id']+'">'+v+'</a>';
-  }
+  $("#table-all-side").on('click-row.bs.table',function(e,row,elem){
+    window.location = '?display=callrecording&view=form&extdisplay='+row['callrecording_id'];
+  })
 </script>
