@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-29 18:25-0700\n"
-"PO-Revision-Date: 2015-11-09 14:27+0200\n"
+"PO-Revision-Date: 2015-11-12 12:42+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/zh_CN/>\n"
@@ -84,7 +84,7 @@ msgstr "从不录音"
 
 #: functions.inc.php:546 views/form.php:20
 msgid "No"
-msgstr "不录音"
+msgstr "无"
 
 #: functions.inc.php:527 views/form.php:72
 msgid "Note that the meaning of these options has changed."
@@ -96,7 +96,7 @@ msgstr "请阅读官方wiki获得完整信息"
 
 #: Callrecording.class.php:87
 msgid "Reset"
-msgstr ""
+msgstr "重新设置"
 
 #: views/bootnav.php:12
 msgid "Rule"
@@ -104,7 +104,7 @@ msgstr ""
 
 #: Callrecording.class.php:92
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 #: views/form.php:65
 msgid ""
@@ -124,7 +124,7 @@ msgstr ""
 
 #: functions.inc.php:546 views/form.php:20
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "添加呼叫录音对象"
