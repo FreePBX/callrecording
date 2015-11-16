@@ -68,7 +68,7 @@ echo $usagehtml;
 </div>
 <!--END Description-->
 <div class="well">
-	<a href='//wiki.freepbx.org/display/F2/Call+Recording+walk+through'>
+	<a href='http://wiki.freepbx.org/display/FPG/Call+Recording+walk+through'>
 	<p><?php echo _("Note that the meaning of these options has changed."); ?>
 	</a>
 </div>
