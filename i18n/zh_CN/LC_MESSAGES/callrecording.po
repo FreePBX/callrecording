@@ -130,7 +130,7 @@ msgstr "是"
 #~ msgstr "添加呼叫录音对象"
 
 #~ msgid "Applications"
-#~ msgstr "应用模块"
+#~ msgstr "应用配置"
 
 #~ msgid ""
 #~ "Call Recordings provide the ability to force a call to be recorded or not "
