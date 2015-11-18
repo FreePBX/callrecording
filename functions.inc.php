@@ -219,7 +219,7 @@ function callrecording_get_config($engine) {
 		$exten = 'out';
 		$ext->add($context, $exten, '', new ext_noop('Outbound Recording Check from ${FROMEXTEN} to ${ARG2}'));
 
-		// The Extension is first in the chain. 
+		// The Extension is first in the chain.
 		$ext->add($context, $exten, '', new ext_set('RECMODE', '${DB(AMPUSER/${FROMEXTEN}/recording/out/external)}'));
 
 		// If the exten is blank or DONTCARE, then we use the route.
@@ -422,7 +422,7 @@ function callrecording_list() {
 	$sql = "SELECT callrecording_id, description, callrecording_mode, dest FROM callrecording ORDER BY description ";
 	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($results)) {
-		die_freepbx($results->getMessage()."<br><br>Error selecting from callrecording");	
+		die_freepbx($results->getMessage()."<br><br>Error selecting from callrecording");
 	}
 	return $results;
 }
@@ -432,7 +432,7 @@ function callrecording_get($callrecording_id) {
 	$sql = "SELECT callrecording_id, description, callrecording_mode, dest FROM callrecording WHERE callrecording_id = ".$db->escapeSimple($callrecording_id);
 	$row = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($row)) {
-		die_freepbx($row->getMessage()."<br><br>Error selecting row from callrecording");	
+		die_freepbx($row->getMessage()."<br><br>Error selecting row from callrecording");
 	}
 
 	return $row;
@@ -466,7 +466,7 @@ function callrecording_delete($callrecording_id) {
 	}
 }
 
-function callrecording_edit($callrecording_id, $description, $callrecording_mode, $dest) { 
+function callrecording_edit($callrecording_id, $description, $callrecording_mode, $dest) {
 	global $db;
 	$sql = "UPDATE callrecording SET ".
 		"description = '".$db->escapeSimple($description)."', ".
@@ -505,6 +505,7 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 			callrecording_display_delete('did',$extension,$cidnum);
 		}
 		$callrecording = callrecording_display_get($target_menuid, $extension,$cidnum);
+		$helptext = _("This sets the call recording behavior for calls coming into this DID. Please read the wiki for information on what these settings mean.");
 		break;
 
 	case 'routing':
@@ -516,6 +517,7 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 		} else {
 			$callrecording = callrecording_display_get($target_menuid, $route_id);
 		}
+		$helptext = _("This sets the call recording behavior for calls going out this route. Please read the wiki for information on what these settings mean.");
 		break;
 	}
 	$html = '';
@@ -542,7 +544,7 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 		}
 		if ($callrecording == "") {
 			$callrecording = "dontcare";
-		}		
+		}
 		$options = array(_("Force") => "force", _("Yes") => "yes", _("Don't Care") => "dontcare", _("No") => "no", _("Never") => "never");
 		foreach ($options as $disp => $name) {
 			if ($callrecording == $name) {
@@ -551,7 +553,7 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 				$checked = "";
 			}
 			$html .= "<input type='radio' id='record_${name}' name='callrecording' value='$name' $checked><label for='record_${name}'>$disp</label>";
-		}	
+		}
 		$html .= '</div>';
 		$html .= '</div>';
 		$html .= '</div>';
@@ -559,12 +561,12 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 		$html .= '</div>';
 		$html .= '<div class="row">';
 		$html .= '<div class="col-md-12">';
-		$html .= '<span id="crwrapper-help" class="help-block fpbx-help-block">'._("This sets the call recording behavior for calls coming into this DID. Please read the wiki for information on what these settings mean.").'</span>';
+		$html .= '<span id="crwrapper-help" class="help-block fpbx-help-block">'.$helptext.'</span>';
 		$html .= '</div>';
 		$html .= '</div>';
 		$html .= '</div>';
 		$html .= '<!--END CALL RECORDING HOOK-->';
-		
+
 	}
 	return $html;
 }
@@ -579,14 +581,14 @@ function callrecording_adjustroute($route_id,$action,$callrecording='') {
 	$route_id = $db->escapeSimple($route_id);
 	$callrecording = $db->escapeSimple($callrecording);
 
-	//dbug("in adjustroute with route_id: $route_id, action: $action, callrecording: $callrecording"); 
+	//dbug("in adjustroute with route_id: $route_id, action: $action, callrecording: $callrecording");
 	switch ($action) {
 	case 'delroute':
 		callrecording_display_delete($dispname,$route_id);
 		break;
 		case 'addroute';
 		if ($callrecording != '') {
-			// we don't have the route_id yet, it hasn't been inserted yet :(, put it in the session 
+			// we don't have the route_id yet, it hasn't been inserted yet :(, put it in the session
 			// and when returned it will be available on the redirect_standard
 			$_SESSION['callrecordingAddRoute'] = $callrecording;
 		}
@@ -673,7 +675,7 @@ function callrecording_display_update($display,$recording_code=null,$extension=n
 	};
 }
 
-//NULL is treated as a wildcard here. For example if we pass in a space, we 
+//NULL is treated as a wildcard here. For example if we pass in a space, we
 //	only want the one with a space
 function callrecording_display_delete($display,$extension=null,$cidnum=null){
 	global $db;
