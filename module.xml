@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>13.0.6</version>
+	<version>13.0.7</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -22,6 +22,7 @@
 		</callrecording>
  	</popovers>
 	<changelog>
+		*13.0.7* FREEPBX-10765 FREEPBX-10753
 		*13.0.6* Add slideout menu and BMO search provider
 		*13.0.5* Change advanced settings text
 		*13.0.4* Fix issue with One-Touch not picking up the Origination correctly.

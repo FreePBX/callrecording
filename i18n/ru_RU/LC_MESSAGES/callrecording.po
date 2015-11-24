@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-29 18:25-0700\n"
+"POT-Creation-Date: 2015-11-24 13:14-0800\n"
 "PO-Revision-Date: 2015-04-23 15:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -36,7 +36,12 @@ msgstr ""
 msgid "Add Call Recording"
 msgstr "Добавить запись разговора"
 
-#: functions.inc.php:535 page.callrecording.php:7
+#: callrecording.i18n.php:6 callrecording.i18n.php:12
+msgid "Applications"
+msgstr "Приложения"
+
+#: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:537
+#: page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Запись разговора"
 
@@ -44,7 +49,7 @@ msgstr "Запись разговора"
 msgid "Call Recording Mode"
 msgstr "Режим записи разговоров"
 
-#: Callrecording.class.php:150 functions.inc.php:56 functions.inc.php:715
+#: Callrecording.class.php:150 functions.inc.php:56 functions.inc.php:717
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Запись разговора: %s"
@@ -61,11 +66,11 @@ msgstr "Описание"
 msgid "Destination"
 msgstr "Направить в"
 
-#: functions.inc.php:546 views/form.php:20
+#: functions.inc.php:548 views/form.php:20
 msgid "Don't Care"
 msgstr "Все равно"
 
-#: functions.inc.php:546 views/form.php:20
+#: functions.inc.php:548 views/form.php:20
 msgid "Force"
 msgstr "Всегда"
 
@@ -77,29 +82,33 @@ msgstr "Указано неверное описание"
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:546 views/form.php:20
+#: functions.inc.php:548 views/form.php:20
 msgid "Never"
 msgstr "Никогда"
 
-#: functions.inc.php:546 views/form.php:20
+#: functions.inc.php:548 views/form.php:20
 msgid "No"
 msgstr "Нет"
 
-#: functions.inc.php:527 views/form.php:72
+#: functions.inc.php:529 views/form.php:72
 msgid "Note that the meaning of these options has changed."
 msgstr "Обратите внимание, что значение этих параметров не изменилось."
 
-#: functions.inc.php:527 views/form.php:94
+#: functions.inc.php:529 views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 "Пожалуйста, прочтите Wiki для получения подробной информации об этих "
 "изменениях."
 
+#: callrecording.i18n.php:8
+msgid "Provides much of the call recording functionality."
+msgstr "Предоставляет большую часть функционала записи разговоров."
+
 #: Callrecording.class.php:87
 msgid "Reset"
 msgstr ""
 
-#: views/bootnav.php:12
+#: views/bootnav.php:18
 msgid "Rule"
 msgstr ""
 
@@ -113,7 +122,7 @@ msgid ""
 "Main IVR\""
 msgstr "Наглядное имя этой записи. Например 'Главное меню на русском языке'"
 
-#: functions.inc.php:562
+#: functions.inc.php:508
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -122,19 +131,19 @@ msgstr ""
 "Пожалуйста, прочтите Wiki для получения информации о том, что означают эти "
 "параметры."
 
+#: functions.inc.php:520
+msgid ""
+"This sets the call recording behavior for calls going out this route. Please "
+"read the wiki for information on what these settings mean."
+msgstr ""
+
 #: views/form.php:118
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:546 views/form.php:20
+#: functions.inc.php:548 views/form.php:20
 msgid "Yes"
 msgstr "Да"
-
-#~ msgid "Applications"
-#~ msgstr "Приложения"
-
-#~ msgid "Provides much of the call recording functionality."
-#~ msgstr "Предоставляет большую часть функционала записи разговоров."
 
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "Добавить запись"

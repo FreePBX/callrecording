@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-29 18:25-0700\n"
+"POT-Creation-Date: 2015-11-24 13:14-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,14 @@ msgstr ""
 msgid "Add Call Recording"
 msgstr ""
 
-#: functions.inc.php:535
+#: callrecording.i18n.php:6
+#: callrecording.i18n.php:12
+msgid "Applications"
+msgstr ""
+
+#: callrecording.i18n.php:4
+#: callrecording.i18n.php:10
+#: functions.inc.php:537
 #: page.callrecording.php:7
 msgid "Call Recording"
 msgstr ""
@@ -45,7 +52,7 @@ msgstr ""
 
 #: Callrecording.class.php:150
 #: functions.inc.php:56
-#: functions.inc.php:715
+#: functions.inc.php:717
 #, php-format
 msgid "Call Recording: %s"
 msgstr ""
@@ -63,12 +70,12 @@ msgstr ""
 msgid "Destination"
 msgstr ""
 
-#: functions.inc.php:546
+#: functions.inc.php:548
 #: views/form.php:20
 msgid "Don't Care"
 msgstr ""
 
-#: functions.inc.php:546
+#: functions.inc.php:548
 #: views/form.php:20
 msgid "Force"
 msgstr ""
@@ -81,31 +88,35 @@ msgstr ""
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:546
+#: functions.inc.php:548
 #: views/form.php:20
 msgid "Never"
 msgstr ""
 
-#: functions.inc.php:546
+#: functions.inc.php:548
 #: views/form.php:20
 msgid "No"
 msgstr ""
 
-#: functions.inc.php:527
+#: functions.inc.php:529
 #: views/form.php:72
 msgid "Note that the meaning of these options has changed."
 msgstr ""
 
-#: functions.inc.php:527
+#: functions.inc.php:529
 #: views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
+msgstr ""
+
+#: callrecording.i18n.php:8
+msgid "Provides much of the call recording functionality."
 msgstr ""
 
 #: Callrecording.class.php:87
 msgid "Reset"
 msgstr ""
 
-#: views/bootnav.php:12
+#: views/bootnav.php:18
 msgid "Rule"
 msgstr ""
 
@@ -119,9 +130,15 @@ msgid ""
 "Main IVR\""
 msgstr ""
 
-#: functions.inc.php:562
+#: functions.inc.php:508
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
+"read the wiki for information on what these settings mean."
+msgstr ""
+
+#: functions.inc.php:520
+msgid ""
+"This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
 
@@ -129,7 +146,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:546
+#: functions.inc.php:548
 #: views/form.php:20
 msgid "Yes"
 msgstr ""
