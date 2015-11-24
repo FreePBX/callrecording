@@ -526,7 +526,7 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 		global $tabindex;
 		$html = '<!--CALL RECORDING HOOK-->';
 		$html .= '<div class="well well-info">';
-		$html .= _("Note that the meaning of these options has changed.")." <a href='http://wiki.freepbx.org/display/F2/Call+Recording+walk+through'>"._("Please read the wiki for futher information on these changes.").'</a>';
+		$html .= _("Note that the meaning of these options has changed.")." <a href='http://wiki.freepbx.org/display/FPG/Call+Recording+walk+through'>"._("Please read the wiki for futher information on these changes.").'</a>';
 		$html .= '</div>';
 		$html .= '<div class="element-container">';
 		$html .= '<div class="row">';
