@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-29 18:25-0700\n"
-"PO-Revision-Date: 2015-10-16 13:57+0200\n"
+"PO-Revision-Date: 2015-11-23 13:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
-"Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
-"freepbx/callrecording/zh_CN/>\n"
+"Language-Team: Simplified Chinese "
+"<http://weblate.freepbx.org/projects/freepbx/callrecording/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -31,7 +31,7 @@ msgstr ""
 
 #: views/grid.php:23
 msgid "Actions"
-msgstr ""
+msgstr "操作"
 
 #: views/bootnav.php:7 views/grid.php:17
 msgid "Add Call Recording"
@@ -84,7 +84,7 @@ msgstr "从不录音"
 
 #: functions.inc.php:546 views/form.php:20
 msgid "No"
-msgstr "不录音"
+msgstr ""
 
 #: functions.inc.php:527 views/form.php:72
 msgid "Note that the meaning of these options has changed."
@@ -96,7 +96,7 @@ msgstr "请阅读官方wiki获得完整信息"
 
 #: Callrecording.class.php:87
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 #: views/bootnav.php:12
 msgid "Rule"
@@ -104,7 +104,7 @@ msgstr ""
 
 #: Callrecording.class.php:92
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 #: views/form.php:65
 msgid ""
@@ -124,13 +124,13 @@ msgstr ""
 
 #: functions.inc.php:546 views/form.php:20
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "添加呼叫录音对象"
 
 #~ msgid "Applications"
-#~ msgstr "应用模块"
+#~ msgstr "应用配置"
 
 #~ msgid ""
 #~ "Call Recordings provide the ability to force a call to be recorded or not "
