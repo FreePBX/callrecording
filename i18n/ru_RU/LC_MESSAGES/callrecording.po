@@ -106,7 +106,7 @@ msgstr "Предоставляет большую часть функциона�
 
 #: Callrecording.class.php:87
 msgid "Reset"
-msgstr ""
+msgstr "Сброс"
 
 #: views/bootnav.php:18
 msgid "Rule"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: Callrecording.class.php:92
 msgid "Submit"
-msgstr ""
+msgstr "Сохранить"
 
 #: views/form.php:65
 msgid ""
