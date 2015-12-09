@@ -30,7 +30,7 @@ msgstr ""
 
 #: views/grid.php:23
 msgid "Actions"
-msgstr "Действия"
+msgstr "Действие"
 
 #: views/bootnav.php:7 views/grid.php:17
 msgid "Add Call Recording"
@@ -106,7 +106,7 @@ msgstr "Предоставляет большую часть функциона�
 
 #: Callrecording.class.php:87
 msgid "Reset"
-msgstr "Сбросить"
+msgstr "Сброс"
 
 #: views/bootnav.php:18
 msgid "Rule"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: Callrecording.class.php:92
 msgid "Submit"
-msgstr "Подтвердить"
+msgstr "Применить"
 
 #: views/form.php:65
 msgid ""
@@ -217,7 +217,7 @@ msgstr "Да"
 #~ msgstr "Изменить запись"
 
 #~ msgid "Edit: "
-#~ msgstr "Редактировать: "
+#~ msgstr "Редактировать:"
 
 #~ msgid "Please read the Wiki on what these options mean."
 #~ msgstr "Пожалуйста, прочтите на Wiki, что означают эти параметры."
