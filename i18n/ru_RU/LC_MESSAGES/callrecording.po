@@ -30,7 +30,7 @@ msgstr ""
 
 #: views/grid.php:23
 msgid "Actions"
-msgstr "Действия"
+msgstr "Действие"
 
 #: views/bootnav.php:7 views/grid.php:17
 msgid "Add Call Recording"
@@ -43,7 +43,7 @@ msgstr "Приложения"
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:537
 #: page.callrecording.php:7
 msgid "Call Recording"
-msgstr "Запись разговора"
+msgstr "Запись вызова"
 
 #: views/form.php:82
 msgid "Call Recording Mode"
@@ -68,11 +68,11 @@ msgstr "Назначение"
 
 #: functions.inc.php:548 views/form.php:20
 msgid "Don't Care"
-msgstr "Все равно"
+msgstr "Не обращать внимание"
 
 #: functions.inc.php:548 views/form.php:20
 msgid "Force"
-msgstr "Всегда"
+msgstr "Запустить"
 
 #: page.callrecording.php:52
 msgid "Invalid description specified"
