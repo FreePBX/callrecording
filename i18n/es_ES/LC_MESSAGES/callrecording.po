@@ -31,7 +31,7 @@ msgstr ""
 
 #: views/grid.php:23
 msgid "Actions"
-msgstr ""
+msgstr "Acciones"
 
 #: views/bootnav.php:7 views/grid.php:17
 msgid "Add Call Recording"
@@ -105,7 +105,7 @@ msgstr "Proporciona mucha de la funcionalidad de grabación de llamadas."
 
 #: Callrecording.class.php:87
 msgid "Reset"
-msgstr ""
+msgstr "Restaura"
 
 #: views/bootnav.php:18
 msgid "Rule"
