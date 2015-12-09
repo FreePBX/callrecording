@@ -190,4 +190,4 @@ msgstr "Si"
 #~ msgstr "Por favor lea la wiki acerca del significado de estas opciones."
 
 #~ msgid "Submit Changes"
-#~ msgstr "Aplicar Cambios"
+#~ msgstr "Enviar cambios"
