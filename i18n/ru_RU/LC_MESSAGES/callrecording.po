@@ -30,7 +30,7 @@ msgstr ""
 
 #: views/grid.php:23
 msgid "Actions"
-msgstr "Действие"
+msgstr "Действия"
 
 #: views/bootnav.php:7 views/grid.php:17
 msgid "Add Call Recording"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: Callrecording.class.php:92
 msgid "Submit"
-msgstr "Применить"
+msgstr "Подтвердить"
 
 #: views/form.php:65
 msgid ""
