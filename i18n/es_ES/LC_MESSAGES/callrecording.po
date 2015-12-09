@@ -184,7 +184,7 @@ msgstr "Si"
 #~ msgstr "Editar Instancia de Grabación de Llamada"
 
 #~ msgid "Edit: "
-#~ msgstr "Editar: "
+#~ msgstr "Editar:"
 
 #~ msgid "Please read the Wiki on what these options mean."
 #~ msgstr "Por favor lea la wiki acerca del significado de estas opciones."
