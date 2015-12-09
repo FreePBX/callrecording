@@ -57,7 +57,7 @@ msgstr "Grabación de Llamadas: %s"
 
 #: Callrecording.class.php:82
 msgid "Delete"
-msgstr "Borrar"
+msgstr "Eliminar"
 
 #: views/form.php:53 views/grid.php:22
 msgid "Description"
@@ -113,7 +113,7 @@ msgstr ""
 
 #: Callrecording.class.php:92
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: views/form.php:65
 msgid ""
