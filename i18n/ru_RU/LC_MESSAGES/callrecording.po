@@ -30,7 +30,7 @@ msgstr ""
 
 #: views/grid.php:23
 msgid "Actions"
-msgstr ""
+msgstr "Действие"
 
 #: views/bootnav.php:7 views/grid.php:17
 msgid "Add Call Recording"
@@ -43,7 +43,7 @@ msgstr "Приложения"
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:537
 #: page.callrecording.php:7
 msgid "Call Recording"
-msgstr "Запись разговора"
+msgstr "Запись вызова"
 
 #: views/form.php:82
 msgid "Call Recording Mode"
@@ -64,15 +64,15 @@ msgstr "Описание"
 
 #: views/form.php:106
 msgid "Destination"
-msgstr "Направить в"
+msgstr "Назначение"
 
 #: functions.inc.php:548 views/form.php:20
 msgid "Don't Care"
-msgstr "Все равно"
+msgstr "Не обращать внимание"
 
 #: functions.inc.php:548 views/form.php:20
 msgid "Force"
-msgstr "Всегда"
+msgstr "Запустить"
 
 #: page.callrecording.php:52
 msgid "Invalid description specified"
@@ -106,7 +106,7 @@ msgstr "Предоставляет большую часть функциона�
 
 #: Callrecording.class.php:87
 msgid "Reset"
-msgstr ""
+msgstr "Сброс"
 
 #: views/bootnav.php:18
 msgid "Rule"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: Callrecording.class.php:92
 msgid "Submit"
-msgstr ""
+msgstr "Подтвердить"
 
 #: views/form.php:65
 msgid ""
@@ -217,7 +217,7 @@ msgstr "Да"
 #~ msgstr "Изменить запись"
 
 #~ msgid "Edit: "
-#~ msgstr "Редактировать: "
+#~ msgstr "Редактировать:"
 
 #~ msgid "Please read the Wiki on what these options mean."
 #~ msgstr "Пожалуйста, прочтите на Wiki, что означают эти параметры."
