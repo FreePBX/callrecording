@@ -1,4 +1,4 @@
-#!/usr/bin/php -q
+#!/usr/bin/env php
 <?php
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
 //	Copyright (C) 2012 HEHE Enterprises, LLC d.b.a. i9 Technologies
