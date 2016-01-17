@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-24 13:14-0800\n"
-"PO-Revision-Date: 2016-01-16 22:51+0200\n"
+"PO-Revision-Date: 2016-01-17 06:09+0200\n"
 "Last-Translator: Nicolas <forums@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/fr_FR/>\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: page.callrecording.php:12
 msgid ": Edit"
-msgstr ""
+msgstr ": Éditer"
 
 #: views/grid.php:23
 msgid "Actions"
