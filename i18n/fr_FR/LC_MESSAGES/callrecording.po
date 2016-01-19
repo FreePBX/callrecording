@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-24 13:14-0800\n"
-"PO-Revision-Date: 2016-01-17 06:09+0200\n"
+"PO-Revision-Date: 2016-01-19 09:33+0200\n"
 "Last-Translator: Nicolas <forums@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/fr_FR/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: page.callrecording.php:14
 msgid ": Add"
-msgstr ""
+msgstr ": Ajouter"
 
 #: page.callrecording.php:12
 msgid ": Edit"
@@ -44,7 +44,7 @@ msgstr "Applications"
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:537
 #: page.callrecording.php:7
 msgid "Call Recording"
-msgstr "L'enregistrement d'appel"
+msgstr "Enregistrer l'appel"
 
 #: views/form.php:82
 msgid "Call Recording Mode"
@@ -53,7 +53,7 @@ msgstr "Mode d'enregistrement d'appel"
 #: Callrecording.class.php:150 functions.inc.php:56 functions.inc.php:717
 #, php-format
 msgid "Call Recording: %s"
-msgstr ""
+msgstr "Enregistrement d'appel : %s"
 
 #: Callrecording.class.php:82
 msgid "Delete"
@@ -81,7 +81,7 @@ msgstr "Description spécifiée invalide"
 
 #: views/bootnav.php:6
 msgid "List Call Recordings"
-msgstr ""
+msgstr "Liste des enregistrements d'appel"
 
 #: functions.inc.php:548 views/form.php:20
 msgid "Never"
@@ -93,15 +93,16 @@ msgstr "Non"
 
 #: functions.inc.php:529 views/form.php:72
 msgid "Note that the meaning of these options has changed."
-msgstr ""
+msgstr "Prenez note que la signification de ces options a changée."
 
 #: functions.inc.php:529 views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
+"S’il vous plaît lire le wiki pour plus d'informations sur ces changements."
 
 #: callrecording.i18n.php:8
 msgid "Provides much of the call recording functionality."
-msgstr ""
+msgstr "Fournis la majorité de la fonctionnalité d'enregistrement d'appel."
 
 #: Callrecording.class.php:87
 msgid "Reset"
@@ -109,7 +110,7 @@ msgstr "Remise à 0"
 
 #: views/bootnav.php:18
 msgid "Rule"
-msgstr ""
+msgstr "Règle"
 
 #: Callrecording.class.php:92
 msgid "Submit"
@@ -120,6 +121,8 @@ msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
 msgstr ""
+"Le nom descriptif de cette instance d'enregistrement d'appel. Par exemple \""
+"IVR Français principal\""
 
 #: functions.inc.php:508
 msgid ""
@@ -135,7 +138,7 @@ msgstr ""
 
 #: views/form.php:118
 msgid "Where should the call be sent."
-msgstr ""
+msgstr "Où l'appel devrait être envoyé."
 
 #: functions.inc.php:548 views/form.php:20
 msgid "Yes"
