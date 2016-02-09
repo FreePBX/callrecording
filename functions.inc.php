@@ -484,6 +484,8 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 	case 'did':
 		$extension	= isset($_REQUEST['extension'])		? $_REQUEST['extension']	:'';
 		$cidnum		= isset($_REQUEST['cidnum'])		? $_REQUEST['cidnum']		:'';
+		$invalidDIDChars = array('<', '>');
+		$cidnum = trim(str_replace($invalidDIDChars, "", $cidnum));
 		$extdisplay	= isset($_REQUEST['extdisplay'])	? $_REQUEST['extdisplay']	:'';
 		$action		= isset($_REQUEST['action'])		? $_REQUEST['action']		:'';
 		$callrecording	= isset($_REQUEST['callrecording'])		? $_REQUEST['callrecording']		:'';

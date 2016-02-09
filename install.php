@@ -3,6 +3,7 @@
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 global $db;
+$dbh = \FreePBX::Database();
 
 $autoincrement = (($amp_conf["AMPDBENGINE"] == "sqlite") || ($amp_conf["AMPDBENGINE"] == "sqlite3")) ? "AUTOINCREMENT":"AUTO_INCREMENT";
 $sql[]="CREATE TABLE IF NOT EXISTS callrecording (
@@ -41,3 +42,27 @@ $set['name'] = "Beep every n seconds";
 $set['description'] = "Asterisk 13.2 and higher supports the ability to play a regular 'beep' when a call is being recorded. If you set this to a positive number value, when a call is being actively recorded, both parties will hear a 'beep' every period that you select. If you are not running Asterisk 13.2 or higher, this setting will have no effect. To disable simply clear the value of this box and save. This is typically set arround 15seconds";
 $set['type'] = CONF_TYPE_INT;
 $freepbx_conf->define_conf_setting('CALLREC_BEEP_PERIOD',$set);
+//Sanatize dids....
+out("Checking for DID entries with invalid data");
+$sql = 'select * from callrecording_module where cidnum like "<%>"';
+$stmt = $dbh->prepare($sql);
+$stmt->execute();
+$entries = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+$didupdates = array();
+foreach($entries as $e){
+	$invalidDIDChars = array('<', '>');
+	 $val = trim(str_replace($invalidDIDChars, "", $e['cidnum']));
+	 if($val !== $e['cidnum']){
+		 $didupdates[] = array(':extension' => $e['extension'] ,':cidnum' => $val, ':display' => $e['display'], 'cidnumlike' => '%'.$val.'%');
+	 }
+}
+$sql = 'UPDATE callrecording_module SET cidnum = :cidnum WHERE cidnum LIKE :cidnumlike AND extension = :extension AND display = :display';
+$stmt = $dbh->prepare($sql);
+if(empty($didupdates)){
+	out("No bad data found");
+}else{
+	out("Sanatizing dids");
+}
+foreach ($didupdates as $d) {
+	$stmt->execute($d);
+}
