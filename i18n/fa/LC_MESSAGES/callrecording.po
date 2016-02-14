@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-24 13:14-0800\n"
-"PO-Revision-Date: 2015-10-16 07:23+0200\n"
+"PO-Revision-Date: 2016-02-14 09:29+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/"
-"callrecording/fa/>\n"
+"Language-Team: Persian "
+"<http://weblate.freepbx.org/projects/freepbx/callrecording/fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -31,7 +31,7 @@ msgstr ""
 
 #: views/grid.php:23
 msgid "Actions"
-msgstr ""
+msgstr "عملیات"
 
 #: views/bootnav.php:7 views/grid.php:17
 msgid "Add Call Recording"
@@ -39,7 +39,7 @@ msgstr "افزودن ضبط تماس"
 
 #: callrecording.i18n.php:6 callrecording.i18n.php:12
 msgid "Applications"
-msgstr "برنامه‌ ها"
+msgstr "برنامه ها"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:537
 #: page.callrecording.php:7
@@ -105,7 +105,7 @@ msgstr "ایجاد قابلیت های ضبط تماس."
 
 #: Callrecording.class.php:87
 msgid "Reset"
-msgstr ""
+msgstr "بازنشانی"
 
 #: views/bootnav.php:18
 msgid "Rule"
@@ -113,7 +113,7 @@ msgstr ""
 
 #: Callrecording.class.php:92
 msgid "Submit"
-msgstr ""
+msgstr "ارسال"
 
 #: views/form.php:65
 msgid ""
