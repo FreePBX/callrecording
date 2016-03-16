@@ -10,10 +10,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-24 13:14-0800\n"
-"PO-Revision-Date: 2016-03-15 19:51+0300\n"
+"PO-Revision-Date: 2016-03-15 23:05+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/cel/fa/>"
-"\n"
+"Language-Team: Persian "
+"<http://weblate.freepbx.org/projects/freepbx/callrecording/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgstr "：ویرایش"
 
 #: views/grid.php:23
 msgid "Actions"
-msgstr "عملیات"
+msgstr "فعالیت ها"
 
 #: views/bootnav.php:7 views/grid.php:17
 msgid "Add Call Recording"
