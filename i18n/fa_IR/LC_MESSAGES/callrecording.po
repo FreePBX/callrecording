@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-24 13:14-0800\n"
-"PO-Revision-Date: 2016-04-14 14:43+0200\n"
-"Last-Translator: Media <mousavi.media@gmail.com>\n"
+"PO-Revision-Date: 2016-04-25 19:46+0200\n"
+"Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/fa_IR/>\n"
 "Language: fa_IR\n"
@@ -23,11 +23,11 @@ msgstr ""
 
 #: page.callrecording.php:14
 msgid ": Add"
-msgstr ":افزودن"
+msgstr "：افزودن"
 
 #: page.callrecording.php:12
 msgid ": Edit"
-msgstr ":ویرایش"
+msgstr "：ویرایش"
 
 #: views/grid.php:23
 msgid "Actions"
@@ -61,7 +61,7 @@ msgstr "حذف"
 
 #: views/form.php:53 views/grid.php:22
 msgid "Description"
-msgstr "شرح"
+msgstr "توضیحات"
 
 #: views/form.php:106
 msgid "Destination"
@@ -113,7 +113,7 @@ msgstr "قانون"
 
 #: Callrecording.class.php:92
 msgid "Submit"
-msgstr "ارسال"
+msgstr "ثبت"
 
 #: views/form.php:65
 msgid ""
