@@ -10,13 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-15 07:38-0800\n"
-"PO-Revision-Date: 2016-01-15 07:38-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-05-08 20:01+0200\n"
+"Last-Translator: Avishay <baabad@outlook.com>\n"
+"Language-Team: Hebrew "
+"<http://weblate.freepbx.org/projects/freepbx/callrecording/he_IL/>\n"
+"Language: he_IL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: page.callrecording.php:14
 msgid ": Add"
@@ -32,7 +35,7 @@ msgstr ""
 
 #: views/bootnav.php:7 views/grid.php:17
 msgid "Add Call Recording"
-msgstr ""
+msgstr "הוסף הקלטה"
 
 #: callrecording.i18n.php:6 callrecording.i18n.php:12
 msgid "Applications"
@@ -41,7 +44,7 @@ msgstr ""
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:537
 #: page.callrecording.php:7
 msgid "Call Recording"
-msgstr ""
+msgstr "הקלטות"
 
 #: views/form.php:82
 msgid "Call Recording Mode"
