@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-24 13:14-0800\n"
+"POT-Creation-Date: 2016-05-10 11:48-0700\n"
 "PO-Revision-Date: 2015-07-14 14:19+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -41,8 +41,22 @@ msgstr "Добави Запис на Разговор"
 msgid "Applications"
 msgstr "Приложения"
 
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:537
-#: page.callrecording.php:7
+#: callrecording.i18n.php:18
+msgid ""
+"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
+"a call is being recorded. If you set this to a positive number value, when a "
+"call is being actively recorded, both parties will hear a 'beep' every "
+"period that you select. If you are not running Asterisk 13.2 or higher, this "
+"setting will have no effect. To disable simply clear the value of this box "
+"and save. This is typically set arround 15seconds"
+msgstr ""
+
+#: callrecording.i18n.php:14
+msgid "Beep every n seconds"
+msgstr "Звуков сигнал на всеки n секунди"
+
+#: callrecording.i18n.php:4 callrecording.i18n.php:10
+#: callrecording.i18n.php:16 functions.inc.php:541 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Запис на Разговор"
 
@@ -50,7 +64,7 @@ msgstr "Запис на Разговор"
 msgid "Call Recording Mode"
 msgstr "Режим на Запис на Разговор"
 
-#: Callrecording.class.php:150 functions.inc.php:56 functions.inc.php:717
+#: Callrecording.class.php:150 functions.inc.php:56 functions.inc.php:721
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Запис на Разговор: %s"
@@ -67,11 +81,11 @@ msgstr "Описание"
 msgid "Destination"
 msgstr "Направление"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:552 views/form.php:20
 msgid "Don't Care"
 msgstr "Без Значение"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:552 views/form.php:20
 msgid "Force"
 msgstr "Винаги"
 
@@ -83,19 +97,19 @@ msgstr "Неправилно въведено описание"
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:552 views/form.php:20
 msgid "Never"
 msgstr "Никога"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:552 views/form.php:20
 msgid "No"
 msgstr "Не"
 
-#: functions.inc.php:529 views/form.php:72
+#: functions.inc.php:533 views/form.php:72
 msgid "Note that the meaning of these options has changed."
 msgstr "Имайте предвид, че значението на тези параметри е променено."
 
-#: functions.inc.php:529 views/form.php:94
+#: functions.inc.php:533 views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Моля, прочетете Wiki за повече информация относно тези промени."
 
@@ -121,7 +135,7 @@ msgid ""
 "Main IVR\""
 msgstr "Описващо име на тази инстанция"
 
-#: functions.inc.php:508
+#: functions.inc.php:512
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -129,7 +143,7 @@ msgstr ""
 "Установява запис на разговор за обаждания идващи през този DID. Моля, "
 "прочетете Wiki за повече информация относно тези настройки."
 
-#: functions.inc.php:520
+#: functions.inc.php:524
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -139,7 +153,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:552 views/form.php:20
 msgid "Yes"
 msgstr "Да"
 
@@ -159,9 +173,6 @@ msgstr "Да"
 #~ "страни ще чуват \"звуков сигнал\" на всеки зададен период. Ако не "
 #~ "използвате Астериск 13 или по-висока версия, тази настройка няма да има "
 #~ "ефект. "
-
-#~ msgid "Beep every n seconds"
-#~ msgstr "Звуков сигнал на всеки n секунди"
 
 #~ msgid ""
 #~ "Call Recordings provide the ability to force a call to be recorded or not "

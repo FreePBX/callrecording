@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-24 13:14-0800\n"
+"POT-Creation-Date: 2016-05-10 11:48-0700\n"
 "PO-Revision-Date: 2015-10-27 12:57+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -69,8 +69,22 @@ msgstr "通話録音を追加"
 msgid "Applications"
 msgstr "アプリケーション"
 
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 functions.inc.php:537
-#: page.callrecording.php:7
+#: callrecording.i18n.php:18
+msgid ""
+"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
+"a call is being recorded. If you set this to a positive number value, when a "
+"call is being actively recorded, both parties will hear a 'beep' every "
+"period that you select. If you are not running Asterisk 13.2 or higher, this "
+"setting will have no effect. To disable simply clear the value of this box "
+"and save. This is typically set arround 15seconds"
+msgstr ""
+
+#: callrecording.i18n.php:14
+msgid "Beep every n seconds"
+msgstr ""
+
+#: callrecording.i18n.php:4 callrecording.i18n.php:10
+#: callrecording.i18n.php:16 functions.inc.php:541 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "通話録音"
 
@@ -78,7 +92,7 @@ msgstr "通話録音"
 msgid "Call Recording Mode"
 msgstr "通話録音モード"
 
-#: Callrecording.class.php:150 functions.inc.php:56 functions.inc.php:717
+#: Callrecording.class.php:150 functions.inc.php:56 functions.inc.php:721
 #, php-format
 msgid "Call Recording: %s"
 msgstr "通話録音： %s"
@@ -95,11 +109,11 @@ msgstr "説明"
 msgid "Destination"
 msgstr "宛先"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:552 views/form.php:20
 msgid "Don't Care"
 msgstr "無視"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:552 views/form.php:20
 msgid "Force"
 msgstr "強制"
 
@@ -111,19 +125,19 @@ msgstr "無効な説明が入力されました"
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:552 views/form.php:20
 msgid "Never"
 msgstr "ブロック"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:552 views/form.php:20
 msgid "No"
 msgstr "いいえ"
 
-#: functions.inc.php:529 views/form.php:72
+#: functions.inc.php:533 views/form.php:72
 msgid "Note that the meaning of these options has changed."
 msgstr ""
 
-#: functions.inc.php:529 views/form.php:94
+#: functions.inc.php:533 views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 
@@ -149,13 +163,13 @@ msgid ""
 "Main IVR\""
 msgstr "この通話録音インスタンスを説明する名前。例えば「日本語メインIVR」など"
 
-#: functions.inc.php:508
+#: functions.inc.php:512
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
 
-#: functions.inc.php:520
+#: functions.inc.php:524
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -165,7 +179,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:552 views/form.php:20
 msgid "Yes"
 msgstr "はい"
 
