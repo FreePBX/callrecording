@@ -296,14 +296,16 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_noop('Setting up recording: ${ARG1}, ${ARG2}, ${ARG3}'));
 		if (FreePBX::Config()->get('ASTCONFAPP')) {
 			$ext->add($context, $exten, '', new ext_set('__CALLFILENAME','${IF($[${CONFBRIDGE_INFO(parties,${ARG2})}]?${DB(RECCONF/${ARG2})}:${ARG1}-${ARG2}-${ARG3}-${TIMESTR}-${UNIQUEID})}'));
-			$ext->add($context, $exten, '', new ext_execif('$[!${CONFBRIDGE_INFO(parties,${ARG2})}]','Set','DB(RECCONF/${ARG2})=${CALLFILENAME}'));
+			$ext->add($context, $exten, '', new ext_execif('$[!${CONFBRIDGE_INFO(parties,${ARG2})}]','Set','DB(RECCONF/${ARG2})=${CALLFILENAME}-${NOW}'));
 			$ext->add($context, $exten, '', new ext_set('CONFBRIDGE(bridge,record_file)','${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}'));
 		} else {
 			// Conferencing must set the path to MIXMON_DIR explicitly since unlike other parts of Asterisk
 			// Meetme does not default to the defined monitor directory.
 			//
+			//http://issues.freepbx.org/browse/FREEPBX-10860
+			//added ${NOW} not sure if it works but who is using meetme. stop. just stop
 			$ext->add($context, $exten, '', new ext_set('__CALLFILENAME','${IF($[${MEETME_INFO(parties,${ARG2})}]?${DB(RECCONF/${ARG2})}:${ARG1}-${ARG2}-${ARG3}-${TIMESTR}-${UNIQUEID})}'));
-			$ext->add($context, $exten, '', new ext_execif('$[!${MEETME_INFO(parties,${ARG2})}]','Set','DB(RECCONF/${ARG2})=${CALLFILENAME}'));
+			$ext->add($context, $exten, '', new ext_execif('$[!${MEETME_INFO(parties,${ARG2})}]','Set','DB(RECCONF/${ARG2})=${CALLFILENAME}-${NOW}'));
 			$ext->add($context, $exten, '', new ext_set('MEETME_RECORDINGFILE','${IF($[${LEN(${MIXMON_DIR})}]?${MIXMON_DIR}:${ASTSPOOLDIR}/monitor/)}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}'));
 			$ext->add($context, $exten, '', new ext_set('MEETME_RECORDINGFORMAT','${MON_FMT}'));
 		}
@@ -312,7 +314,9 @@ function callrecording_get_config($engine) {
 			$ext->add($context, $exten, '', new ext_set('CONFBRIDGE(bridge,record_conference)','yes'));
 		}
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','RECORDING'));
-		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)','${CALLFILENAME}.${MON_FMT}'));
+		//http://issues.freepbx.org/browse/FREEPBX-10860
+		//Asterisk attaches the "NOW" value to the end of the recording even if we dont want it
+		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)','${IF($[${CONFBRIDGE_INFO(parties,${ARG2})}]?${CALLFILENAME}.${MON_FMT}:${CALLFILENAME}-${NOW}.${MON_FMT})}'));
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		/* Queue Recording Section */
