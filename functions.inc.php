@@ -72,7 +72,7 @@ function callrecording_get_config($engine) {
 			$ext->addGlobal('MIXMON_BEEP', '');
 		} else {
 			$period =  FreePBX::Config()->get_conf_setting('CALLREC_BEEP_PERIOD');
-			if ($period) {
+			if (!empty($period)) {
 				$ext->addGlobal('MIXMON_BEEP', "B($period)");
 			} else {
 				$ext->addGlobal('MIXMON_BEEP', '');
