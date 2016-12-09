@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-10 11:48-0700\n"
-"PO-Revision-Date: 2016-12-08 21:58+0200\n"
+"PO-Revision-Date: 2016-12-08 22:07+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/pt_BR/>\n"
@@ -141,22 +141,30 @@ msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
 msgstr ""
+"Descrição desta instância de gravação de chamadas. Por exemplo, \"URA "
+"principal em Português-BR\""
 
 #: functions.inc.php:512
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
+"Isso define o comportamento de gravação de chamadas para chamadas que entram "
+"neste DID. Leia o wiki para obter informações sobre o que essas "
+"configurações significam."
 
 #: functions.inc.php:524
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
+"Isso define o comportamento de gravação de chamadas para chamadas que saem "
+"desta rota. Leia o wiki para obter informações sobre o significado dessas "
+"configurações."
 
 #: views/form.php:118
 msgid "Where should the call be sent."
-msgstr ""
+msgstr "Para onde a chamada deve ser enviada."
 
 #: functions.inc.php:552 views/form.php:20
 msgid "Yes"
