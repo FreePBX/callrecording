@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-10 11:48-0700\n"
-"PO-Revision-Date: 2016-12-07 23:56+0200\n"
+"PO-Revision-Date: 2016-12-08 21:58+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/pt_BR/>\n"
@@ -35,7 +35,7 @@ msgstr "Ações"
 
 #: views/bootnav.php:7 views/grid.php:17
 msgid "Add Call Recording"
-msgstr ""
+msgstr "Adicionar Gravação de Chamadas"
 
 #: callrecording.i18n.php:6 callrecording.i18n.php:12
 msgid "Applications"
@@ -50,24 +50,31 @@ msgid ""
 "setting will have no effect. To disable simply clear the value of this box "
 "and save. This is typically set arround 15seconds"
 msgstr ""
+"O Asterisk 13.2 e versões posteriores possuem a capacidade de reproduzir um "
+"\"bip\" quando uma chamada estiver sendo gravada. Se este valor for definido "
+"com um número, quando uma chamada estiver sendo gravada, as duas partes "
+"ouvirão um 'bip' a cada período que você selecionar. Se você não estiver "
+"executando o Asterisk 13.2 ou superior, esta configuração não terá efeito. "
+"Para desativar simplesmente limpe o valor deste campo e salve. Geralmente "
+"define-se este valor para 15 segundos"
 
 #: callrecording.i18n.php:14
 msgid "Beep every n seconds"
-msgstr ""
+msgstr "\"Bip\" a cada \"n\" segundos"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10
 #: callrecording.i18n.php:16 functions.inc.php:541 page.callrecording.php:7
 msgid "Call Recording"
-msgstr ""
+msgstr "Gravação de Chamadas"
 
 #: views/form.php:82
 msgid "Call Recording Mode"
-msgstr ""
+msgstr "Modo de Gravação de Chamadas"
 
 #: Callrecording.class.php:150 functions.inc.php:56 functions.inc.php:721
 #, php-format
 msgid "Call Recording: %s"
-msgstr ""
+msgstr "Gravação de Chamada: %s"
 
 #: Callrecording.class.php:82
 msgid "Delete"
@@ -91,11 +98,11 @@ msgstr "Forçar"
 
 #: page.callrecording.php:52
 msgid "Invalid description specified"
-msgstr ""
+msgstr "Descrição especificada inválida"
 
 #: views/bootnav.php:6
 msgid "List Call Recordings"
-msgstr ""
+msgstr "Lista de Gravações de Chamadas"
 
 #: functions.inc.php:552 views/form.php:20
 msgid "Never"
@@ -107,15 +114,15 @@ msgstr "Não"
 
 #: functions.inc.php:533 views/form.php:72
 msgid "Note that the meaning of these options has changed."
-msgstr ""
+msgstr "Observe que o significado dessas opções foi alterado."
 
 #: functions.inc.php:533 views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
-msgstr ""
+msgstr "Por favor, leia o wiki para mais informações sobre essas mudanças."
 
 #: callrecording.i18n.php:8
 msgid "Provides much of the call recording functionality."
-msgstr ""
+msgstr "Fornece grande parte da funcionalidade de gravação de chamadas."
 
 #: Callrecording.class.php:87
 msgid "Reset"
@@ -123,7 +130,7 @@ msgstr "Reiniciar"
 
 #: views/bootnav.php:18
 msgid "Rule"
-msgstr ""
+msgstr "Regra"
 
 #: Callrecording.class.php:92
 msgid "Submit"
