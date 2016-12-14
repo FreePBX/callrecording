@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-10 11:48-0700\n"
-"PO-Revision-Date: 2016-12-13 01:12+0200\n"
+"PO-Revision-Date: 2016-12-13 21:56+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/pt_BR/>\n"
@@ -110,7 +110,7 @@ msgstr "Nunca"
 
 #: functions.inc.php:552 views/form.php:20
 msgid "No"
-msgstr "Yes"
+msgstr "Não"
 
 #: functions.inc.php:533 views/form.php:72
 msgid "Note that the meaning of these options has changed."
