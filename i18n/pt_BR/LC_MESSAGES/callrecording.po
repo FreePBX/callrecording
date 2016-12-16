@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-10 11:48-0700\n"
-"PO-Revision-Date: 2016-12-13 21:56+0200\n"
+"PO-Revision-Date: 2016-12-15 21:46+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/pt_BR/>\n"
@@ -65,7 +65,7 @@ msgstr "\"Bip\" a cada \"n\" segundos"
 #: callrecording.i18n.php:4 callrecording.i18n.php:10
 #: callrecording.i18n.php:16 functions.inc.php:541 page.callrecording.php:7
 msgid "Call Recording"
-msgstr "Gravação de Chamadas"
+msgstr "Gravação do Chamadas"
 
 #: views/form.php:82
 msgid "Call Recording Mode"
