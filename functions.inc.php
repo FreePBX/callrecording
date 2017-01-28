@@ -463,8 +463,8 @@ function callrecording_add($description, $callrecording_mode, $dest) {
 
 function callrecording_delete($callrecording_id) {
 	global $db;
-	$sql = "DELETE FROM callrecording WHERE callrecording_id = ".$db->escapeSimple($callrecording_id);
-	$result = $db->query($sql);
+	$sql = "DELETE FROM callrecording WHERE callrecording_id = ?";
+	$result = $db->query($sql,array($callrecording_id));
 	if(DB::IsError($result)) {
 		die_freepbx($result->getMessage().$sql);
 	}
@@ -472,12 +472,8 @@ function callrecording_delete($callrecording_id) {
 
 function callrecording_edit($callrecording_id, $description, $callrecording_mode, $dest) {
 	global $db;
-	$sql = "UPDATE callrecording SET ".
-		"description = '".$db->escapeSimple($description)."', ".
-		"callrecording_mode = '".$db->escapeSimple($callrecording_mode)."', ".
-		"dest = '".$db->escapeSimple($dest)."' ".
-		"WHERE callrecording_id = ".$db->escapeSimple($callrecording_id);
-	$result = $db->query($sql);
+	$sql = "UPDATE callrecording SET description = ?, callrecording_mode = ?, dest = ? WHERE callrecording_id = ?";
+	$result = $db->query($sql,array($description,$callrecording_mode,$dest,$callrecording_id));
 	if(DB::IsError($result)) {
 		die_freepbx($result->getMessage().$sql);
 	}
@@ -726,7 +722,8 @@ function callrecording_check_destinations($dest=true) {
 }
 
 function callrecording_change_destination($old_dest, $new_dest) {
-	$sql = 'UPDATE callrecording SET dest = "' . $new_dest . '" WHERE dest = "' . $old_dest . '"';
+	global $db;
+	$sql = 'UPDATE callrecording SET dest = ? WHERE dest = ?';
+	$db->query($sql,array($new_dest, $old_dest));
 	sql($sql, "query");
 }
-?>
