@@ -347,12 +347,17 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_set('ONETOUCH_REC_SCRIPT_STATUS', ''));
 		$ext->add($context, $exten, '', new ext_system('${AMPBIN}/one_touch_record.php "${CHANNEL(name)}"'));
 		$ext->add($context, $exten, '', new ext_noop('ONETOUCH_REC_SCRIPT_STATUS: [${ONETOUCH_REC_SCRIPT_STATUS}]'));
-		$ext->add($context, $exten, '', new ext_noop_trace('REC_STATUS: [${REC_STATUS}]'));
+		$ext->add($context, $exten, '', new ext_noop('REC_STATUS: [${REC_STATUS}]'));
 		$ext->add($context, $exten, '', new ext_noop_trace('ONETOUCH_RECFILE: [${ONETOUCH_RECFILE}] CDR(recordingfile): [${CDR(recordingfile)}]'));
-		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="RECORDING"]','Playback','beep'));
+		$ext->add($context, $exten, '', new ext_gotoif('$["${ONETOUCH_REC_SCRIPT_STATUS:0:6}"="DENIED"]','denied'));
 		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="STOPPED"]','Playback','beep&beep'));
-		$ext->add($context, $exten, '', new ext_execif('$["${ONETOUCH_REC_SCRIPT_STATUS:0:6}"="DENIED"]','Playback','access-denied'));
-		$ext->add($context, $exten, '', new ext_macroexit());
+		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"="STOPPED"]','end'));
+		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"="RECORDING"]','startrec'));
+		$ext->add($context, $exten, 'startrec', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','ai(LOCAL_MIXMON_ID)${MIXMON_BEEP}','${MIXMON_POST}'));
+		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="RECORDING"]','Playback','beep'));
+		$ext->add($context, $exten, 'denied', new ext_execif('$["${ONETOUCH_REC_SCRIPT_STATUS:0:6}"="DENIED"]','Playback','access-denied'));
+		$ext->add($context, $exten, 'end', new ext_macroexit());
+
 
 	}
 }
