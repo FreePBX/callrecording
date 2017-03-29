@@ -34,19 +34,13 @@ class Callrecording implements BMO {
 
 			switch ($action) {
 				case 'add':
-					$_REQUEST['extdisplay'] = callrecording_add($description, $callrecording_mode, $dest);
-					needreload();
-					//redirect_standard('extdisplay', 'view');
+					callrecording_add($description, $callrecording_mode, $dest);
 				break;
 				case 'edit':
 					callrecording_edit($callrecording_id, $description, $callrecording_mode, $dest);
-					needreload();
-					//redirect_standard('extdisplay', 'view');
 				break;
 				case 'delete':
 					callrecording_delete($callrecording_id);
-					needreload();
-					//redirect_standard();
 				break;
 			}
 

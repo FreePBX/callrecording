@@ -38,7 +38,7 @@ if ($extdisplay) {
 }
 echo $usagehtml;
 ?>
-<form name="editCallRecording" class="fpbx-submit" action="" method="post" onsubmit="return checkCallRecording(editCallRecording);" data-fpbx-delete="?display=callrecording&amp;callrecording_id=<?php echo $extdisplay ?>&amp;action=delete">
+<form name="editCallRecording" class="fpbx-submit" action="?display=callrecording" method="post" onsubmit="return checkCallRecording(editCallRecording);" data-fpbx-delete="?display=callrecording&amp;callrecording_id=<?php echo $extdisplay ?>&amp;action=delete">
 <input type="hidden" name="extdisplay" value="<?php echo $extdisplay; ?>">
 <input type="hidden" name="callrecording_id" value="<?php echo $extdisplay; ?>">
 <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
