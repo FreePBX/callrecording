@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-27 18:03-0800\n"
+"POT-Creation-Date: 2017-03-28 17:30-0700\n"
 "PO-Revision-Date: 2017-03-13 14:14+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
-"Language-Team: French "
-"<http://weblate.freepbx.org/projects/freepbx/callrecording/fr_FR/>\n"
-"Language: fr_FR\n"
+"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
+"callrecording/fr_FR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -37,11 +37,11 @@ msgstr "Actions"
 msgid "Add Call Recording"
 msgstr "Ajouter l'enregistrement d'appel"
 
-#: callrecording.i18n.php:6 callrecording.i18n.php:12
+#: callrecording.i18n.php:6
 msgid "Applications"
 msgstr "Applications"
 
-#: callrecording.i18n.php:18
+#: callrecording.i18n.php:16
 msgid ""
 "Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
 "a call is being recorded. If you set this to a positive number value, when a "
@@ -51,12 +51,12 @@ msgid ""
 "or set the value to 0 and save. This is typically set arround 15seconds"
 msgstr ""
 
-#: callrecording.i18n.php:14
+#: callrecording.i18n.php:12
 msgid "Beep every n seconds"
 msgstr "Bip toutes les n secondes"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10
-#: callrecording.i18n.php:16 functions.inc.php:537 page.callrecording.php:7
+#: callrecording.i18n.php:14 functions.inc.php:550 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Enregistrer l'appel"
 
@@ -64,12 +64,12 @@ msgstr "Enregistrer l'appel"
 msgid "Call Recording Mode"
 msgstr "Mode d'enregistrement d'appel"
 
-#: Callrecording.class.php:150 functions.inc.php:56 functions.inc.php:717
+#: Callrecording.class.php:144 functions.inc.php:56 functions.inc.php:730
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Enregistrement d'appel : %s"
 
-#: Callrecording.class.php:82
+#: Callrecording.class.php:76
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -81,11 +81,11 @@ msgstr "Description"
 msgid "Destination"
 msgstr "Destination"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:561 views/form.php:20
 msgid "Don't Care"
 msgstr "Peu importe"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:561 views/form.php:20
 msgid "Force"
 msgstr "Forcer"
 
@@ -97,19 +97,19 @@ msgstr "Description spécifiée invalide"
 msgid "List Call Recordings"
 msgstr "Liste des enregistrements d'appel"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:561 views/form.php:20
 msgid "Never"
 msgstr "Jamais"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:561 views/form.php:20
 msgid "No"
 msgstr "Non"
 
-#: functions.inc.php:529 views/form.php:72
+#: functions.inc.php:542 views/form.php:72
 msgid "Note that the meaning of these options has changed."
 msgstr "Prenez note que la signification de ces options a changée."
 
-#: functions.inc.php:529 views/form.php:94
+#: functions.inc.php:542 views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 "S’il vous plaît lire le wiki pour plus d'informations sur ces changements."
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Provides much of the call recording functionality."
 msgstr "Fournis la majorité de la fonctionnalité d'enregistrement d'appel."
 
-#: Callrecording.class.php:87
+#: Callrecording.class.php:81
 msgid "Reset"
 msgstr "Réinitialiser"
 
@@ -126,7 +126,7 @@ msgstr "Réinitialiser"
 msgid "Rule"
 msgstr "Règle"
 
-#: Callrecording.class.php:92
+#: Callrecording.class.php:86
 msgid "Submit"
 msgstr "Soumettre"
 
@@ -138,7 +138,7 @@ msgstr ""
 "Le nom descriptif de cette instance d'enregistrement d'appel. Par exemple "
 "\"IVR Français principal\""
 
-#: functions.inc.php:508
+#: functions.inc.php:521
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -147,7 +147,7 @@ msgstr ""
 "provenant de ce DID. Veuillez lire le wiki pour plus d'informations sur ces "
 "paramètres."
 
-#: functions.inc.php:520
+#: functions.inc.php:533
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr "Où l'appel devrait être envoyé."
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:561 views/form.php:20
 msgid "Yes"
 msgstr "Oui"
 

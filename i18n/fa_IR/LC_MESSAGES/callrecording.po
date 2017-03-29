@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-27 18:03-0800\n"
+"POT-Creation-Date: 2017-03-28 17:30-0700\n"
 "PO-Revision-Date: 2016-10-08 12:44+0200\n"
 "Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -37,11 +37,11 @@ msgstr "عملیات"
 msgid "Add Call Recording"
 msgstr "افزودن ضبط مکالمه"
 
-#: callrecording.i18n.php:6 callrecording.i18n.php:12
+#: callrecording.i18n.php:6
 msgid "Applications"
 msgstr "برنامه ها"
 
-#: callrecording.i18n.php:18
+#: callrecording.i18n.php:16
 msgid ""
 "Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
 "a call is being recorded. If you set this to a positive number value, when a "
@@ -51,12 +51,12 @@ msgid ""
 "or set the value to 0 and save. This is typically set arround 15seconds"
 msgstr ""
 
-#: callrecording.i18n.php:14
+#: callrecording.i18n.php:12
 msgid "Beep every n seconds"
 msgstr "صدای بیپ در هر n ثانیه"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10
-#: callrecording.i18n.php:16 functions.inc.php:537 page.callrecording.php:7
+#: callrecording.i18n.php:14 functions.inc.php:550 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "ضبط مکالمه"
 
@@ -64,12 +64,12 @@ msgstr "ضبط مکالمه"
 msgid "Call Recording Mode"
 msgstr "حالت ضبط مکالمه"
 
-#: Callrecording.class.php:150 functions.inc.php:56 functions.inc.php:717
+#: Callrecording.class.php:144 functions.inc.php:56 functions.inc.php:730
 #, php-format
 msgid "Call Recording: %s"
 msgstr "ضبط مکالمه ：%s"
 
-#: Callrecording.class.php:82
+#: Callrecording.class.php:76
 msgid "Delete"
 msgstr "حذف"
 
@@ -81,11 +81,11 @@ msgstr "توضیحات"
 msgid "Destination"
 msgstr "مقصد"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:561 views/form.php:20
 msgid "Don't Care"
 msgstr "مهم نیست"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:561 views/form.php:20
 msgid "Force"
 msgstr "اجبار"
 
@@ -97,19 +97,19 @@ msgstr "توضیحات نامعتبر"
 msgid "List Call Recordings"
 msgstr "فهرست ضبط مکالمات تعریف شده"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:561 views/form.php:20
 msgid "Never"
 msgstr "هرگز"
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:561 views/form.php:20
 msgid "No"
 msgstr "خیر"
 
-#: functions.inc.php:529 views/form.php:72
+#: functions.inc.php:542 views/form.php:72
 msgid "Note that the meaning of these options has changed."
 msgstr "توجه داشته باشید که معنی این گزینه ها تغییر کرده است."
 
-#: functions.inc.php:529 views/form.php:94
+#: functions.inc.php:542 views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
 msgstr "برای اطلاعات بیشتر از این تغییرات ویکی را مطالعه نمایید."
 
@@ -117,7 +117,7 @@ msgstr "برای اطلاعات بیشتر از این تغییرات ویکی �
 msgid "Provides much of the call recording functionality."
 msgstr "ارائه قابلیت های بیشتر ضبط مکالمات."
 
-#: Callrecording.class.php:87
+#: Callrecording.class.php:81
 msgid "Reset"
 msgstr "بازنشانی"
 
@@ -125,7 +125,7 @@ msgstr "بازنشانی"
 msgid "Rule"
 msgstr "رول"
 
-#: Callrecording.class.php:92
+#: Callrecording.class.php:86
 msgid "Submit"
 msgstr "ثبت"
 
@@ -136,7 +136,7 @@ msgid ""
 msgstr ""
 "نام توصیفی برای نمونه ای از ضبط مکالمه. برای مثال \" IVR اصلی فرانسوی\""
 
-#: functions.inc.php:508
+#: functions.inc.php:521
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -144,7 +144,7 @@ msgstr ""
 "این تنظیمات نحوه ضبط مکالمه برای تماس هایی که به این DID هدایت می شوند، را "
 "تعیین می کند. لطفا برای اطلاعات بیشتر به ویکی مراجعه نمایید."
 
-#: functions.inc.php:520
+#: functions.inc.php:533
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -156,7 +156,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr "مقصدی که تماس به آن ارسال می شود."
 
-#: functions.inc.php:548 views/form.php:20
+#: functions.inc.php:561 views/form.php:20
 msgid "Yes"
 msgstr "بله"
 
