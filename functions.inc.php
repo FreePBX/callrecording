@@ -92,6 +92,12 @@ function callrecording_get_config($engine) {
 				$ext->add($context, $row['callrecording_id'], '', new ext_gosub('1','s','sub-record-check', 'generic,${FROM_DID},never'));
 				$ext->add($context, $row['callrecording_id'], '', new ext_set('__REC_POLICY_MODE','never'));
 				break;
+			case 'yes':
+                                $ext->add($context, $row['callrecording_id'], '', new ext_gosub('1','s','sub-record-check','generic,${FROM_DID},yes'));
+                                break;
+                        case 'no':
+                                $ext->add($context, $row['callrecording_id'], '', new ext_gosub('1','s','sub-record-check','generic,${FROM_DID},no'));
+                                break;
 			default: // allowed
 				$ext->add($context, $row['callrecording_id'], '', new ext_execif('$["${REC_POLICY_MODE}"="never"]','Set','__REC_POLICY_MODE='));
 				break;
