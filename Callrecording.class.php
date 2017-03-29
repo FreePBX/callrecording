@@ -34,7 +34,7 @@ class Callrecording implements BMO {
 
 			switch ($action) {
 				case 'add':
-					$request['extdisplay'] = callrecording_add($description, $callrecording_mode, $dest);
+					$_REQUEST['extdisplay'] = callrecording_add($description, $callrecording_mode, $dest);
 					needreload();
 					//redirect_standard('extdisplay', 'view');
 				break;
