@@ -54,6 +54,12 @@
 		*2.10.0.1* #5478
 	  	*2.10.0.0* New Module
 	</changelog>
+	<hooks>
+		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules" >
+			<method class="Callrecording" callingMethod="import">bulkhandlerImport</method>
+			<method class="Callrecording" callingMethod="export">bulkhandlerExport</method>
+		</bulkhandler>
+	</hooks>
 	<supported>
 		<version>13.0</version>
 	</supported>

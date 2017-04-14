@@ -144,4 +144,40 @@ class Callrecording implements BMO {
 			$results[] = array("text" => sprintf(_("Call Recording: %s"),$rule['description']), "type" => "get", "dest" => "?display=callrecording&view=form&extdisplay=".$rule['callrecording_id']);
 		}
 	}
+	
+	public function bulkhandlerExport($type) {
+	    $data = NULL;
+	    switch ($type) {
+	        case "dids":
+	            $dids = $this->FreePBX->Core->getAllDIDs();
+	            $data = array();
+	            $this->FreePBX->Modules->loadFunctionsInc("callrecording");
+	            foreach($dids as $did) {
+	                $key = $did['extension']."/".$did["cidnum"];
+	                $call_rec = callrecording_display_get('did', $did['extension'], $did["cidnum"]);
+	                if(!empty($call_rec)) {
+	                    $data[$key] = array(
+	                            "callrecording" => $call_rec
+	                    );
+	                } else {
+	                    $data[$key] = array(
+	                            "callrecording" => 'dontcare'
+	                    );
+	                }
+	            }
+	            break;
+	    }
+	    return $data;
+	}
+	
+	public function bulkhandlerImport($type, $rawData, $replaceExisting = false) {
+	    switch ($type) {
+	        case 'dids':
+	            $this->FreePBX->Modules->loadFunctionsInc("callrecording");
+	            foreach ($rawData as $data) {
+	                callrecording_display_update('did', $data['callrecording'], $data['extension'], $data["cidnum"]);
+	            }
+	            break;
+	    }
+	}
 }
