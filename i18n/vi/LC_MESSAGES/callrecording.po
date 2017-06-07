@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:03-0700\n"
-"PO-Revision-Date: 2017-06-06 11:25+0200\n"
+"PO-Revision-Date: 2017-06-07 09:36+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/vi/>\n"
@@ -31,7 +31,7 @@ msgstr ""
 
 #: views/grid.php:23
 msgid "Actions"
-msgstr ""
+msgstr "Các thao tác"
 
 #: views/bootnav.php:7 views/grid.php:17
 msgid "Add Call Recording"
@@ -39,7 +39,7 @@ msgstr ""
 
 #: callrecording.i18n.php:6
 msgid "Applications"
-msgstr ""
+msgstr "Các ứng dụng"
 
 #: callrecording.i18n.php:16
 msgid ""
@@ -71,11 +71,11 @@ msgstr ""
 
 #: Callrecording.class.php:76
 msgid "Delete"
-msgstr ""
+msgstr "Xóa"
 
 #: views/form.php:53 views/grid.php:22
 msgid "Description"
-msgstr ""
+msgstr "Mô tả"
 
 #: views/form.php:106
 msgid "Destination"
@@ -127,7 +127,7 @@ msgstr ""
 
 #: Callrecording.class.php:86
 msgid "Submit"
-msgstr ""
+msgstr "Gửi đi"
 
 #: views/form.php:65
 msgid ""
@@ -153,4 +153,4 @@ msgstr ""
 
 #: functions.inc.php:567 views/form.php:20
 msgid "Yes"
-msgstr ""
+msgstr "Có"
