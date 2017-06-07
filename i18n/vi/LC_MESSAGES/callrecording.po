@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:03-0700\n"
-"PO-Revision-Date: 2017-06-07 11:30+0200\n"
+"PO-Revision-Date: 2017-06-07 16:34+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/vi/>\n"
@@ -50,24 +50,31 @@ msgid ""
 "setting will have no effect. To disable simply clear the value of this box "
 "or set the value to 0 and save. This is typically set arround 15seconds"
 msgstr ""
+"Asterisk 13.2 và những hỗ trợ cao hơn có khả năng phát tiếng \"bíp\" thông "
+"thường khi cuộc gọi được ghi âm lại. Nếu bạn cài đặt đến giá trị dương , khi "
+"một cuộc gọi đang được kích hoạt gi âm, cả hai bên đều nghe được tiếng \""
+"bíp\" vào mỗi giai đoạn bạn chọn. Nếu bạn không chạy Assterisk 13.2 hoặc hỗ "
+"trợ khác cao hơn thì cài đặt này sẽ không có tác dụng. Để vô hiệu đơn giản "
+"là xóa giá trị của hộp này hoặc cài đặt giá trị về 0 và lưu. Thông thường "
+"việc cài đặt này sẽ mất khoảng 15 giây"
 
 #: callrecording.i18n.php:12
 msgid "Beep every n seconds"
-msgstr ""
+msgstr "Tiếng bíp ở mỗi n giây"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10
 #: callrecording.i18n.php:14 functions.inc.php:556 page.callrecording.php:7
 msgid "Call Recording"
-msgstr ""
+msgstr "Ghi âm cuộc gọi"
 
 #: views/form.php:82
 msgid "Call Recording Mode"
-msgstr ""
+msgstr "Chế độ ghi âm cuộc gọi"
 
 #: Callrecording.class.php:144 functions.inc.php:56 functions.inc.php:736
 #, php-format
 msgid "Call Recording: %s"
-msgstr ""
+msgstr "Ghi âm cuộc gọi: %s"
 
 #: Callrecording.class.php:76
 msgid "Delete"
@@ -79,23 +86,23 @@ msgstr "Mô tả"
 
 #: views/form.php:106
 msgid "Destination"
-msgstr ""
+msgstr "Điểm đến"
 
 #: functions.inc.php:567 views/form.php:20
 msgid "Don't Care"
-msgstr ""
+msgstr "Không quan tâm"
 
 #: functions.inc.php:567 views/form.php:20
 msgid "Force"
-msgstr ""
+msgstr "Bắt buộc"
 
 #: page.callrecording.php:52
 msgid "Invalid description specified"
-msgstr ""
+msgstr "Mô tả không hợp lệ được chỉ định"
 
 #: views/bootnav.php:6
 msgid "List Call Recordings"
-msgstr ""
+msgstr "Danh sách các ghi âm cuộc gọi"
 
 #: functions.inc.php:567 views/form.php:20
 msgid "Never"
@@ -107,15 +114,15 @@ msgstr "Không"
 
 #: functions.inc.php:548 views/form.php:72
 msgid "Note that the meaning of these options has changed."
-msgstr ""
+msgstr "Lưu ý rằng ý nghĩa của các vị trí này vừa được thay đổi."
 
 #: functions.inc.php:548 views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
-msgstr ""
+msgstr "Vui lòng đọc wiki để biết thêm thông tin về những thay đổi này."
 
 #: callrecording.i18n.php:8
 msgid "Provides much of the call recording functionality."
-msgstr ""
+msgstr "Cung cấp nhiều chức năng ghi âm cuộc gọi."
 
 #: Callrecording.class.php:81
 msgid "Reset"
@@ -123,7 +130,7 @@ msgstr "Cài đặt lại"
 
 #: views/bootnav.php:18
 msgid "Rule"
-msgstr ""
+msgstr "Nguyên tắc"
 
 #: Callrecording.class.php:86
 msgid "Submit"
@@ -133,23 +140,27 @@ msgstr "Gửi đi"
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
-msgstr ""
+msgstr "Tên mô tả của trường hợp ghi âm cuộc gọi này. Ví dụ \"French Main IVR\""
 
 #: functions.inc.php:527
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
+"Điều này thiết lập hành vi ghi âm cuộc gọi cho các cuộc gọi  vào trong DID. "
+"Vui lòng đọc wiki để biết thêm các cài đặt này có nghĩa là gì."
 
 #: functions.inc.php:539
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
+"Điều này thiết lập hành vi ghi âm cuộc gọi cho các cuộc gọi ngoại tuyến. Vui "
+"lòng đọc wiki để biết thêm các cài đặt này có nghĩa là gì."
 
 #: views/form.php:118
 msgid "Where should the call be sent."
-msgstr ""
+msgstr "Cuộc gọi nên được gửi đến đâu."
 
 #: functions.inc.php:567 views/form.php:20
 msgid "Yes"
