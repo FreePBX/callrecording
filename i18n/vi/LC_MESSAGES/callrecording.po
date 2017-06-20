@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:03-0700\n"
-"PO-Revision-Date: 2017-06-07 16:34+0200\n"
-"Last-Translator: Peter Trinh <ftek@ymail.com>\n"
+"PO-Revision-Date: 2017-06-20 16:28+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/vi/>\n"
 "Language: vi\n"
@@ -86,7 +86,7 @@ msgstr "Mô tả"
 
 #: views/form.php:106
 msgid "Destination"
-msgstr "Điểm đến"
+msgstr "Điểm đích"
 
 #: functions.inc.php:567 views/form.php:20
 msgid "Don't Care"
