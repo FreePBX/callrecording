@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:03-0700\n"
-"PO-Revision-Date: 2017-06-20 16:28+0200\n"
+"PO-Revision-Date: 2017-06-22 10:07+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/vi/>\n"
@@ -23,11 +23,11 @@ msgstr ""
 
 #: page.callrecording.php:14
 msgid ": Add"
-msgstr ": Thêm"
+msgstr ":Thêm"
 
 #: page.callrecording.php:12
 msgid ": Edit"
-msgstr ": Hiệu chỉnh"
+msgstr ": Chỉnh sửa"
 
 #: views/grid.php:23
 msgid "Actions"
