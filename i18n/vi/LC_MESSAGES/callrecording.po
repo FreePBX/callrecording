@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:03-0700\n"
-"PO-Revision-Date: 2017-06-22 10:07+0200\n"
+"PO-Revision-Date: 2017-07-08 10:42+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/vi/>\n"
@@ -98,7 +98,7 @@ msgstr "Bắt buộc"
 
 #: page.callrecording.php:52
 msgid "Invalid description specified"
-msgstr "Mô tả không hợp lệ được chỉ định"
+msgstr "Mô tả không hợp lệ được xác định"
 
 #: views/bootnav.php:6
 msgid "List Call Recordings"
