@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:03-0700\n"
-"PO-Revision-Date: 2017-07-26 21:33+0200\n"
+"PO-Revision-Date: 2017-07-27 15:12+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/vi/>\n"
@@ -94,7 +94,7 @@ msgstr "Không quan tâm"
 
 #: functions.inc.php:567 views/form.php:20
 msgid "Force"
-msgstr "Buộc phải"
+msgstr "Bắt buộc"
 
 #: page.callrecording.php:52
 msgid "Invalid description specified"
