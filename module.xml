@@ -12,7 +12,7 @@
 	<description>
 		Provides much of the call recording functionality.
 	</description>
-	<menuitems>
+	<menuitems needsenginedb="yes">
 		<callrecording>Call Recording</callrecording>
 	</menuitems>
  	<popovers>
