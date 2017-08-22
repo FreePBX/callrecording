@@ -744,5 +744,4 @@ function callrecording_change_destination($old_dest, $new_dest) {
 	global $db;
 	$sql = 'UPDATE callrecording SET dest = ? WHERE dest = ?';
 	$db->query($sql,array($new_dest, $old_dest));
-	sql($sql, "query");
 }
