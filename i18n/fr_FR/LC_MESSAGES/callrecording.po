@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:03-0700\n"
-"PO-Revision-Date: 2017-12-01 22:48+0200\n"
+"PO-Revision-Date: 2017-12-01 23:43+0200\n"
 "Last-Translator: CATTAN Jérémie <jeremie@famillecattan.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/fr_FR/>\n"
@@ -136,7 +136,7 @@ msgstr "Règle"
 
 #: Callrecording.class.php:86
 msgid "Submit"
-msgstr "Soumettre"
+msgstr "Valider"
 
 #: views/form.php:65
 msgid ""
