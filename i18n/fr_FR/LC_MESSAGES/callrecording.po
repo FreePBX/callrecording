@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:03-0700\n"
-"PO-Revision-Date: 2017-12-01 23:43+0200\n"
-"Last-Translator: CATTAN Jérémie <jeremie@famillecattan.com>\n"
+"PO-Revision-Date: 2017-12-11 22:57+0200\n"
+"Last-Translator: JCattan <jeremie@famillecattan.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -128,7 +128,7 @@ msgstr "Fournis la majorité de la fonctionnalité d'enregistrement d'appel."
 
 #: Callrecording.class.php:81
 msgid "Reset"
-msgstr "Réinitialiser"
+msgstr "Reset"
 
 #: views/bootnav.php:18
 msgid "Rule"
@@ -136,7 +136,7 @@ msgstr "Règle"
 
 #: Callrecording.class.php:86
 msgid "Submit"
-msgstr "Valider"
+msgstr "Envoyer"
 
 #: views/form.php:65
 msgid ""
