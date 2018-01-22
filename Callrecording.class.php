@@ -38,9 +38,11 @@ class Callrecording implements BMO {
 				break;
 				case 'edit':
 					callrecording_edit($callrecording_id, $description, $callrecording_mode, $dest);
+					needreload();
 				break;
 				case 'delete':
 					callrecording_delete($callrecording_id);
+					needreload();
 				break;
 			}
 
