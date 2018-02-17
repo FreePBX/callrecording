@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:03-0700\n"
-"PO-Revision-Date: 2018-02-16 16:39+0200\n"
+"PO-Revision-Date: 2018-02-16 20:01+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/callrecording/de_DE/>\n"
@@ -107,7 +107,7 @@ msgstr "Anrufaufzeichnungen auflisten"
 
 #: functions.inc.php:567 views/form.php:20
 msgid "Never"
-msgstr "Nie"
+msgstr "Niemals"
 
 #: functions.inc.php:567 views/form.php:20
 msgid "No"
@@ -136,7 +136,7 @@ msgstr "Regel"
 
 #: Callrecording.class.php:86
 msgid "Submit"
-msgstr "Bestätigen"
+msgstr "Absenden"
 
 #: views/form.php:65
 msgid ""
