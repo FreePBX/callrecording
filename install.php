@@ -5,7 +5,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 global $db;
 $FreePBX = FreePBX::Create();
 $spooldir = $FreePBX->Config->get('ASTSPOOLDIR');
-$command = 'find '.$spooldir.'/monitor -type f -size 44c -delete >/dev/null 2>&1';
+$command = '/usr/sbin/fwconsole recordings --cleanempty > >/dev/null 2>&1';
 $FreePBX->Cron->removeAll($command);
 $FreePBX->Cron->add(array("command" => $command,  "minute" => "1"));
 $autoincrement = (($amp_conf["AMPDBENGINE"] == "sqlite") || ($amp_conf["AMPDBENGINE"] == "sqlite3")) ? "AUTOINCREMENT":"AUTO_INCREMENT";
