@@ -19,6 +19,24 @@ $thisExtension = getVariable($channel, "THISEXTEN");
 
 $realCallerIdNum = getVariable($channel, "REALCALLERIDNUM");
 
+$dst = getVariable($channel, "DIALEDPEERNUMBER");
+$bpeer = getVariable($channel, "BRIDGEPEER");
+if(!$dst){
+	$dst = $bpeer;
+}
+if (strpos($dst, '@') !== false) {
+	$dstNum = $dst;
+	$dstValue = explode('@',$dstNum);
+	$dstData = $dstValue[0];
+	if (strpos($dstData, '-') !== false){
+		$dstExp = explode('-',$dstData);
+	}
+	if (strpos($dstData, '/') !== false){
+		$dstExp = explode('/',$dstData);
+	}
+	$dst = trim($dstExp[1]);
+
+}
 // Set $fromExten to be SOMETHING sane.
 $fromExten = false;
 // Go through these in order.
@@ -31,6 +49,15 @@ foreach ($f as $var) {
 	}
 }
 
+if ($var == "FROM_DID") {
+	$bchannel = getVariable($channel, "BRIDGEPEER");
+	if(strlen($bchannel) > 1) {
+		 $check = getVariable($bchannel, "REALCALLERIDNUM");
+		 if ($check) {
+		          $fromExten = $check;
+		 }
+	}
+}
 // Was it set?
 if (!$fromExten) {
 	// Sigh.
@@ -212,7 +239,7 @@ if (!$timestr) {
 if (!$callFileName) {
 	// We need to create the filename for this call.
 	$uniqueid = getVariable($channel, "UNIQUEID");
-	$callFileName = "ondemand-$thisExtension-$fromExten-$timestr-$uniqueid";
+	$callFileName = "ondemand-$dst-$fromExten-$timestr-$uniqueid";
 	ot_debug("CFN UPDATED ::$callFileName::");
 }
 
