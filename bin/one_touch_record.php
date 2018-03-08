@@ -42,6 +42,7 @@ $fromExten = false;
 // Go through these in order.
 $f = array("FROMEXTEN", "FROM_DID", "REALCALLERIDNUM");
 foreach ($f as $var) {
+	$chanvar = $var;
 	$check = getVariable($channel, $var);
 	if ($check) {
 		$fromExten = $check;
@@ -49,7 +50,7 @@ foreach ($f as $var) {
 	}
 }
 
-if ($var == "FROM_DID") {
+if ($chanvar == "FROM_DID") {
 	$bchannel = getVariable($channel, "BRIDGEPEER");
 	if(strlen($bchannel) > 1) {
 		 $check = getVariable($bchannel, "REALCALLERIDNUM");
