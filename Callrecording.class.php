@@ -177,6 +177,7 @@ class Callrecording implements BMO {
 	        case 'dids':
 	            $this->FreePBX->Modules->loadFunctionsInc("callrecording");
 	            foreach ($rawData as $data) {
+                        $data['callrecording'] = isset($data['callrecording'])?$data['callrecording']:'dontcare';
 	                callrecording_display_update('did', $data['callrecording'], $data['extension'], $data["cidnum"]);
 	            }
 	            break;
