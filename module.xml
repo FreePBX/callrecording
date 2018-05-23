@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>14.0.1</version>
+	<version>14.0.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -22,10 +22,11 @@
 		</callrecording>
  	</popovers>
 	<changelog>
+		*14.0.2* Fixing FREEPBX-17499 Setting default value for callrecording during bulkimport 
 		*14.0.1* Branched from 13.0.11.5
 	</changelog>
 	<hooks>
-		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules" >
+		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
 			<method class="Callrecording" callingMethod="import">bulkhandlerImport</method>
 			<method class="Callrecording" callingMethod="export">bulkhandlerExport</method>
 		</bulkhandler>
