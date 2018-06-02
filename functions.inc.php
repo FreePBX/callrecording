@@ -31,7 +31,7 @@ function callrecording_destinations() {
 function callrecording_destination_popovers() {
 	global $module_page;
 	if ($module_page != 'callrecording') {
-		$ret['callrecording'] = 'Call Recording';
+		$ret['callrecording'] = _('Call Recording');
 	} else {
 		$ret = array();
 	}
@@ -67,16 +67,14 @@ function callrecording_get_config($engine) {
 	global $version;
 	switch ($engine) {
 	case 'asterisk':
-		if(version_compare($version, "13.0", "lt")) {
-			$ext->addGlobal('MIXMON_BEEP', '');
-		} else {
+
 			$period =  FreePBX::Config()->get_conf_setting('CALLREC_BEEP_PERIOD');
 			if (!empty($period)) {
 				$ext->addGlobal('MIXMON_BEEP', "B($period)");
 			} else {
 				$ext->addGlobal('MIXMON_BEEP', '');
 			}
-		}
+		
 
 		$context = 'ext-callrecording';
 		foreach (callrecording_list() as $row) {
@@ -120,7 +118,6 @@ function callrecording_get_config($engine) {
 		; ARG2: called_exten
 		; ARG3: action (if we know it)
 		;       force (== always), yes, dontcare, no, never
-		;
 		*/
 
 
@@ -154,11 +151,6 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, 'next', new ext_gotoif('$[${LEN(${ARG1})}]','checkaction'));
 		$ext->add($context, $exten, 'recorderror', new ext_playback('something-terribly-wrong,error'));
 		$ext->add($context, $exten, '', new ext_hangup());
-
-		// If we don't have a current mode, and we were explicitly given a command, we can set our current mode
-		// to that. This is what we CURRENTLY think we should be doing. This may change if it's an exten.
-		//  .. Disabled. Legacy code, should be unneeded now.
-		// $ext->add($context, $exten, 'checkaction', new ext_execif('$["${REC_POLICY_MODE}"="" & "${ARG3}"!=""]','Set','__REC_POLICY_MODE=${TOUPPER(${ARG3})}'));
 
 		// Now jump to the dialplan handler. If it doesn't exist, do the generic test (rg, force, q use these).
 		$ext->add($context, $exten, 'checkaction',  new ext_gotoif('$[${DIALPLAN_EXISTS('.$context.',${ARG1})}]', $context.',${ARG1},1'));
@@ -441,61 +433,23 @@ function callrecording_hookGet_config($engine) {
 /**  Get a list of all callrecording
  */
 function callrecording_list() {
-	global $db;
-	$sql = "SELECT callrecording_id, description, callrecording_mode, dest FROM callrecording ORDER BY description ";
-	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-	if(DB::IsError($results)) {
-		die_freepbx($results->getMessage()."<br><br>Error selecting from callrecording");
-	}
-	return $results;
+	return FreePBX::Callrecording()->listAll();
 }
 
 function callrecording_get($callrecording_id) {
-	global $db;
-	$sql = "SELECT callrecording_id, description, callrecording_mode, dest FROM callrecording WHERE callrecording_id = ".$db->escapeSimple($callrecording_id);
-	$row = $db->getRow($sql, DB_FETCHMODE_ASSOC);
-	if(DB::IsError($row)) {
-		die_freepbx($row->getMessage()."<br><br>Error selecting row from callrecording");
-	}
-
-	return $row;
+	return FreePBX::Callrecording()->getRecording($callrecording_id);
 }
 
 function callrecording_add($description, $callrecording_mode, $dest) {
-	global $db;
-	global $amp_conf;
-	$sql = "INSERT INTO callrecording (description, callrecording_mode, dest) VALUES (".
-		"'".$db->escapeSimple($description)."', ".
-		"'".$db->escapeSimple($callrecording_mode)."', ".
-		"'".$db->escapeSimple($dest)."')";
-	$result = $db->query($sql);
-	if(DB::IsError($result)) {
-		die_freepbx($result->getMessage().$sql);
-	}
-	if(method_exists($db,'insert_id')) {
-		$id = $db->insert_id();
-	} else {
-		$id = $amp_conf["AMPDBENGINE"] == "sqlite3" ? sqlite_last_insert_rowid($db->connection) : mysql_insert_id($db->connection);
-	}
-	return($id);
+	return FreePBX::Callrecording()->add($callrecording_id, $description, $callrecording_mode, $dest);
 }
 
 function callrecording_delete($callrecording_id) {
-	global $db;
-	$sql = "DELETE FROM callrecording WHERE callrecording_id = ?";
-	$result = $db->query($sql,array($callrecording_id));
-	if(DB::IsError($result)) {
-		die_freepbx($result->getMessage().$sql);
-	}
+	return FreePBX::Callrecording()->delete($callrecording_id);
 }
 
 function callrecording_edit($callrecording_id, $description, $callrecording_mode, $dest) {
-	global $db;
-	$sql = "UPDATE callrecording SET description = ?, callrecording_mode = ?, dest = ? WHERE callrecording_id = ?";
-	$result = $db->query($sql,array($description,$callrecording_mode,$dest,$callrecording_id));
-	if(DB::IsError($result)) {
-		die_freepbx($result->getMessage().$sql);
-	}
+	return FreePBX::Callrecording()->edit($callrecording_id, $description, $callrecording_mode, $dest);
 }
 
 function callrecording_hook_core($viewing_itemid, $target_menuid){
@@ -511,9 +465,6 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 			$opts		= explode('/', $extdisplay);
 			$extension	= $opts['0'];
 			$cidnum		= isset($opts['1']) ? $opts['1'] : '';
-		}else{
-			$extension 	= $extension;
-			$cidnum		= $cidnum;
 		}
 
 		//update if we have enough info
@@ -540,7 +491,6 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 		break;
 	}
 	$html = '';
-	//if ($target_menuid == 'did'){
 	if ($target_menuid == 'did' || $target_menuid == 'routing') {
 		global $tabindex;
 		$html = '<!--CALL RECORDING HOOK-->';
@@ -590,9 +540,6 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 	return $html;
 }
 
-//Moved in to BMO hook, not aliased as this shouldnt be called by anything
-//function callrecording_hookProcess_core($viewing_itemid, $request) {}
-
 
 function callrecording_adjustroute($route_id,$action,$callrecording='') {
 	global $db;
@@ -600,7 +547,6 @@ function callrecording_adjustroute($route_id,$action,$callrecording='') {
 	$route_id = $db->escapeSimple($route_id);
 	$callrecording = $db->escapeSimple($callrecording);
 
-	//dbug("in adjustroute with route_id: $route_id, action: $action, callrecording: $callrecording");
 	switch ($action) {
 	case 'delroute':
 		callrecording_display_delete($dispname,$route_id);
@@ -616,7 +562,6 @@ function callrecording_adjustroute($route_id,$action,$callrecording='') {
 		callrecording_display_update($dispname, $callrecording, $route_id);
 		break;
 		case 'editroute';
-		//dbug("in editroute ready to insert dispnam: $dispname, route: $route_id, mode $callrecording");
 		if ($callrecording != '') {
 			callrecording_display_update($dispname, $callrecording, $route_id);
 		} else {
@@ -629,7 +574,6 @@ function callrecording_adjustroute($route_id,$action,$callrecording='') {
 function callrecording_display_get($display, $extension=null,$cidnum=null){
 	global $db;
 
-	//dbug("display_get with display: $display, exten $extension, cid $cidnum", $_REQUEST);
 	switch ($display) {
 	case 'did':
 		if($extension || $cidnum || (isset($_REQUEST['extdisplay']) && $_REQUEST['extdisplay']=='/') || (isset($_REQUEST['display']) && $_REQUEST['display']=='did')){
@@ -644,9 +588,7 @@ function callrecording_display_get($display, $extension=null,$cidnum=null){
 			if ($cidnum !== null) {
 				$params[] = $cidnum;
 			}
-			//dbug("executing getOne code: $sql", $params);
 			$mode=$db->getOne($sql, $params);
-			//$mode=$db->getOne($sql, array($display, $extension, $cidnum));
 		}else{
 			$sql="SELECT callrecording_module.*,incoming.pricid FROM callrecording_module, incoming WHERE callrecording_module.cidnum=incoming.cidnum AND callrecording_module.extension=incoming.extension AND callrecording_module.display = '$display'";
 			$mode=$db->getAll($sql, DB_FETCHMODE_ASSOC);
@@ -660,9 +602,7 @@ function callrecording_display_get($display, $extension=null,$cidnum=null){
 			if ($extension !== null) {
 				$params[] = $extension;
 			}
-			//dbug("executing getOne code: $sql", $params);
 			$mode=$db->getOne($sql, $params);
-			//$mode=$db->getOne($sql, array($display, $extension, $cidnum));
 		} else {
 			$sql="SELECT extension as route_id, callrecording FROM callrecording_module WHERE display = '$display'";
 			$mode=$db->getAll($sql, DB_FETCHMODE_ASSOC);
@@ -685,8 +625,6 @@ function callrecording_display_update($display,$recording_code=null,$extension=n
 	if ($cidnum !== null) {
 		$params[] = $cidnum;
 	}
-	//dbug("executing delete code: $sql", $params);
-	//$db->query($sql,array($display,$extension,$cidnum));
 	$db->query($sql, $params);
 	if(isset($recording_code) && $recording_code!=''){
 		$sql="INSERT INTO callrecording_module (display,extension,cidnum,callrecording) VALUES (?, ?, ?,?)";
