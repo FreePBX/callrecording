@@ -65,6 +65,7 @@ function callrecording_getdestinfo($dest) {
 function callrecording_get_config($engine) {
 	global $ext;
 	global $version;
+	global $core_conf;
 	switch ($engine) {
 	case 'asterisk':
 		if(version_compare($version, "13.0", "lt")) {
@@ -77,8 +78,26 @@ function callrecording_get_config($engine) {
 				$ext->addGlobal('MIXMON_BEEP', '');
 			}
 		}
-
+		
+		/*
+			Call Recording Pause Function
+		*/
+		
+		$context = "macro-record-pause";
+		$exten = 's';
+		$ext->add($context, $exten, '', new ext_noop('Entering user defined context macro-record-pause'));
+		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"!="RECORDING"]', 'MacroExit'));
+		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_PAUSE_STATUS}"!="PAUSED"]', 'pause'));
+		$ext->add($context, $exten, 'unpause', new ext_set('REC_PAUSE_STATUS','UNPAUSED'));
+		$ext->add($context, $exten, '', new ext_UnPauseMonitor());
+		$ext->add($context, $exten, '', new ext_macroexit());
+		$ext->add($context, $exten, 'pause', new ext_set('REC_PAUSE_STATUS','PAUSED'));
+		$ext->add($context, $exten, '', new ext_PauseMonitor());
+		$ext->add($context, $exten, '', new ext_macroexit());
+		$core_conf->addApplicationMap('pauserecord', '*3' . ',caller,Macro,record-pause', true);
+		
 		$context = 'ext-callrecording';
+		
 		foreach (callrecording_list() as $row) {
 			$ext->add($context, $row['callrecording_id'], '', new ext_noop_trace('Call Recording: [' . $row['callrecording_mode'] . '] Event'));
 			switch ($row['callrecording_mode']) {
