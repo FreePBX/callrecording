@@ -85,14 +85,13 @@ function callrecording_get_config($engine) {
 		
 		$context = "macro-record-pause";
 		$exten = 's';
-		$ext->add($context, $exten, '', new ext_noop('Entering user defined context macro-record-pause'));
 		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"!="RECORDING"]', 'MacroExit'));
 		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_PAUSE_STATUS}"!="PAUSED"]', 'pause'));
 		$ext->add($context, $exten, 'unpause', new ext_set('REC_PAUSE_STATUS','UNPAUSED'));
-		$ext->add($context, $exten, '', new ext_UnPauseMonitor());
+		$ext->add($context, $exten, '', new ext_unpausemonitor());
 		$ext->add($context, $exten, '', new ext_macroexit());
 		$ext->add($context, $exten, 'pause', new ext_set('REC_PAUSE_STATUS','PAUSED'));
-		$ext->add($context, $exten, '', new ext_PauseMonitor());
+		$ext->add($context, $exten, '', new ext_pausemonitor());
 		$ext->add($context, $exten, '', new ext_macroexit());
 		$core_conf->addApplicationMap('pauserecord', '*3' . ',caller,Macro,record-pause', true);
 		
