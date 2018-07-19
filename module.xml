@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>13.0.11.6</version>
+	<version>14.0.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -22,49 +22,17 @@
 		</callrecording>
  	</popovers>
 	<changelog>
-		*13.0.11.6* FREEPBX-14458
-		*13.0.11.5* FREEPBX-15379
-		*13.0.11.4* FREEPBX-14471 Bulk Import/Export of DIDs does not include call recording setting
-		*13.0.11.3* FREEPBX-13941 Call Recording Mode "Yes" and "No" not working
-		*13.0.11.2* FREEPBX-14343 Issue while adding Call Recording
-		*13.0.11.1* FREEPBX-13997 callrecording should locate php scripts via variable
-		*13.0.11* FREEPBX-11526 Allow setting Call Recording beep to 0 to disable
-		*13.0.10* FREEPBX-10860 append "now" to callfile in CDR
-		*13.0.9* Change interpreter path to use "/usr/bin/env php"
-		*13.0.8* FREEPBX-11055
-		*13.0.7* FREEPBX-10765 FREEPBX-10753
-		*13.0.6* Add slideout menu and BMO search provider
-		*13.0.5* Change advanced settings text
-		*13.0.4* Fix issue with One-Touch not picking up the Origination correctly.
-		*13.0.3* FREEPBX-9901 system becomes unresponsive
-		*13.0.2* Version bump Beta
-		*13.0.1alpha5* Visual styling fixes
-		*13.0.1alpha4* Fix popover resolves FREEPBX-8993 for callrecording
-		*13.0.1alpha3* FREEEPBX-8870 Utilize new Asterisk 13 MixMonitor Option (Recording Beep)
-		*13.0.1alpha1* Visual Changes
-		*12.0.1.2* #8298
-		*12.0.1.1* Handle old 'delayed' entry
-		*12.0.1* Significant changes to the way Call Recordings work. See wiki.
-		*2.11.0.7* #7315
-		*2.11.0.6* Generate License file
-		*2.11.0.5* Use abstracted function for last insert id
-		*2.11.0.4* #6914, PBXAC-13
-		*2.11.0.3* #6766 (fixes regression from #6708)
-		*2.11.0.2* #6708
-		*2.11.0.1* #6051
-		*2.11.0.0* #5909 outbound route recording settings
-		*2.10.0.2* add mgr script for one-touch-record
-		*2.10.0.1* #5478
-	  	*2.10.0.0* New Module
+		*14.0.2* Fixing FREEPBX-17499 Setting default value for callrecording during bulkimport 
+		*14.0.1* Branched from 13.0.11.5
 	</changelog>
 	<hooks>
-		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules" >
+		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
 			<method class="Callrecording" callingMethod="import">bulkhandlerImport</method>
 			<method class="Callrecording" callingMethod="export">bulkhandlerExport</method>
 		</bulkhandler>
 	</hooks>
 	<supported>
-		<version>13.0</version>
+		<version>14.0</version>
 	</supported>
 	<depends>
 		<module>core ge 12.0.7</module>
