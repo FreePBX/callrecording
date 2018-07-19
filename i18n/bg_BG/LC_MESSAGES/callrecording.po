@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-29 12:03-0700\n"
+"POT-Creation-Date: 2018-07-19 18:00-0400\n"
 "PO-Revision-Date: 2018-07-04 11:13+0000\n"
 "Last-Translator: Chavdar Shtiliyanov <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://*/projects/freepbx/callrecording/bg/>\n"
@@ -61,8 +61,8 @@ msgstr ""
 msgid "Beep every n seconds"
 msgstr "Звуков сигнал на всеки n секунди"
 
-#: callrecording.i18n.php:4 callrecording.i18n.php:10
-#: callrecording.i18n.php:14 functions.inc.php:556 page.callrecording.php:7
+#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
+#: functions.inc.php:556 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Запис на Разговор"
 
@@ -70,12 +70,12 @@ msgstr "Запис на Разговор"
 msgid "Call Recording Mode"
 msgstr "Режим на Запис на Разговор"
 
-#: Callrecording.class.php:144 functions.inc.php:56 functions.inc.php:736
+#: Callrecording.class.php:146 functions.inc.php:56 functions.inc.php:736
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Запис на Разговор: %s"
 
-#: Callrecording.class.php:76
+#: Callrecording.class.php:78
 msgid "Delete"
 msgstr "Изтрий"
 
@@ -123,7 +123,7 @@ msgstr "Моля, прочетете Wiki за повече информация
 msgid "Provides much of the call recording functionality."
 msgstr "Предоставя голяма част от функционалността на запис на разговор."
 
-#: Callrecording.class.php:81
+#: Callrecording.class.php:83
 msgid "Reset"
 msgstr "Изчисти"
 
@@ -131,7 +131,7 @@ msgstr "Изчисти"
 msgid "Rule"
 msgstr "Правило"
 
-#: Callrecording.class.php:86
+#: Callrecording.class.php:88
 msgid "Submit"
 msgstr "Приеми"
 
