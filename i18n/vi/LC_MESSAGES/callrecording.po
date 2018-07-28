@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 21:17-0400\n"
+"POT-Creation-Date: 2018-07-27 21:18-0400\n"
 "PO-Revision-Date: 2017-09-02 09:02+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -63,7 +63,7 @@ msgid "Beep every n seconds"
 msgstr "Tiếng bíp ở mỗi n giây"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:580 page.callrecording.php:7
+#: functions.inc.php:34 functions.inc.php:530 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Bản ghi cuộc gọi"
 
@@ -71,12 +71,12 @@ msgstr "Bản ghi cuộc gọi"
 msgid "Call Recording Mode"
 msgstr "Chế độ ghi âm cuộc gọi"
 
-#: Callrecording.class.php:146 functions.inc.php:56 functions.inc.php:760
+#: Callrecording.class.php:187 functions.inc.php:56 functions.inc.php:698
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Ghi âm cuộc gọi: %s"
 
-#: Callrecording.class.php:78
+#: Callrecording.class.php:145
 msgid "Delete"
 msgstr "Xóa"
 
@@ -88,11 +88,11 @@ msgstr "Mô tả"
 msgid "Destination"
 msgstr "Điểm đích"
 
-#: functions.inc.php:591 views/form.php:20
+#: functions.inc.php:541 views/form.php:20
 msgid "Don't Care"
 msgstr "Không quan tâm"
 
-#: functions.inc.php:591 views/form.php:20
+#: functions.inc.php:541 views/form.php:20
 msgid "Force"
 msgstr "Bắt buộc"
 
@@ -108,19 +108,19 @@ msgstr "Mô tả không hợp lệ được xác định"
 msgid "List Call Recordings"
 msgstr "Danh sách các ghi âm cuộc gọi"
 
-#: functions.inc.php:591 views/form.php:20
+#: functions.inc.php:541 views/form.php:20
 msgid "Never"
 msgstr "Không bao giờ"
 
-#: functions.inc.php:591 views/form.php:20
+#: functions.inc.php:541 views/form.php:20
 msgid "No"
 msgstr "Không"
 
-#: functions.inc.php:572 views/form.php:72
+#: functions.inc.php:522 views/form.php:72
 msgid "Note that the meaning of these options has changed."
 msgstr "Lưu ý rằng ý nghĩa của các vị trí này vừa được thay đổi."
 
-#: functions.inc.php:572 views/form.php:94
+#: functions.inc.php:522 views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Vui lòng đọc wiki để biết thêm thông tin về những thay đổi này."
 
@@ -128,7 +128,7 @@ msgstr "Vui lòng đọc wiki để biết thêm thông tin về những thay đ
 msgid "Provides much of the call recording functionality."
 msgstr "Cung cấp nhiều chức năng ghi âm cuộc gọi."
 
-#: Callrecording.class.php:83
+#: Callrecording.class.php:150
 msgid "Reset"
 msgstr "Cài đặt lại"
 
@@ -136,7 +136,7 @@ msgstr "Cài đặt lại"
 msgid "Rule"
 msgstr "Nguyên tắc"
 
-#: Callrecording.class.php:88
+#: Callrecording.class.php:155
 msgid "Submit"
 msgstr "Gửi đi"
 
@@ -147,7 +147,7 @@ msgid ""
 msgstr ""
 "Tên mô tả của trường hợp ghi âm cuộc gọi này. Ví dụ \"French Main IVR\""
 
-#: functions.inc.php:551
+#: functions.inc.php:502
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -155,7 +155,7 @@ msgstr ""
 "Điều này thiết lập hành vi ghi âm cuộc gọi cho các cuộc gọi  vào trong DID. "
 "Vui lòng đọc wiki để biết thêm các cài đặt này có nghĩa là gì."
 
-#: functions.inc.php:563
+#: functions.inc.php:514
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -167,6 +167,6 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr "Cuộc gọi nên được gửi đến đâu."
 
-#: functions.inc.php:591 views/form.php:20
+#: functions.inc.php:541 views/form.php:20
 msgid "Yes"
 msgstr "Có"
