@@ -65,6 +65,7 @@ function callrecording_getdestinfo($dest) {
 function callrecording_get_config($engine) {
 	global $ext;
 	global $version;
+	global $core_conf;
 	switch ($engine) {
 	case 'asterisk':
 
@@ -76,7 +77,30 @@ function callrecording_get_config($engine) {
 			}
 		
 
+		/*
+			Call Recording Pause Function
+		*/
+
+		$fcc = new featurecode('callrecording', 'pauserecording');
+		$fc_pauserecording = $fcc->getCodeActive();
+		unset($fcc);
+
+		if($fc_pauserecording !== '') {
+			$context = "record-pause";
+			$exten = 's';
+			$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"!="RECORDING"]', 'exit'));
+			$ext->add($context, $exten, '', new ext_gotoif('$["${REC_PAUSE_STATUS}"!="PAUSED"]', 'pause'));
+			$ext->add($context, $exten, 'unpause', new ext_set('REC_PAUSE_STATUS','UNPAUSED'));
+			$ext->add($context, $exten, '', new ext_unpausemonitor());
+			$ext->add($context, $exten, 'exit', new ext_return());
+			$ext->add($context, $exten, 'pause', new ext_set('REC_PAUSE_STATUS','PAUSED'));
+			$ext->add($context, $exten, '', new ext_pausemonitor());
+			$ext->add($context, $exten, '', new ext_return());
+			$core_conf->addApplicationMap('pauserecord', $fc_pauserecording . ',caller,Gosub,record-pause', true);
+		}
+
 		$context = 'ext-callrecording';
+
 		foreach (callrecording_list() as $row) {
 			$ext->add($context, $row['callrecording_id'], '', new ext_noop_trace('Call Recording: [' . $row['callrecording_mode'] . '] Event'));
 			switch ($row['callrecording_mode']) {

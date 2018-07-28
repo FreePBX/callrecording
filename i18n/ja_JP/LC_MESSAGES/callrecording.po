@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-20 14:11-0400\n"
+"POT-Creation-Date: 2018-07-27 21:17-0400\n"
 "PO-Revision-Date: 2015-10-27 12:57+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -84,7 +84,7 @@ msgid "Beep every n seconds"
 msgstr ""
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:556 page.callrecording.php:7
+#: functions.inc.php:580 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "通話録音"
 
@@ -92,7 +92,7 @@ msgstr "通話録音"
 msgid "Call Recording Mode"
 msgstr "通話録音モード"
 
-#: Callrecording.class.php:146 functions.inc.php:56 functions.inc.php:736
+#: Callrecording.class.php:146 functions.inc.php:56 functions.inc.php:760
 #, php-format
 msgid "Call Recording: %s"
 msgstr "通話録音： %s"
@@ -109,13 +109,17 @@ msgstr "説明"
 msgid "Destination"
 msgstr "宛先"
 
-#: functions.inc.php:567 views/form.php:20
+#: functions.inc.php:591 views/form.php:20
 msgid "Don't Care"
 msgstr "無視"
 
-#: functions.inc.php:567 views/form.php:20
+#: functions.inc.php:591 views/form.php:20
 msgid "Force"
 msgstr "強制"
+
+#: callrecording.i18n.php:18
+msgid "In-Call Asterisk Toggle Call Recording Pause"
+msgstr ""
 
 #: page.callrecording.php:52
 msgid "Invalid description specified"
@@ -125,19 +129,19 @@ msgstr "無効な説明が入力されました"
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:567 views/form.php:20
+#: functions.inc.php:591 views/form.php:20
 msgid "Never"
 msgstr "ブロック"
 
-#: functions.inc.php:567 views/form.php:20
+#: functions.inc.php:591 views/form.php:20
 msgid "No"
 msgstr "いいえ"
 
-#: functions.inc.php:548 views/form.php:72
+#: functions.inc.php:572 views/form.php:72
 msgid "Note that the meaning of these options has changed."
 msgstr ""
 
-#: functions.inc.php:548 views/form.php:94
+#: functions.inc.php:572 views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 
@@ -163,13 +167,13 @@ msgid ""
 "Main IVR\""
 msgstr "この通話録音インスタンスを説明する名前。例えば「日本語メインIVR」など"
 
-#: functions.inc.php:527
+#: functions.inc.php:551
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
 
-#: functions.inc.php:539
+#: functions.inc.php:563
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -179,7 +183,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:567 views/form.php:20
+#: functions.inc.php:591 views/form.php:20
 msgid "Yes"
 msgstr "はい"
 
