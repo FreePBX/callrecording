@@ -47,3 +47,16 @@ $fcc->setDescription('In-Call Asterisk Toggle Call Recording Pause');
 $fcc->setDefault('*3');
 $fcc->update();
 unset($fcc);
+//Call Record option
+$set['category'] = 'Call Recording';
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['options'] = '';
+$set['name'] = 'Call Record Option';
+$set['description'] = 'Don’t begin recording unless a call is bridged to another channel';
+$set['emptyok'] = 0;
+$set['level'] = 2;
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('CALL_REC_OPTION',$set);
