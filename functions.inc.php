@@ -78,7 +78,13 @@ function callrecording_get_config($engine) {
 				$ext->addGlobal('MIXMON_BEEP', '');
 			}
 		}
-
+		$record_status =  FreePBX::Config()->get_conf_setting('CALL_REC_OPTION');
+		if($record_status){
+			$ext->addGlobal('MONITOR_REC_OPTION', 'b');
+		}
+		else{
+			$ext->addGlobal('MONITOR_REC_OPTION', '');
+		}
 		/*
 			Call Recording Pause Function
 		*/
@@ -228,7 +234,7 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, 'startrec', new ext_noop('Starting recording: ${ARG2}, ${ARG3}'));
 		$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
 		$ext->add($context, $exten, '', new ext_set('__CALLFILENAME','${ARG2}-${ARG3}-${FROMEXTEN}-${TIMESTR}-${UNIQUEID}'));
-		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','abi(LOCAL_MIXMON_ID)${MIXMON_BEEP}','${MIXMON_POST}'));
+		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','a${MONITOR_REC_OPTION}i(LOCAL_MIXMON_ID)${MIXMON_BEEP}','${MIXMON_POST}'));
 		$ext->add($context, $exten, '', new ext_set('__MIXMON_ID', '${LOCAL_MIXMON_ID}'));
 		$ext->add($context, $exten, '', new ext_set('__RECORD_ID', '${CHANNEL(name)}'));
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','RECORDING'));
