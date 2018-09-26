@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 21:18-0400\n"
+"POT-Creation-Date: 2018-09-26 01:17-0400\n"
 "PO-Revision-Date: 2018-02-16 20:01+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
@@ -64,7 +64,7 @@ msgid "Beep every n seconds"
 msgstr "Piep alle xx Sekunden"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:530 page.callrecording.php:7
+#: functions.inc.php:34 functions.inc.php:536 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Anfrufaufzeichnungen"
 
@@ -72,7 +72,7 @@ msgstr "Anfrufaufzeichnungen"
 msgid "Call Recording Mode"
 msgstr "Anrufaufzeichnungsmodus"
 
-#: Callrecording.class.php:187 functions.inc.php:56 functions.inc.php:698
+#: Callrecording.class.php:187 functions.inc.php:56 functions.inc.php:704
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Anrufaufzeichnung: %s"
@@ -89,11 +89,11 @@ msgstr "Beschreibung"
 msgid "Destination"
 msgstr "Ziel"
 
-#: functions.inc.php:541 views/form.php:20
+#: functions.inc.php:547 views/form.php:20
 msgid "Don't Care"
 msgstr "Nicht gepflegt"
 
-#: functions.inc.php:541 views/form.php:20
+#: functions.inc.php:547 views/form.php:20
 msgid "Force"
 msgstr "erzwingen"
 
@@ -109,19 +109,19 @@ msgstr "Ungültige Beschreibung angegeben"
 msgid "List Call Recordings"
 msgstr "Anrufaufzeichnungen auflisten"
 
-#: functions.inc.php:541 views/form.php:20
+#: functions.inc.php:547 views/form.php:20
 msgid "Never"
 msgstr "Niemals"
 
-#: functions.inc.php:541 views/form.php:20
+#: functions.inc.php:547 views/form.php:20
 msgid "No"
 msgstr "Nein"
 
-#: functions.inc.php:522 views/form.php:72
+#: functions.inc.php:528 views/form.php:72
 msgid "Note that the meaning of these options has changed."
 msgstr "Beachten Sie, dass sich die Bedeutung dieser Optionen geändert hat."
 
-#: functions.inc.php:522 views/form.php:94
+#: functions.inc.php:528 views/form.php:94
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 "Bitte lesen Sie das Wiki für weitere Informationen zu diesen Änderungen."
@@ -150,7 +150,7 @@ msgstr ""
 "Der beschreibende Name dieser Anrufaufzeichnung. Zum Beispiel \"French Main "
 "IVR\""
 
-#: functions.inc.php:502
+#: functions.inc.php:508
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -159,7 +159,7 @@ msgstr ""
 "fest. Für mehr Information, was diese Einstellungen bedeuten, bitte das WIKI "
 "lesen."
 
-#: functions.inc.php:514
+#: functions.inc.php:520
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -172,7 +172,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr "Wohin soll der Anruf weitergeleitet werden."
 
-#: functions.inc.php:541 views/form.php:20
+#: functions.inc.php:547 views/form.php:20
 msgid "Yes"
 msgstr "Ja"
 
