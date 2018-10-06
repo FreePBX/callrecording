@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-26 01:13-0400\n"
+"POT-Creation-Date: 2018-10-06 21:01+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,10 +93,6 @@ msgstr ""
 #: functions.inc.php:597
 #: views/form.php:20
 msgid "Force"
-msgstr ""
-
-#: callrecording.i18n.php:18
-msgid "In-Call Asterisk Toggle Call Recording Pause"
 msgstr ""
 
 #: page.callrecording.php:52

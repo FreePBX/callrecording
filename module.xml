@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>14.0.4</version>
+	<version>14.0.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -22,6 +22,7 @@
 		</callrecording>
  	</popovers>
 	<changelog>
+		*14.0.5* FREEPBX-18304 Ondeman outbound call recording failing issue fix 
 		*14.0.4* FREEPBX-18117 Entire incoming calls are not recorded. 
 		*14.0.3* FREEPBX-17466 Call Recording Pause Function 
 		*14.0.2* Fixing FREEPBX-17499 Setting default value for callrecording during bulkimport 
