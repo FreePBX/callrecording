@@ -12,8 +12,8 @@
 	<description>
 		Provides much of the call recording functionality.
 	</description>
-	<menuitems needsenginedb="yes">
-		<callrecording>Call Recording</callrecording>
+	<menuitems>
+		<callrecording needsenginedb="yes">Call Recording</callrecording>
 	</menuitems>
  	<popovers>
 		<callrecording>
