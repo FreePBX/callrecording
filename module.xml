@@ -44,8 +44,8 @@
 	</changelog>
 	<hooks>
 		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
-			<method class="Callrecording" callingMethod="import">bulkhandlerImport</method>
-			<method class="Callrecording" callingMethod="export">bulkhandlerExport</method>
+			<method class="Callrecording" callingMethod="import" namespace="FreePBX\modules">bulkhandlerImport</method>
+			<method class="Callrecording" callingMethod="export" namespace="FreePBX\modules">bulkhandlerExport</method>
 		</bulkhandler>
 	</hooks>
 	<supported>
