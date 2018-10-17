@@ -104,7 +104,7 @@ function callrecording_get_config($engine) {
 			$ext->add($context, $exten, 'pause', new ext_set('REC_PAUSE_STATUS','PAUSED'));
 			$ext->add($context, $exten, '', new ext_pausemonitor());
 			$ext->add($context, $exten, '', new ext_return());
-			$core_conf->addApplicationMap('pauserecord', $fc_pauserecording . ',caller,Gosub,record-pause', true);
+			$core_conf->addApplicationMap('pauserecord', $fc_pauserecording . ',caller,Macro,record-pause', true);
 		}
 
 		$context = 'ext-callrecording';
