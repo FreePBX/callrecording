@@ -37,6 +37,10 @@ if (strpos($dst, '@') !== false) {
 	$dst = trim($dstExp[1]);
 
 }
+if (strpos($dst, '/') !== false){
+	$dstVal = explode('/',$dst);
+	$dst = trim($dstVal[1]);
+}
 // Set $fromExten to be SOMETHING sane.
 $fromExten = false;
 // Go through these in order.
