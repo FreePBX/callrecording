@@ -265,8 +265,12 @@ $mixMonPost = getVariable($channel, "MIXMON_POST");
 // Setting in both channels in case a subsequent park or attended transfer of one
 setVariable($bridgePeer, "REC_STATUS", "RECORDING");
 setVariable($channel, "REC_STATUS", "RECORDING");
-setVariable($channel, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
-setVariable($bridgePeer, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
+global $version;
+if(version_compare($version, "12.0", "lt")) {
+	setVariable($channel, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
+	setVariable($bridgePeer, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
+}
+
 $beep = getVariable($channel, 'MIXMON_BEEP');
 //removing ,because we are handling mix monitor through dialpaln -> FREEPBX-14292 - mixMonPost not sending the varibles if there is a space in b/w.  
 //$astman->mixmonitor($masterChannel, "{$mixMonDir}{$year}/{$month}/{$day}/{$callFileName}.{$mixMonFormat}", "ai(LOCAL_MIXMON_ID)$beep", $mixMonPost, rand());
