@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>15.0.5</version>
+	<version>15.0.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -36,6 +36,7 @@
   		</table>
 	</database>
 	<changelog>
+		*15.0.6* FREEPBX-17846 Function AUDIOHOOK_INHERIT not registered 
 		*15.0.5* FREEPBX-17466 Call Recording Pause Function 
 		*15.0.4* FREEPBX-18352 Hook namespace issue 
 		*15.0.3* FREEPBX-18117 Entire incoming calls are not recorded
