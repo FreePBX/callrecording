@@ -202,7 +202,10 @@ function callrecording_get_config($engine) {
 
 		// Start recording if requested
 		$ext->add($context, $exten, 'startrec', new ext_noop('Starting recording: ${ARG2}, ${ARG3}'));
-		$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
+		global $version;
+		if(version_compare($version, "12.0", "lt")) {
+			$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
+		}
 		$ext->add($context, $exten, '', new ext_set('__CALLFILENAME','${ARG2}-${ARG3}-${FROMEXTEN}-${TIMESTR}-${UNIQUEID}'));
 		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','abi(LOCAL_MIXMON_ID)${MIXMON_BEEP}','${MIXMON_POST}'));
 		$ext->add($context, $exten, '', new ext_set('__MIXMON_ID', '${LOCAL_MIXMON_ID}'));
@@ -336,7 +339,9 @@ function callrecording_get_config($engine) {
 		/* Queue Recording Section */
 		$exten = 'recq';
 		$ext->add($context, $exten, '', new ext_noop('Setting up recording: ${ARG1}, ${ARG2}, ${ARG3}'));
-		$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
+		if(version_compare($version, "12.0", "lt")) {
+			$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
+		}
 		$ext->add($context, $exten, '', new ext_set('MONITOR_FILENAME','${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}'));
 		$ext->add($context, $exten, '', new ext_mixmonitor('${MONITOR_FILENAME}.${MON_FMT}','${MONITOR_OPTIONS}${MIXMON_BEEP}','${MIXMON_POST}'));
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','RECORDING'));
