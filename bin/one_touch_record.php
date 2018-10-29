@@ -244,6 +244,10 @@ if (!$timestr) {
 if (!$callFileName) {
 	// We need to create the filename for this call.
 	$uniqueid = getVariable($channel, "UNIQUEID");
+	if (strpos($dst, '-') !== false) { // it has - in the dst
+		$dest = explode('-', $dst);
+		$dst = $dest[0];
+	}
 	$callFileName = "ondemand-$dst-$fromExten-$timestr-$uniqueid";
 	ot_debug("CFN UPDATED ::$callFileName::");
 }
