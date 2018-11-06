@@ -473,20 +473,33 @@ function callrecording_get($callrecording_id) {
 function callrecording_add($description, $callrecording_mode, $dest) {
 	global $db;
 	global $amp_conf;
-	$sql = "INSERT INTO callrecording (description, callrecording_mode, dest) VALUES (".
-		"'".$db->escapeSimple($description)."', ".
-		"'".$db->escapeSimple($callrecording_mode)."', ".
-		"'".$db->escapeSimple($dest)."')";
-	$result = $db->query($sql);
-	if(DB::IsError($result)) {
-		die_freepbx($result->getMessage().$sql);
+
+	/*
+		Test if description already exists.
+		It's possible to add another one through page refresh.
+		So, for avoid to add the same record, we launch this test.
+	*/
+	$sql = "SELECT * FROM callrecording WHERE description = :description";
+	$stm = $db->prepare($sql);
+	$stm->execute(array(":description" => $description));	
+	$ret = $stm->fetch(\PDO::FETCH_ASSOC);
+	if(empty($ret["description"])){
+		$sql = "INSERT INTO callrecording (description, callrecording_mode, dest) VALUES (".
+			"'".$db->escapeSimple($description)."', ".
+			"'".$db->escapeSimple($callrecording_mode)."', ".
+			"'".$db->escapeSimple($dest)."')";
+		$result = $db->query($sql);
+		if(DB::IsError($result)) {
+			die_freepbx($result->getMessage().$sql);
+		}
+		if(method_exists($db,'insert_id')) {
+			$id = $db->insert_id();
+		} else {
+			$id = $amp_conf["AMPDBENGINE"] == "sqlite3" ? sqlite_last_insert_rowid($db->connection) : mysql_insert_id($db->connection);
+		}
+		return($id);		
 	}
-	if(method_exists($db,'insert_id')) {
-		$id = $db->insert_id();
-	} else {
-		$id = $amp_conf["AMPDBENGINE"] == "sqlite3" ? sqlite_last_insert_rowid($db->connection) : mysql_insert_id($db->connection);
-	}
-	return($id);
+	return;
 }
 
 function callrecording_delete($callrecording_id) {
