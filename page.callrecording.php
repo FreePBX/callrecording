@@ -56,20 +56,12 @@ function checkCallRecording(theForm) {
 
 	// form validation
 	defaultEmptyOK = false;
-	if (isEmpty(theForm.description.value)){
+	if (isEmpty(theForm.description.value))
 		return warnInvalid(theForm.description, msgInvalidDescription);
-	}
-		
 
-	if (!validateDestinations(theForm, 1, true)){
+	if (!validateDestinations(theForm, 1, true))
 		return false;
-	}
-		
 
-	if($.inArray(theForm.description.value, description) != -1){
-		return warnInvalid($('input[name=description]'),  sprintf(_("%s already used, please use a different description."),theForm.description.value));
-	}
-		
 	return true;
 }
 //-->
