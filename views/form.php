@@ -11,6 +11,26 @@ if ($extdisplay) {
 	$dest        = $row['dest'];
 	$cm_disp = $callrecording_mode ? $callrecording_mode : 'allow';
 }
+
+$CallReclist = callrecording_list();
+if($CallReclist){
+	$CallRecDesc = array();
+	foreach($CallReclist as $tmp_CallRecList){
+		if($extdisplay !=  $tmp_CallRecList['callrecording_id']){
+			$CallRecDesc[] = $tmp_CallRecList['description'];
+		}
+	}
+}
+?>
+<script>
+var description = [];
+<?php
+if(!empty($CallRecDesc)){
+	echo "description = " . json_encode($CallRecDesc) . ";";
+}
+?>
+</script>
+<?php
 if ($callrecording_mode == "delayed") {
 	$callrecording_mode = "yes";
 }
