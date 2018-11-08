@@ -22,7 +22,7 @@ $freepbx_conf->define_conf_setting('CALLREC_BEEP_PERIOD',$set);
 $fcc = new featurecode('callrecording', 'pauserecording');
 $fcc->setDescription('In-Call Asterisk Toggle Call Recording Pause');
 $fcc->setDefault('*3');
-$fcc->update();
+$fcc->delete();
 unset($fcc);
 //Call Record option
 $set['category'] = 'Call Recording';
