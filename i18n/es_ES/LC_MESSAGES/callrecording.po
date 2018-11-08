@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-08 14:46-0500\n"
+"POT-Creation-Date: 2018-11-08 14:52-0500\n"
 "PO-Revision-Date: 2016-12-11 05:38+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -60,7 +60,7 @@ msgid "Call Record Option"
 msgstr ""
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:541 page.callrecording.php:7
+#: functions.inc.php:34 functions.inc.php:520 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Grabación de Llamada"
 
@@ -68,7 +68,7 @@ msgstr "Grabación de Llamada"
 msgid "Call Recording Mode"
 msgstr "Modo Grabación de Llamadas"
 
-#: Callrecording.class.php:195 functions.inc.php:56 functions.inc.php:709
+#: Callrecording.class.php:195 functions.inc.php:56 functions.inc.php:688
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Grabación de Llamadas: %s"
@@ -85,7 +85,7 @@ msgstr "Descripción"
 msgid "Destination"
 msgstr "Destino"
 
-#: functions.inc.php:552 views/form.php:40
+#: functions.inc.php:531 views/form.php:40
 msgid "Don't Care"
 msgstr "No Importa"
 
@@ -93,7 +93,7 @@ msgstr "No Importa"
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
-#: functions.inc.php:552 views/form.php:40
+#: functions.inc.php:531 views/form.php:40
 msgid "Force"
 msgstr "Forzar"
 
@@ -109,19 +109,19 @@ msgstr "Descripción especificada Invalida"
 msgid "List Call Recordings"
 msgstr "Lista de Grabaciones de Llamadas"
 
-#: functions.inc.php:552 views/form.php:40
+#: functions.inc.php:531 views/form.php:40
 msgid "Never"
 msgstr "Nunca"
 
-#: functions.inc.php:552 views/form.php:40
+#: functions.inc.php:531 views/form.php:40
 msgid "No"
 msgstr "No"
 
-#: functions.inc.php:533 views/form.php:92
+#: functions.inc.php:512 views/form.php:92
 msgid "Note that the meaning of these options has changed."
 msgstr "Note que el significado de estas opciones ha cambiado."
 
-#: functions.inc.php:533 views/form.php:114
+#: functions.inc.php:512 views/form.php:114
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Por favor lea la wiki para mas información acerca de estos cambios."
 
@@ -149,7 +149,7 @@ msgstr ""
 "El nombre descriptivo de esta instancia de grabación de llamadas. Por "
 "ejemplo, \"IVR principal en Español\""
 
-#: functions.inc.php:513
+#: functions.inc.php:492
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -158,7 +158,7 @@ msgstr ""
 "llegan a este DID. Por favor, lea el wiki para obtener información sobre lo "
 "que significan estos ajustes."
 
-#: functions.inc.php:525
+#: functions.inc.php:504
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr "Donde la llamada deberia ser enviada."
 
-#: functions.inc.php:552 views/form.php:40
+#: functions.inc.php:531 views/form.php:40
 msgid "Yes"
 msgstr "Si"
 
