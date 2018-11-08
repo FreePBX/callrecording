@@ -67,7 +67,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 			}
 		}
 	}
-	
+
 	public function getRecording($id){
 		$sql = "SELECT callrecording_id, description, callrecording_mode, dest FROM callrecording WHERE callrecording_id = :callrecording_id";
 		$stmt = $this->db->prepare($sql);
@@ -81,13 +81,21 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 	}
 
 	public function add($description, $callrecording_mode, $dest){
-		$sql = "INSERT INTO callrecording (description, callrecording_mode, dest) VALUES (:description, :mode, :dest)";
-		$stmt = $this->db->prepare($sql);
-		return $stmt->execute([
-			':description' => $description,
-			':mode' => $callrecording_mode,
-			':dest' => $dest,
-		]);
+		$sql = "SELECT * FROM callrecording WHERE description = :description";
+		$stm = $this->db->prepare($sql);
+		$stm->execute(array(":description" => $description));
+		$ret = $stm->fetch(\PDO::FETCH_ASSOC);
+		if(empty($ret["description"])){
+			$sql = "INSERT INTO callrecording (description, callrecording_mode, dest) VALUES (:description, :mode, :dest)";
+			$stmt = $this->db->prepare($sql);
+			$stmt->execute([
+				':description' => $description,
+				':mode' => $callrecording_mode,
+				':dest' => $dest,
+			]);
+			return $this->db->lastInsertId();
+		}
+		return;
 	}
 
 	public function upsert($id,$description, $callrecording_mode, $dest){
@@ -121,7 +129,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 		$sql = "SELECT * FROM callrecording_module";
 		return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 	}
-	
+
 	public function insertExtensionData($extension, $cidnum, $callrecording, $display){
 		$sql = "INSERT INTO callrecording_module (extension, cidnum, callrecording, display) VALUES (:extension, :cidnum, :callrecording, :display)";
 		$stmt = $this->db->prepare($sql);
@@ -187,7 +195,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 			$results[] = array("text" => sprintf(_("Call Recording: %s"),$rule['description']), "type" => "get", "dest" => "?display=callrecording&view=form&extdisplay=".$rule['callrecording_id']);
 		}
 	}
-	
+
 	public function bulkhandlerExport($type) {
 	    $data = NULL;
 	    switch ($type) {
@@ -212,7 +220,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 	    }
 	    return $data;
 	}
-	
+
 	public function bulkhandlerImport($type, $rawData, $replaceExisting = false) {
 	    switch ($type) {
 	        case 'dids':
