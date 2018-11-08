@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-30 09:42+0530\n"
+"POT-Creation-Date: 2018-11-08 14:46-0500\n"
 "PO-Revision-Date: 2018-03-14 14:52+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -55,39 +55,51 @@ msgstr ""
 msgid "Beep every n seconds"
 msgstr ""
 
+#: callrecording.i18n.php:18
+msgid "Call Record Option"
+msgstr ""
+
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
 #: functions.inc.php:34 functions.inc.php:541 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "呼叫录音"
 
-#: views/form.php:82
+#: views/form.php:102
 msgid "Call Recording Mode"
 msgstr "录音模式"
 
-#: Callrecording.class.php:187 functions.inc.php:56 functions.inc.php:709
+#: Callrecording.class.php:195 functions.inc.php:56 functions.inc.php:709
 #, php-format
 msgid "Call Recording: %s"
 msgstr "呼叫录音: %s"
 
-#: Callrecording.class.php:145
+#: Callrecording.class.php:153
 msgid "Delete"
 msgstr "删除"
 
-#: views/form.php:53 views/grid.php:22
+#: views/form.php:73 views/grid.php:22
 msgid "Description"
 msgstr "描述"
 
-#: views/form.php:106
+#: views/form.php:126
 msgid "Destination"
 msgstr "目的地"
 
-#: functions.inc.php:552 views/form.php:20
+#: functions.inc.php:552 views/form.php:40
 msgid "Don't Care"
 msgstr "不关心"
 
-#: functions.inc.php:552 views/form.php:20
+#: callrecording.i18n.php:20
+msgid "Don’t begin recording unless a call is bridged to another channel"
+msgstr ""
+
+#: functions.inc.php:552 views/form.php:40
 msgid "Force"
 msgstr "强制"
+
+#: callrecording.i18n.php:22
+msgid "In-Call Asterisk Toggle Call Recording Pause"
+msgstr ""
 
 #: page.callrecording.php:52
 msgid "Invalid description specified"
@@ -97,19 +109,19 @@ msgstr "指定了无效的描述"
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:552 views/form.php:20
+#: functions.inc.php:552 views/form.php:40
 msgid "Never"
 msgstr "从不录音"
 
-#: functions.inc.php:552 views/form.php:20
+#: functions.inc.php:552 views/form.php:40
 msgid "No"
 msgstr "否"
 
-#: functions.inc.php:533 views/form.php:72
+#: functions.inc.php:533 views/form.php:92
 msgid "Note that the meaning of these options has changed."
 msgstr "注意，这些选项含义已经修改。"
 
-#: functions.inc.php:533 views/form.php:94
+#: functions.inc.php:533 views/form.php:114
 msgid "Please read the wiki for futher information on these changes."
 msgstr "请阅读官方wiki获得完整信息"
 
@@ -117,7 +129,7 @@ msgstr "请阅读官方wiki获得完整信息"
 msgid "Provides much of the call recording functionality."
 msgstr "提供丰富的录音功能"
 
-#: Callrecording.class.php:150
+#: Callrecording.class.php:158
 msgid "Reset"
 msgstr "重置"
 
@@ -125,11 +137,11 @@ msgstr "重置"
 msgid "Rule"
 msgstr ""
 
-#: Callrecording.class.php:155
+#: Callrecording.class.php:163
 msgid "Submit"
 msgstr "提交"
 
-#: views/form.php:65
+#: views/form.php:85
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
@@ -147,11 +159,11 @@ msgid ""
 "read the wiki for information on what these settings mean."
 msgstr ""
 
-#: views/form.php:118
+#: views/form.php:138
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:552 views/form.php:20
+#: functions.inc.php:552 views/form.php:40
 msgid "Yes"
 msgstr "是"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-30 09:42+0530\n"
+"POT-Creation-Date: 2018-11-08 14:46-0500\n"
 "PO-Revision-Date: 2018-02-16 20:01+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
@@ -63,39 +63,51 @@ msgstr ""
 msgid "Beep every n seconds"
 msgstr "Piep alle xx Sekunden"
 
+#: callrecording.i18n.php:18
+msgid "Call Record Option"
+msgstr ""
+
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
 #: functions.inc.php:34 functions.inc.php:541 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Anfrufaufzeichnungen"
 
-#: views/form.php:82
+#: views/form.php:102
 msgid "Call Recording Mode"
 msgstr "Anrufaufzeichnungsmodus"
 
-#: Callrecording.class.php:187 functions.inc.php:56 functions.inc.php:709
+#: Callrecording.class.php:195 functions.inc.php:56 functions.inc.php:709
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Anrufaufzeichnung: %s"
 
-#: Callrecording.class.php:145
+#: Callrecording.class.php:153
 msgid "Delete"
 msgstr "Löschen"
 
-#: views/form.php:53 views/grid.php:22
+#: views/form.php:73 views/grid.php:22
 msgid "Description"
 msgstr "Beschreibung"
 
-#: views/form.php:106
+#: views/form.php:126
 msgid "Destination"
 msgstr "Ziel"
 
-#: functions.inc.php:552 views/form.php:20
+#: functions.inc.php:552 views/form.php:40
 msgid "Don't Care"
 msgstr "Nicht gepflegt"
 
-#: functions.inc.php:552 views/form.php:20
+#: callrecording.i18n.php:20
+msgid "Don’t begin recording unless a call is bridged to another channel"
+msgstr ""
+
+#: functions.inc.php:552 views/form.php:40
 msgid "Force"
 msgstr "erzwingen"
+
+#: callrecording.i18n.php:22
+msgid "In-Call Asterisk Toggle Call Recording Pause"
+msgstr ""
 
 #: page.callrecording.php:52
 msgid "Invalid description specified"
@@ -105,19 +117,19 @@ msgstr "Ungültige Beschreibung angegeben"
 msgid "List Call Recordings"
 msgstr "Anrufaufzeichnungen auflisten"
 
-#: functions.inc.php:552 views/form.php:20
+#: functions.inc.php:552 views/form.php:40
 msgid "Never"
 msgstr "Niemals"
 
-#: functions.inc.php:552 views/form.php:20
+#: functions.inc.php:552 views/form.php:40
 msgid "No"
 msgstr "Nein"
 
-#: functions.inc.php:533 views/form.php:72
+#: functions.inc.php:533 views/form.php:92
 msgid "Note that the meaning of these options has changed."
 msgstr "Beachten Sie, dass sich die Bedeutung dieser Optionen geändert hat."
 
-#: functions.inc.php:533 views/form.php:94
+#: functions.inc.php:533 views/form.php:114
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 "Bitte lesen Sie das Wiki für weitere Informationen zu diesen Änderungen."
@@ -126,7 +138,7 @@ msgstr ""
 msgid "Provides much of the call recording functionality."
 msgstr "Stellt viel von der Anruf-Aufnamefunktionalität zur Verfügung."
 
-#: Callrecording.class.php:150
+#: Callrecording.class.php:158
 msgid "Reset"
 msgstr "Zurücksetzen"
 
@@ -134,11 +146,11 @@ msgstr "Zurücksetzen"
 msgid "Rule"
 msgstr "Regel"
 
-#: Callrecording.class.php:155
+#: Callrecording.class.php:163
 msgid "Submit"
 msgstr "Absenden"
 
-#: views/form.php:65
+#: views/form.php:85
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
@@ -164,11 +176,11 @@ msgstr ""
 "fest. Für mehr Information, was diese Einstellungen bedeuten, bitte das WIKI "
 "lesen."
 
-#: views/form.php:118
+#: views/form.php:138
 msgid "Where should the call be sent."
 msgstr "Wohin soll der Anruf weitergeleitet werden."
 
-#: functions.inc.php:552 views/form.php:20
+#: functions.inc.php:552 views/form.php:40
 msgid "Yes"
 msgstr "Ja"
 
