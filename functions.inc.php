@@ -376,6 +376,7 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_system('${AMPBIN}/one_touch_record.php "${CHANNEL(name)}"'));
 		$ext->add($context, $exten, '', new ext_noop('ONETOUCH_REC_SCRIPT_STATUS: [${ONETOUCH_REC_SCRIPT_STATUS}]'));
 		$ext->add($context, $exten, '', new ext_noop('REC_STATUS: [${REC_STATUS}]'));
+		$ext->add($context, $exten, '', new ext_set('MIXMONITOR_FILENAME','${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}'));
 		$ext->add($context, $exten, '', new ext_noop_trace('ONETOUCH_RECFILE: [${ONETOUCH_RECFILE}] CDR(recordingfile): [${CDR(recordingfile)}]'));
 		$ext->add($context, $exten, '', new ext_gotoif('$["${ONETOUCH_REC_SCRIPT_STATUS:0:6}"="DENIED"]','denied'));
 		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="STOPPED"]','Playback','beep&beep'));
