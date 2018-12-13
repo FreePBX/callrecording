@@ -47,10 +47,10 @@ switch($_GET["view"]){
 
 <script language="javascript">
 <!--
-
+var callrecordings = <?php print json_encode(\FreePBX::Callrecording()->getallRules($extdisplay)); ?>;
 function checkCallRecording(theForm) {
 	var msgInvalidDescription = "<?php echo _('Invalid description specified'); ?>";
-
+	var duplicate = "<?php echo _('Description name already exists ');?>";
 	// set up the Destination stuff
 	setDestinations(theForm, '_post_dest');
 
@@ -59,6 +59,9 @@ function checkCallRecording(theForm) {
 	if (isEmpty(theForm.description.value))
 		return warnInvalid(theForm.description, msgInvalidDescription);
 
+	if (callrecordings.indexOf(theForm.description.value) >= 0) {
+				return warnInvalid(theForm.description,duplicate);
+			}
 	if (!validateDestinations(theForm, 1, true))
 		return false;
 
