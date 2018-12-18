@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-30 09:41+0530\n"
+"POT-Creation-Date: 2018-12-17 19:27-0500\n"
 "PO-Revision-Date: 2017-12-11 22:57+0200\n"
 "Last-Translator: JCattan <jeremie@famillecattan.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -63,6 +63,10 @@ msgstr ""
 msgid "Beep every n seconds"
 msgstr "Bip toutes les n secondes"
 
+#: callrecording.i18n.php:18
+msgid "Call Record Option"
+msgstr ""
+
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
 #: functions.inc.php:561 page.callrecording.php:7
 msgid "Call Recording"
@@ -72,7 +76,7 @@ msgstr "Enregistrer l'appel"
 msgid "Call Recording Mode"
 msgstr "Mode d'enregistrement d'appel"
 
-#: Callrecording.class.php:146 functions.inc.php:56 functions.inc.php:741
+#: Callrecording.class.php:161 functions.inc.php:56 functions.inc.php:741
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Enregistrement d'appel : %s"
@@ -85,6 +89,10 @@ msgstr "Supprimer"
 msgid "Description"
 msgstr "Description"
 
+#: page.callrecording.php:53
+msgid "Description name already exists "
+msgstr ""
+
 #: views/form.php:106
 msgid "Destination"
 msgstr "Destination"
@@ -93,9 +101,17 @@ msgstr "Destination"
 msgid "Don't Care"
 msgstr "Peu importe"
 
+#: callrecording.i18n.php:20
+msgid "Don’t begin recording unless a call is bridged to another channel"
+msgstr ""
+
 #: functions.inc.php:572 views/form.php:20
 msgid "Force"
 msgstr "Forcer"
+
+#: callrecording.i18n.php:22
+msgid "In-Call Asterisk Toggle Call Recording Pause"
+msgstr ""
 
 #: page.callrecording.php:52
 msgid "Invalid description specified"

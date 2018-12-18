@@ -9,13 +9,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-30 09:41+0530\n"
+"POT-Creation-Date: 2018-12-17 19:27-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: page.callrecording.php:14
@@ -53,6 +53,10 @@ msgstr ""
 msgid "Beep every n seconds"
 msgstr ""
 
+#: callrecording.i18n.php:18
+msgid "Call Record Option"
+msgstr ""
+
 #: callrecording.i18n.php:4
 #: callrecording.i18n.php:10
 #: callrecording.i18n.php:14
@@ -65,7 +69,7 @@ msgstr ""
 msgid "Call Recording Mode"
 msgstr ""
 
-#: Callrecording.class.php:146
+#: Callrecording.class.php:161
 #: functions.inc.php:56
 #: functions.inc.php:741
 #, php-format
@@ -81,6 +85,10 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
+#: page.callrecording.php:53
+msgid "Description name already exists "
+msgstr ""
+
 #: views/form.php:106
 msgid "Destination"
 msgstr ""
@@ -90,9 +98,17 @@ msgstr ""
 msgid "Don't Care"
 msgstr ""
 
+#: callrecording.i18n.php:20
+msgid "Don’t begin recording unless a call is bridged to another channel"
+msgstr ""
+
 #: functions.inc.php:572
 #: views/form.php:20
 msgid "Force"
+msgstr ""
+
+#: callrecording.i18n.php:22
+msgid "In-Call Asterisk Toggle Call Recording Pause"
 msgstr ""
 
 #: page.callrecording.php:52
