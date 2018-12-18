@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-08 14:52-0500\n"
-"PO-Revision-Date: 2018-09-12 14:00+0000\n"
-"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
+"PO-Revision-Date: 2018-11-14 20:00+0000\n"
+"Last-Translator: hammer125 hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://*/projects/freepbx/callrecording/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -64,7 +64,7 @@ msgstr "Piep alle xx Sekunden"
 
 #: callrecording.i18n.php:18
 msgid "Call Record Option"
-msgstr ""
+msgstr "Anrufaufzeichnungsoptionen"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
 #: functions.inc.php:583 page.callrecording.php:7
@@ -99,6 +99,8 @@ msgstr "Nicht gepflegt"
 #: callrecording.i18n.php:20
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
+"Keine Aufzeichnung beginnen, außer ein Anruf ist mit einem andern Kanal "
+"verbunden"
 
 #: functions.inc.php:594 views/form.php:40
 msgid "Force"
