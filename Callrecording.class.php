@@ -110,6 +110,21 @@ class Callrecording implements BMO {
 		$results = $stmt->fetchall(\PDO::FETCH_ASSOC);
 		return $results;
 	}
+	public function getallRules($id=""){
+		$sql = "SELECT callrecording_id,description FROM callrecording ORDER BY description ";
+		$stmt = $this->db->prepare($sql);
+		$stmt->execute();
+		$results = $stmt->fetchall(\PDO::FETCH_ASSOC);
+		$res = array();
+		if(is_array($results)) {
+			foreach($results as $r) {
+				if($r['callrecording_id'] != $id) {
+					$res[] = $r['description'];
+				}
+			}
+		}
+		return $res;
+	}
 	public function ajaxRequest($req, &$setting) {
     switch ($req) {
       case 'getJSON':
