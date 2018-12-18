@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-08 14:52-0500\n"
+"POT-Creation-Date: 2018-12-17 19:33-0500\n"
 "PO-Revision-Date: 2016-05-09 03:26+0200\n"
 "Last-Translator: Avishay <baabad@outlook.com>\n"
 "Language-Team: Hebrew <http://weblate.freepbx.org/projects/freepbx/"
@@ -68,7 +68,7 @@ msgstr "הקלטות"
 msgid "Call Recording Mode"
 msgstr ""
 
-#: Callrecording.class.php:146 functions.inc.php:56 functions.inc.php:763
+#: Callrecording.class.php:161 functions.inc.php:56 functions.inc.php:763
 #, php-format
 msgid "Call Recording: %s"
 msgstr ""
@@ -79,6 +79,10 @@ msgstr "מחיקה"
 
 #: views/form.php:73 views/grid.php:22
 msgid "Description"
+msgstr ""
+
+#: page.callrecording.php:53
+msgid "Description name already exists "
 msgstr ""
 
 #: views/form.php:126
