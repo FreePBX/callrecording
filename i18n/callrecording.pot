@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-08 14:52-0500\n"
+"POT-Creation-Date: 2018-12-17 19:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,7 +70,7 @@ msgstr ""
 msgid "Call Recording Mode"
 msgstr ""
 
-#: Callrecording.class.php:195
+#: Callrecording.class.php:218
 #: functions.inc.php:56
 #: functions.inc.php:688
 #, php-format
@@ -84,6 +84,10 @@ msgstr ""
 #: views/form.php:73
 #: views/grid.php:22
 msgid "Description"
+msgstr ""
+
+#: page.callrecording.php:53
+msgid "Description name already exists "
 msgstr ""
 
 #: views/form.php:126

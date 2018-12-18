@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-08 14:52-0500\n"
+"POT-Creation-Date: 2018-12-17 19:34-0500\n"
 "PO-Revision-Date: 2015-10-27 12:57+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -96,7 +96,7 @@ msgstr "通話録音"
 msgid "Call Recording Mode"
 msgstr "通話録音モード"
 
-#: Callrecording.class.php:195 functions.inc.php:56 functions.inc.php:688
+#: Callrecording.class.php:218 functions.inc.php:56 functions.inc.php:688
 #, php-format
 msgid "Call Recording: %s"
 msgstr "通話録音： %s"
@@ -108,6 +108,10 @@ msgstr "削除"
 #: views/form.php:73 views/grid.php:22
 msgid "Description"
 msgstr "説明"
+
+#: page.callrecording.php:53
+msgid "Description name already exists "
+msgstr ""
 
 #: views/form.php:126
 msgid "Destination"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-08 14:52-0500\n"
+"POT-Creation-Date: 2018-12-17 19:34-0500\n"
 "PO-Revision-Date: 2018-07-04 11:13+0000\n"
 "Last-Translator: Chavdar Shtiliyanov <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://*/projects/freepbx/callrecording/bg/>\n"
@@ -74,7 +74,7 @@ msgstr "Запис на Разговор"
 msgid "Call Recording Mode"
 msgstr "Режим на Запис на Разговор"
 
-#: Callrecording.class.php:195 functions.inc.php:56 functions.inc.php:688
+#: Callrecording.class.php:218 functions.inc.php:56 functions.inc.php:688
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Запис на Разговор: %s"
@@ -86,6 +86,10 @@ msgstr "Изтрий"
 #: views/form.php:73 views/grid.php:22
 msgid "Description"
 msgstr "Описание"
+
+#: page.callrecording.php:53
+msgid "Description name already exists "
+msgstr ""
 
 #: views/form.php:126
 msgid "Destination"
