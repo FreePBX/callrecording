@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>15.0.7.3</version>
+	<version>15.0.7.4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -36,6 +36,7 @@
   		</table>
 	</database>
 	<changelog>
+		*15.0.7.4* Reverting FREEPBX-15208 fixes 
 		*15.0.7.3* FREEPBX-15208 Multiple Call Recording can be added with same Description
 		*15.0.7.2* FREEPBX-17466 Call Recording Pause Function removed 
 		*15.0.8* FREEPBX-18449 Call Recording module allows to create duplicate entries with same Description

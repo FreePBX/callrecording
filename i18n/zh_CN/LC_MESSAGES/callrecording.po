@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-17 19:34-0500\n"
+"POT-Creation-Date: 2019-01-17 08:48+0530\n"
 "PO-Revision-Date: 2018-03-14 14:52+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -20,6 +20,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
+
+#: assets/js/callrecording.js:21
+#, perl-format
+msgid "%s already used, please use a different description."
+msgstr ""
 
 #: page.callrecording.php:14
 msgid ": Add"
@@ -81,7 +86,7 @@ msgstr "删除"
 msgid "Description"
 msgstr "描述"
 
-#: page.callrecording.php:53
+#: assets/js/callrecording.js:3
 msgid "Description name already exists "
 msgstr ""
 
@@ -105,7 +110,7 @@ msgstr "强制"
 msgid "In-Call Asterisk Toggle Call Recording Pause"
 msgstr ""
 
-#: page.callrecording.php:52
+#: assets/js/callrecording.js:2
 msgid "Invalid description specified"
 msgstr "指定了无效的描述"
 
