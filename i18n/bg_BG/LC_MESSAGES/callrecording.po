@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-17 19:33-0500\n"
+"POT-Creation-Date: 2019-01-17 08:47+0530\n"
 "PO-Revision-Date: 2018-07-04 11:13+0000\n"
 "Last-Translator: Chavdar Shtiliyanov <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://*/projects/freepbx/callrecording/bg/>\n"
@@ -19,6 +19,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.19.1\n"
+
+#: assets/js/callrecording.js:21
+#, perl-format
+msgid "%s already used, please use a different description."
+msgstr ""
 
 #: page.callrecording.php:14
 msgid ": Add"
@@ -87,7 +92,7 @@ msgstr "Изтрий"
 msgid "Description"
 msgstr "Описание"
 
-#: page.callrecording.php:53
+#: assets/js/callrecording.js:3
 msgid "Description name already exists "
 msgstr ""
 
@@ -111,7 +116,7 @@ msgstr "Винаги"
 msgid "In-Call Asterisk Toggle Call Recording Pause"
 msgstr ""
 
-#: page.callrecording.php:52
+#: assets/js/callrecording.js:2
 msgid "Invalid description specified"
 msgstr "Въведено е неправилно описание"
 

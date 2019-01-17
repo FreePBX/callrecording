@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-17 19:33-0500\n"
+"POT-Creation-Date: 2019-01-17 08:47+0530\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -20,6 +20,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
+
+#: assets/js/callrecording.js:21
+#, perl-format
+msgid "%s already used, please use a different description."
+msgstr ""
 
 #: page.callrecording.php:14
 msgid ": Add"
@@ -88,7 +93,7 @@ msgstr "Apagar"
 msgid "Description"
 msgstr "Descrição"
 
-#: page.callrecording.php:53
+#: assets/js/callrecording.js:3
 msgid "Description name already exists "
 msgstr ""
 
@@ -112,7 +117,7 @@ msgstr "Forçar"
 msgid "In-Call Asterisk Toggle Call Recording Pause"
 msgstr ""
 
-#: page.callrecording.php:52
+#: assets/js/callrecording.js:2
 msgid "Invalid description specified"
 msgstr "Descrição especificada inválida"
 
