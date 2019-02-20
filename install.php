@@ -33,6 +33,7 @@ $set['name'] = 'Call Record Option';
 $set['description'] = 'Don’t begin recording unless a call is bridged to another channel';
 $set['emptyok'] = 0;
 $set['level'] = 2;
+$set['module'] = 'callrecording';
 $set['readonly'] = 0;
 $set['hidden'] = 0;
 $set['type'] = CONF_TYPE_BOOL;
