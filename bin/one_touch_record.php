@@ -276,8 +276,12 @@ if(version_compare($version, "12.0", "lt")) {
 }
 
 $beep = getVariable($channel, 'MIXMON_BEEP');
-//removing ,because we are handling mix monitor through dialpaln -> FREEPBX-14292 - mixMonPost not sending the varibles if there is a space in b/w.  
-//$astman->mixmonitor($masterChannel, "{$mixMonDir}{$year}/{$month}/{$day}/{$callFileName}.{$mixMonFormat}", "ai(LOCAL_MIXMON_ID)$beep", $mixMonPost, rand());
+//We originally removed this as we moved to handling mix monitor through dialplan in FREEPBX-14292 however
+// if this is called elsewhere it causes an issue, so try to account for other people using this script
+$currentContext = getVariable($channel, 'CONTEXT');
+if ($currentContext != 'macro-one-touch-record') {
+	$astman->mixmonitor($masterChannel, "{$mixMonDir}{$year}/{$month}/{$day}/{$callFileName}.{$mixMonFormat}", "ai(LOCAL_MIXMON_ID)$beep", $mixMonPost, rand());
+}
 $mixmonid = getVariable($channel, "LOCAL_MIXMON_ID");
 setVariable($channel, "__MIXMON_ID", $mixmonid);
 $channame = getVariable($channel, "CHANNEL(name)");
