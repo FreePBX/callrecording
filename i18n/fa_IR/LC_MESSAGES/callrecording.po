@@ -10,21 +10,20 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-17 08:47+0530\n"
-"PO-Revision-Date: 2016-10-08 12:44+0200\n"
-"Last-Translator: psdk <hyavari26@gmail.com>\n"
-"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
-"callrecording/fa_IR/>\n"
+"PO-Revision-Date: 2019-01-26 14:00+0000\n"
+"Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://*/projects/freepbx/callrecording/fa/>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: assets/js/callrecording.js:21
 #, perl-format
 msgid "%s already used, please use a different description."
-msgstr ""
+msgstr "s1% استفاده شده، لطفاً شرح دیگری استفاده کنید."
 
 #: page.callrecording.php:14
 msgid ": Add"
@@ -55,6 +54,12 @@ msgid ""
 "setting will have no effect. To disable simply clear the value of this box "
 "or set the value to 0 and save. This is typically set arround 15seconds"
 msgstr ""
+"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
+"a call is being recorded. If you set this to a positive number value, when a "
+"call is being actively recorded, both parties will hear a 'beep' every "
+"period that you select. If you are not running Asterisk 13.2 or higher, this "
+"setting will have no effect. To disable simply clear the value of this box "
+"or set the value to 0 and save. This is typically set arround 15seconds."
 
 #: callrecording.i18n.php:12
 msgid "Beep every n seconds"
@@ -62,7 +67,7 @@ msgstr "صدای بیپ در هر n ثانیه"
 
 #: callrecording.i18n.php:18
 msgid "Call Record Option"
-msgstr ""
+msgstr "گزینه ضبط تماس"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
 #: functions.inc.php:583 page.callrecording.php:7
@@ -88,7 +93,7 @@ msgstr "توضیحات"
 
 #: assets/js/callrecording.js:3
 msgid "Description name already exists "
-msgstr ""
+msgstr "نام شرح موجود است. "
 
 #: views/form.php:126
 msgid "Destination"
@@ -100,7 +105,7 @@ msgstr "مهم نیست"
 
 #: callrecording.i18n.php:20
 msgid "Don’t begin recording unless a call is bridged to another channel"
-msgstr ""
+msgstr "ضبط را شروع نکنید مگر اینکه یک تماس به یک کانال دیگر منتقل شود"
 
 #: functions.inc.php:594 views/form.php:40
 msgid "Force"
@@ -108,7 +113,7 @@ msgstr "اجبار"
 
 #: callrecording.i18n.php:22
 msgid "In-Call Asterisk Toggle Call Recording Pause"
-msgstr ""
+msgstr "In-Call Asterisk Toggle Call Recording Pause."
 
 #: assets/js/callrecording.js:2
 msgid "Invalid description specified"
