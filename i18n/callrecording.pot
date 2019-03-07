@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for callrecording
-# Copyright (C) 2008-2018 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2019 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-17 19:27-0500\n"
+"POT-Creation-Date: 2019-03-07 09:42+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -105,10 +105,6 @@ msgstr ""
 #: functions.inc.php:572
 #: views/form.php:20
 msgid "Force"
-msgstr ""
-
-#: callrecording.i18n.php:22
-msgid "In-Call Asterisk Toggle Call Recording Pause"
 msgstr ""
 
 #: page.callrecording.php:52

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-17 19:27-0500\n"
+"POT-Creation-Date: 2019-03-07 09:42+0530\n"
 "PO-Revision-Date: 2016-09-19 20:22+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -100,10 +100,6 @@ msgstr ""
 #: functions.inc.php:572 views/form.php:20
 msgid "Force"
 msgstr "Винаги"
-
-#: callrecording.i18n.php:22
-msgid "In-Call Asterisk Toggle Call Recording Pause"
-msgstr ""
 
 #: page.callrecording.php:52
 msgid "Invalid description specified"
