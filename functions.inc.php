@@ -54,7 +54,7 @@ function callrecording_getdestinfo($dest) {
 		} else {
 			$type = isset($active_modules['callrecording']['type'])?$active_modules['callrecording']['type']:'setup';
 			return array('description' => sprintf(_("Call Recording: %s"),$thisexten['description']),
-				'edit_url' => 'config.php?display=callrecording&type='.$type.'&extdisplay='.urlencode($exten),
+				'edit_url' => 'config.php?display=callrecording&view=form&type='.$type.'&extdisplay='.urlencode($exten),
 			);
 		}
 	} else {
