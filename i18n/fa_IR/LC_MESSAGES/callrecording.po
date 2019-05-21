@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 09:40+0530\n"
+"POT-Creation-Date: 2019-05-21 09:26+0530\n"
 "PO-Revision-Date: 2019-01-26 14:00+0000\n"
 "Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://*/projects/freepbx/callrecording/fa/>\n"
@@ -173,6 +173,10 @@ msgid ""
 msgstr ""
 "این تنظیمات نحوه ضبط مکالمه برای تماس هایی که از این مسیر خارج می شوند، را "
 "تعیین می کند. لطفا برای اطلاعات بیشتر به ویکی مراجعه نمایید."
+
+#: bin/one_touch_record.php:258
+msgid "Unknown"
+msgstr ""
 
 #: views/form.php:138
 msgid "Where should the call be sent."
