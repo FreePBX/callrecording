@@ -243,11 +243,39 @@ if (!$timestr) {
 
 if (!$callFileName) {
 	// We need to create the filename for this call.
+
+	/**
+	 * Cleanning and formating Uniqueid 
+	 */
 	$uniqueid = getVariable($channel, "UNIQUEID");
-	if (strpos($dst, '-') !== false) { // it has - in the dst
+	list($leftuid,$rightuid) = explode(".",$uniqueid);	
+	preg_match('/\d+/', $leftuid, $matches, PREG_OFFSET_CAPTURE, 0);
+	$uniqueid = $matches[0][0].".".$rightuid;
+
+	ot_debug("Initial dest value : $dst");
+	if(empty($dst)){
+		ot_debug("Dest not found");
+		$dst = _("Unknown");
+	}
+
+	if (strpos($dst, '/') !== false) { 
+		$dest = explode('/', $dst);
+		$dst = $dest[1];
+	}
+
+	if (strpos($dst, '-') !== false) { 
 		$dest = explode('-', $dst);
 		$dst = $dest[0];
 	}
+
+	$dest = explode(':',$dst);
+	if(!empty($dest[0]) && !empty($dest[1])){
+		$dst = $dest[1];
+	}
+	else{
+		$dst = $dest[0];
+	}
+  
 	$callFileName = "ondemand-$dst-$fromExten-$timestr-$uniqueid";
 	ot_debug("CFN UPDATED ::$callFileName::");
 }
