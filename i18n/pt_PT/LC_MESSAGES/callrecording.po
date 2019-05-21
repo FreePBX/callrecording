@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-20 18:16-0500\n"
+"POT-Creation-Date: 2019-05-21 09:27+0530\n"
 "PO-Revision-Date: 2015-04-27 16:53+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -162,6 +162,10 @@ msgstr ""
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
+msgstr ""
+
+#: bin/one_touch_record.php:258
+msgid "Unknown"
 msgstr ""
 
 #: views/form.php:138

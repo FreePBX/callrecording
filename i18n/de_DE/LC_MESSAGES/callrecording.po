@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-20 18:16-0500\n"
+"POT-Creation-Date: 2019-05-21 09:27+0530\n"
 "PO-Revision-Date: 2018-02-16 20:01+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
@@ -180,6 +180,10 @@ msgstr ""
 "Das legt das Anruf-Aufnahme-Verhalten für ausgehende Anrufe auf dieser Route "
 "fest. Für mehr Information, was diese Einstellungen bedeuten, bitte das WIKI "
 "lesen."
+
+#: bin/one_touch_record.php:258
+msgid "Unknown"
+msgstr ""
 
 #: views/form.php:138
 msgid "Where should the call be sent."

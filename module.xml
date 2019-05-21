@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>15.0.7.8</version>
+	<version>15.0.7.9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -36,6 +36,7 @@
   		</table>
 	</database>
 	<changelog>
+		*15.0.7.9* FREEI-518 Call reporting module does not show recordings with empty destination parsed field 
 		*15.0.7.8* Fixing FREEPBX-17867 
 		*15.0.7.7* Fixing FREEI-419 
 		*15.0.7.5* fixing legacy restore
