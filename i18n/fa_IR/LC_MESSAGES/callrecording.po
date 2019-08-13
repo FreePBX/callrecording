@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-21 09:26+0530\n"
-"PO-Revision-Date: 2019-01-26 14:00+0000\n"
+"PO-Revision-Date: 2019-08-13 11:52+0000\n"
 "Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://*/projects/freepbx/callrecording/fa/>\n"
 "Language: fa_IR\n"
@@ -176,7 +176,7 @@ msgstr ""
 
 #: bin/one_touch_record.php:258
 msgid "Unknown"
-msgstr ""
+msgstr "ناشنلس"
 
 #: views/form.php:138
 msgid "Where should the call be sent."
