@@ -13,10 +13,25 @@ class Restore Extends Base\RestoreBase{
 			$this->FreePBX->Callrecording->insertExtensionData($module['extension'], $module['cidnum'], $module['callrecording'], $module['display']);
 		}
 		$this->importAdvancedSettings($configs['settings']);
+		$this->importAstDB($configs['astdb']); //For extension recording options
 	}
 
 	public function processLegacy($pdo, $data, $tables, $unknownTables){
 		$this->restoreLegacyDatabase($pdo);
 		$this->restoreLegacyAdvancedSettings($pdo);
+		if(isset($data['astdb']['AMPUSER'])) {
+			$recordingOptions = array();
+			foreach ($data['astdb']['AMPUSER'] as $key => $value) {
+				if(strpos($key, 'recording') === false) {
+					continue;
+				}
+				$recordingOptions[] = [
+					'AMPUSER' => [ $key => $value ]
+				];
+			}
+			if (count($recordingOptions) > 0) {
+				$this->importAstDB($recordingOptions);
+			}
+		}
 	}
 }
