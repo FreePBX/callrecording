@@ -23,7 +23,7 @@ function checkCallRecording(theForm) {
 	return true;
 }
 
-function linkFormatter(value, row, index){
+function linkFormatter(value, row, index) {
 	return decodeHTML(value);
 }
 
