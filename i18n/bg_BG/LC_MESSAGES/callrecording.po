@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-21 09:27+0530\n"
+"POT-Creation-Date: 2019-11-27 11:16+0530\n"
 "PO-Revision-Date: 2018-07-04 11:13+0000\n"
 "Last-Translator: Chavdar Shtiliyanov <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://*/projects/freepbx/callrecording/bg/>\n"
@@ -144,7 +144,7 @@ msgstr "Предоставя голяма част от функционално
 msgid "Reset"
 msgstr "Изчисти"
 
-#: views/bootnav.php:18
+#: views/bootnav.php:19
 msgid "Rule"
 msgstr "Правило"
 

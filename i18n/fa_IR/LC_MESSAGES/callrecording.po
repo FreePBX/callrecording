@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-21 09:27+0530\n"
+"POT-Creation-Date: 2019-11-27 11:16+0530\n"
 "PO-Revision-Date: 2016-10-08 12:44+0200\n"
 "Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -138,7 +138,7 @@ msgstr "ارائه قابلیت های بیشتر ضبط مکالمات."
 msgid "Reset"
 msgstr "بازنشانی"
 
-#: views/bootnav.php:18
+#: views/bootnav.php:19
 msgid "Rule"
 msgstr "رول"
 

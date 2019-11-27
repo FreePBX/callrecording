@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-21 09:27+0530\n"
+"POT-Creation-Date: 2019-11-27 11:16+0530\n"
 "PO-Revision-Date: 2018-03-14 14:52+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -138,7 +138,7 @@ msgstr "提供丰富的录音功能"
 msgid "Reset"
 msgstr "重置"
 
-#: views/bootnav.php:18
+#: views/bootnav.php:19
 msgid "Rule"
 msgstr ""
 
