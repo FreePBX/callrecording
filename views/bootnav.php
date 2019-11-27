@@ -11,6 +11,7 @@
   data-toolbar="#toolbar-recrnav"
   data-toggle="table"
   data-search="true"
+  data-escape="true" 
   class="table"
   id="table-all-side">
     <thead>

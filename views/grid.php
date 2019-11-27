@@ -16,11 +16,11 @@ foreach (callrecording_list() as $row) {
 <div id="toolbar-all">
 	<a href="config.php?display=callrecording&view=form" class="btn btn-default"><i class="fa fa-plus"></i>&nbsp; <?php echo _("Add Call Recording") ?></a>
 </div>
-<table data-toggle="table" data-toolbar="#toolbar-all" data-pagination="true" data-search="true" class="table table-striped">
+<table data-toggle="table" data-toolbar="#toolbar-all" data-escape="true" data-pagination="true" data-search="true" class="table table-striped">
 <thead>
 	<tr>
 		<th><?php echo _("Description")?></th>
-		<th><?php echo _("Actions")?></th>
+		<th data-formatter="linkFormatter"><?php echo _("Actions")?></th>
 	</tr>
 </thead>
 <tbody>
