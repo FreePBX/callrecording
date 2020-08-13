@@ -12,6 +12,7 @@
 	<description>
 		Provides much of the call recording functionality.
 	</description>
+	<more-info>https://wiki.freepbx.org/display/F2/Call+Recording+Module</more-info>
 	<menuitems>
 		<callrecording needsenginedb="yes">Call Recording</callrecording>
 	</menuitems>
