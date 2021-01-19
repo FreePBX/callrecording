@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-27 11:16+0530\n"
+"POT-Creation-Date: 2021-01-05 06:13+0000\n"
 "PO-Revision-Date: 2016-05-09 03:26+0200\n"
 "Last-Translator: Avishay <baabad@outlook.com>\n"
 "Language-Team: Hebrew <http://weblate.freepbx.org/projects/freepbx/"
@@ -65,7 +65,7 @@ msgid "Call Record Option"
 msgstr ""
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:520 page.callrecording.php:7
+#: functions.inc.php:34 functions.inc.php:516 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "הקלטות"
 
@@ -73,12 +73,12 @@ msgstr "הקלטות"
 msgid "Call Recording Mode"
 msgstr ""
 
-#: Callrecording.class.php:218 functions.inc.php:56 functions.inc.php:688
+#: Callrecording.class.php:213 functions.inc.php:56 functions.inc.php:682
 #, php-format
 msgid "Call Recording: %s"
 msgstr ""
 
-#: Callrecording.class.php:153
+#: Callrecording.class.php:148
 msgid "Delete"
 msgstr "מחיקה"
 
@@ -94,7 +94,7 @@ msgstr ""
 msgid "Destination"
 msgstr ""
 
-#: functions.inc.php:531 views/form.php:40
+#: functions.inc.php:527 views/form.php:40
 msgid "Don't Care"
 msgstr ""
 
@@ -102,7 +102,7 @@ msgstr ""
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
-#: functions.inc.php:531 views/form.php:40
+#: functions.inc.php:527 views/form.php:40
 msgid "Force"
 msgstr ""
 
@@ -114,19 +114,19 @@ msgstr ""
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:531 views/form.php:40
+#: functions.inc.php:527 views/form.php:40
 msgid "Never"
 msgstr ""
 
-#: functions.inc.php:531 views/form.php:40
+#: functions.inc.php:527 views/form.php:40
 msgid "No"
 msgstr "לא"
 
-#: functions.inc.php:512 views/form.php:92
+#: functions.inc.php:508 views/form.php:92
 msgid "Note that the meaning of these options has changed."
 msgstr ""
 
-#: functions.inc.php:512 views/form.php:114
+#: functions.inc.php:508 views/form.php:114
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 
@@ -134,7 +134,7 @@ msgstr ""
 msgid "Provides much of the call recording functionality."
 msgstr ""
 
-#: Callrecording.class.php:158
+#: Callrecording.class.php:153
 msgid "Reset"
 msgstr ""
 
@@ -142,7 +142,7 @@ msgstr ""
 msgid "Rule"
 msgstr ""
 
-#: Callrecording.class.php:163
+#: Callrecording.class.php:158
 msgid "Submit"
 msgstr ""
 
@@ -158,7 +158,7 @@ msgid ""
 "read the wiki for information on what these settings mean."
 msgstr ""
 
-#: functions.inc.php:504
+#: functions.inc.php:500
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -172,6 +172,6 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:531 views/form.php:40
+#: functions.inc.php:527 views/form.php:40
 msgid "Yes"
 msgstr ""

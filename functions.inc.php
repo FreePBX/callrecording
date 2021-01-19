@@ -496,11 +496,7 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 		$request = $_REQUEST;
 		$request['route_id'] = isset($request['id'])?$request['id']:'';
 		$route_id	= isset($request['route_id']) ? $request['route_id'] : (isset($request['extdisplay']) ? $request['extdisplay'] : '');
-		if (!empty($_SESSION['callrecordingAddRoute'])) {
-			$callrecording = $_SESSION['callrecordingAddRoute'];
-		} else {
-			$callrecording = callrecording_display_get($target_menuid, $route_id);
-		}
+		$callrecording = callrecording_display_get($target_menuid, $route_id);
 		$helptext = _("This sets the call recording behavior for calls going out this route. Please read the wiki for information on what these settings mean.");
 		break;
 	}
@@ -565,17 +561,15 @@ function callrecording_adjustroute($route_id,$action,$callrecording='') {
 	case 'delroute':
 		callrecording_display_delete($dispname,$route_id);
 		break;
-		case 'addroute';
+	case 'addroute';
 		if ($callrecording != '') {
-			// we don't have the route_id yet, it hasn't been inserted yet :(, put it in the session
-			// and when returned it will be available on the redirect_standard
-			$_SESSION['callrecordingAddRoute'] = $callrecording;
+			callrecording_display_update($dispname, $callrecording, $route_id);
 		}
 		break;
-		case 'delayed_insert_route';
+	case 'delayed_insert_route';
 		callrecording_display_update($dispname, $callrecording, $route_id);
 		break;
-		case 'editroute';
+	case 'editroute';
 		if ($callrecording != '') {
 			callrecording_display_update($dispname, $callrecording, $route_id);
 		} else {

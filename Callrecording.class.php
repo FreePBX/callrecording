@@ -57,12 +57,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 			if (isset($request['Submit']) ) {
 				$action = (isset($action))?$action:'editroute';
 			}
-			// $action won't be set on the redirect but callrecordingAddRoute will be in the session
-			//
-			if (!$action && !empty($_SESSION['callrecordingAddRoute'])) {
-				callrecording_adjustroute($route_id,'delayed_insert_route',$_SESSION['callrecordingAddRoute']);
-				unset($_SESSION['callrecordingAddRoute']);
-			} elseif ($action){
+			if ($action){
 				callrecording_adjustroute($route_id,$action,$request['callrecording']);
 			}
 		}
@@ -201,7 +196,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 		}
 		return $res;
 	}
-	
+
 	public function ajaxRequest($req, &$setting) {
 		return ('getJSON' == $req);
 	}
