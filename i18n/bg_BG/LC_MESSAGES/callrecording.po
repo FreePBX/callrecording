@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-05 06:13+0000\n"
+"POT-Creation-Date: 2021-02-05 07:03+0000\n"
 "PO-Revision-Date: 2018-07-04 11:13+0000\n"
 "Last-Translator: Chavdar Shtiliyanov <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://*/projects/freepbx/callrecording/bg/>\n"
@@ -71,7 +71,7 @@ msgid "Call Record Option"
 msgstr ""
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:516 page.callrecording.php:7
+#: functions.inc.php:34 functions.inc.php:521 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Запис на Разговор"
 
@@ -79,7 +79,7 @@ msgstr "Запис на Разговор"
 msgid "Call Recording Mode"
 msgstr "Режим на Запис на Разговор"
 
-#: Callrecording.class.php:213 functions.inc.php:56 functions.inc.php:682
+#: Callrecording.class.php:213 functions.inc.php:56 functions.inc.php:687
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Запис на Разговор: %s"
@@ -100,7 +100,7 @@ msgstr ""
 msgid "Destination"
 msgstr "Направление"
 
-#: functions.inc.php:527 views/form.php:40
+#: functions.inc.php:532 views/form.php:40
 msgid "Don't Care"
 msgstr "Без Значение"
 
@@ -108,7 +108,7 @@ msgstr "Без Значение"
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
-#: functions.inc.php:527 views/form.php:40
+#: functions.inc.php:532 views/form.php:40
 msgid "Force"
 msgstr "Винаги"
 
@@ -120,19 +120,19 @@ msgstr "Въведено е неправилно описание"
 msgid "List Call Recordings"
 msgstr "Списък със Записи на Разговори"
 
-#: functions.inc.php:527 views/form.php:40
+#: functions.inc.php:532 views/form.php:40
 msgid "Never"
 msgstr "Никога"
 
-#: functions.inc.php:527 views/form.php:40
+#: functions.inc.php:532 views/form.php:40
 msgid "No"
 msgstr "Не"
 
-#: functions.inc.php:508 views/form.php:92
+#: functions.inc.php:513 views/form.php:92
 msgid "Note that the meaning of these options has changed."
 msgstr "Имайте предвид, че значението на тези параметри е променено."
 
-#: functions.inc.php:508 views/form.php:114
+#: functions.inc.php:513 views/form.php:114
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Моля, прочетете Wiki за повече информация относно тези промени."
 
@@ -158,7 +158,7 @@ msgid ""
 "Main IVR\""
 msgstr "Описващо име на тази инстанция"
 
-#: functions.inc.php:492
+#: functions.inc.php:497
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -166,7 +166,7 @@ msgstr ""
 "Установява запис на разговор за обаждания идващи през този DID. Моля, "
 "прочетете Wiki за повече информация относно тези настройки."
 
-#: functions.inc.php:500
+#: functions.inc.php:505
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -182,7 +182,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr "Накъде да се насочват обажданията."
 
-#: functions.inc.php:527 views/form.php:40
+#: functions.inc.php:532 views/form.php:40
 msgid "Yes"
 msgstr "Да"
 

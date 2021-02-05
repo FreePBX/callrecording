@@ -282,7 +282,12 @@ function callrecording_get_config($engine) {
 
 		// Originator of the call wins. Always out/internal.
 		$ext->add($context, $exten, 'caller', new ext_set('RECMODE','${DB(AMPUSER/${FROMEXTEN}/recording/out/internal)}'));
-		$ext->add($context, $exten, '', new ext_execif('$[!${LEN(${RECMODE})}]','Set', 'RECMODE=dontcare'));
+		// check callee set higher preference mode
+		$ext->add($context, $exten, '', new ext_set('CALEERECMODE','${DB(AMPUSER/${ARG2}/recording/in/internal)}'));
+		$ext->add($context, $exten, '', new ext_gotoif('$[!${LEN(${CALEERECMODE})}]','processnormal'));
+		// check caller mode preference is greater than caller eg: Force,Never
+		$ext->add($context, $exten, '', new ext_execif('$["${CALLER_PRI}" = "${CALLEE_PRI}" & "${CALEERECMODE}"="never"]','Set','RECMODE=${CALEERECMODE}'));
+		$ext->add($context, $exten, 'processnormal', new ext_execif('$[!${LEN(${RECMODE})}]','Set', 'RECMODE=dontcare'));
 		// If we don't care, then the callee gets to pick.
 		$ext->add($context, $exten, '', new ext_execif('$["${RECMODE}"="dontcare"]','Set', 'RECMODE=${CALLEE}'));
 		$ext->add($context, $exten, '', new ext_gosub('1', 'recordcheck', false, '${RECMODE},${CALLTYPE},${ARG2}'));
