@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>16.0.2</version>
+	<version>16.0.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -37,6 +37,7 @@
   		</table>
 	</database>
 	<changelog>
+		*16.0.3* FREEI-2750  extension to extension call recording option 
 		*16.0.2* FREEI-2750 Recording option "Yes" overriding "Never" (Ext to Ext calls) 
 		*16.0.1alpha* 16.0.1 alpha release
 	</changelog>
