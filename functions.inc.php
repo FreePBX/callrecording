@@ -290,6 +290,10 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_execif('$["${CALLER_PRI}" = "${CALLEE_PRI}" & "${CALEERECMODE}"="never"]','Set','RECMODE=${CALEERECMODE}'));
 		// check caller mode preference is greater than caller eg: No and callee Force
 		$ext->add($context, $exten, '', new ext_execif('$["${CALLER_PRI}" = "${CALLEE_PRI}" & "${CALEERECMODE}"="force" & "${CALLERRECMODE}"="no"]','Set','RECMODE=${CALEERECMODE}'));
+		// caller never and callee force : result calle ->force 
+		$ext->add($context, $exten, '', new ext_execif('$["${CALLER_PRI}" = "${CALLEE_PRI}" & "${CALEERECMODE}"="force" & "${CALLERRECMODE}"="never"]','Set','RECMODE=${CALEERECMODE}'));
+		// caller force and callee never : result calle ->Never 
+		$ext->add($context, $exten, '', new ext_execif('$["${CALLER_PRI}" = "${CALLEE_PRI}" & "${CALEERECMODE}"="never" & "${CALLERRECMODE}"="force"]','Set','RECMODE=${CALEERECMODE}'));
 		$ext->add($context, $exten, 'processnormal', new ext_execif('$[!${LEN(${RECMODE})}]','Set', 'RECMODE=dontcare'));
 		// If we don't care, then the callee gets to pick.
 		$ext->add($context, $exten, '', new ext_execif('$["${RECMODE}"="dontcare"]','Set', 'RECMODE=${CALLEE}'));
