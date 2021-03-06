@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>15.0.7.17</version>
+	<version>15.0.7.18</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -37,6 +37,7 @@
   		</table>
 	</database>
 	<changelog>
+		*15.0.7.18* FREEI-2933 Remove link to recording calls wiki on Inbound routes, other tab 
 		*15.0.7.17* FREEI-2750 Recording option "Yes" overriding "Never" 
 		*15.0.7.16* FREEI-2750  extension to extension call recording option 
 		*15.0.7.15* FREEI-2750 Recording option "Yes" overriding "Never" (Ext to Ext calls) 
