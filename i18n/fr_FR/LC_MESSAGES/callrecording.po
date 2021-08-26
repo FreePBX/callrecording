@@ -10,21 +10,21 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-15 03:11+0000\n"
-"PO-Revision-Date: 2017-12-11 22:57+0200\n"
-"Last-Translator: JCattan <jeremie@famillecattan.com>\n"
+"PO-Revision-Date: 2021-08-26 12:34+0000\n"
+"Last-Translator: jeremie cattan <freepbx@famillecattan.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
-"callrecording/fr_FR/>\n"
+"callrecording/fr/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: assets/js/callrecording.js:21
 #, perl-format
 msgid "%s already used, please use a different description."
-msgstr ""
+msgstr "%s déjà utilisé, veuillez utiliser une description différente."
 
 #: page.callrecording.php:14
 msgid ": Add"
@@ -70,7 +70,7 @@ msgstr "Bip toutes les n secondes"
 
 #: callrecording.i18n.php:18
 msgid "Call Record Option"
-msgstr ""
+msgstr "Option enregistrement d'appel"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
 #: functions.inc.php:595 page.callrecording.php:7
@@ -96,7 +96,7 @@ msgstr "Description"
 
 #: assets/js/callrecording.js:3
 msgid "Description name already exists "
-msgstr ""
+msgstr "Le nom de description existe déjà "
 
 #: views/form.php:126
 msgid "Destination"
@@ -109,6 +109,8 @@ msgstr "Peu importe"
 #: callrecording.i18n.php:20
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
+"Ne commence pas l'enregistrement à moins qu'un appel ne soit relié à un "
+"autre canal"
 
 #: functions.inc.php:606 views/form.php:40
 msgid "Force"
@@ -183,7 +185,7 @@ msgstr ""
 
 #: bin/one_touch_record.php:258
 msgid "Unknown"
-msgstr ""
+msgstr "Inconnu"
 
 #: views/form.php:138
 msgid "Where should the call be sent."
