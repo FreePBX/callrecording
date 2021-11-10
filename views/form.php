@@ -62,7 +62,6 @@ echo $usagehtml;
 <input type="hidden" name="extdisplay" value="<?php echo $extdisplay; ?>">
 <input type="hidden" name="callrecording_id" value="<?php echo $extdisplay; ?>">
 <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
-<input type="hidden" name="view" value="form">
 <!--Description-->
 <div class="element-container">
 	<div class="row">

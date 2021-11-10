@@ -22,7 +22,6 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 		$request = $_REQUEST;
 		if($page == "callrecording"){
 			$type = $this->getReq('type','setup');
-			$view = $this->getReq('view','form');
 			$action = $this->getReq('action','');
 			if($this->getReq('delete', false)){
 				$action = 'delete';
