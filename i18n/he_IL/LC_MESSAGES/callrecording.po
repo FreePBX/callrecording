@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-06 04:05+0000\n"
+"POT-Creation-Date: 2021-11-11 08:55+0000\n"
 "PO-Revision-Date: 2016-05-09 03:26+0200\n"
 "Last-Translator: Avishay <baabad@outlook.com>\n"
 "Language-Team: Hebrew <http://weblate.freepbx.org/projects/freepbx/"
@@ -69,20 +69,20 @@ msgstr ""
 msgid "Call Recording"
 msgstr "הקלטות"
 
-#: views/form.php:102
+#: views/form.php:101
 msgid "Call Recording Mode"
 msgstr ""
 
-#: Callrecording.class.php:213 functions.inc.php:56 functions.inc.php:691
+#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:691
 #, php-format
 msgid "Call Recording: %s"
 msgstr ""
 
-#: Callrecording.class.php:148
+#: Callrecording.class.php:147
 msgid "Delete"
 msgstr "מחיקה"
 
-#: views/form.php:73 views/grid.php:22
+#: views/form.php:72 views/grid.php:22
 msgid "Description"
 msgstr ""
 
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Description name already exists "
 msgstr ""
 
-#: views/form.php:126
+#: views/form.php:125
 msgid "Destination"
 msgstr ""
 
@@ -122,11 +122,11 @@ msgstr ""
 msgid "No"
 msgstr "לא"
 
-#: views/form.php:92
+#: views/form.php:91
 msgid "Note that the meaning of these options has changed."
 msgstr ""
 
-#: views/form.php:114
+#: views/form.php:113
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 
@@ -134,7 +134,7 @@ msgstr ""
 msgid "Provides much of the call recording functionality."
 msgstr ""
 
-#: Callrecording.class.php:153
+#: Callrecording.class.php:152
 msgid "Reset"
 msgstr ""
 
@@ -142,11 +142,11 @@ msgstr ""
 msgid "Rule"
 msgstr ""
 
-#: Callrecording.class.php:158
+#: Callrecording.class.php:157
 msgid "Submit"
 msgstr ""
 
-#: views/form.php:85
+#: views/form.php:84
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
@@ -168,7 +168,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: views/form.php:138
+#: views/form.php:137
 msgid "Where should the call be sent."
 msgstr ""
 
