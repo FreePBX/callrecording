@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>16.0.7</version>
+	<version>16.0.8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -37,6 +37,7 @@
   		</table>
 	</database>
 	<changelog>
+		*16.0.8* FREEI-3368 Removed hidden input field 'view' from the form 
 		*16.0.7* FREEI-3505 Call Recording priority issue 
 		*16.0.6* Packaging of ver 16.0.6
 		*16.0.5* FREEI-2933 Remove link to recording calls wiki on Inbound routes, other tab 
