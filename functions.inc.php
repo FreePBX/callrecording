@@ -208,7 +208,7 @@ function callrecording_get_config($engine) {
 			$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
 		}
 		$ext->add($context, $exten, '', new ext_set('__CALLFILENAME','${ARG2}-${ARG3}-${FROMEXTEN}-${TIMESTR}-${UNIQUEID}'));
-		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','a${MONITOR_REC_OPTION}i(LOCAL_MIXMON_ID)${MIXMON_BEEP}','${MIXMON_POST}'));
+		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','a${EVAL({MONITOR_REC_OPTION})}i(LOCAL_MIXMON_ID)${MIXMON_BEEP}','${EVAL({MIXMON_POST})}'));
 		$ext->add($context, $exten, '', new ext_set('__MIXMON_ID', '${LOCAL_MIXMON_ID}'));
 		$ext->add($context, $exten, '', new ext_set('__RECORD_ID', '${CHANNEL(name)}'));
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','RECORDING'));
@@ -356,7 +356,7 @@ function callrecording_get_config($engine) {
 			$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
 		}
 		$ext->add($context, $exten, '', new ext_set('MONITOR_FILENAME','${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}'));
-		$ext->add($context, $exten, '', new ext_mixmonitor('${MONITOR_FILENAME}.${MON_FMT}','${MONITOR_OPTIONS}${MIXMON_BEEP}','${MIXMON_POST}'));
+		$ext->add($context, $exten, '', new ext_mixmonitor('${MONITOR_FILENAME}.${MON_FMT}','${EVAL({MONITOR_OPTIONS})}${MIXMON_BEEP}','${EVAL({MIXMON_POST})}'));
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','RECORDING'));
 		$ext->add($context, $exten, '', new ext_set('CDR(recordingfile)','${CALLFILENAME}.${MON_FMT}'));
 		$ext->add($context, $exten, '', new ext_return(''));
@@ -385,7 +385,7 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="STOPPED"]','Playback','beep&beep'));
 		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"="STOPPED"]','end'));
 		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"="RECORDING"]','startrec'));
-		$ext->add($context, $exten, 'startrec', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','ai(LOCAL_MIXMON_ID)${MIXMON_BEEP}','${MIXMON_POST}'));
+		$ext->add($context, $exten, 'startrec', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','ai(LOCAL_MIXMON_ID)${MIXMON_BEEP}','${EVAL({MIXMON_POST)}}'));
 		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="RECORDING"]','Playback','beep'));
 		$ext->add($context, $exten, 'denied', new ext_execif('$["${ONETOUCH_REC_SCRIPT_STATUS:0:6}"="DENIED"]','Playback','access-denied'));
 		$ext->add($context, $exten, 'end', new ext_macroexit());
