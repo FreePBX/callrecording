@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>16.0.10</version>
+	<version>16.0.11</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -37,6 +37,7 @@
   		</table>
 	</database>
 	<changelog>
+		*16.0.11* FREEPBX-23238   Syntax error 
 		*16.0.10* FREEPBX-23089/Fix Variable References for MIXMON calls 
 		*16.0.9* wrap MIXMON_POST, MONITOR_REC_OPTIONS and MONITOR_OPTIONS in EVAL() to properly pass dialplan vars into subsequent steps 
 		*16.0.8* FREEI-3368 Removed hidden input field 'view' from the form 
