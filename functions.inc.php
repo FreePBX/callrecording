@@ -385,7 +385,7 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="STOPPED"]','Playback','beep&beep'));
 		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"="STOPPED"]','end'));
 		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"="RECORDING"]','startrec'));
-		$ext->add($context, $exten, 'startrec', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','ai(LOCAL_MIXMON_ID)${MIXMON_BEEP}','${EVAL({MIXMON_POST)}}'));
+		$ext->add($context, $exten, 'startrec', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','ai(LOCAL_MIXMON_ID)${MIXMON_BEEP}','${EVAL({MIXMON_POST})}'));
 		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="RECORDING"]','Playback','beep'));
 		$ext->add($context, $exten, 'denied', new ext_execif('$["${ONETOUCH_REC_SCRIPT_STATUS:0:6}"="DENIED"]','Playback','access-denied'));
 		$ext->add($context, $exten, 'end', new ext_macroexit());
