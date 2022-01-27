@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>15.0.7.23</version>
+	<version>15.0.7.24</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -37,6 +37,7 @@
   		</table>
 	</database>
 	<changelog>
+		*15.0.7.24* FREEPBX-23238  syntax error 
 		*15.0.7.23* FREEPBX-23238   Syntax error 
 		*15.0.7.22* FREEPBX-23089/Fix Variable References for MIXMON calls 
 		*15.0.7.21* wrap MIXMON_POST, MONITOR_REC_OPTIONS and MONITOR_OPTIONS in EVAL() to properly pass dialplan vars into subsequent steps 
