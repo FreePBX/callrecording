@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-11 08:55+0000\n"
+"POT-Creation-Date: 2022-04-05 08:18+0000\n"
 "PO-Revision-Date: 2017-09-02 09:02+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -176,7 +176,7 @@ msgstr ""
 "Điều này thiết lập hành vi ghi âm cuộc gọi cho các cuộc gọi ngoại tuyến. Vui "
 "lòng đọc wiki để biết thêm các cài đặt này có nghĩa là gì."
 
-#: bin/one_touch_record.php:258
+#: bin/one_touch_record.php:271
 msgid "Unknown"
 msgstr ""
 

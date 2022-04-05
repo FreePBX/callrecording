@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-27 13:10+0000\n"
+"POT-Creation-Date: 2022-04-05 08:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -173,7 +173,7 @@ msgid ""
 "read the wiki for information on what these settings mean."
 msgstr ""
 
-#: bin/one_touch_record.php:258
+#: bin/one_touch_record.php:271
 msgid "Unknown"
 msgstr ""
 
