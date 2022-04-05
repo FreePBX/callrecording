@@ -110,7 +110,20 @@ if($thisExtension == "") {
 		foreach ($all_devices as $key => $dial) {
 			$myvar = explode('/',trim($key,'/'));
 			if (!empty($myvar[2]) && $myvar[2] == 'dial') {
-				if ($dial == $dev) {
+				//check for local/90xxx@zulu-call
+				$zulu = false;
+				if(strpos($dial, "@zulu-call")== true){
+					//its zulu extension
+					//get the device its not PJSIP/xxx, its local/xxxx@zulu-call
+					$pjsipdev = ltrim($dev,'PJSIP/');
+					preg_match('/\d+/', $dial, $output_array);
+					if($output_array[0] == $pjsipdev){
+						$zulu = true;
+						$myvar[1] = substr($pjsipdev,2);
+						ot_debug("zulu device user = ".$myvar[1] );
+					}
+				}
+				if ($dial == $dev || $zulu) {
 					// We found the DEVICE!
 					$user = $astman->database_get("DEVICE/{$myvar[1]}", "user");
 					ot_debug("We found device {$myvar[1]} to match our channel with user: $user");
