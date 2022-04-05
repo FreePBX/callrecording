@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>16.0.12</version>
+	<version>16.0.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -37,6 +37,7 @@
   		</table>
 	</database>
 	<changelog>
+		*16.0.13* FREEI-4685 
 		*16.0.12* FREEPBX-23238  syntax error 
 		*16.0.11* FREEPBX-23238   Syntax error 
 		*16.0.10* FREEPBX-23089/Fix Variable References for MIXMON calls 

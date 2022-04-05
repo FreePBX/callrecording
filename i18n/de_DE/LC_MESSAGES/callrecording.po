@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-11 08:55+0000\n"
+"POT-Creation-Date: 2022-04-05 08:20+0000\n"
 "PO-Revision-Date: 2018-02-16 20:01+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
@@ -181,7 +181,7 @@ msgstr ""
 "fest. Für mehr Information, was diese Einstellungen bedeuten, bitte das WIKI "
 "lesen."
 
-#: bin/one_touch_record.php:258
+#: bin/one_touch_record.php:271
 msgid "Unknown"
 msgstr ""
 
