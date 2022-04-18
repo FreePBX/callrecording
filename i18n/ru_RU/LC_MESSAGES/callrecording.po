@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-15 03:11+0000\n"
-"PO-Revision-Date: 2021-11-23 07:00+0000\n"
+"PO-Revision-Date: 2022-04-18 13:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "callrecording/ru/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: assets/js/callrecording.js:21
 #, perl-format
 msgid "%s already used, please use a different description."
-msgstr ""
+msgstr "%s уже используется, пожалуйста, используйте другое описание."
 
 #: page.callrecording.php:14
 msgid ": Add"
@@ -54,6 +54,14 @@ msgid ""
 "setting will have no effect. To disable simply clear the value of this box "
 "or set the value to 0 and save. This is typically set arround 15seconds"
 msgstr ""
+"Asterisk 13.2 и выше поддерживает возможность воспроизведения обычного "
+"звукового сигнала при записи вызова. Если вы установите это значение в "
+"положительное число, то при активной записи вызова обе стороны будут слышать "
+"\"звуковой сигнал\" через каждый выбранный вами период. Если вы не "
+"используете Asterisk 13.2 или выше - этот параметр не будет иметь никакого "
+"эффекта. Чтобы отключить его - просто снимите значение этого поля или "
+"установите значение 0 и сохраните его. Он, как правило, устанавливается на "
+"15 секунд"
 
 #: callrecording.i18n.php:12
 msgid "Beep every n seconds"
@@ -61,7 +69,7 @@ msgstr "Бип каждые n секунд"
 
 #: callrecording.i18n.php:18
 msgid "Call Record Option"
-msgstr ""
+msgstr "Параметр записи вызова"
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
 #: functions.inc.php:595 page.callrecording.php:7
@@ -87,7 +95,7 @@ msgstr "Описание"
 
 #: assets/js/callrecording.js:3
 msgid "Description name already exists "
-msgstr ""
+msgstr "Название писания уже существует "
 
 #: views/form.php:126
 msgid "Destination"
@@ -99,7 +107,7 @@ msgstr "Не обращать внимание"
 
 #: callrecording.i18n.php:20
 msgid "Don’t begin recording unless a call is bridged to another channel"
-msgstr ""
+msgstr "Не начинать запись пока вызов не будет соединен с другим каналом"
 
 #: functions.inc.php:606 views/form.php:40
 msgid "Force"
@@ -172,7 +180,7 @@ msgstr ""
 
 #: bin/one_touch_record.php:258
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестно"
 
 #: views/form.php:138
 msgid "Where should the call be sent."
