@@ -66,8 +66,8 @@ echo $usagehtml;
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="form-group row">
 					<div class="col-md-3">
 						<label class="control-label" for="description"><?php echo _("Description") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="description"></i>
@@ -95,8 +95,8 @@ echo $usagehtml;
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="form-group row">
 					<div class="col-md-3">
 						<label class="control-label" for="callrecording_mode"><?php echo _("Call Recording Mode") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="callrecording_mode"></i>
@@ -119,8 +119,8 @@ echo $usagehtml;
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="form-group row">
 					<div class="col-md-3">
 						<label class="control-label" for="goto0"><?php echo _("Destination") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="goto0"></i>
