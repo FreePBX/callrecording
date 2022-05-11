@@ -519,8 +519,8 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 		$html .= '<div class="element-container">';
 		$html .= '<div class="row">';
 		$html .= '<div class="col-md-12">';
-		$html .= '<div class="row">';
-		$html .= '<div class="form-group">';
+		$html .= '<div class="">';
+		$html .= '<div class="row form-group">';
 		$html .= '<div class="col-md-3">';
 		$html .= '<label class="control-label" for="crwrapper">'. _("Call Recording") .'</label>';
 		$html .= '<i class="fa fa-question-circle fpbx-help-icon" data-for="crwrapper"></i>';
