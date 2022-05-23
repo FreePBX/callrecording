@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>16.0.15</version>
+	<version>16.0.16</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -37,6 +37,7 @@
   		</table>
 	</database>
 	<changelog>
+		*16.0.16* Reverting Bootstrap and dependent libs fixes 
 		*16.0.15* FREEI-4793 
 		*16.0.14* FREEI-4793 
 		*16.0.13* FREEI-4685 
