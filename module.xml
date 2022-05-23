@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>16.0.15</version>
+	<version>17.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -37,21 +37,7 @@
   		</table>
 	</database>
 	<changelog>
-		*16.0.15* FREEI-4793 
-		*16.0.14* FREEI-4793 
-		*16.0.13* FREEI-4685 
-		*16.0.12* FREEPBX-23238  syntax error 
-		*16.0.11* FREEPBX-23238   Syntax error 
-		*16.0.10* FREEPBX-23089/Fix Variable References for MIXMON calls 
-		*16.0.9* wrap MIXMON_POST, MONITOR_REC_OPTIONS and MONITOR_OPTIONS in EVAL() to properly pass dialplan vars into subsequent steps 
-		*16.0.8* FREEI-3368 Removed hidden input field 'view' from the form 
-		*16.0.7* FREEI-3505 Call Recording priority issue 
-		*16.0.6* Packaging of ver 16.0.6
-		*16.0.5* FREEI-2933 Remove link to recording calls wiki on Inbound routes, other tab 
-		*16.0.4* FREEI-2750 Recording option "Yes" overriding "Never" 
-		*16.0.3* FREEI-2750  extension to extension call recording option 
-		*16.0.2* FREEI-2750 Recording option "Yes" overriding "Never" (Ext to Ext calls) 
-		*16.0.1alpha* 16.0.1 alpha release
+		*17.0.1alpha* 17.0.1 alpha release
 	</changelog>
 	<hooks>
 		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
@@ -60,7 +46,7 @@
 		</bulkhandler>
 	</hooks>
 	<supported>
-		<version>16.0</version>
+		<version>17.0</version>
 	</supported>
 	<depends>
 		<module>core ge 12.0.7</module>
