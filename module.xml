@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>15.0.7.25</version>
+	<version>15.0.7.26</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -37,6 +37,7 @@
   		</table>
 	</database>
 	<changelog>
+		*15.0.7.26* FREEI-5150 randomly the PBX doesn't record calls 
 		*15.0.7.25* FREEI-4685 
 		*15.0.7.24* FREEPBX-23238  syntax error 
 		*15.0.7.23* FREEPBX-23238   Syntax error 
