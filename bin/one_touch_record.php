@@ -259,6 +259,18 @@ if (!$callFileName) {
 	$uniqueid = $matches[0][0].".".$rightuid;
 
 	ot_debug("Initial dest value : $dst");
+	if($dst !="" && substr($dst,0,2) =='98') {
+		// check $dst is an ampuser
+		$onDemand = $astman->database_get("AMPUSER/$dst/recording", "ondemand");
+		if(!$onDemand){
+			$dstn =substr($dst,2);
+			$onDemand = $astman->database_get("AMPUSER/$dstn/recording", "ondemand");
+			if($onDemand != false){
+				ot_debug("Changing $dst to new $dstn");
+				$dst = $dstn;
+			}
+		}
+	}
 	if(empty($dst)){
 		ot_debug("Dest not found");
 		$dst = _("Unknown");
