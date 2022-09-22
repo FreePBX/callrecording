@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-05 08:20+0000\n"
+"POT-Creation-Date: 2022-09-22 06:15+0000\n"
 "PO-Revision-Date: 2018-07-04 11:13+0000\n"
 "Last-Translator: Chavdar Shtiliyanov <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://*/projects/freepbx/callrecording/bg/>\n"
@@ -41,11 +41,7 @@ msgstr "Действия"
 msgid "Add Call Recording"
 msgstr "Добави Запис на Разговор"
 
-#: callrecording.i18n.php:6
-msgid "Applications"
-msgstr "Приложения"
-
-#: callrecording.i18n.php:16
+#: callrecording.i18n.php:8
 msgid ""
 "Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
 "a call is being recorded. If you set this to a positive number value, when a "
@@ -62,16 +58,16 @@ msgstr ""
 "деактивирате просто изчистете въвеждането от това поле или задайте "
 "стойността на 0 и запазете. Стандартно се задава за около 15 секунди"
 
-#: callrecording.i18n.php:12
+#: callrecording.i18n.php:4
 msgid "Beep every n seconds"
 msgstr "Звуков сигнал на всеки n секунди"
 
-#: callrecording.i18n.php:18
+#: callrecording.i18n.php:10
 msgid "Call Record Option"
 msgstr ""
 
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:525 page.callrecording.php:7
+#: callrecording.i18n.php:6 functions.inc.php:34 functions.inc.php:525
+#: page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Запис на Разговор"
 
@@ -104,7 +100,7 @@ msgstr "Направление"
 msgid "Don't Care"
 msgstr "Без Значение"
 
-#: callrecording.i18n.php:20
+#: callrecording.i18n.php:12
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
@@ -135,10 +131,6 @@ msgstr "Имайте предвид, че значението на тези п�
 #: views/form.php:113
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Моля, прочетете Wiki за повече информация относно тези промени."
-
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
-msgstr "Предоставя голяма част от функционалността на запис на разговор."
 
 #: Callrecording.class.php:152
 msgid "Reset"
@@ -174,7 +166,7 @@ msgstr ""
 "Установява запис на разговор за обаждания излизащи през този маршрут. Моля, "
 "прочетете Wiki за повече информация относно тези настройки."
 
-#: bin/one_touch_record.php:271
+#: bin/one_touch_record.php:276
 msgid "Unknown"
 msgstr ""
 
@@ -185,6 +177,12 @@ msgstr "Накъде да се насочват обажданията."
 #: functions.inc.php:536 views/form.php:40
 msgid "Yes"
 msgstr "Да"
+
+#~ msgid "Applications"
+#~ msgstr "Приложения"
+
+#~ msgid "Provides much of the call recording functionality."
+#~ msgstr "Предоставя голяма част от функционалността на запис на разговор."
 
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "Добавяне на Запис на Разговор"
