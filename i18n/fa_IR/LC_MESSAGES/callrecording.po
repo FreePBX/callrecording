@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-19 02:10+0000\n"
+"POT-Creation-Date: 2022-09-22 06:14+0000\n"
 "PO-Revision-Date: 2016-10-08 12:44+0200\n"
 "Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -169,7 +169,7 @@ msgstr ""
 "این تنظیمات نحوه ضبط مکالمه برای تماس هایی که از این مسیر خارج می شوند، را "
 "تعیین می کند. لطفا برای اطلاعات بیشتر به ویکی مراجعه نمایید."
 
-#: bin/one_touch_record.php:264
+#: bin/one_touch_record.php:276
 msgid "Unknown"
 msgstr ""
 
