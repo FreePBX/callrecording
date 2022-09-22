@@ -24,22 +24,15 @@ $bpeer = getVariable($channel, "BRIDGEPEER");
 if(!$dst){
 	$dst = $bpeer;
 }
-if (strpos($dst, '@') !== false) {
-	$dstNum = $dst;
-	$dstValue = explode('@',$dstNum);
-	$dstData = $dstValue[0];
-	if (strpos($dstData, '-') !== false){
-		$dstExp = explode('-',$dstData);
-	}
-	if (strpos($dstData, '/') !== false){
-		$dstExp = explode('/',$dstData);
-	}
-	$dst = trim($dstExp[1]);
 
-}
-if (strpos($dst, '/') !== false){
-	$dstVal = explode('/',$dst);
-	$dst = trim($dstVal[1]);
+$dstExp = getDestinationValue($dst);
+if (!is_numeric($dstExp)) {
+	if (strpos($dst, '/') !== false) {
+		$dstExp = explode('/',$dst);
+	}
+	$dst = trim($dstExp[0]);
+} else {
+	$dst = $dstExp;
 }
 // Set $fromExten to be SOMETHING sane.
 $fromExten = false;
@@ -266,6 +259,18 @@ if (!$callFileName) {
 	$uniqueid = $matches[0][0].".".$rightuid;
 
 	ot_debug("Initial dest value : $dst");
+	if($dst !="" && substr($dst,0,2) =='98') {
+		// check $dst is an ampuser
+		$onDemand = $astman->database_get("AMPUSER/$dst/recording", "ondemand");
+		if(!$onDemand){
+			$dstn =substr($dst,2);
+			$onDemand = $astman->database_get("AMPUSER/$dstn/recording", "ondemand");
+			if($onDemand != false){
+				ot_debug("Changing $dst to new $dstn");
+				$dst = $dstn;
+			}
+		}
+	}
 	if(empty($dst)){
 		ot_debug("Dest not found");
 		$dst = _("Unknown");
@@ -372,5 +377,25 @@ function setVariable($channel = false, $key, $val) {
 	}
 	$astman->SetVar($channel, $key, $val);
 	return true;
+}
+
+function getDestinationValue($dst) {
+	if (strpos($dst, '@') !== false) {
+		$dstNum = $dst;
+		$dstValue = explode('@',$dstNum);
+		$dstData = $dstValue[0];
+		if (strpos($dstData, '-') !== false){
+			$dstExp = explode('-',$dstData);
+		}
+		if (strpos($dstData, '/') !== false){
+			$dstExp = explode('/',$dstData);
+		}
+		$dst = trim($dstExp[1]);
+	}
+	if (strpos($dst, '/') !== false) {
+		$dstVal = explode('/',$dst);
+		$dst = trim($dstVal[1]);
+	}
+	return $dst;
 }
 

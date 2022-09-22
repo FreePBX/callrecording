@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-05 08:20+0000\n"
+"POT-Creation-Date: 2022-09-22 06:15+0000\n"
 "PO-Revision-Date: 2016-12-11 05:38+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -42,11 +42,7 @@ msgstr "Acciones"
 msgid "Add Call Recording"
 msgstr "Agregar Grabación de Llamadas"
 
-#: callrecording.i18n.php:6
-msgid "Applications"
-msgstr "Aplicaciones"
-
-#: callrecording.i18n.php:16
+#: callrecording.i18n.php:8
 msgid ""
 "Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
 "a call is being recorded. If you set this to a positive number value, when a "
@@ -56,16 +52,16 @@ msgid ""
 "or set the value to 0 and save. This is typically set arround 15seconds"
 msgstr ""
 
-#: callrecording.i18n.php:12
+#: callrecording.i18n.php:4
 msgid "Beep every n seconds"
 msgstr "Pitar \"beep\" cada n segundos"
 
-#: callrecording.i18n.php:18
+#: callrecording.i18n.php:10
 msgid "Call Record Option"
 msgstr ""
 
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:525 page.callrecording.php:7
+#: callrecording.i18n.php:6 functions.inc.php:34 functions.inc.php:525
+#: page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Grabación de Llamada"
 
@@ -98,7 +94,7 @@ msgstr "Destino"
 msgid "Don't Care"
 msgstr "No Importa"
 
-#: callrecording.i18n.php:20
+#: callrecording.i18n.php:12
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
@@ -129,10 +125,6 @@ msgstr "Note que el significado de estas opciones ha cambiado."
 #: views/form.php:113
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Por favor lea la wiki para mas información acerca de estos cambios."
-
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
-msgstr "Proporciona mucha de la funcionalidad de grabación de llamadas."
 
 #: Callrecording.class.php:152
 msgid "Reset"
@@ -172,7 +164,7 @@ msgstr ""
 "esta ruta. Por favor lea la wiki para obtener información sobre lo que "
 "significan estos ajustes."
 
-#: bin/one_touch_record.php:271
+#: bin/one_touch_record.php:276
 msgid "Unknown"
 msgstr ""
 
@@ -183,6 +175,12 @@ msgstr "Donde la llamada deberia ser enviada."
 #: functions.inc.php:536 views/form.php:40
 msgid "Yes"
 msgstr "Si"
+
+#~ msgid "Applications"
+#~ msgstr "Aplicaciones"
+
+#~ msgid "Provides much of the call recording functionality."
+#~ msgstr "Proporciona mucha de la funcionalidad de grabación de llamadas."
 
 #~ msgid ""
 #~ "Asterisk 13.2 and higher supports the ability to play a regular 'beep' "

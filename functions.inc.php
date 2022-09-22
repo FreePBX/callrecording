@@ -208,7 +208,7 @@ function callrecording_get_config($engine) {
 			$ext->add($context, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
 		}
 		$ext->add($context, $exten, '', new ext_set('__CALLFILENAME','${ARG2}-${ARG3}-${FROMEXTEN}-${TIMESTR}-${UNIQUEID}'));
-		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','a${EVAL(${MONITOR_REC_OPTION})}i(LOCAL_MIXMON_ID)${MIXMON_BEEP}','${EVAL(${MIXMON_POST})}'));
+		$ext->add($context, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','a${MONITOR_REC_OPTION}i(${LOCAL_MIXMON_ID})${MIXMON_BEEP}','${MIXMON_POST}'));
 		$ext->add($context, $exten, '', new ext_set('__MIXMON_ID', '${LOCAL_MIXMON_ID}'));
 		$ext->add($context, $exten, '', new ext_set('__RECORD_ID', '${CHANNEL(name)}'));
 		$ext->add($context, $exten, '', new ext_set('__REC_STATUS','RECORDING'));
@@ -519,8 +519,8 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 		$html .= '<div class="element-container">';
 		$html .= '<div class="row">';
 		$html .= '<div class="col-md-12">';
-		$html .= '<div class="">';
-		$html .= '<div class="row form-group">';
+		$html .= '<div class="row">';
+		$html .= '<div class="form-group">';
 		$html .= '<div class="col-md-3">';
 		$html .= '<label class="control-label" for="crwrapper">'. _("Call Recording") .'</label>';
 		$html .= '<i class="fa fa-question-circle fpbx-help-icon" data-for="crwrapper"></i>';

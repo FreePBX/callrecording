@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-11 12:41+0000\n"
+"POT-Creation-Date: 2022-09-22 06:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,11 +40,7 @@ msgstr ""
 msgid "Add Call Recording"
 msgstr ""
 
-#: callrecording.i18n.php:6
-msgid "Applications"
-msgstr ""
-
-#: callrecording.i18n.php:16
+#: callrecording.i18n.php:8
 msgid ""
 "Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
 "a call is being recorded. If you set this to a positive number value, when a "
@@ -54,17 +50,15 @@ msgid ""
 "or set the value to 0 and save. This is typically set arround 15seconds"
 msgstr ""
 
-#: callrecording.i18n.php:12
+#: callrecording.i18n.php:4
 msgid "Beep every n seconds"
 msgstr ""
 
-#: callrecording.i18n.php:18
+#: callrecording.i18n.php:10
 msgid "Call Record Option"
 msgstr ""
 
-#: callrecording.i18n.php:4
-#: callrecording.i18n.php:10
-#: callrecording.i18n.php:14
+#: callrecording.i18n.php:6
 #: functions.inc.php:34
 #: functions.inc.php:525
 #: page.callrecording.php:7
@@ -104,7 +98,7 @@ msgstr ""
 msgid "Don't Care"
 msgstr ""
 
-#: callrecording.i18n.php:20
+#: callrecording.i18n.php:12
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
@@ -139,10 +133,6 @@ msgstr ""
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
-msgstr ""
-
 #: Callrecording.class.php:152
 msgid "Reset"
 msgstr ""
@@ -173,7 +163,7 @@ msgid ""
 "read the wiki for information on what these settings mean."
 msgstr ""
 
-#: bin/one_touch_record.php:271
+#: bin/one_touch_record.php:276
 msgid "Unknown"
 msgstr ""
 
