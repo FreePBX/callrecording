@@ -325,7 +325,7 @@ $beep = getVariable($channel, 'MIXMON_BEEP');
 //We originally removed this as we moved to handling mix monitor through dialplan in FREEPBX-14292 however
 // if this is called elsewhere it causes an issue, so try to account for other people using this script
 $currentContext = getVariable($channel, 'CONTEXT');
-if ($currentContext != 'macro-one-touch-record' || $currentContext != 'sub-one-touch-record') {
+if ($currentContext != 'macro-one-touch-record') {
 	$astman->mixmonitor($masterChannel, "{$mixMonDir}{$year}/{$month}/{$day}/{$callFileName}.{$mixMonFormat}", "ai(LOCAL_MIXMON_ID)$beep", $mixMonPost, rand());
 }
 $mixmonid = getVariable($channel, "LOCAL_MIXMON_ID");

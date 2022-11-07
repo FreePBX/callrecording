@@ -9,7 +9,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
  * - Add outbound routes force recording (see pinssets for example similar code
  * - Move Extension Recording sections from core to here and add as hook
  *   see languages for similar code to implement
- * - Move the common gosubs from core to here
+ * - Move the common macros from core to here
  * - Make functionality in other modules conditional on this stuff being here or if not
  *   overly complex, maybe move some of their functionality into hooks provdied from here
  */
@@ -376,7 +376,6 @@ function callrecording_get_config($engine) {
 		$context = 'macro-one-touch-record';
 		$exten = 's';
 
-		$ext->add($context, $exten, '', new ext_gosub('1','s','deprecated-macro', $context));
 		$ext->add($context, $exten, '', new ext_set('ONETOUCH_REC_SCRIPT_STATUS', ''));
 		$ext->add($context, $exten, '', new ext_system('${AMPBIN}/one_touch_record.php "${CHANNEL(name)}"'));
 		$ext->add($context, $exten, '', new ext_noop('ONETOUCH_REC_SCRIPT_STATUS: [${ONETOUCH_REC_SCRIPT_STATUS}]'));
@@ -390,26 +389,6 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="RECORDING"]','Playback','beep'));
 		$ext->add($context, $exten, 'denied', new ext_execif('$["${ONETOUCH_REC_SCRIPT_STATUS:0:6}"="DENIED"]','Playback','access-denied'));
 		$ext->add($context, $exten, 'end', new ext_macroexit());
-
-
-		/* sub-one-touch-record */
-
-		$context = 'sub-one-touch-record';
-		$exten = 's';
-
-		$ext->add($context, $exten, '', new ext_set('ONETOUCH_REC_SCRIPT_STATUS', ''));
-		$ext->add($context, $exten, '', new ext_system('${AMPBIN}/one_touch_record.php "${CHANNEL(name)}"'));
-		$ext->add($context, $exten, '', new ext_noop('ONETOUCH_REC_SCRIPT_STATUS: [${ONETOUCH_REC_SCRIPT_STATUS}]'));
-		$ext->add($context, $exten, '', new ext_noop('REC_STATUS: [${REC_STATUS}]'));
-		$ext->add($context, $exten, '', new ext_noop_trace('ONETOUCH_RECFILE: [${ONETOUCH_RECFILE}] CDR(recordingfile): [${CDR(recordingfile)}]'));
-		$ext->add($context, $exten, '', new ext_gotoif('$["${ONETOUCH_REC_SCRIPT_STATUS:0:6}"="DENIED"]','denied'));
-		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="STOPPED"]','Playback','beep&beep'));
-		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"="STOPPED"]','end'));
-		$ext->add($context, $exten, '', new ext_gotoif('$["${REC_STATUS}"="RECORDING"]','startrec'));
-		$ext->add($context, $exten, 'startrec', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MON_FMT}','ai(LOCAL_MIXMON_ID)${MIXMON_BEEP}','${EVAL(${MIXMON_POST})}'));
-		$ext->add($context, $exten, '', new ext_execif('$["${REC_STATUS}"="RECORDING"]','Playback','beep'));
-		$ext->add($context, $exten, 'denied', new ext_execif('$["${ONETOUCH_REC_SCRIPT_STATUS:0:6}"="DENIED"]','Playback','access-denied'));
-		$ext->add($context, $exten, 'end', new ext_return());
 
 
 	}
@@ -466,14 +445,14 @@ function callrecording_hookGet_config($engine) {
 	}
 
 	// Add in call recording checks for Parking, if it exists.
-	$ext->splice('sub-parked-call', 's', 1, new ext_gosub('1','s','sub-record-check','parking,${AMPUSER},${AMPUSER}'));
+	$ext->splice('macro-parked-call', 's', 1, new ext_gosub('1','s','sub-record-check','parking,${AMPUSER},${AMPUSER}'));
 
 	// Bugfix for Asterisk 11 - CDR(recordingfile) is getting lost when it's added in one-touch-record.
 	// See https://issues.asterisk.org/jira/browse/ASTERISK-19853
 	$ast_info = engine_getinfo();
 	$astver = $ast_info["version"];
 	if (version_compare($astver, '12', 'lt')) {
-		$ext->splice("sub-hangupcall", 's', 0, new ext_execif('$["${CALLFILENAME}"!="" & "${CDR(recordingfile)}"=""]','Set','CDR(recordingfile)=${CALLFILENAME}.${MON_FMT}'));
+		$ext->splice("macro-hangupcall", 's', 0, new ext_execif('$["${CALLFILENAME}"!="" & "${CDR(recordingfile)}"=""]','Set','CDR(recordingfile)=${CALLFILENAME}.${MON_FMT}'));
 	}
 }
 
