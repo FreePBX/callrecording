@@ -120,7 +120,6 @@ function callrecording_get_config($engine) {
 		$exten = 's';
 		$ext->add($context, $exten, '', new ext_return(''));
 
-
 		/*
 		; ARG1: type
 		;       exten, out, rg, q, conf
@@ -128,7 +127,6 @@ function callrecording_get_config($engine) {
 		; ARG3: action (if we know it)
 		;       force (== always), yes, dontcare, no, never
 		*/
-
 
 		$context = 'sub-record-check';
 		$exten = 's';
@@ -147,7 +145,9 @@ function callrecording_get_config($engine) {
 		// as anything windows based), so don't use GSM encoded wavs in that case.
 		$ext->add($context, $exten, '', new ext_set('__MON_FMT','${IF($["${MIXMON_FORMAT}"="wav49"]?WAV:${MIXMON_FORMAT})}'));
 		$ext->add($context, $exten, 'initialized', new ext_noop('Recordings initialized'));
-
+		// https://issues.freepbx.org/browse/FREEI-5402 Call Recording after transfer
+		$ext->add($context, $exten, '', new ext_execif('$["${DEXTEN}" != ""]', 'StopMixMonitor', ''));
+		
 		$ext->add($context, $exten, '', new ext_execif('$[!${LEN(${ARG3})}]', 'Set', 'ARG3=dontcare')); // Make sure we have a recording request.
 
 		// Backup our current setting, just in case we need to roll back to it.
