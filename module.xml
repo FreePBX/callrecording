@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>15.0.7.28</version>
+	<version>15.0.7.29</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -37,6 +37,7 @@
   		</table>
 	</database>
 	<changelog>
+		*15.0.7.29* FREEI-5848 FREEI-5574 
 		*15.0.7.28* SCD-327 
 		*15.0.7.27* SCD-327 
 		*15.0.7.26* FREEI-5150 randomly the PBX doesn't record calls 

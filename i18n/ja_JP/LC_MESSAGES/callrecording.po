@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-22 06:14+0000\n"
+"POT-Creation-Date: 2023-04-13 07:45+0000\n"
 "PO-Revision-Date: 2015-10-27 12:57+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -93,7 +93,7 @@ msgid "Call Record Option"
 msgstr ""
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:525 page.callrecording.php:7
+#: functions.inc.php:34 functions.inc.php:527 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "通話録音"
 
@@ -101,7 +101,7 @@ msgstr "通話録音"
 msgid "Call Recording Mode"
 msgstr "通話録音モード"
 
-#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:691
+#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:693
 #, php-format
 msgid "Call Recording: %s"
 msgstr "通話録音： %s"
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Destination"
 msgstr "宛先"
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "Don't Care"
 msgstr "無視"
 
@@ -130,7 +130,7 @@ msgstr "無視"
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "Force"
 msgstr "強制"
 
@@ -142,11 +142,11 @@ msgstr "無効な説明が入力されました"
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "Never"
 msgstr "ブロック"
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "No"
 msgstr "いいえ"
 
@@ -180,13 +180,13 @@ msgid ""
 "Main IVR\""
 msgstr "この通話録音インスタンスを説明する名前。例えば「日本語メインIVR」など"
 
-#: functions.inc.php:504
+#: functions.inc.php:506
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
 
-#: functions.inc.php:512
+#: functions.inc.php:514
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -200,7 +200,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "Yes"
 msgstr "はい"
 
