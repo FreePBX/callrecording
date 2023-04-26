@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-22 06:15+0000\n"
+"POT-Creation-Date: 2023-04-13 07:47+0000\n"
 "PO-Revision-Date: 2017-05-17 02:01+0200\n"
 "Last-Translator: Evgeniy <yen81@mail.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -41,7 +41,11 @@ msgstr "Действия"
 msgid "Add Call Recording"
 msgstr "Добавить запись"
 
-#: callrecording.i18n.php:8
+#: callrecording.i18n.php:6
+msgid "Applications"
+msgstr "Приложения"
+
+#: callrecording.i18n.php:16
 msgid ""
 "Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
 "a call is being recorded. If you set this to a positive number value, when a "
@@ -51,16 +55,16 @@ msgid ""
 "or set the value to 0 and save. This is typically set arround 15seconds"
 msgstr ""
 
-#: callrecording.i18n.php:4
+#: callrecording.i18n.php:12
 msgid "Beep every n seconds"
 msgstr "Бип каждые n секунд"
 
-#: callrecording.i18n.php:10
+#: callrecording.i18n.php:18
 msgid "Call Record Option"
 msgstr ""
 
-#: callrecording.i18n.php:6 functions.inc.php:34 functions.inc.php:525
-#: page.callrecording.php:7
+#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
+#: functions.inc.php:34 functions.inc.php:527 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Запись вызова"
 
@@ -68,7 +72,7 @@ msgstr "Запись вызова"
 msgid "Call Recording Mode"
 msgstr "Режим записи разговоров"
 
-#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:691
+#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:693
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Запись разговора: %s"
@@ -89,15 +93,15 @@ msgstr ""
 msgid "Destination"
 msgstr "Назначение"
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "Don't Care"
 msgstr "Не обращать внимание"
 
-#: callrecording.i18n.php:12
+#: callrecording.i18n.php:20
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "Force"
 msgstr "Запустить"
 
@@ -109,11 +113,11 @@ msgstr "Указано неверное описание"
 msgid "List Call Recordings"
 msgstr "Список записей"
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "Never"
 msgstr "Никогда"
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "No"
 msgstr "Нет"
 
@@ -126,6 +130,10 @@ msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 "Пожалуйста, прочтите Wiki для получения подробной информации об этих "
 "изменениях."
+
+#: callrecording.i18n.php:8
+msgid "Provides much of the call recording functionality."
+msgstr "Предоставляет большую часть функционала записи разговоров."
 
 #: Callrecording.class.php:152
 msgid "Reset"
@@ -145,7 +153,7 @@ msgid ""
 "Main IVR\""
 msgstr "Наглядное имя этой записи. Например 'Главное меню на русском языке'"
 
-#: functions.inc.php:504
+#: functions.inc.php:506
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -154,7 +162,7 @@ msgstr ""
 "Пожалуйста, прочтите Wiki для получения информации о том, что означают эти "
 "параметры."
 
-#: functions.inc.php:512
+#: functions.inc.php:514
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -170,15 +178,9 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr "Куда посылается этот вызов."
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "Yes"
 msgstr "Да"
-
-#~ msgid "Applications"
-#~ msgstr "Приложения"
-
-#~ msgid "Provides much of the call recording functionality."
-#~ msgstr "Предоставляет большую часть функционала записи разговоров."
 
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "Добавить запись"

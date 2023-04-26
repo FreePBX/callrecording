@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-22 06:15+0000\n"
+"POT-Creation-Date: 2023-04-13 07:47+0000\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -42,7 +42,11 @@ msgstr "Ações"
 msgid "Add Call Recording"
 msgstr "Adicionar Gravação de Chamadas"
 
-#: callrecording.i18n.php:8
+#: callrecording.i18n.php:6
+msgid "Applications"
+msgstr "Aplicações"
+
+#: callrecording.i18n.php:16
 msgid ""
 "Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
 "a call is being recorded. If you set this to a positive number value, when a "
@@ -59,16 +63,16 @@ msgstr ""
 "desabilitar, simplesmente limpe o valor desta caixa ou configure como 0 e "
 "salve. Isto é normalmente configurado em 15 segundos"
 
-#: callrecording.i18n.php:4
+#: callrecording.i18n.php:12
 msgid "Beep every n seconds"
 msgstr "\"Bip\" a cada \"n\" segundos"
 
-#: callrecording.i18n.php:10
+#: callrecording.i18n.php:18
 msgid "Call Record Option"
 msgstr ""
 
-#: callrecording.i18n.php:6 functions.inc.php:34 functions.inc.php:525
-#: page.callrecording.php:7
+#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
+#: functions.inc.php:34 functions.inc.php:527 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Gravação de Chamadas"
 
@@ -76,7 +80,7 @@ msgstr "Gravação de Chamadas"
 msgid "Call Recording Mode"
 msgstr "Modo de Gravação de Chamadas"
 
-#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:691
+#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:693
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Gravação de Chamada: %s"
@@ -97,15 +101,15 @@ msgstr ""
 msgid "Destination"
 msgstr "Destino"
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "Don't Care"
 msgstr "Não se Importe"
 
-#: callrecording.i18n.php:12
+#: callrecording.i18n.php:20
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "Force"
 msgstr "Forçar"
 
@@ -117,11 +121,11 @@ msgstr "Descrição especificada inválida"
 msgid "List Call Recordings"
 msgstr "Lista de Gravações de Chamadas"
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "Never"
 msgstr "Nunca"
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "No"
 msgstr "Não"
 
@@ -132,6 +136,10 @@ msgstr "Observe que o significado dessas opções foi alterado."
 #: views/form.php:113
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Por favor, leia o wiki para mais informações sobre essas mudanças."
+
+#: callrecording.i18n.php:8
+msgid "Provides much of the call recording functionality."
+msgstr "Fornece grande parte da funcionalidade de gravação de chamadas."
 
 #: Callrecording.class.php:152
 msgid "Reset"
@@ -153,7 +161,7 @@ msgstr ""
 "Descrição desta instância de gravação de chamadas. Por exemplo, \"URA "
 "principal em Português-BR\""
 
-#: functions.inc.php:504
+#: functions.inc.php:506
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -162,7 +170,7 @@ msgstr ""
 "neste DID. Leia o wiki para obter informações sobre o que essas "
 "configurações significam."
 
-#: functions.inc.php:512
+#: functions.inc.php:514
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -179,15 +187,9 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr "Para onde a chamada deve ser enviada."
 
-#: functions.inc.php:536 views/form.php:40
+#: functions.inc.php:538 views/form.php:40
 msgid "Yes"
 msgstr "Sim"
-
-#~ msgid "Applications"
-#~ msgstr "Aplicações"
-
-#~ msgid "Provides much of the call recording functionality."
-#~ msgstr "Fornece grande parte da funcionalidade de gravação de chamadas."
 
 #~ msgid ""
 #~ "Asterisk 13.2 and higher supports the ability to play a regular 'beep' "
