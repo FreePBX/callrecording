@@ -1,6 +1,7 @@
 <?php
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
 //	Copyright 2015 Sangoma Technologies.
+$arows = '';
 foreach (callrecording_list() as $row) {
 	$arows .= '<tr><td>';
 	$arows .= $row['description'];

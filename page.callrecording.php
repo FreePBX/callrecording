@@ -6,7 +6,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 $request = $_REQUEST;
 $heading = _("Call Recording");
 //get unique queues
-switch($_GET["view"]){
+switch ($_GET["view"] ?? "") {
 	case "form":
 		if($request['extdisplay']){
 			$heading .= _(": Edit");
