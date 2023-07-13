@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-13 07:47+0000\n"
+"POT-Creation-Date: 2023-07-13 12:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -31,11 +31,11 @@ msgstr ""
 msgid ": Edit"
 msgstr ""
 
-#: views/grid.php:23
+#: views/grid.php:24
 msgid "Actions"
 msgstr ""
 
-#: views/bootnav.php:7 views/grid.php:17
+#: views/bootnav.php:7 views/grid.php:18
 msgid "Add Call Recording"
 msgstr ""
 
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Call Recording"
 msgstr ""
 
-#: views/form.php:101
+#: views/form.php:102
 msgid "Call Recording Mode"
 msgstr ""
 
@@ -79,7 +79,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: views/form.php:72 views/grid.php:22
+#: views/form.php:73 views/grid.php:23
 msgid "Description"
 msgstr ""
 
@@ -87,11 +87,11 @@ msgstr ""
 msgid "Description name already exists "
 msgstr ""
 
-#: views/form.php:125
+#: views/form.php:126
 msgid "Destination"
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Don't Care"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Force"
 msgstr ""
 
@@ -111,19 +111,19 @@ msgstr ""
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Never"
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "No"
 msgstr ""
 
-#: views/form.php:91
+#: views/form.php:92
 msgid "Note that the meaning of these options has changed."
 msgstr ""
 
-#: views/form.php:113
+#: views/form.php:114
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: views/form.php:84
+#: views/form.php:85
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
@@ -165,10 +165,10 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: views/form.php:137
+#: views/form.php:138
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Yes"
 msgstr ""

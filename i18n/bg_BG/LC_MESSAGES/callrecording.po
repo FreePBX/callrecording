@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-13 07:47+0000\n"
+"POT-Creation-Date: 2023-07-13 12:13+0000\n"
 "PO-Revision-Date: 2018-07-04 11:13+0000\n"
 "Last-Translator: Chavdar Shtiliyanov <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://*/projects/freepbx/callrecording/bg/>\n"
@@ -33,11 +33,11 @@ msgstr ": Добавяне"
 msgid ": Edit"
 msgstr ": Редактиране"
 
-#: views/grid.php:23
+#: views/grid.php:24
 msgid "Actions"
 msgstr "Действия"
 
-#: views/bootnav.php:7 views/grid.php:17
+#: views/bootnav.php:7 views/grid.php:18
 msgid "Add Call Recording"
 msgstr "Добави Запис на Разговор"
 
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Call Recording"
 msgstr "Запис на Разговор"
 
-#: views/form.php:101
+#: views/form.php:102
 msgid "Call Recording Mode"
 msgstr "Режим на Запис на Разговор"
 
@@ -88,7 +88,7 @@ msgstr "Запис на Разговор: %s"
 msgid "Delete"
 msgstr "Изтрий"
 
-#: views/form.php:72 views/grid.php:22
+#: views/form.php:73 views/grid.php:23
 msgid "Description"
 msgstr "Описание"
 
@@ -96,11 +96,11 @@ msgstr "Описание"
 msgid "Description name already exists "
 msgstr ""
 
-#: views/form.php:125
+#: views/form.php:126
 msgid "Destination"
 msgstr "Направление"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Don't Care"
 msgstr "Без Значение"
 
@@ -108,7 +108,7 @@ msgstr "Без Значение"
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Force"
 msgstr "Винаги"
 
@@ -120,19 +120,19 @@ msgstr "Въведено е неправилно описание"
 msgid "List Call Recordings"
 msgstr "Списък със Записи на Разговори"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Never"
 msgstr "Никога"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "No"
 msgstr "Не"
 
-#: views/form.php:91
+#: views/form.php:92
 msgid "Note that the meaning of these options has changed."
 msgstr "Имайте предвид, че значението на тези параметри е променено."
 
-#: views/form.php:113
+#: views/form.php:114
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Моля, прочетете Wiki за повече информация относно тези промени."
 
@@ -152,7 +152,7 @@ msgstr "Правило"
 msgid "Submit"
 msgstr "Приеми"
 
-#: views/form.php:84
+#: views/form.php:85
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
@@ -178,11 +178,11 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: views/form.php:137
+#: views/form.php:138
 msgid "Where should the call be sent."
 msgstr "Накъде да се насочват обажданията."
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Yes"
 msgstr "Да"
 

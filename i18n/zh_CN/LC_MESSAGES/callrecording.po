@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-13 07:47+0000\n"
+"POT-Creation-Date: 2023-07-13 12:13+0000\n"
 "PO-Revision-Date: 2018-03-14 14:52+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -34,11 +34,11 @@ msgstr ""
 msgid ": Edit"
 msgstr ""
 
-#: views/grid.php:23
+#: views/grid.php:24
 msgid "Actions"
 msgstr "操作"
 
-#: views/bootnav.php:7 views/grid.php:17
+#: views/bootnav.php:7 views/grid.php:18
 msgid "Add Call Recording"
 msgstr "添加呼叫录音"
 
@@ -69,7 +69,7 @@ msgstr ""
 msgid "Call Recording"
 msgstr "呼叫录音"
 
-#: views/form.php:101
+#: views/form.php:102
 msgid "Call Recording Mode"
 msgstr "录音模式"
 
@@ -82,7 +82,7 @@ msgstr "呼叫录音: %s"
 msgid "Delete"
 msgstr "删除"
 
-#: views/form.php:72 views/grid.php:22
+#: views/form.php:73 views/grid.php:23
 msgid "Description"
 msgstr "描述"
 
@@ -90,11 +90,11 @@ msgstr "描述"
 msgid "Description name already exists "
 msgstr ""
 
-#: views/form.php:125
+#: views/form.php:126
 msgid "Destination"
 msgstr "目的地"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Don't Care"
 msgstr "不关心"
 
@@ -102,7 +102,7 @@ msgstr "不关心"
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Force"
 msgstr "强制"
 
@@ -114,19 +114,19 @@ msgstr "指定了无效的描述"
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Never"
 msgstr "从不录音"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "No"
 msgstr "否"
 
-#: views/form.php:91
+#: views/form.php:92
 msgid "Note that the meaning of these options has changed."
 msgstr "注意，这些选项含义已经修改。"
 
-#: views/form.php:113
+#: views/form.php:114
 msgid "Please read the wiki for futher information on these changes."
 msgstr "请阅读官方wiki获得完整信息"
 
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Submit"
 msgstr "提交"
 
-#: views/form.php:84
+#: views/form.php:85
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
@@ -168,11 +168,11 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: views/form.php:137
+#: views/form.php:138
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Yes"
 msgstr "是"
 

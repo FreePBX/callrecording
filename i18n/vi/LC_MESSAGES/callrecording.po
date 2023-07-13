@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-13 07:47+0000\n"
+"POT-Creation-Date: 2023-07-13 12:13+0000\n"
 "PO-Revision-Date: 2017-09-02 09:02+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -34,11 +34,11 @@ msgstr ":Thêm"
 msgid ": Edit"
 msgstr ": Chỉnh sửa"
 
-#: views/grid.php:23
+#: views/grid.php:24
 msgid "Actions"
 msgstr "Các thao tác"
 
-#: views/bootnav.php:7 views/grid.php:17
+#: views/bootnav.php:7 views/grid.php:18
 msgid "Add Call Recording"
 msgstr "Thêm Ghi âm cuộc gọi"
 
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Call Recording"
 msgstr "Bản ghi cuộc gọi"
 
-#: views/form.php:101
+#: views/form.php:102
 msgid "Call Recording Mode"
 msgstr "Chế độ ghi âm cuộc gọi"
 
@@ -89,7 +89,7 @@ msgstr "Ghi âm cuộc gọi: %s"
 msgid "Delete"
 msgstr "Xóa"
 
-#: views/form.php:72 views/grid.php:22
+#: views/form.php:73 views/grid.php:23
 msgid "Description"
 msgstr "Mô tả"
 
@@ -97,11 +97,11 @@ msgstr "Mô tả"
 msgid "Description name already exists "
 msgstr ""
 
-#: views/form.php:125
+#: views/form.php:126
 msgid "Destination"
 msgstr "Điểm đích"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Don't Care"
 msgstr "Không quan tâm"
 
@@ -109,7 +109,7 @@ msgstr "Không quan tâm"
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Force"
 msgstr "Bắt buộc"
 
@@ -121,19 +121,19 @@ msgstr "Mô tả không hợp lệ được xác định"
 msgid "List Call Recordings"
 msgstr "Danh sách các ghi âm cuộc gọi"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Never"
 msgstr "Không bao giờ"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "No"
 msgstr "Không"
 
-#: views/form.php:91
+#: views/form.php:92
 msgid "Note that the meaning of these options has changed."
 msgstr "Lưu ý rằng ý nghĩa của các vị trí này vừa được thay đổi."
 
-#: views/form.php:113
+#: views/form.php:114
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Vui lòng đọc wiki để biết thêm thông tin về những thay đổi này."
 
@@ -153,7 +153,7 @@ msgstr "Nguyên tắc"
 msgid "Submit"
 msgstr "Gửi đi"
 
-#: views/form.php:84
+#: views/form.php:85
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
@@ -180,10 +180,10 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: views/form.php:137
+#: views/form.php:138
 msgid "Where should the call be sent."
 msgstr "Cuộc gọi nên được gửi đến đâu."
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:538 views/form.php:41
 msgid "Yes"
 msgstr "Có"
