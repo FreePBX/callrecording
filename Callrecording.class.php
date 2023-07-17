@@ -16,7 +16,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
     public function uninstall() {}
 
 	public static function myConfigPageInits() {
-		 return array("routing");
+		 return ["routing"];
 	}
     public function doConfigPageInit($page) {
 		$request = $_REQUEST;
@@ -50,14 +50,14 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 			}
 		}
 		if($page == "routing"){
-			$viewing_itemid = isset($request['id'])?$request['id']:'';
-			$action = (isset($request['action']))?$request['action']:null;
+			$viewing_itemid = $request['id'] ?? '';
+			$action = $request['action'] ?? null;
 			$route_id = $viewing_itemid;
 			if (isset($request['Submit']) ) {
-				$action = (isset($action))?$action:'editroute';
+				$action ??= 'editroute';
 			}
 			if ($action){
-				callrecording_adjustroute($route_id,$action,$request['callrecording']);
+				callrecording_adjustroute($route_id,$action,$request['callrecording'] ?? '');
 			}
 		}
 	}
@@ -77,7 +77,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 	public function add($description, $callrecording_mode, $dest){
 		$sql = "SELECT * FROM callrecording WHERE description = :description";
 		$stm = $this->db->prepare($sql);
-		$stm->execute(array(":description" => $description));
+		$stm->execute([":description" => $description]);
 		$ret = $stm->fetch(\PDO::FETCH_ASSOC);
 		if(empty($ret["description"])){
 			$sql = "INSERT INTO callrecording (description, callrecording_mode, dest) VALUES (:description, :mode, :dest)";
@@ -136,27 +136,12 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 	}
 
 	public function getActionBar($request) {
-		$buttons = array();
+		$buttons = [];
+  $buttons = [];
 
 		switch($request['display']) {
 			case 'callrecording':
-				$buttons = array(
-					'delete' => array(
-						'name' => 'delete',
-						'id' => 'delete',
-						'value' => _('Delete')
-					),
-					'reset' => array(
-						'name' => 'reset',
-						'id' => 'reset',
-						'value' => _('Reset')
-					),
-					'submit' => array(
-						'name' => 'submit',
-						'id' => 'submit',
-						'value' => _('Submit')
-					)
-				);
+				$buttons = ['delete' => ['name' => 'delete', 'id' => 'delete', 'value' => _('Delete')], 'reset' => ['name' => 'reset', 'id' => 'reset', 'value' => _('Reset')], 'submit' => ['name' => 'submit', 'id' => 'submit', 'value' => _('Submit')]];
 				if (empty($request['extdisplay'])) {
 					unset($buttons['delete']);
 				}
@@ -169,7 +154,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 	}
 	public function getRightNav($request){
 		if($request['view']=='form'){
-    	return load_view(__DIR__."/views/bootnav.php",array('request' => $request));
+    	return load_view(__DIR__."/views/bootnav.php",['request' => $request]);
 		}
 	}
 
@@ -185,7 +170,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute();
 		$results = $stmt->fetchall(\PDO::FETCH_ASSOC);
-		$res = array();
+		$res = [];
 		if(is_array($results)) {
 			foreach($results as $r) {
 				if($r['callrecording_id'] != $id) {
@@ -209,7 +194,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 	public function search($query, &$results) {
 		$rules = $this->listAll();
 		foreach ($rules as $rule) {
-			$results[] = array("text" => sprintf(_("Call Recording: %s"),$rule['description']), "type" => "get", "dest" => "?display=callrecording&view=form&extdisplay=".$rule['callrecording_id']);
+			$results[] = ["text" => sprintf(_("Call Recording: %s"),$rule['description']), "type" => "get", "dest" => "?display=callrecording&view=form&extdisplay=".$rule['callrecording_id']];
 		}
 	}
 
@@ -218,19 +203,15 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 	    switch ($type) {
 	        case "dids":
 	            $dids = $this->FreePBX->Core->getAllDIDs();
-	            $data = array();
+	            $data = [];
 	            $this->FreePBX->Modules->loadFunctionsInc("callrecording");
 	            foreach($dids as $did) {
 	                $key = $did['extension']."/".$did["cidnum"];
 	                $call_rec = callrecording_display_get('did', $did['extension'], $did["cidnum"]);
 	                if(!empty($call_rec)) {
-	                    $data[$key] = array(
-	                            "callrecording" => $call_rec
-	                    );
+	                    $data[$key] = ["callrecording" => $call_rec];
 	                } else {
-	                    $data[$key] = array(
-	                            "callrecording" => 'dontcare'
-	                    );
+	                    $data[$key] = ["callrecording" => 'dontcare'];
 	                }
 	            }
 	            break;
@@ -243,7 +224,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 	        case 'dids':
 	            $this->FreePBX->Modules->loadFunctionsInc("callrecording");
 	            foreach ($rawData as $data) {
-                    $data['callrecording'] = isset($data['callrecording'])?$data['callrecording']:'dontcare';
+                    $data['callrecording'] ??= 'dontcare';
 	                callrecording_display_update('did', $data['callrecording'], $data['extension'], $data["cidnum"]);
 	            }
 	            break;
