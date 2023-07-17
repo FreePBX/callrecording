@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 12:13+0000\n"
+"POT-Creation-Date: 2023-07-17 09:49+0000\n"
 "PO-Revision-Date: 2017-05-17 02:01+0200\n"
 "Last-Translator: Evgeniy <yen81@mail.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -72,12 +72,12 @@ msgstr "Запись вызова"
 msgid "Call Recording Mode"
 msgstr "Режим записи разговоров"
 
-#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:693
+#: Callrecording.class.php:197 functions.inc.php:56 functions.inc.php:693
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Запись разговора: %s"
 
-#: Callrecording.class.php:147
+#: Callrecording.class.php:144
 msgid "Delete"
 msgstr "Удалить"
 
@@ -135,7 +135,7 @@ msgstr ""
 msgid "Provides much of the call recording functionality."
 msgstr "Предоставляет большую часть функционала записи разговоров."
 
-#: Callrecording.class.php:152
+#: Callrecording.class.php:144
 msgid "Reset"
 msgstr "Сброс"
 
@@ -143,7 +143,7 @@ msgstr "Сброс"
 msgid "Rule"
 msgstr "Правило"
 
-#: Callrecording.class.php:157
+#: Callrecording.class.php:144
 msgid "Submit"
 msgstr "Сохранить"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 12:13+0000\n"
+"POT-Creation-Date: 2023-07-17 09:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,14 +75,14 @@ msgstr ""
 msgid "Call Recording Mode"
 msgstr ""
 
-#: Callrecording.class.php:212
+#: Callrecording.class.php:197
 #: functions.inc.php:56
 #: functions.inc.php:693
 #, php-format
 msgid "Call Recording: %s"
 msgstr ""
 
-#: Callrecording.class.php:147
+#: Callrecording.class.php:144
 msgid "Delete"
 msgstr ""
 
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Provides much of the call recording functionality."
 msgstr ""
 
-#: Callrecording.class.php:152
+#: Callrecording.class.php:144
 msgid "Reset"
 msgstr ""
 
@@ -151,7 +151,7 @@ msgstr ""
 msgid "Rule"
 msgstr ""
 
-#: Callrecording.class.php:157
+#: Callrecording.class.php:144
 msgid "Submit"
 msgstr ""
 
