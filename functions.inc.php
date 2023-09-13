@@ -542,7 +542,7 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 			} else {
 				$checked = "";
 			}
-			$html .= "<input type='radio' id='record_${name}' name='callrecording' value='$name' $checked><label for='record_${name}'>$disp</label>";
+			$html .= "<input type='radio' id='record_{$name}' name='callrecording' value='$name' $checked><label for='record_{$name}'>$disp</label>";
 		}
 		$html .= '</div>';
 		$html .= '</div>';
