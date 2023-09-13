@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 09:49+0000\n"
+"POT-Creation-Date: 2023-09-13 05:33+0000\n"
 "PO-Revision-Date: 2017-05-17 02:01+0200\n"
 "Last-Translator: Evgeniy <yen81@mail.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -41,29 +41,6 @@ msgstr "Действия"
 msgid "Add Call Recording"
 msgstr "Добавить запись"
 
-#: callrecording.i18n.php:6
-msgid "Applications"
-msgstr "Приложения"
-
-#: callrecording.i18n.php:16
-msgid ""
-"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
-"a call is being recorded. If you set this to a positive number value, when a "
-"call is being actively recorded, both parties will hear a 'beep' every "
-"period that you select. If you are not running Asterisk 13.2 or higher, this "
-"setting will have no effect. To disable simply clear the value of this box "
-"or set the value to 0 and save. This is typically set arround 15seconds"
-msgstr ""
-
-#: callrecording.i18n.php:12
-msgid "Beep every n seconds"
-msgstr "Бип каждые n секунд"
-
-#: callrecording.i18n.php:18
-msgid "Call Record Option"
-msgstr ""
-
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
 #: functions.inc.php:34 functions.inc.php:527 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Запись вызова"
@@ -97,10 +74,6 @@ msgstr "Назначение"
 msgid "Don't Care"
 msgstr "Не обращать внимание"
 
-#: callrecording.i18n.php:20
-msgid "Don’t begin recording unless a call is bridged to another channel"
-msgstr ""
-
 #: functions.inc.php:538 views/form.php:41
 msgid "Force"
 msgstr "Запустить"
@@ -130,10 +103,6 @@ msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 "Пожалуйста, прочтите Wiki для получения подробной информации об этих "
 "изменениях."
-
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
-msgstr "Предоставляет большую часть функционала записи разговоров."
 
 #: Callrecording.class.php:144
 msgid "Reset"
@@ -181,6 +150,15 @@ msgstr "Куда посылается этот вызов."
 #: functions.inc.php:538 views/form.php:41
 msgid "Yes"
 msgstr "Да"
+
+#~ msgid "Applications"
+#~ msgstr "Приложения"
+
+#~ msgid "Beep every n seconds"
+#~ msgstr "Бип каждые n секунд"
+
+#~ msgid "Provides much of the call recording functionality."
+#~ msgstr "Предоставляет большую часть функционала записи разговоров."
 
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "Добавить запись"
