@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-15 03:11+0000\n"
-"PO-Revision-Date: 2023-10-23 15:41+0000\n"
+"PO-Revision-Date: 2023-10-24 16:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/"
 "callrecording/pl/>\n"
@@ -199,7 +199,7 @@ msgstr "Nieznany"
 
 #: views/form.php:138
 msgid "Where should the call be sent."
-msgstr "Gdzie należy skierować połączenie."
+msgstr "Gdzie należy wysłać połączenie."
 
 #: functions.inc.php:606
 #: views/form.php:40
