@@ -10,39 +10,43 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-15 03:11+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-10-23 15:41+0000\n"
+"Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
+"Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/"
+"callrecording/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: assets/js/callrecording.js:21
 #, perl-format
 msgid "%s already used, please use a different description."
-msgstr ""
+msgstr "%s został już użyty, użyj innego opisu."
 
 #: page.callrecording.php:14
 msgid ": Add"
-msgstr ""
+msgstr ": Dodaj"
 
 #: page.callrecording.php:12
 msgid ": Edit"
-msgstr ""
+msgstr ": Edytuj"
 
 #: views/grid.php:23
 msgid "Actions"
-msgstr ""
+msgstr "Działania"
 
 #: views/bootnav.php:7
 #: views/grid.php:17
 msgid "Add Call Recording"
-msgstr ""
+msgstr "Dodaj nagrywanie rozmów"
 
 #: callrecording.i18n.php:6
 msgid "Applications"
-msgstr ""
+msgstr "Aplikacje"
 
 #: callrecording.i18n.php:16
 msgid ""
@@ -53,14 +57,21 @@ msgid ""
 "setting will have no effect. To disable simply clear the value of this box "
 "or set the value to 0 and save. This is typically set arround 15seconds"
 msgstr ""
+"Asterisk 13.2 i jego nowsze wersje obsługują możliwość odtwarzania zwykłego "
+"sygnału dźwiękowego podczas nagrywania połączenia. Jeśli ustawisz tę opcję "
+"na wartość dodatnią, gdy połączenie będzie aktywnie nagrywane, obie strony "
+"będą słyszeć sygnał dźwiękowy w każdym wybranym czasie. Jeśli nie używasz "
+"Asterisk 13.2 lub nowszego, to ustawienie nie będzie miało znaczenia. Aby "
+"wyłączyć, po prostu wyczyść wartość tego pola lub ustaw wartość na 0 i "
+"zapisz. Zwykle jest to ustawione na około 15 sekund"
 
 #: callrecording.i18n.php:12
 msgid "Beep every n seconds"
-msgstr ""
+msgstr "Sygnał dźwiękowy co n sekund"
 
 #: callrecording.i18n.php:18
 msgid "Call Record Option"
-msgstr ""
+msgstr "Opcja nagrywania rozmów"
 
 #: callrecording.i18n.php:4
 #: callrecording.i18n.php:10
@@ -68,121 +79,129 @@ msgstr ""
 #: functions.inc.php:595
 #: page.callrecording.php:7
 msgid "Call Recording"
-msgstr ""
+msgstr "Nagrywanie rozmów"
 
 #: views/form.php:102
 msgid "Call Recording Mode"
-msgstr ""
+msgstr "Tryb nagrywania rozmów"
 
 #: Callrecording.class.php:161
 #: functions.inc.php:56
 #: functions.inc.php:775
 #, php-format
 msgid "Call Recording: %s"
-msgstr ""
+msgstr "Nagrywanie rozmów: %s"
 
 #: Callrecording.class.php:78
 msgid "Delete"
-msgstr ""
+msgstr "Usuń"
 
 #: views/form.php:73
 #: views/grid.php:22
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #: assets/js/callrecording.js:3
 msgid "Description name already exists "
-msgstr ""
+msgstr "Nazwa opisu już istnieje: "
 
 #: views/form.php:126
 msgid "Destination"
-msgstr ""
+msgstr "Miejsce docelowe"
 
 #: functions.inc.php:606
 #: views/form.php:40
 msgid "Don't Care"
-msgstr ""
+msgstr "Bez znaczenia"
 
 #: callrecording.i18n.php:20
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
+"Nie rozpoczynaj nagrywania, jeśli połączenie nie jest połączone z innym "
+"kanałem"
 
 #: functions.inc.php:606
 #: views/form.php:40
 msgid "Force"
-msgstr ""
+msgstr "Wymuś"
 
 #: assets/js/callrecording.js:2
 msgid "Invalid description specified"
-msgstr ""
+msgstr "Wyszczególniono błędny opis"
 
 #: views/bootnav.php:6
 msgid "List Call Recordings"
-msgstr ""
+msgstr "Lista nagranych rozmów"
 
 #: functions.inc.php:606
 #: views/form.php:40
 msgid "Never"
-msgstr ""
+msgstr "Nigdy"
 
 #: functions.inc.php:606
 #: views/form.php:40
 msgid "No"
-msgstr ""
+msgstr "Nie"
 
 #: functions.inc.php:587
 #: views/form.php:92
 msgid "Note that the meaning of these options has changed."
-msgstr ""
+msgstr "Należy pamiętać, że znaczenie tych opcji uległo zmianie."
 
 #: functions.inc.php:587
 #: views/form.php:114
 msgid "Please read the wiki for futher information on these changes."
-msgstr ""
+msgstr "Więcej informacji na temat tych zmian można znaleźć w wiki."
 
 #: callrecording.i18n.php:8
 msgid "Provides much of the call recording functionality."
-msgstr ""
+msgstr "Zapewnia większość funkcji nagrywania rozmów."
 
 #: Callrecording.class.php:83
 msgid "Reset"
-msgstr ""
+msgstr "Wyzeruj"
 
 #: views/bootnav.php:19
 msgid "Rule"
-msgstr ""
+msgstr "Reguła"
 
 #: Callrecording.class.php:88
 msgid "Submit"
-msgstr ""
+msgstr "Zatwierdź"
 
 #: views/form.php:85
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
 msgstr ""
+"Nazwa opisowa tej instancji nagrywania rozmów. Na przykład „francuski główny "
+"IVR”"
 
 #: functions.inc.php:566
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
+"Ustawia zachowanie nagrywania połączeń przychodzących w tym DID. Przeczytaj "
+"wiki, aby uzyskać informacje na temat znaczenia tych ustawień."
 
 #: functions.inc.php:578
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
+"Ustawia zachowanie nagrywania rozmów wychodzących tą trasą. Przeczytaj wiki, "
+"aby uzyskać informacje na temat znaczenia tych ustawień."
 
 #: bin/one_touch_record.php:258
 msgid "Unknown"
-msgstr ""
+msgstr "Nieznany"
 
 #: views/form.php:138
 msgid "Where should the call be sent."
-msgstr ""
+msgstr "Gdzie należy skierować połączenie."
 
 #: functions.inc.php:606
 #: views/form.php:40
 msgid "Yes"
-msgstr ""
+msgstr "Tak"
