@@ -45,7 +45,7 @@ foreach ($options as $disp => $name) {
 	} else {
 		$checked = "";
 	}
-	$ropts .= "<input type='radio' id='record_${name}' name='callrecording_mode' value='$name' $checked><label for='record_${name}'>$disp</label>";
+	$ropts .= "<input type='radio' id='record_{$name}' name='callrecording_mode' value='$name' $checked><label for='record_{$name}'>$disp</label>";
 }
 
 if ($extdisplay) {
