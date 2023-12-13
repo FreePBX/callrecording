@@ -347,7 +347,7 @@ function callrecording_get_config($engine) {
 		$ext->add($context, $exten, '', new ext_return(''));
 
 		$id = 'sub-record-hh-check';
-		$c = '_.';
+		$c = '_X.';
 		$ext->add($id, $c, '', new ext_noop('Callee: ${MIXMONITOR_FILENAME}'));
 		$ext->add($id, $c, 'exit', new ext_return());
 
