@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 05:33+0000\n"
+"POT-Creation-Date: 2023-12-26 00:37-0500\n"
 "PO-Revision-Date: 2017-09-02 09:02+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -42,6 +42,36 @@ msgstr "Các thao tác"
 msgid "Add Call Recording"
 msgstr "Thêm Ghi âm cuộc gọi"
 
+#: callrecording.i18n.php:6
+msgid "Applications"
+msgstr "Các ứng dụng"
+
+#: callrecording.i18n.php:16
+msgid ""
+"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
+"a call is being recorded. If you set this to a positive number value, when a "
+"call is being actively recorded, both parties will hear a 'beep' every "
+"period that you select. If you are not running Asterisk 13.2 or higher, this "
+"setting will have no effect. To disable simply clear the value of this box "
+"or set the value to 0 and save. This is typically set arround 15seconds"
+msgstr ""
+"Asterisk 13.2 và những hỗ trợ cao hơn có khả năng phát tiếng \"bíp\" thông "
+"thường khi cuộc gọi được ghi âm lại. Nếu bạn cài đặt đến giá trị dương , khi "
+"một cuộc gọi đang được kích hoạt gi âm, cả hai bên đều nghe được tiếng "
+"\"bíp\" vào mỗi giai đoạn bạn chọn. Nếu bạn không chạy Assterisk 13.2 hoặc "
+"hỗ trợ khác cao hơn thì cài đặt này sẽ không có tác dụng. Để vô hiệu đơn "
+"giản là xóa giá trị của hộp này hoặc cài đặt giá trị về 0 và lưu. Thông "
+"thường việc cài đặt này sẽ mất khoảng 15 giây"
+
+#: callrecording.i18n.php:12
+msgid "Beep every n seconds"
+msgstr "Tiếng bíp ở mỗi n giây"
+
+#: callrecording.i18n.php:18
+msgid "Call Record Option"
+msgstr ""
+
+#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
 #: functions.inc.php:34 functions.inc.php:527 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Bản ghi cuộc gọi"
@@ -75,6 +105,10 @@ msgstr "Điểm đích"
 msgid "Don't Care"
 msgstr "Không quan tâm"
 
+#: callrecording.i18n.php:20
+msgid "Don’t begin recording unless a call is bridged to another channel"
+msgstr ""
+
 #: functions.inc.php:538 views/form.php:41
 msgid "Force"
 msgstr "Bắt buộc"
@@ -102,6 +136,10 @@ msgstr "Lưu ý rằng ý nghĩa của các vị trí này vừa được thay �
 #: views/form.php:114
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Vui lòng đọc wiki để biết thêm thông tin về những thay đổi này."
+
+#: callrecording.i18n.php:8
+msgid "Provides much of the call recording functionality."
+msgstr "Cung cấp nhiều chức năng ghi âm cuộc gọi."
 
 #: Callrecording.class.php:144
 msgid "Reset"
@@ -149,29 +187,3 @@ msgstr "Cuộc gọi nên được gửi đến đâu."
 #: functions.inc.php:538 views/form.php:41
 msgid "Yes"
 msgstr "Có"
-
-#~ msgid "Applications"
-#~ msgstr "Các ứng dụng"
-
-#~ msgid ""
-#~ "Asterisk 13.2 and higher supports the ability to play a regular 'beep' "
-#~ "when a call is being recorded. If you set this to a positive number "
-#~ "value, when a call is being actively recorded, both parties will hear a "
-#~ "'beep' every period that you select. If you are not running Asterisk 13.2 "
-#~ "or higher, this setting will have no effect. To disable simply clear the "
-#~ "value of this box or set the value to 0 and save. This is typically set "
-#~ "arround 15seconds"
-#~ msgstr ""
-#~ "Asterisk 13.2 và những hỗ trợ cao hơn có khả năng phát tiếng \"bíp\" "
-#~ "thông thường khi cuộc gọi được ghi âm lại. Nếu bạn cài đặt đến giá trị "
-#~ "dương , khi một cuộc gọi đang được kích hoạt gi âm, cả hai bên đều nghe "
-#~ "được tiếng \"bíp\" vào mỗi giai đoạn bạn chọn. Nếu bạn không chạy "
-#~ "Assterisk 13.2 hoặc hỗ trợ khác cao hơn thì cài đặt này sẽ không có tác "
-#~ "dụng. Để vô hiệu đơn giản là xóa giá trị của hộp này hoặc cài đặt giá trị "
-#~ "về 0 và lưu. Thông thường việc cài đặt này sẽ mất khoảng 15 giây"
-
-#~ msgid "Beep every n seconds"
-#~ msgstr "Tiếng bíp ở mỗi n giây"
-
-#~ msgid "Provides much of the call recording functionality."
-#~ msgstr "Cung cấp nhiều chức năng ghi âm cuộc gọi."
