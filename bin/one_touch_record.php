@@ -10,7 +10,7 @@ include '/etc/freepbx.conf';
 
 $ot_debug = true;
 $channel = $argv[1];
-
+$callFileName = NULL;
 setVariable($channel, "ONETOUCH_REC_SCRIPT_STATUS", "STARTED");
 
 // Who is the person pushing Record?
@@ -316,7 +316,7 @@ $mixMonPost = getVariable($channel, "MIXMON_POST");
 setVariable($bridgePeer, "REC_STATUS", "RECORDING");
 setVariable($channel, "REC_STATUS", "RECORDING");
 global $version;
-if(version_compare($version, "12.0", "lt")) {
+if(!empty($version) && version_compare($version, "12.0", "lt")) {
 	setVariable($channel, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
 	setVariable($bridgePeer, "AUDIOHOOK_INHERIT(MixMonitor)", "yes");
 }
