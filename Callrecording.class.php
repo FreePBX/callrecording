@@ -209,7 +209,7 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 	                $key = $did['extension']."/".$did["cidnum"];
 	                $call_rec = callrecording_display_get('did', $did['extension'], $did["cidnum"]);
 	                if(!empty($call_rec)) {
-	                    $data[$key] = ["callrecording" => $call_rec];
+	                    $data[$key] = ["callrecording" => (isset($call_rec[0]) && isset($call_rec[0]['callrecording'])) ? $call_rec[0]['callrecording']  : 'dontcare'];
 	                } else {
 	                    $data[$key] = ["callrecording" => 'dontcare'];
 	                }
