@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-13 07:47+0000\n"
+"POT-Creation-Date: 2024-03-26 10:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -39,30 +39,7 @@ msgstr ""
 msgid "Add Call Recording"
 msgstr ""
 
-#: callrecording.i18n.php:6
-msgid "Applications"
-msgstr ""
-
-#: callrecording.i18n.php:16
-msgid ""
-"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
-"a call is being recorded. If you set this to a positive number value, when a "
-"call is being actively recorded, both parties will hear a 'beep' every "
-"period that you select. If you are not running Asterisk 13.2 or higher, this "
-"setting will have no effect. To disable simply clear the value of this box "
-"or set the value to 0 and save. This is typically set arround 15seconds"
-msgstr ""
-
-#: callrecording.i18n.php:12
-msgid "Beep every n seconds"
-msgstr ""
-
-#: callrecording.i18n.php:18
-msgid "Call Record Option"
-msgstr ""
-
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:527 page.callrecording.php:7
+#: functions.inc.php:34 functions.inc.php:528 page.callrecording.php:7
 msgid "Call Recording"
 msgstr ""
 
@@ -70,7 +47,7 @@ msgstr ""
 msgid "Call Recording Mode"
 msgstr ""
 
-#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:693
+#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:694
 #, php-format
 msgid "Call Recording: %s"
 msgstr ""
@@ -91,15 +68,11 @@ msgstr ""
 msgid "Destination"
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "Don't Care"
 msgstr ""
 
-#: callrecording.i18n.php:20
-msgid "Don’t begin recording unless a call is bridged to another channel"
-msgstr ""
-
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "Force"
 msgstr ""
 
@@ -111,11 +84,11 @@ msgstr ""
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "Never"
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "No"
 msgstr ""
 
@@ -125,10 +98,6 @@ msgstr ""
 
 #: views/form.php:113
 msgid "Please read the wiki for futher information on these changes."
-msgstr ""
-
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
 msgstr ""
 
 #: Callrecording.class.php:152
@@ -149,13 +118,13 @@ msgid ""
 "Main IVR\""
 msgstr ""
 
-#: functions.inc.php:506
+#: functions.inc.php:507
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
 
-#: functions.inc.php:514
+#: functions.inc.php:515
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -169,6 +138,6 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "Yes"
 msgstr ""

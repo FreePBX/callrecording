@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-13 07:47+0000\n"
+"POT-Creation-Date: 2024-03-26 10:35+0000\n"
 "PO-Revision-Date: 2017-09-02 09:02+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -42,37 +42,7 @@ msgstr "Các thao tác"
 msgid "Add Call Recording"
 msgstr "Thêm Ghi âm cuộc gọi"
 
-#: callrecording.i18n.php:6
-msgid "Applications"
-msgstr "Các ứng dụng"
-
-#: callrecording.i18n.php:16
-msgid ""
-"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
-"a call is being recorded. If you set this to a positive number value, when a "
-"call is being actively recorded, both parties will hear a 'beep' every "
-"period that you select. If you are not running Asterisk 13.2 or higher, this "
-"setting will have no effect. To disable simply clear the value of this box "
-"or set the value to 0 and save. This is typically set arround 15seconds"
-msgstr ""
-"Asterisk 13.2 và những hỗ trợ cao hơn có khả năng phát tiếng \"bíp\" thông "
-"thường khi cuộc gọi được ghi âm lại. Nếu bạn cài đặt đến giá trị dương , khi "
-"một cuộc gọi đang được kích hoạt gi âm, cả hai bên đều nghe được tiếng \"bíp"
-"\" vào mỗi giai đoạn bạn chọn. Nếu bạn không chạy Assterisk 13.2 hoặc hỗ trợ "
-"khác cao hơn thì cài đặt này sẽ không có tác dụng. Để vô hiệu đơn giản là "
-"xóa giá trị của hộp này hoặc cài đặt giá trị về 0 và lưu. Thông thường việc "
-"cài đặt này sẽ mất khoảng 15 giây"
-
-#: callrecording.i18n.php:12
-msgid "Beep every n seconds"
-msgstr "Tiếng bíp ở mỗi n giây"
-
-#: callrecording.i18n.php:18
-msgid "Call Record Option"
-msgstr ""
-
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:527 page.callrecording.php:7
+#: functions.inc.php:34 functions.inc.php:528 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Bản ghi cuộc gọi"
 
@@ -80,7 +50,7 @@ msgstr "Bản ghi cuộc gọi"
 msgid "Call Recording Mode"
 msgstr "Chế độ ghi âm cuộc gọi"
 
-#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:693
+#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:694
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Ghi âm cuộc gọi: %s"
@@ -101,15 +71,11 @@ msgstr ""
 msgid "Destination"
 msgstr "Điểm đích"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "Don't Care"
 msgstr "Không quan tâm"
 
-#: callrecording.i18n.php:20
-msgid "Don’t begin recording unless a call is bridged to another channel"
-msgstr ""
-
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "Force"
 msgstr "Bắt buộc"
 
@@ -121,11 +87,11 @@ msgstr "Mô tả không hợp lệ được xác định"
 msgid "List Call Recordings"
 msgstr "Danh sách các ghi âm cuộc gọi"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "Never"
 msgstr "Không bao giờ"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "No"
 msgstr "Không"
 
@@ -136,10 +102,6 @@ msgstr "Lưu ý rằng ý nghĩa của các vị trí này vừa được thay �
 #: views/form.php:113
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Vui lòng đọc wiki để biết thêm thông tin về những thay đổi này."
-
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
-msgstr "Cung cấp nhiều chức năng ghi âm cuộc gọi."
 
 #: Callrecording.class.php:152
 msgid "Reset"
@@ -160,7 +122,7 @@ msgid ""
 msgstr ""
 "Tên mô tả của trường hợp ghi âm cuộc gọi này. Ví dụ \"French Main IVR\""
 
-#: functions.inc.php:506
+#: functions.inc.php:507
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -168,7 +130,7 @@ msgstr ""
 "Điều này thiết lập hành vi ghi âm cuộc gọi cho các cuộc gọi  vào trong DID. "
 "Vui lòng đọc wiki để biết thêm các cài đặt này có nghĩa là gì."
 
-#: functions.inc.php:514
+#: functions.inc.php:515
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -184,6 +146,32 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr "Cuộc gọi nên được gửi đến đâu."
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "Yes"
 msgstr "Có"
+
+#~ msgid "Applications"
+#~ msgstr "Các ứng dụng"
+
+#~ msgid ""
+#~ "Asterisk 13.2 and higher supports the ability to play a regular 'beep' "
+#~ "when a call is being recorded. If you set this to a positive number "
+#~ "value, when a call is being actively recorded, both parties will hear a "
+#~ "'beep' every period that you select. If you are not running Asterisk 13.2 "
+#~ "or higher, this setting will have no effect. To disable simply clear the "
+#~ "value of this box or set the value to 0 and save. This is typically set "
+#~ "arround 15seconds"
+#~ msgstr ""
+#~ "Asterisk 13.2 và những hỗ trợ cao hơn có khả năng phát tiếng \"bíp\" "
+#~ "thông thường khi cuộc gọi được ghi âm lại. Nếu bạn cài đặt đến giá trị "
+#~ "dương , khi một cuộc gọi đang được kích hoạt gi âm, cả hai bên đều nghe "
+#~ "được tiếng \"bíp\" vào mỗi giai đoạn bạn chọn. Nếu bạn không chạy "
+#~ "Assterisk 13.2 hoặc hỗ trợ khác cao hơn thì cài đặt này sẽ không có tác "
+#~ "dụng. Để vô hiệu đơn giản là xóa giá trị của hộp này hoặc cài đặt giá trị "
+#~ "về 0 và lưu. Thông thường việc cài đặt này sẽ mất khoảng 15 giây"
+
+#~ msgid "Beep every n seconds"
+#~ msgstr "Tiếng bíp ở mỗi n giây"
+
+#~ msgid "Provides much of the call recording functionality."
+#~ msgstr "Cung cấp nhiều chức năng ghi âm cuộc gọi."

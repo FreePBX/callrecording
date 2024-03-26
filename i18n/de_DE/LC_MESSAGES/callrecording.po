@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-13 07:47+0000\n"
+"POT-Creation-Date: 2024-03-26 10:35+0000\n"
 "PO-Revision-Date: 2018-02-16 20:01+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
@@ -42,38 +42,7 @@ msgstr "Aktionen"
 msgid "Add Call Recording"
 msgstr "Anrufaufzeichnung hinzufügen"
 
-#: callrecording.i18n.php:6
-msgid "Applications"
-msgstr "Anwendungen"
-
-#: callrecording.i18n.php:16
-msgid ""
-"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
-"a call is being recorded. If you set this to a positive number value, when a "
-"call is being actively recorded, both parties will hear a 'beep' every "
-"period that you select. If you are not running Asterisk 13.2 or higher, this "
-"setting will have no effect. To disable simply clear the value of this box "
-"or set the value to 0 and save. This is typically set arround 15seconds"
-msgstr ""
-"Asterisk 13.2 und höher unterstützt die Möglichkeit, ein gewöhnliches 'Beep' "
-"abzuspielen, wann eine Anruf aufgenommen wird. Wenn man einen positiven "
-"Zahlenwert eingibt, wenn ein Anruf aktiv aufgenommen wird, dann höhren beide "
-"Seiten ein 'Beep' - jedesmal, wenn ausgewählt. Wenn nicht Asterisk 13.2 oder "
-"höher läuft, hat diese Einstellung keinen Effekt. Zur einfachen "
-"Deaktivierung muss der Wert der Box gelöscht oder auf gesetzt werden - "
-"anschließend speichern. Das wird typischerweise innerhalb von 15 Sekunden "
-"gemacht"
-
-#: callrecording.i18n.php:12
-msgid "Beep every n seconds"
-msgstr "Piep alle xx Sekunden"
-
-#: callrecording.i18n.php:18
-msgid "Call Record Option"
-msgstr ""
-
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:527 page.callrecording.php:7
+#: functions.inc.php:34 functions.inc.php:528 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Anfrufaufzeichnungen"
 
@@ -81,7 +50,7 @@ msgstr "Anfrufaufzeichnungen"
 msgid "Call Recording Mode"
 msgstr "Anrufaufzeichnungsmodus"
 
-#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:693
+#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:694
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Anrufaufzeichnung: %s"
@@ -102,15 +71,11 @@ msgstr ""
 msgid "Destination"
 msgstr "Ziel"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "Don't Care"
 msgstr "Nicht gepflegt"
 
-#: callrecording.i18n.php:20
-msgid "Don’t begin recording unless a call is bridged to another channel"
-msgstr ""
-
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "Force"
 msgstr "erzwingen"
 
@@ -122,11 +87,11 @@ msgstr "Ungültige Beschreibung angegeben"
 msgid "List Call Recordings"
 msgstr "Anrufaufzeichnungen auflisten"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "Never"
 msgstr "Niemals"
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "No"
 msgstr "Nein"
 
@@ -138,10 +103,6 @@ msgstr "Beachten Sie, dass sich die Bedeutung dieser Optionen geändert hat."
 msgid "Please read the wiki for futher information on these changes."
 msgstr ""
 "Bitte lesen Sie das Wiki für weitere Informationen zu diesen Änderungen."
-
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
-msgstr "Stellt viel von der Anruf-Aufnamefunktionalität zur Verfügung."
 
 #: Callrecording.class.php:152
 msgid "Reset"
@@ -163,7 +124,7 @@ msgstr ""
 "Der beschreibende Name dieser Anrufaufzeichnung. Zum Beispiel \"French Main "
 "IVR\""
 
-#: functions.inc.php:506
+#: functions.inc.php:507
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -172,7 +133,7 @@ msgstr ""
 "fest. Für mehr Information, was diese Einstellungen bedeuten, bitte das WIKI "
 "lesen."
 
-#: functions.inc.php:514
+#: functions.inc.php:515
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -189,9 +150,36 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr "Wohin soll der Anruf weitergeleitet werden."
 
-#: functions.inc.php:538 views/form.php:40
+#: functions.inc.php:539 views/form.php:40
 msgid "Yes"
 msgstr "Ja"
+
+#~ msgid "Applications"
+#~ msgstr "Anwendungen"
+
+#~ msgid ""
+#~ "Asterisk 13.2 and higher supports the ability to play a regular 'beep' "
+#~ "when a call is being recorded. If you set this to a positive number "
+#~ "value, when a call is being actively recorded, both parties will hear a "
+#~ "'beep' every period that you select. If you are not running Asterisk 13.2 "
+#~ "or higher, this setting will have no effect. To disable simply clear the "
+#~ "value of this box or set the value to 0 and save. This is typically set "
+#~ "arround 15seconds"
+#~ msgstr ""
+#~ "Asterisk 13.2 und höher unterstützt die Möglichkeit, ein gewöhnliches "
+#~ "'Beep' abzuspielen, wann eine Anruf aufgenommen wird. Wenn man einen "
+#~ "positiven Zahlenwert eingibt, wenn ein Anruf aktiv aufgenommen wird, dann "
+#~ "höhren beide Seiten ein 'Beep' - jedesmal, wenn ausgewählt. Wenn nicht "
+#~ "Asterisk 13.2 oder höher läuft, hat diese Einstellung keinen Effekt. Zur "
+#~ "einfachen Deaktivierung muss der Wert der Box gelöscht oder auf gesetzt "
+#~ "werden - anschließend speichern. Das wird typischerweise innerhalb von 15 "
+#~ "Sekunden gemacht"
+
+#~ msgid "Beep every n seconds"
+#~ msgstr "Piep alle xx Sekunden"
+
+#~ msgid "Provides much of the call recording functionality."
+#~ msgstr "Stellt viel von der Anruf-Aufnamefunktionalität zur Verfügung."
 
 #~ msgid ""
 #~ "Asterisk 13.2 and higher supports the ability to play a regular 'beep' "
