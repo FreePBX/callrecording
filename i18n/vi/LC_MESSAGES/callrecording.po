@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-26 00:37-0500\n"
+"POT-Creation-Date: 2024-03-26 06:34-0400\n"
 "PO-Revision-Date: 2017-09-02 09:02+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -72,7 +72,7 @@ msgid "Call Record Option"
 msgstr ""
 
 #: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:527 page.callrecording.php:7
+#: functions.inc.php:34 functions.inc.php:528 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Bản ghi cuộc gọi"
 
@@ -80,7 +80,7 @@ msgstr "Bản ghi cuộc gọi"
 msgid "Call Recording Mode"
 msgstr "Chế độ ghi âm cuộc gọi"
 
-#: Callrecording.class.php:197 functions.inc.php:56 functions.inc.php:693
+#: Callrecording.class.php:197 functions.inc.php:56 functions.inc.php:694
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Ghi âm cuộc gọi: %s"
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Destination"
 msgstr "Điểm đích"
 
-#: functions.inc.php:538 views/form.php:41
+#: functions.inc.php:539 views/form.php:41
 msgid "Don't Care"
 msgstr "Không quan tâm"
 
@@ -109,7 +109,7 @@ msgstr "Không quan tâm"
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
-#: functions.inc.php:538 views/form.php:41
+#: functions.inc.php:539 views/form.php:41
 msgid "Force"
 msgstr "Bắt buộc"
 
@@ -121,11 +121,11 @@ msgstr "Mô tả không hợp lệ được xác định"
 msgid "List Call Recordings"
 msgstr "Danh sách các ghi âm cuộc gọi"
 
-#: functions.inc.php:538 views/form.php:41
+#: functions.inc.php:539 views/form.php:41
 msgid "Never"
 msgstr "Không bao giờ"
 
-#: functions.inc.php:538 views/form.php:41
+#: functions.inc.php:539 views/form.php:41
 msgid "No"
 msgstr "Không"
 
@@ -160,7 +160,7 @@ msgid ""
 msgstr ""
 "Tên mô tả của trường hợp ghi âm cuộc gọi này. Ví dụ \"French Main IVR\""
 
-#: functions.inc.php:506
+#: functions.inc.php:507
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -168,7 +168,7 @@ msgstr ""
 "Điều này thiết lập hành vi ghi âm cuộc gọi cho các cuộc gọi  vào trong DID. "
 "Vui lòng đọc wiki để biết thêm các cài đặt này có nghĩa là gì."
 
-#: functions.inc.php:514
+#: functions.inc.php:515
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -184,6 +184,6 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr "Cuộc gọi nên được gửi đến đâu."
 
-#: functions.inc.php:538 views/form.php:41
+#: functions.inc.php:539 views/form.php:41
 msgid "Yes"
 msgstr "Có"

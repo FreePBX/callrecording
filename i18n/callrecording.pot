@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-04 08:13-0500\n"
+"POT-Creation-Date: 2024-03-26 06:34-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgstr ""
 #: callrecording.i18n.php:10
 #: callrecording.i18n.php:14
 #: functions.inc.php:34
-#: functions.inc.php:527
+#: functions.inc.php:528
 #: page.callrecording.php:7
 msgid "Call Recording"
 msgstr ""
@@ -77,7 +77,7 @@ msgstr ""
 
 #: Callrecording.class.php:197
 #: functions.inc.php:56
-#: functions.inc.php:693
+#: functions.inc.php:694
 #, php-format
 msgid "Call Recording: %s"
 msgstr ""
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Destination"
 msgstr ""
 
-#: functions.inc.php:538
+#: functions.inc.php:539
 #: views/form.php:41
 msgid "Don't Care"
 msgstr ""
@@ -108,7 +108,7 @@ msgstr ""
 msgid "Don’t begin recording unless a call is bridged to another channel"
 msgstr ""
 
-#: functions.inc.php:538
+#: functions.inc.php:539
 #: views/form.php:41
 msgid "Force"
 msgstr ""
@@ -121,12 +121,12 @@ msgstr ""
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:538
+#: functions.inc.php:539
 #: views/form.php:41
 msgid "Never"
 msgstr ""
 
-#: functions.inc.php:538
+#: functions.inc.php:539
 #: views/form.php:41
 msgid "No"
 msgstr ""
@@ -161,13 +161,13 @@ msgid ""
 "Main IVR\""
 msgstr ""
 
-#: functions.inc.php:506
+#: functions.inc.php:507
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
 
-#: functions.inc.php:514
+#: functions.inc.php:515
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -181,7 +181,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:538
+#: functions.inc.php:539
 #: views/form.php:41
 msgid "Yes"
 msgstr ""
