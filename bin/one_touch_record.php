@@ -389,7 +389,9 @@ function getDestinationValue($dst) {
 		}
 		if (strpos($dstData, '/') !== false){
 			$dstExp = explode('/',$dstData);
-		}
+		}else {
+                        $dstExp[1] = $dstData;
+                }
 		$dst = trim($dstExp[1]);
 	}
 	if (strpos($dst, '/') !== false) {
