@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 10:35+0000\n"
+"POT-Creation-Date: 2024-10-10 06:50+0000\n"
 "PO-Revision-Date: 2016-05-09 03:26+0200\n"
 "Last-Translator: Avishay <baabad@outlook.com>\n"
 "Language-Team: Hebrew <http://weblate.freepbx.org/projects/freepbx/"
@@ -42,7 +42,7 @@ msgstr "פעולות"
 msgid "Add Call Recording"
 msgstr "הוסף הקלטה"
 
-#: functions.inc.php:34 functions.inc.php:528 page.callrecording.php:7
+#: functions.inc.php:34 functions.inc.php:529 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "הקלטות"
 
@@ -50,7 +50,7 @@ msgstr "הקלטות"
 msgid "Call Recording Mode"
 msgstr ""
 
-#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:694
+#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:695
 #, php-format
 msgid "Call Recording: %s"
 msgstr ""
@@ -71,11 +71,11 @@ msgstr ""
 msgid "Destination"
 msgstr ""
 
-#: functions.inc.php:539 views/form.php:40
+#: functions.inc.php:540 views/form.php:40
 msgid "Don't Care"
 msgstr ""
 
-#: functions.inc.php:539 views/form.php:40
+#: functions.inc.php:540 views/form.php:40
 msgid "Force"
 msgstr ""
 
@@ -87,11 +87,11 @@ msgstr ""
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:539 views/form.php:40
+#: functions.inc.php:540 views/form.php:40
 msgid "Never"
 msgstr ""
 
-#: functions.inc.php:539 views/form.php:40
+#: functions.inc.php:540 views/form.php:40
 msgid "No"
 msgstr "לא"
 
@@ -121,13 +121,13 @@ msgid ""
 "Main IVR\""
 msgstr ""
 
-#: functions.inc.php:507
+#: functions.inc.php:508
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
 
-#: functions.inc.php:515
+#: functions.inc.php:516
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -141,6 +141,6 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:539 views/form.php:40
+#: functions.inc.php:540 views/form.php:40
 msgid "Yes"
 msgstr ""

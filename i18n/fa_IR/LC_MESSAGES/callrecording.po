@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 10:35+0000\n"
+"POT-Creation-Date: 2024-10-10 06:50+0000\n"
 "PO-Revision-Date: 2016-10-08 12:44+0200\n"
 "Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -42,7 +42,7 @@ msgstr "عملیات"
 msgid "Add Call Recording"
 msgstr "افزودن ضبط مکالمه"
 
-#: functions.inc.php:34 functions.inc.php:528 page.callrecording.php:7
+#: functions.inc.php:34 functions.inc.php:529 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "ضبط مکالمه"
 
@@ -50,7 +50,7 @@ msgstr "ضبط مکالمه"
 msgid "Call Recording Mode"
 msgstr "حالت ضبط مکالمه"
 
-#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:694
+#: Callrecording.class.php:212 functions.inc.php:56 functions.inc.php:695
 #, php-format
 msgid "Call Recording: %s"
 msgstr "ضبط مکالمه ：%s"
@@ -71,11 +71,11 @@ msgstr ""
 msgid "Destination"
 msgstr "مقصد"
 
-#: functions.inc.php:539 views/form.php:40
+#: functions.inc.php:540 views/form.php:40
 msgid "Don't Care"
 msgstr "مهم نیست"
 
-#: functions.inc.php:539 views/form.php:40
+#: functions.inc.php:540 views/form.php:40
 msgid "Force"
 msgstr "اجبار"
 
@@ -87,11 +87,11 @@ msgstr "توضیحات نامعتبر"
 msgid "List Call Recordings"
 msgstr "فهرست ضبط مکالمات تعریف شده"
 
-#: functions.inc.php:539 views/form.php:40
+#: functions.inc.php:540 views/form.php:40
 msgid "Never"
 msgstr "هرگز"
 
-#: functions.inc.php:539 views/form.php:40
+#: functions.inc.php:540 views/form.php:40
 msgid "No"
 msgstr "خیر"
 
@@ -122,7 +122,7 @@ msgid ""
 msgstr ""
 "نام توصیفی برای نمونه ای از ضبط مکالمه. برای مثال \" IVR اصلی فرانسوی\""
 
-#: functions.inc.php:507
+#: functions.inc.php:508
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -130,7 +130,7 @@ msgstr ""
 "این تنظیمات نحوه ضبط مکالمه برای تماس هایی که به این DID هدایت می شوند، را "
 "تعیین می کند. لطفا برای اطلاعات بیشتر به ویکی مراجعه نمایید."
 
-#: functions.inc.php:515
+#: functions.inc.php:516
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Where should the call be sent."
 msgstr "مقصدی که تماس به آن ارسال می شود."
 
-#: functions.inc.php:539 views/form.php:40
+#: functions.inc.php:540 views/form.php:40
 msgid "Yes"
 msgstr "بله"
 
