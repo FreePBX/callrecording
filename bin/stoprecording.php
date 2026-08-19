@@ -10,7 +10,7 @@ $bootstrap_settings['freepbx_auth'] = false;
 include '/etc/freepbx.conf';
 
 $mychan = $argv[1];
-$recchan = gv($mychan, "RECORD_ID", rand());
+$recchan = gv($mychan, "RECORD_ID");
 
 if (!$recchan) {
 	// Not recording?

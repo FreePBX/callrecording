@@ -41,6 +41,6 @@ switch ($_GET["view"] ?? "") {
 
 <script language="javascript">
 <!--
-var callrecordings = <?php print json_encode(\FreePBX::Callrecording()->getallRules($extdisplay)); ?>;
+var callrecordings = <?php print json_encode(\FreePBX::Callrecording()->getallRules($request['extdisplay'] ?? '')); ?>;
 //-->
 </script>
