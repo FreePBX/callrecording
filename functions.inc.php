@@ -22,10 +22,11 @@ function callrecording_destinations() {
 	}
 
 	// return an associative array with destination and description
+	$extens = [];
 	foreach (callrecording_list() as $row) {
 		$extens[] = array('destination' => 'ext-callrecording,' . $row['callrecording_id'] . ',1', 'description' => $row['description']);
 	}
-	return isset($extens)?$extens:null;
+	return !empty($extens) ? $extens : null;
 }
 
 function callrecording_destination_popovers() {
@@ -470,7 +471,7 @@ function callrecording_get($callrecording_id) {
 }
 
 function callrecording_add($description, $callrecording_mode, $dest) {
-	return FreePBX::Callrecording()->add($callrecording_id, $description, $callrecording_mode, $dest);
+	return FreePBX::Callrecording()->add($description, $callrecording_mode, $dest);
 }
 
 function callrecording_delete($callrecording_id) {
@@ -482,6 +483,8 @@ function callrecording_edit($callrecording_id, $description, $callrecording_mode
 }
 
 function callrecording_hook_core($viewing_itemid, $target_menuid){
+	$callrecording = '';
+	$helptext = '';
 	switch ($target_menuid) {
 	case 'did':
 		$extension	= isset($_REQUEST['extension'])		? $_REQUEST['extension']	:'';
@@ -593,6 +596,8 @@ function callrecording_adjustroute($route_id,$action,$callrecording='') {
 
 function callrecording_display_get($display, $extension=null,$cidnum=null){
 	global $db;
+	$mode = null;
+	$params = [];
 
 	switch ($display) {
 	case 'did':
@@ -634,6 +639,7 @@ function callrecording_display_get($display, $extension=null,$cidnum=null){
 
 function callrecording_display_update($display,$recording_code=null,$extension=null,$cidnum=null){
 	global $db;
+	$params = [];
 	$sql="DELETE FROM callrecording_module WHERE display = ? AND extension ";
 	$sql .= $extension === null ? "IS NULL" : "= ?";
 	$sql .= " AND cidnum ";
@@ -658,6 +664,7 @@ function callrecording_display_delete($display,$extension=null,$cidnum=null){
 	global $db;
 
 	$sql="DELETE FROM callrecording_module WHERE display = ?";
+	$data = [];
 	$data[] = $display;
 
 	if ($extension !== null) {

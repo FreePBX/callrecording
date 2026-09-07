@@ -4,6 +4,7 @@
 //
 $callrecording_mode = $ropts = $usagehtml = $description = $dest = '';
 extract($request);
+$extdisplay = $extdisplay ?? '';
 if ($extdisplay) {
 	// load
 	$row = callrecording_get($extdisplay);
@@ -14,8 +15,8 @@ if ($extdisplay) {
 }
 
 $CallReclist = callrecording_list();
+$CallRecDesc = [];
 if($CallReclist){
-	$CallRecDesc = array();
 	foreach($CallReclist as $tmp_CallRecList){
 		if($extdisplay !=  $tmp_CallRecList['callrecording_id']){
 			$CallRecDesc[] = $tmp_CallRecList['description'];

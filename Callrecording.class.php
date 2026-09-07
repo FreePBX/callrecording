@@ -5,9 +5,12 @@ use BMO;
 use PDO;
 
 class Callrecording extends FreePBX_Helpers implements BMO {
+	private $FreePBX;
+	private $db;
+
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
-			throw new Exception("Not given a FreePBX Object");
+			throw new \Exception("Not given a FreePBX Object");
 		}
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
@@ -137,15 +140,14 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 
 	public function getActionBar($request) {
 		$buttons = [];
-  $buttons = [];
 
-		switch($request['display']) {
+		switch($request['display'] ?? '') {
 			case 'callrecording':
 				$buttons = ['delete' => ['name' => 'delete', 'id' => 'delete', 'value' => _('Delete')], 'reset' => ['name' => 'reset', 'id' => 'reset', 'value' => _('Reset')], 'submit' => ['name' => 'submit', 'id' => 'submit', 'value' => _('Submit')]];
 				if (empty($request['extdisplay'])) {
 					unset($buttons['delete']);
 				}
-				if($request['view'] != 'form'){
+				if (($request['view'] ?? '') != 'form') {
 					unset($buttons);
 				}
 			break;
@@ -153,8 +155,8 @@ class Callrecording extends FreePBX_Helpers implements BMO {
 		return $buttons;
 	}
 	public function getRightNav($request){
-		if($request['view']=='form'){
-    	return load_view(__DIR__."/views/bootnav.php",['request' => $request]);
+		if (($request['view'] ?? '') == 'form') {
+			return load_view(__DIR__."/views/bootnav.php",['request' => $request]);
 		}
 	}
 

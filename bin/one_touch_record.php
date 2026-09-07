@@ -300,7 +300,7 @@ if (!$callFileName) {
 
 // It's not recording
 ot_debug("Checking recording polcy {$rpm}");
-if($rpm == "NEVER" && $ondemand != "override") {
+if($rpm == "NEVER" && $onDemand != "override") {
 	ot_debug("Recording polcy is 'never', no override, exiting");
 	setVariable($channel, "ONETOUCH_REC_SCRIPT_STATUS", "DENIED-NEVER_NO_OVERRIDE");
 	exit(0);
@@ -369,7 +369,7 @@ function ot_debug($string) {
 
 // Make sure we never set a global variable by
 // checking thet the channel is not blank.
-function setVariable($channel = false, $key, $val) {
+function setVariable($channel = false, $key = '', $val = '') {
 	global $astman;
 
 	if (!$channel) {
