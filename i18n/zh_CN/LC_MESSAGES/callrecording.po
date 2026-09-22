@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 06:34-0400\n"
+"POT-Creation-Date: 2026-09-22 06:53-0400\n"
 "PO-Revision-Date: 2018-03-14 14:52+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -42,47 +42,24 @@ msgstr "操作"
 msgid "Add Call Recording"
 msgstr "添加呼叫录音"
 
-#: callrecording.i18n.php:6
-msgid "Applications"
-msgstr "应用配置"
-
-#: callrecording.i18n.php:16
-msgid ""
-"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
-"a call is being recorded. If you set this to a positive number value, when a "
-"call is being actively recorded, both parties will hear a 'beep' every "
-"period that you select. If you are not running Asterisk 13.2 or higher, this "
-"setting will have no effect. To disable simply clear the value of this box "
-"or set the value to 0 and save. This is typically set arround 15seconds"
-msgstr ""
-
-#: callrecording.i18n.php:12
-msgid "Beep every n seconds"
-msgstr ""
-
-#: callrecording.i18n.php:18
-msgid "Call Record Option"
-msgstr ""
-
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:528 page.callrecording.php:7
+#: functions.inc.php:35 functions.inc.php:531 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "呼叫录音"
 
-#: views/form.php:102
+#: views/form.php:103
 msgid "Call Recording Mode"
 msgstr "录音模式"
 
-#: Callrecording.class.php:197 functions.inc.php:56 functions.inc.php:694
+#: Callrecording.class.php:199 functions.inc.php:57 functions.inc.php:701
 #, php-format
 msgid "Call Recording: %s"
 msgstr "呼叫录音: %s"
 
-#: Callrecording.class.php:144
+#: Callrecording.class.php:146
 msgid "Delete"
 msgstr "删除"
 
-#: views/form.php:73 views/grid.php:23
+#: views/form.php:74 views/grid.php:23
 msgid "Description"
 msgstr "描述"
 
@@ -90,19 +67,15 @@ msgstr "描述"
 msgid "Description name already exists "
 msgstr ""
 
-#: views/form.php:126
+#: views/form.php:127
 msgid "Destination"
 msgstr "目的地"
 
-#: functions.inc.php:539 views/form.php:41
+#: functions.inc.php:542 views/form.php:42
 msgid "Don't Care"
 msgstr "不关心"
 
-#: callrecording.i18n.php:20
-msgid "Don’t begin recording unless a call is bridged to another channel"
-msgstr ""
-
-#: functions.inc.php:539 views/form.php:41
+#: functions.inc.php:542 views/form.php:42
 msgid "Force"
 msgstr "强制"
 
@@ -114,27 +87,23 @@ msgstr "指定了无效的描述"
 msgid "List Call Recordings"
 msgstr ""
 
-#: functions.inc.php:539 views/form.php:41
+#: functions.inc.php:542 views/form.php:42
 msgid "Never"
 msgstr "从不录音"
 
-#: functions.inc.php:539 views/form.php:41
+#: functions.inc.php:542 views/form.php:42
 msgid "No"
 msgstr "否"
 
-#: views/form.php:92
+#: views/form.php:93
 msgid "Note that the meaning of these options has changed."
 msgstr "注意，这些选项含义已经修改。"
 
-#: views/form.php:114
+#: views/form.php:115
 msgid "Please read the wiki for futher information on these changes."
 msgstr "请阅读官方wiki获得完整信息"
 
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
-msgstr "提供丰富的录音功能"
-
-#: Callrecording.class.php:144
+#: Callrecording.class.php:146
 msgid "Reset"
 msgstr "重置"
 
@@ -142,23 +111,23 @@ msgstr "重置"
 msgid "Rule"
 msgstr ""
 
-#: Callrecording.class.php:144
+#: Callrecording.class.php:146
 msgid "Submit"
 msgstr "提交"
 
-#: views/form.php:85
+#: views/form.php:86
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
 msgstr "描述呼叫录音，例如 '法语，主菜单'."
 
-#: functions.inc.php:507
+#: functions.inc.php:510
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
 msgstr ""
 
-#: functions.inc.php:515
+#: functions.inc.php:518
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -168,13 +137,19 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: views/form.php:138
+#: views/form.php:139
 msgid "Where should the call be sent."
 msgstr ""
 
-#: functions.inc.php:539 views/form.php:41
+#: functions.inc.php:542 views/form.php:42
 msgid "Yes"
 msgstr "是"
+
+#~ msgid "Applications"
+#~ msgstr "应用配置"
+
+#~ msgid "Provides much of the call recording functionality."
+#~ msgstr "提供丰富的录音功能"
 
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "添加呼叫录音对象"

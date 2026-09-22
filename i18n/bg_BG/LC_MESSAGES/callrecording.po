@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 06:34-0400\n"
+"POT-Creation-Date: 2026-09-22 06:53-0400\n"
 "PO-Revision-Date: 2018-07-04 11:13+0000\n"
 "Last-Translator: Chavdar Shtiliyanov <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://*/projects/freepbx/callrecording/bg/>\n"
@@ -41,54 +41,24 @@ msgstr "Действия"
 msgid "Add Call Recording"
 msgstr "Добави Запис на Разговор"
 
-#: callrecording.i18n.php:6
-msgid "Applications"
-msgstr "Приложения"
-
-#: callrecording.i18n.php:16
-msgid ""
-"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
-"a call is being recorded. If you set this to a positive number value, when a "
-"call is being actively recorded, both parties will hear a 'beep' every "
-"period that you select. If you are not running Asterisk 13.2 or higher, this "
-"setting will have no effect. To disable simply clear the value of this box "
-"or set the value to 0 and save. This is typically set arround 15seconds"
-msgstr ""
-"Астериск 13.2 и по-висока версия поддържа способността да възпроизвежда "
-"редовно \"бипкане\", когато се записва разговор. Ако зададете това с "
-"положителна цифрова стойност, когато се записва обаждане и двете страни ще "
-"чуят \"бипкане\" за всеки период, който сте избрали. Ако не използвате "
-"Астериск 13.2 или по-нова версия, тази настройка няма да има ефект. За да "
-"деактивирате просто изчистете въвеждането от това поле или задайте "
-"стойността на 0 и запазете. Стандартно се задава за около 15 секунди"
-
-#: callrecording.i18n.php:12
-msgid "Beep every n seconds"
-msgstr "Звуков сигнал на всеки n секунди"
-
-#: callrecording.i18n.php:18
-msgid "Call Record Option"
-msgstr ""
-
-#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
-#: functions.inc.php:34 functions.inc.php:528 page.callrecording.php:7
+#: functions.inc.php:35 functions.inc.php:531 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Запис на Разговор"
 
-#: views/form.php:102
+#: views/form.php:103
 msgid "Call Recording Mode"
 msgstr "Режим на Запис на Разговор"
 
-#: Callrecording.class.php:197 functions.inc.php:56 functions.inc.php:694
+#: Callrecording.class.php:199 functions.inc.php:57 functions.inc.php:701
 #, php-format
 msgid "Call Recording: %s"
 msgstr "Запис на Разговор: %s"
 
-#: Callrecording.class.php:144
+#: Callrecording.class.php:146
 msgid "Delete"
 msgstr "Изтрий"
 
-#: views/form.php:73 views/grid.php:23
+#: views/form.php:74 views/grid.php:23
 msgid "Description"
 msgstr "Описание"
 
@@ -96,19 +66,15 @@ msgstr "Описание"
 msgid "Description name already exists "
 msgstr ""
 
-#: views/form.php:126
+#: views/form.php:127
 msgid "Destination"
 msgstr "Направление"
 
-#: functions.inc.php:539 views/form.php:41
+#: functions.inc.php:542 views/form.php:42
 msgid "Don't Care"
 msgstr "Без Значение"
 
-#: callrecording.i18n.php:20
-msgid "Don’t begin recording unless a call is bridged to another channel"
-msgstr ""
-
-#: functions.inc.php:539 views/form.php:41
+#: functions.inc.php:542 views/form.php:42
 msgid "Force"
 msgstr "Винаги"
 
@@ -120,27 +86,23 @@ msgstr "Въведено е неправилно описание"
 msgid "List Call Recordings"
 msgstr "Списък със Записи на Разговори"
 
-#: functions.inc.php:539 views/form.php:41
+#: functions.inc.php:542 views/form.php:42
 msgid "Never"
 msgstr "Никога"
 
-#: functions.inc.php:539 views/form.php:41
+#: functions.inc.php:542 views/form.php:42
 msgid "No"
 msgstr "Не"
 
-#: views/form.php:92
+#: views/form.php:93
 msgid "Note that the meaning of these options has changed."
 msgstr "Имайте предвид, че значението на тези параметри е променено."
 
-#: views/form.php:114
+#: views/form.php:115
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Моля, прочетете Wiki за повече информация относно тези промени."
 
-#: callrecording.i18n.php:8
-msgid "Provides much of the call recording functionality."
-msgstr "Предоставя голяма част от функционалността на запис на разговор."
-
-#: Callrecording.class.php:144
+#: Callrecording.class.php:146
 msgid "Reset"
 msgstr "Изчисти"
 
@@ -148,17 +110,17 @@ msgstr "Изчисти"
 msgid "Rule"
 msgstr "Правило"
 
-#: Callrecording.class.php:144
+#: Callrecording.class.php:146
 msgid "Submit"
 msgstr "Приеми"
 
-#: views/form.php:85
+#: views/form.php:86
 msgid ""
 "The descriptive name of this call recording instance. For example \"French "
 "Main IVR\""
 msgstr "Описващо име на тази инстанция"
 
-#: functions.inc.php:507
+#: functions.inc.php:510
 msgid ""
 "This sets the call recording behavior for calls coming into this DID. Please "
 "read the wiki for information on what these settings mean."
@@ -166,7 +128,7 @@ msgstr ""
 "Установява запис на разговор за обаждания идващи през този DID. Моля, "
 "прочетете Wiki за повече информация относно тези настройки."
 
-#: functions.inc.php:515
+#: functions.inc.php:518
 msgid ""
 "This sets the call recording behavior for calls going out this route. Please "
 "read the wiki for information on what these settings mean."
@@ -178,13 +140,39 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: views/form.php:138
+#: views/form.php:139
 msgid "Where should the call be sent."
 msgstr "Накъде да се насочват обажданията."
 
-#: functions.inc.php:539 views/form.php:41
+#: functions.inc.php:542 views/form.php:42
 msgid "Yes"
 msgstr "Да"
+
+#~ msgid "Applications"
+#~ msgstr "Приложения"
+
+#~ msgid ""
+#~ "Asterisk 13.2 and higher supports the ability to play a regular 'beep' "
+#~ "when a call is being recorded. If you set this to a positive number "
+#~ "value, when a call is being actively recorded, both parties will hear a "
+#~ "'beep' every period that you select. If you are not running Asterisk 13.2 "
+#~ "or higher, this setting will have no effect. To disable simply clear the "
+#~ "value of this box or set the value to 0 and save. This is typically set "
+#~ "arround 15seconds"
+#~ msgstr ""
+#~ "Астериск 13.2 и по-висока версия поддържа способността да възпроизвежда "
+#~ "редовно \"бипкане\", когато се записва разговор. Ако зададете това с "
+#~ "положителна цифрова стойност, когато се записва обаждане и двете страни "
+#~ "ще чуят \"бипкане\" за всеки период, който сте избрали. Ако не използвате "
+#~ "Астериск 13.2 или по-нова версия, тази настройка няма да има ефект. За да "
+#~ "деактивирате просто изчистете въвеждането от това поле или задайте "
+#~ "стойността на 0 и запазете. Стандартно се задава за около 15 секунди"
+
+#~ msgid "Beep every n seconds"
+#~ msgstr "Звуков сигнал на всеки n секунди"
+
+#~ msgid "Provides much of the call recording functionality."
+#~ msgstr "Предоставя голяма част от функционалността на запис на разговор."
 
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "Добавяне на Запис на Разговор"
