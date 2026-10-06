@@ -38,6 +38,7 @@
 	</database>
 	<changelog>
 		*18.0.1.1* Packaging of ver 18.0.1.1
+		*18.0.1.1* Packaging of ver 18.0.1.1
 		*18.0.1* initial release
 	</changelog>
 	<hooks>

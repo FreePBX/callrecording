@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 06:53-0400\n"
+"POT-Creation-Date: 2026-10-06 06:17-0400\n"
 "PO-Revision-Date: 2018-07-04 11:13+0000\n"
 "Last-Translator: Chavdar Shtiliyanov <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://*/projects/freepbx/callrecording/bg/>\n"
@@ -41,6 +41,36 @@ msgstr "Действия"
 msgid "Add Call Recording"
 msgstr "Добави Запис на Разговор"
 
+#: callrecording.i18n.php:6
+msgid "Applications"
+msgstr "Приложения"
+
+#: callrecording.i18n.php:16
+msgid ""
+"Asterisk 13.2 and higher supports the ability to play a regular 'beep' when "
+"a call is being recorded. If you set this to a positive number value, when a "
+"call is being actively recorded, both parties will hear a 'beep' every "
+"period that you select. If you are not running Asterisk 13.2 or higher, this "
+"setting will have no effect. To disable simply clear the value of this box "
+"or set the value to 0 and save. This is typically set arround 15seconds"
+msgstr ""
+"Астериск 13.2 и по-висока версия поддържа способността да възпроизвежда "
+"редовно \"бипкане\", когато се записва разговор. Ако зададете това с "
+"положителна цифрова стойност, когато се записва обаждане и двете страни ще "
+"чуят \"бипкане\" за всеки период, който сте избрали. Ако не използвате "
+"Астериск 13.2 или по-нова версия, тази настройка няма да има ефект. За да "
+"деактивирате просто изчистете въвеждането от това поле или задайте "
+"стойността на 0 и запазете. Стандартно се задава за около 15 секунди"
+
+#: callrecording.i18n.php:12
+msgid "Beep every n seconds"
+msgstr "Звуков сигнал на всеки n секунди"
+
+#: callrecording.i18n.php:18
+msgid "Call Record Option"
+msgstr ""
+
+#: callrecording.i18n.php:4 callrecording.i18n.php:10 callrecording.i18n.php:14
 #: functions.inc.php:35 functions.inc.php:531 page.callrecording.php:7
 msgid "Call Recording"
 msgstr "Запис на Разговор"
@@ -74,6 +104,10 @@ msgstr "Направление"
 msgid "Don't Care"
 msgstr "Без Значение"
 
+#: callrecording.i18n.php:20
+msgid "Don’t begin recording unless a call is bridged to another channel"
+msgstr ""
+
 #: functions.inc.php:542 views/form.php:42
 msgid "Force"
 msgstr "Винаги"
@@ -101,6 +135,10 @@ msgstr "Имайте предвид, че значението на тези п�
 #: views/form.php:115
 msgid "Please read the wiki for futher information on these changes."
 msgstr "Моля, прочетете Wiki за повече информация относно тези промени."
+
+#: callrecording.i18n.php:8
+msgid "Provides much of the call recording functionality."
+msgstr "Предоставя голяма част от функционалността на запис на разговор."
 
 #: Callrecording.class.php:146
 msgid "Reset"
@@ -147,32 +185,6 @@ msgstr "Накъде да се насочват обажданията."
 #: functions.inc.php:542 views/form.php:42
 msgid "Yes"
 msgstr "Да"
-
-#~ msgid "Applications"
-#~ msgstr "Приложения"
-
-#~ msgid ""
-#~ "Asterisk 13.2 and higher supports the ability to play a regular 'beep' "
-#~ "when a call is being recorded. If you set this to a positive number "
-#~ "value, when a call is being actively recorded, both parties will hear a "
-#~ "'beep' every period that you select. If you are not running Asterisk 13.2 "
-#~ "or higher, this setting will have no effect. To disable simply clear the "
-#~ "value of this box or set the value to 0 and save. This is typically set "
-#~ "arround 15seconds"
-#~ msgstr ""
-#~ "Астериск 13.2 и по-висока версия поддържа способността да възпроизвежда "
-#~ "редовно \"бипкане\", когато се записва разговор. Ако зададете това с "
-#~ "положителна цифрова стойност, когато се записва обаждане и двете страни "
-#~ "ще чуят \"бипкане\" за всеки период, който сте избрали. Ако не използвате "
-#~ "Астериск 13.2 или по-нова версия, тази настройка няма да има ефект. За да "
-#~ "деактивирате просто изчистете въвеждането от това поле или задайте "
-#~ "стойността на 0 и запазете. Стандартно се задава за около 15 секунди"
-
-#~ msgid "Beep every n seconds"
-#~ msgstr "Звуков сигнал на всеки n секунди"
-
-#~ msgid "Provides much of the call recording functionality."
-#~ msgstr "Предоставя голяма част от функционалността на запис на разговор."
 
 #~ msgid "Add Call Recording Instance"
 #~ msgstr "Добавяне на Запис на Разговор"
